@@ -187,6 +187,13 @@ function addNodeMarker(node) {
     );
 
     marker.on("click", function() {
+        // 如果漫游激活，跳转到该节点继续漫游
+        if (window.autowalkState && window.autowalkState.active) {
+            if (typeof jumpAutowalkToNode === "function") {
+                jumpAutowalkToNode(node.node_id);
+                return;
+            }
+        }
         if (typeof showNodePanel === "function") showNodePanel(node);
     });
 

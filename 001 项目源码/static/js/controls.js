@@ -171,13 +171,14 @@ function showSpeedSelector() {
  * @brief 选择漫游速度并开始
  * @param {number} seconds 每节点对移动时间
  */
-function setAutowalkSpeed(seconds) {
+function selectAutowalkSpeed(seconds) {
     autowalkSpeed = seconds;
     document.querySelectorAll(".speed-btn").forEach(btn => {
         btn.classList.toggle("active", parseInt(btn.dataset.speed) === seconds);
     });
-    document.getElementById("speed-selector")?.classList.remove("visible");
-    startAutowalk();
+    // 启用"开始"按钮
+    var startBtn = document.getElementById("btn-autowalk-start");
+    if (startBtn) startBtn.disabled = false;
 }
 
 // ============================================================================
@@ -270,14 +271,13 @@ async function startAutowalk() {
     // 飞到起点
     map.instance.flyTo([start.lat, start.lng], 7, { duration: 1 });
 
-    // 获取从起点到第一节点间的中间路径点
-    const segPts = getSegmentRoutePoints(routePts, 0, 1);
-
-    // 开始移动
+    // 显示状态
     showAutowalkStatus(nodes.length);
+
+    // 先激活第一个节点（让用户看到并等停留结束后再移动）
     setTimeout(() => {
-        animateMovement(segPts, 0);
-    }, 1500);
+        arriveAtNode(0);
+    }, 500);
 
     console.log(`[Autowalk] 启动，军队=${army}，${nodes.length}个节点，速度=${autowalkSpeed}s/段`);
 }
@@ -915,4 +915,40 @@ window.stopAutowalk   = stopAutowalk;
 window.selectArmy     = selectArmy;
 window.toggleMessageBoard = toggleMessageBoard;
 window.sendMessage    = sendMessage;
-window.setAutowalkSpeed = setAutowalkSpeed;
+window.selectAutowalkSpeed = selectAutowalkSpeed;
+window.jumpAutowalkToNode = jumpAutowalkToNode;
+
+/**
+ * @function jumpAutowalkToNode
+ * @brief 漫游中点击节点，跳转到该节点继续漫游
+ * @param {string} nodeId  节点编号
+ */
+function jumpAutowalkToNode(nodeId) {
+    var state = autowalkState;
+    if (!state.active) return;
+
+    var newIdx = -1;
+    for (var i = 0; i < state.nodes.length; i++) {
+        if (state.nodes[i].node_id === nodeId) {
+            newIdx = i;
+            break;
+        }
+    }
+    if (newIdx < 0) return;
+
+    if (state.animFrame) {
+        clearTimeout(state.animFrame);
+        state.animFrame = null;
+    }
+    if (state.waitTimer) {
+        clearTimeout(state.waitTimer);
+        state.waitTimer = null;
+    }
+    state.waiting = false;
+
+    var targetNode = state.nodes[newIdx];
+    if (state.marker) {
+        state.marker.setLatLng([targetNode.lat, targetNode.lng]);
+    }
+    arriveAtNode(newIdx);
+}

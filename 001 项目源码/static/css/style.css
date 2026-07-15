@@ -289,6 +289,31 @@ a:hover {
     color: var(--color-accent);
     font-weight: 600;
 }
+.speed-start-btn {
+    width: 100%;
+    padding: 6px 10px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 4px;
+    background: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.speed-start-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.speed-start-btn:hover:not(:disabled) {
+    background: #a93226;
+}
+
 
 /* 播放控制弹出面板内按钮（横向排列） */
 #play-controls.popout-panel {

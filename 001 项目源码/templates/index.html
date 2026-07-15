@@ -145,9 +145,10 @@
         <div id="speed-selector" class="popout-panel">
             <div class="popout-arrow-right"></div>
             <div class="speed-label">节点间移动速度</div>
-            <button class="speed-btn active" data-speed="3" onclick="setAutowalkSpeed(3)">慢速 3s</button>
-            <button class="speed-btn" data-speed="2" onclick="setAutowalkSpeed(2)">中速 2s</button>
-            <button class="speed-btn" data-speed="1" onclick="setAutowalkSpeed(1)">快速 1s</button>
+            <button class="speed-btn active" data-speed="3" onclick="selectAutowalkSpeed(3)">慢速 3s</button>
+            <button class="speed-btn" data-speed="2" onclick="selectAutowalkSpeed(2)">中速 2s</button>
+            <button class="speed-btn" data-speed="1" onclick="selectAutowalkSpeed(1)">快速 1s</button>
+            <button class="speed-start-btn" id="btn-autowalk-start" onclick="startAutowalk()" disabled>开始</button>
         </div>
 
         <!-- 播放控制弹出面板（向左弹出） -->
