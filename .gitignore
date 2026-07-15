@@ -34,3 +34,9 @@ doxygen.exe
 # Doxygen output
 html/
 docs_doxygen/
+
+007 项目工具/HHW_extracted/
+007 项目工具/*.exe
+tmp_*.py
+*.pyc
+__pycache__/
