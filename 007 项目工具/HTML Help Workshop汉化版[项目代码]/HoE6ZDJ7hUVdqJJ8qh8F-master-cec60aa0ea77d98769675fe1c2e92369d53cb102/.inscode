@@ -1,0 +1,4 @@
+run = "index.html"
+is_gui = false
+is_resident = false
+is_html = true

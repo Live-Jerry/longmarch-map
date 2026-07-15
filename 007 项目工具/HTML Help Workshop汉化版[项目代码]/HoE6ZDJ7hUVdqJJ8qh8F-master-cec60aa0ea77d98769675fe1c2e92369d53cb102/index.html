@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft HTML Help Workshop 中文汉化版 - 专业帮助文件创建工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/daisyui/4.12.10/full.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="#overview">工具概述</a></li>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#editor">HTML编辑器</a></li>
+                    <li><a href="#index">索引工具</a></li>
+                    <li><a href="#toc">目录编辑器</a></li>
+                    <li><a href="#compiler">编译器</a></li>
+                    <li><a href="#resources">资源管理</a></li>
+                    <li><a href="#localization">汉化特点</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-ghost text-xl">
+                <i class="fas fa-book text-primary mr-2"></i>
+                HTML Help Workshop
+            </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="#overview">工具概述</a></li>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#editor">HTML编辑器</a></li>
+                <li><a href="#index">索引工具</a></li>
+                <li><a href="#toc">目录编辑器</a></li>
+                <li><a href="#compiler">编译器</a></li>
+                <li><a href="#resources">资源管理</a></li>
+                <li><a href="#localization">汉化特点</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="https://blog.csdn.net/weixin_31776191/article/details/141609516" target="_blank" class="btn btn-primary">
+                <i class="fas fa-external-link-alt mr-2"></i>
+                查看原文
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero 区域 -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl font-bold mb-6">Microsoft HTML Help Workshop</h1>
+                <h2 class="text-3xl font-semibold mb-8">中文汉化版 - 专业帮助文件创建工具</h2>
+                <p class="text-xl mb-8 opacity-90">
+                    创建、编辑和编译HTML格式帮助文件的专业工具，汉化版提供完整中文界面和文档支持
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="badge badge-lg badge-outline">HTML编辑器</div>
+                    <div class="badge badge-lg badge-outline">索引工具</div>
+                    <div class="badge badge-lg badge-outline">目录编辑器</div>
+                    <div class="badge badge-lg badge-outline">编译器</div>
+                    <div class="badge badge-lg badge-outline">资源管理</div>
+                    <div class="badge badge-lg badge-outline">中文汉化</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具概述 -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12">工具概述</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4">
+                                <i class="fas fa-tools text-primary mr-3"></i>
+                                工具简介
+                            </h3>
+                            <p class="text-lg">
+                                Microsoft HTML Help Workshop 是一款专业的工具，用于创建、编辑和编译HTML格式的帮助文件。汉化版将英文界面和帮助文档翻译成中文，极大方便了中文用户的使用体验。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4">
+                                <i class="fas fa-cogs text-secondary mr-3"></i>
+                                核心组件
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-code text-success mr-2"></i>
+                                    HTML编辑器
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-search text-info mr-2"></i>
+                                    索引工具
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-list text-warning mr-2"></i>
+                                    目录编辑器
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-cog text-error mr-2"></i>
+                                    编译器
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-folder text-accent mr-2"></i>
+                                    资源管理
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">核心功能特性</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- HTML编辑器 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary text-primary-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">HTML编辑器</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>文本编辑和格式化</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>插入图片和链接</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>创建表格和列表</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>代码提示和自动完成</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 索引工具 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-secondary text-secondary-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-search text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">索引工具</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>关键词和主题提取</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>索引结构组织优化</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>关键词搜索和模糊匹配</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>搜索结果展示导航</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 目录编辑器 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent text-accent-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-list text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">目录编辑器</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>目录结构设计组织</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>章节和子章节管理</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>目录树展开折叠</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>章节快速跳转</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 编译器 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-warning text-warning-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-cog text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">编译器</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>HTML文件整合</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>索引和目录集成</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>多种输出格式支持</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>安全和版权设置</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 资源管理 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-info text-info-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-folder text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">资源管理</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>多媒体文件管理</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>资源文件引用链接</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>文件大小优化压缩</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>版本控制管理</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 汉化特点 -->
+                <div class="card bg-base-100 shadow-xl feature-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-success text-success-content rounded-lg flex items-center justify-center">
+                                <i class="fas fa-language text-2xl"></i>
+                            </div>
+                            <h3 class="card-title ml-4">汉化特点</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>完整中文界面</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>中文帮助文档</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>专业翻译质量</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-success mt-1 mr-2"></i>
+                                <span>稳定兼容性</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML编辑器详细 -->
+    <section id="editor" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">HTML编辑器</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-primary">主要功能</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">文本编辑和格式化</h4>
+                                    <p>支持文本输入编辑、字体样式设置、段落格式化、列表和缩进等基本功能</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">插入图片和链接</h4>
+                                    <p>支持从本地文件或网络URL插入图片，创建超链接并设置链接属性</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">创建表格和列表</h4>
+                                    <p>支持创建带有行列的表格，设置表格属性，创建有序和无序列表</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-secondary">使用技巧</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">代码提示和自动完成</h4>
+                                    <p>提供HTML标签和属性的代码提示，自动完成代码输入，提高编码效率</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">预览功能和实时编辑</h4>
+                                    <p>支持实时预览文档渲染效果，修改代码时预览窗口实时更新</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">HTML代码优化和验证</h4>
+                                    <p>自动优化HTML代码，验证语法和语义，报告错误和警告</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 索引工具详细 -->
+    <section id="index" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">索引工具</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-info">索引创建和管理</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">关键词和主题提取</h4>
+                                    <p>支持自动扫描帮助文件提取关键词，也支持手动添加重要概念</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">索引结构组织优化</h4>
+                                    <p>采用树形结构按层次组织关键词，考虑同义词和交叉引用</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-warning">索引搜索和使用</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">关键词搜索和模糊匹配</h4>
+                                    <p>支持关键词或短语搜索，即使输入不完全准确也能找到相关结果</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">搜索结果展示和导航</h4>
+                                    <p>以列表形式显示搜索结果，支持布尔运算符和近似搜索选项</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 编译器详细 -->
+    <section id="compiler" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">编译器</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-error">编译过程</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">HTML文件整合</h4>
+                                    <p>将所有HTML文件合并到主HTML文件中，包含所有帮助主题内容</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">索引和目录集成</h4>
+                                    <p>集成索引信息支持关键字搜索，添加目录结构提供内容导航</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">帮助文件格式生成</h4>
+                                    <p>生成CHM格式帮助文件，可由Windows帮助查看器打开查看</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-accent">编译选项和设置</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">输出格式和压缩方式</h4>
+                                    <p>支持CHM、HTML、RTF、PDF等格式，提供LZX、CAB等压缩方式</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">安全和版权声明</h4>
+                                    <p>支持密码保护、数字签名、内容加密等安全设置，可添加版权信息</p>
+                                </div>
+                            </div>
+                            <div class="card bg-base-100 shadow-md">
+                                <div class="card-body">
+                                    <h4 class="card-title text-lg">代码示例</h4>
+                                    <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-sm">
+                                        hhc -b -cr -t chm -o output.chm input.hhp
+                                    </div>
+                                    <p class="mt-2 text-sm">构建帮助文件、创建目录、指定CHM格式输出</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 汉化特点 -->
+    <section id="localization" class="py-16 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">汉化版特点</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card bg-white shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4 text-primary">
+                                <i class="fas fa-language mr-3"></i>
+                                汉化内容和范围
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                                    <div>
+                                        <strong>用户界面和菜单</strong>
+                                        <p class="text-sm text-gray-600">所有界面元素完全中文化，包括菜单、工具栏、按钮、对话框</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                                    <div>
+                                        <strong>帮助文档和示例</strong>
+                                        <p class="text-sm text-gray-600">所有帮助文档和示例文本翻译成中文，提供清晰易懂的帮助信息</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-white shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4 text-secondary">
+                                <i class="fas fa-award mr-3"></i>
+                                汉化质量和测试
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-warning mt-1 mr-3"></i>
+                                    <div>
+                                        <strong>翻译准确性和一致性</strong>
+                                        <p class="text-sm text-gray-600">专业翻译团队确保翻译准确、一致、专业</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-info mt-1 mr-3"></i>
+                                    <div>
+                                        <strong>稳定性和兼容性</strong>
+                                        <p class="text-sm text-gray-600">经过全面测试，确保汉化版本稳定可靠，与原版完全兼容</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+        <aside>
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-book text-3xl text-primary mr-3"></i>
+                <p class="text-2xl font-bold">Microsoft HTML Help Workshop</p>
+            </div>
+            <p class="text-lg">专业帮助文件创建工具 - 中文汉化版</p>
+            <p class="text-sm text-gray-600 mt-2">基于CSDN博客内容创建的专业展示页面</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a href="https://blog.csdn.net/weixin_31776191/article/details/141609516" target="_blank" class="link link-hover">
+                    <i class="fas fa-external-link-alt mr-1"></i>
+                    查看原文
+                </a>
+                <a href="#overview" class="link link-hover">工具概述</a>
+                <a href="#features" class="link link-hover">核心功能</a>
+                <a href="#localization" class="link link-hover">汉化特点</a>
+            </div>
+        </nav>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏高亮
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
