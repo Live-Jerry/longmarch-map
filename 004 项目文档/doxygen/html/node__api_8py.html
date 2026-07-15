@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>重走长征路: 001 项目源码/api/node_api.py 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">重走长征路
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('node__api_8py.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">node_api.py 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="node__api_8py_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:api" id="r_api"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceapi.html">api</a></td></tr>
+<tr class="memitem:api_2Enode_5Fapi" id="r_api_2Enode_5Fapi"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html">api.node_api</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a5df0c0f365cd81e210d52fa4326819ef" id="r_a5df0c0f365cd81e210d52fa4326819ef"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a5df0c0f365cd81e210d52fa4326819ef">api.node_api.ok</a> (data=None, message=&quot;success&quot;)</td></tr>
+<tr class="memitem:afbefb92526e9410a9121fb89bb52e025" id="r_afbefb92526e9410a9121fb89bb52e025"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#afbefb92526e9410a9121fb89bb52e025">api.node_api.err</a> (msg, code=1, status=400)</td></tr>
+<tr class="memitem:a954e68780722547bfa0ebe68302f4820" id="r_a954e68780722547bfa0ebe68302f4820"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a954e68780722547bfa0ebe68302f4820">api.node_api.list_nodes</a> ()</td></tr>
+<tr class="memitem:a95ea3b77ad75db68ebb9c566a5f04e9d" id="r_a95ea3b77ad75db68ebb9c566a5f04e9d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a95ea3b77ad75db68ebb9c566a5f04e9d">api.node_api.get_node</a> (node_id)</td></tr>
+<tr class="memitem:a85357add09e69779de3ea9ac07260612" id="r_a85357add09e69779de3ea9ac07260612"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a85357add09e69779de3ea9ac07260612">api.node_api.nearby_nodes</a> ()</td></tr>
+<tr class="memitem:a897c1d2f58a43cd6c228851d14305187" id="r_a897c1d2f58a43cd6c228851d14305187"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a897c1d2f58a43cd6c228851d14305187">api.node_api.timeline</a> ()</td></tr>
+<tr class="memitem:a28073094eea03a42cf2d91581431e35d" id="r_a28073094eea03a42cf2d91581431e35d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a28073094eea03a42cf2d91581431e35d">api.node_api.create_node</a> ()</td></tr>
+<tr class="memitem:acda3183918c2e1f364ca8752c5e44c02" id="r_acda3183918c2e1f364ca8752c5e44c02"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#acda3183918c2e1f364ca8752c5e44c02">api.node_api.import_nodes</a> ()</td></tr>
+<tr class="memitem:a58e79e55d56cd889a02546c747470a07" id="r_a58e79e55d56cd889a02546c747470a07"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a58e79e55d56cd889a02546c747470a07">api.node_api.export_nodes</a> ()</td></tr>
+<tr class="memitem:afb21e5465366ac10646f1a547050cdec" id="r_afb21e5465366ac10646f1a547050cdec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#afb21e5465366ac10646f1a547050cdec">api.node_api.update_node</a> (node_id)</td></tr>
+<tr class="memitem:a9e5dfa2be156b028c33b610ad03a2cec" id="r_a9e5dfa2be156b028c33b610ad03a2cec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#a9e5dfa2be156b028c33b610ad03a2cec">api.node_api.delete_node</a> (node_id)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:aeb1dfb2498e31d7b7624cd4c7572d720" id="r_aeb1dfb2498e31d7b7624cd4c7572d720"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="namespaceapi_1_1node__api.html#aeb1dfb2498e31d7b7624cd4c7572d720">api.node_api.node_bp</a> = Blueprint(&quot;nodes&quot;, __name__)</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_5afaca9fad7a88853b287149ac6623a5.html">api</a></li><li class="navelem"><a href="node__api_8py.html">node_api.py</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

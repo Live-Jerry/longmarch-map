@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>重走长征路: services.route_engine.RouteEngine类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">重走长征路
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classservices_1_1route__engine_1_1_route_engine.html','','classservices_1_1route__engine_1_1_route_engine-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">services.route_engine.RouteEngine类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a81384f67502b97b1728f1f1300c1f0c6" id="r_a81384f67502b97b1728f1f1300c1f0c6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a81384f67502b97b1728f1f1300c1f0c6">get_all_routes</a> ()</td></tr>
+<tr class="memitem:a5d670c540aee84f428550ffb0afb30bf" id="r_a5d670c540aee84f428550ffb0afb30bf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5d670c540aee84f428550ffb0afb30bf">get_route_by_army</a> (army)</td></tr>
+<tr class="memitem:a1ddc18befa040e45cf632ca6ba0af833" id="r_a1ddc18befa040e45cf632ca6ba0af833"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ddc18befa040e45cf632ca6ba0af833">get_route_geojson</a> (army=None)</td></tr>
+<tr class="memitem:abe7c5db93f81b70c17384fad071a3baa" id="r_abe7c5db93f81b70c17384fad071a3baa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abe7c5db93f81b70c17384fad071a3baa">get_autowalk_path</a> (army, speed_kmh=30.0)</td></tr>
+<tr class="memitem:ab9518c5b416bb5d303814a60bb4bed5b" id="r_ab9518c5b416bb5d303814a60bb4bed5b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab9518c5b416bb5d303814a60bb4bed5b">init_route_points</a> (army, points)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:afc8cc590a215f4ffeca54aa3a602b9da" id="r_afc8cc590a215f4ffeca54aa3a602b9da"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#afc8cc590a215f4ffeca54aa3a602b9da">ARMY_1</a> = 1</td></tr>
+<tr class="memitem:a7f3321c4744111baa66ea84ff5c52d96" id="r_a7f3321c4744111baa66ea84ff5c52d96"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7f3321c4744111baa66ea84ff5c52d96">ARMY_2</a> = 2</td></tr>
+<tr class="memitem:a814730016d1b5ac4cdd9adafffb5d70b" id="r_a814730016d1b5ac4cdd9adafffb5d70b"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a814730016d1b5ac4cdd9adafffb5d70b">ARMY_4</a> = 4</td></tr>
+<tr class="memitem:a82ba8d7b606241ef836dca79698c85a6" id="r_a82ba8d7b606241ef836dca79698c85a6"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a82ba8d7b606241ef836dca79698c85a6">ARMY_25</a> = 25</td></tr>
+<tr class="memitem:ad7490167d3d623d760778aa494206bc3" id="r_ad7490167d3d623d760778aa494206bc3"><td class="memItemLeft">dict&#160;</td><td class="memItemRight"><a class="el" href="#ad7490167d3d623d760778aa494206bc3">ARMY_NAMES</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+静态 Protected 成员函数</h2></td></tr>
+<tr class="memitem:a80c11abf415df2dc46a13f6333e858ae" id="r_a80c11abf415df2dc46a13f6333e858ae"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a80c11abf415df2dc46a13f6333e858ae">_haversine_km</a> (lat1, lng1, lat2, lng2)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">@class RouteEngine
+@brief 路线引擎
+@details 提供长征路线数据查询、路线可视化数据生成、自动漫游路径计算。
+         支持按军队（1/2/4/25）分组查询。
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00017">17</a> 行定义.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a80c11abf415df2dc46a13f6333e858ae" name="a80c11abf415df2dc46a13f6333e858ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c11abf415df2dc46a13f6333e858ae">&#9670;&#160;</a></span>_haversine_km()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine._haversine_km </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lat1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lng1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lat2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lng2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  计算两点间的球面距离（公里）
+@param  lat1, lng1  第一个点的纬度和经度
+@param  lat2, lng2  第二个点的纬度和经度
+@return float       距离（公里）
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00197">197</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a81384f67502b97b1728f1f1300c1f0c6" name="a81384f67502b97b1728f1f1300c1f0c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81384f67502b97b1728f1f1300c1f0c6">&#9670;&#160;</a></span>get_all_routes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine.get_all_routes </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取所有军队的路线数据
+@return dict  按 army 分组的路线点列表
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00039">39</a> 行定义.</p>
+
+</div>
+</div>
+<a id="abe7c5db93f81b70c17384fad071a3baa" name="abe7c5db93f81b70c17384fad071a3baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7c5db93f81b70c17384fad071a3baa">&#9670;&#160;</a></span>get_autowalk_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine.get_autowalk_path </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>army</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>speed_kmh</em></span><span class="paramdefsep"> = </span><span class="paramdefval">30.0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  计算自动漫游路径（带时间估算）
+@param  army         军队编号
+@param  speed_kmh    假设移动速度（公里/小时），默认 30 km/h（乘车）
+@return dict         路径数据，含每个节点的时间估算
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00137">137</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5d670c540aee84f428550ffb0afb30bf" name="a5d670c540aee84f428550ffb0afb30bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d670c540aee84f428550ffb0afb30bf">&#9670;&#160;</a></span>get_route_by_army()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine.get_route_by_army </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>army</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取指定军队的路线
+@param  army  军队编号（1/2/4/25）
+@return dict  路线数据（含 GeoJSON）
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00077">77</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1ddc18befa040e45cf632ca6ba0af833" name="a1ddc18befa040e45cf632ca6ba0af833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ddc18befa040e45cf632ca6ba0af833">&#9670;&#160;</a></span>get_route_geojson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine.get_route_geojson </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>army</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取路线的 GeoJSON 格式数据（供 Leaflet 地图直接使用）
+@param  army  军队编号（None 表示所有军队）
+@return dict  GeoJSON FeatureCollection
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00107">107</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab9518c5b416bb5d303814a60bb4bed5b" name="ab9518c5b416bb5d303814a60bb4bed5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9518c5b416bb5d303814a60bb4bed5b">&#9670;&#160;</a></span>init_route_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.route_engine.RouteEngine.init_route_points </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>army</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>points</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  批量插入路线点（初始化用）
+@param  army   军队编号
+@param  points list of dict，含 lat, lng, order_index, is_node, node_id, stage
+</pre> 
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00219">219</a> 行定义.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
+<a id="afc8cc590a215f4ffeca54aa3a602b9da" name="afc8cc590a215f4ffeca54aa3a602b9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8cc590a215f4ffeca54aa3a602b9da">&#9670;&#160;</a></span>ARMY_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int services.route_engine.RouteEngine.ARMY_1 = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7f3321c4744111baa66ea84ff5c52d96" name="a7f3321c4744111baa66ea84ff5c52d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3321c4744111baa66ea84ff5c52d96">&#9670;&#160;</a></span>ARMY_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int services.route_engine.RouteEngine.ARMY_2 = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00027">27</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a82ba8d7b606241ef836dca79698c85a6" name="a82ba8d7b606241ef836dca79698c85a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ba8d7b606241ef836dca79698c85a6">&#9670;&#160;</a></span>ARMY_25</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int services.route_engine.RouteEngine.ARMY_25 = 25</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00029">29</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a814730016d1b5ac4cdd9adafffb5d70b" name="a814730016d1b5ac4cdd9adafffb5d70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814730016d1b5ac4cdd9adafffb5d70b">&#9670;&#160;</a></span>ARMY_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int services.route_engine.RouteEngine.ARMY_4 = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00028">28</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad7490167d3d623d760778aa494206bc3" name="ad7490167d3d623d760778aa494206bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7490167d3d623d760778aa494206bc3">&#9670;&#160;</a></span>ARMY_NAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dict services.route_engine.RouteEngine.ARMY_NAMES</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  {</div>
+<div class="line">        ARMY_1:  <span class="stringliteral">&quot;中央红军（红一方面军）&quot;</span>,</div>
+<div class="line">        ARMY_2:  <span class="stringliteral">&quot;红二方面军&quot;</span>,</div>
+<div class="line">        ARMY_4:  <span class="stringliteral">&quot;红四方面军&quot;</span>,</div>
+<div class="line">        ARMY_25: <span class="stringliteral">&quot;红二十五军&quot;</span>,</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">在文件 <a class="el" href="route__engine_8py_source.html">route_engine.py</a> 第 <a class="el" href="route__engine_8py_source.html#l00031">31</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>001 项目源码/services/<a class="el" href="route__engine_8py_source.html">route_engine.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceservices.html">services</a></li><li class="navelem"><a href="namespaceservices_1_1route__engine.html">route_engine</a></li><li class="navelem"><a href="classservices_1_1route__engine_1_1_route_engine.html">RouteEngine</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

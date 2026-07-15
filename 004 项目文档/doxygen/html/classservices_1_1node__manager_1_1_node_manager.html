@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>重走长征路: services.node_manager.NodeManager类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">重走长征路
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classservices_1_1node__manager_1_1_node_manager.html','','classservices_1_1node__manager_1_1_node_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">services.node_manager.NodeManager类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a7f23fbfca76813141636444ff9269ee9" id="r_a7f23fbfca76813141636444ff9269ee9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7f23fbfca76813141636444ff9269ee9">get_nodes</a> (page=1, per_page=None, search=None, province=None, status=None)</td></tr>
+<tr class="memitem:a3a3eb9664fdb9eee6d9509e250585b72" id="r_a3a3eb9664fdb9eee6d9509e250585b72"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a3eb9664fdb9eee6d9509e250585b72">get_node_detail</a> (node_id)</td></tr>
+<tr class="memitem:a7bcdc90db0379eb5f5d7c80cfc1c2876" id="r_a7bcdc90db0379eb5f5d7c80cfc1c2876"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7bcdc90db0379eb5f5d7c80cfc1c2876">create_node</a> (data)</td></tr>
+<tr class="memitem:aab9b1ddcabeec8e0486aa6755ce86992" id="r_aab9b1ddcabeec8e0486aa6755ce86992"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aab9b1ddcabeec8e0486aa6755ce86992">update_node</a> (node_id, data)</td></tr>
+<tr class="memitem:af95c29357ef5afb6a57e145e7cdf507f" id="r_af95c29357ef5afb6a57e145e7cdf507f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af95c29357ef5afb6a57e145e7cdf507f">remove_node</a> (node_id, hard=False)</td></tr>
+<tr class="memitem:a76604a014bd4c19cdec564170b808dce" id="r_a76604a014bd4c19cdec564170b808dce"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a76604a014bd4c19cdec564170b808dce">get_nearby_nodes</a> (lat, lng, radius_km=50)</td></tr>
+<tr class="memitem:a5b98cfe79b83ee0c7319c4538a43567c" id="r_a5b98cfe79b83ee0c7319c4538a43567c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5b98cfe79b83ee0c7319c4538a43567c">import_from_json</a> (json_path=None)</td></tr>
+<tr class="memitem:a9ad5dfb7cea27a89389b9b11bd63e1a2" id="r_a9ad5dfb7cea27a89389b9b11bd63e1a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9ad5dfb7cea27a89389b9b11bd63e1a2">export_to_json</a> (json_path=None)</td></tr>
+<tr class="memitem:a52e8d8203f97a2dfe357d5e6eca1f00a" id="r_a52e8d8203f97a2dfe357d5e6eca1f00a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a52e8d8203f97a2dfe357d5e6eca1f00a">get_timeline</a> ()</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">@class NodeManager
+@brief 节点管理服务
+@details 封装节点相关的复杂业务逻辑，如批量导入、附近节点排序、
+         节点搜索等，供 API 层调用。
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00018">18</a> 行定义.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a7bcdc90db0379eb5f5d7c80cfc1c2876" name="a7bcdc90db0379eb5f5d7c80cfc1c2876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bcdc90db0379eb5f5d7c80cfc1c2876">&#9670;&#160;</a></span>create_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.create_node </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  创建新节点（需要管理员权限，由调用方检查）
+@param  data  节点数据
+@return dict  创建后的节点
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00063">63</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9ad5dfb7cea27a89389b9b11bd63e1a2" name="a9ad5dfb7cea27a89389b9b11bd63e1a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad5dfb7cea27a89389b9b11bd63e1a2">&#9670;&#160;</a></span>export_to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.export_to_json </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>json_path</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  将所有节点导出为 JSON 文件
+@param  json_path  导出路径（默认覆盖初始数据文件）
+@return int        导出的节点数量
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00168">168</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a76604a014bd4c19cdec564170b808dce" name="a76604a014bd4c19cdec564170b808dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76604a014bd4c19cdec564170b808dce">&#9670;&#160;</a></span>get_nearby_nodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.get_nearby_nodes </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lng</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>radius_km</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取指定坐标附近的节点
+@param  lat        纬度
+@param  lng        经度
+@param  radius_km  半径（公里）
+@return list       附近节点列表
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00112">112</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3a3eb9664fdb9eee6d9509e250585b72" name="a3a3eb9664fdb9eee6d9509e250585b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a3eb9664fdb9eee6d9509e250585b72">&#9670;&#160;</a></span>get_node_detail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.get_node_detail </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取节点详情
+@param  node_id  节点编号
+@return dict     节点数据，不存在返回 None
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00054">54</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7f23fbfca76813141636444ff9269ee9" name="a7f23fbfca76813141636444ff9269ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f23fbfca76813141636444ff9269ee9">&#9670;&#160;</a></span>get_nodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.get_nodes </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>per_page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>search</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>province</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取节点列表（带分页）
+@param  page       页码
+@param  per_page   每页数量（默认取配置值）
+@param  search     搜索关键词
+@param  province   省份过滤
+@param  status     状态过滤
+@return dict       包含 items, total, page, per_page, pages
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00027">27</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a52e8d8203f97a2dfe357d5e6eca1f00a" name="a52e8d8203f97a2dfe357d5e6eca1f00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e8d8203f97a2dfe357d5e6eca1f00a">&#9670;&#160;</a></span>get_timeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.get_timeline </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取完整时间线（所有节点按时间排序）
+@return list  节点列表（仅含关键字段）的时间线
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00184">184</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5b98cfe79b83ee0c7319c4538a43567c" name="a5b98cfe79b83ee0c7319c4538a43567c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b98cfe79b83ee0c7319c4538a43567c">&#9670;&#160;</a></span>import_from_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.import_from_json </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>json_path</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  从 JSON 文件批量导入节点初始数据
+@param  json_path  JSON 文件路径（默认使用配置的初始数据路径）
+@return dict       导入结果统计
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00123">123</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af95c29357ef5afb6a57e145e7cdf507f" name="af95c29357ef5afb6a57e145e7cdf507f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95c29357ef5afb6a57e145e7cdf507f">&#9670;&#160;</a></span>remove_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.remove_node </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>hard</em></span><span class="paramdefsep"> = </span><span class="paramdefval">False</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  删除节点
+@param  node_id  节点编号
+@param  hard     True 为永久删除，False 为软删除（默认）
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00096">96</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aab9b1ddcabeec8e0486aa6755ce86992" name="aab9b1ddcabeec8e0486aa6755ce86992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab9b1ddcabeec8e0486aa6755ce86992">&#9670;&#160;</a></span>update_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.node_manager.NodeManager.update_node </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  更新节点
+@param  node_id  节点编号
+@param  data     更新的字段
+@return dict     更新后的节点
+</pre> 
+<p class="definition">在文件 <a class="el" href="node__manager_8py_source.html">node_manager.py</a> 第 <a class="el" href="node__manager_8py_source.html#l00082">82</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>001 项目源码/services/<a class="el" href="node__manager_8py_source.html">node_manager.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceservices.html">services</a></li><li class="navelem"><a href="namespaceservices_1_1node__manager.html">node_manager</a></li><li class="navelem"><a href="classservices_1_1node__manager_1_1_node_manager.html">NodeManager</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

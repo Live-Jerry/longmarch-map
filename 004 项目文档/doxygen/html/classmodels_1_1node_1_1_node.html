@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>重走长征路: models.node.Node类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">重走长征路
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classmodels_1_1node_1_1_node.html','','classmodels_1_1node_1_1_node-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">models.node.Node类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a230b507d159c9d296b618b6ba91acb4b" id="r_a230b507d159c9d296b618b6ba91acb4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a230b507d159c9d296b618b6ba91acb4b">get_all</a> (cls, page=1, per_page=20, search=None, province=None, status=None)</td></tr>
+<tr class="memitem:a666130b96497733c0116f210c6eece0b" id="r_a666130b96497733c0116f210c6eece0b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a666130b96497733c0116f210c6eece0b">get_by_node_id</a> (cls, node_id)</td></tr>
+<tr class="memitem:a3fe2906af2097cffc95903c00cde64f2" id="r_a3fe2906af2097cffc95903c00cde64f2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3fe2906af2097cffc95903c00cde64f2">get_by_status</a> (cls, status)</td></tr>
+<tr class="memitem:ab95fea586338e3b4a4bb7c20acc91e35" id="r_ab95fea586338e3b4a4bb7c20acc91e35"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab95fea586338e3b4a4bb7c20acc91e35">get_nearby</a> (cls, lat, lng, radius_km=50)</td></tr>
+<tr class="memitem:a2348b8f11356c7799c4d3d3d820448e4" id="r_a2348b8f11356c7799c4d3d3d820448e4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2348b8f11356c7799c4d3d3d820448e4">create</a> (cls, data)</td></tr>
+<tr class="memitem:aec71a7fdf5f212d7e922027bc844e7a3" id="r_aec71a7fdf5f212d7e922027bc844e7a3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aec71a7fdf5f212d7e922027bc844e7a3">update</a> (cls, node_id, data)</td></tr>
+<tr class="memitem:ab1761876ba32e6eb652c69330e82f2db" id="r_ab1761876ba32e6eb652c69330e82f2db"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab1761876ba32e6eb652c69330e82f2db">delete</a> (cls, node_id)</td></tr>
+<tr class="memitem:af4727342c38668a91ea42bd352bae94d" id="r_af4727342c38668a91ea42bd352bae94d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4727342c38668a91ea42bd352bae94d">hard_delete</a> (cls, node_id)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:accc884a2484e50385615fe59986b4f52" id="r_accc884a2484e50385615fe59986b4f52"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#accc884a2484e50385615fe59986b4f52">to_row_dict</a> (row)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a5643bff118c3cd11307d0a7458ca4bf8" id="r_a5643bff118c3cd11307d0a7458ca4bf8"><td class="memItemLeft">tuple&#160;</td><td class="memItemRight"><a class="el" href="#a5643bff118c3cd11307d0a7458ca4bf8">ALL_FIELDS</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">@class Node
+@brief 长征历史节点模型
+@details 每个节点代表长征途中一个重要的历史事件发生地，
+         包含位置信息、历史背景、战役、会义、诗篇等多种信息字段。
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00040">40</a> 行定义.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a2348b8f11356c7799c4d3d3d820448e4" name="a2348b8f11356c7799c4d3d3d820448e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2348b8f11356c7799c4d3d3d820448e4">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.create </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  创建新节点
+@param  data  节点数据字典（包含 node_id, title, location, lat, lng 等）
+@return dict  新创建的节点数据
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00185">185</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab1761876ba32e6eb652c69330e82f2db" name="ab1761876ba32e6eb652c69330e82f2db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1761876ba32e6eb652c69330e82f2db">&#9670;&#160;</a></span>delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.delete </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  删除节点（软删除，将状态改为 archived）
+@param  node_id  节点编号
+@return bool     成功返回 True
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00234">234</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a230b507d159c9d296b618b6ba91acb4b" name="a230b507d159c9d296b618b6ba91acb4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230b507d159c9d296b618b6ba91acb4b">&#9670;&#160;</a></span>get_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.get_all </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>per_page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">20</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>search</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>province</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief      分页获取节点列表
+@param      page       页码（从 1 开始）
+@param      per_page   每页数量
+@param      search     模糊搜索关键词（搜索 title / location）
+@param      province   省份过滤
+@param      status     状态过滤，默认只返回 active
+@return     tuple      (节点列表, 总数)
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00086">86</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a666130b96497733c0116f210c6eece0b" name="a666130b96497733c0116f210c6eece0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666130b96497733c0116f210c6eece0b">&#9670;&#160;</a></span>get_by_node_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.get_by_node_id </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  通过 node_id 获取单个节点详情
+@param  node_id  节点编号（字符串，如 "001"）
+@return dict     节点数据字典，不存在返回 None
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00132">132</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3fe2906af2097cffc95903c00cde64f2" name="a3fe2906af2097cffc95903c00cde64f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe2906af2097cffc95903c00cde64f2">&#9670;&#160;</a></span>get_by_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.get_by_status </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  通过状态获取所有节点
+@param  status  pending | active | archived
+@return list    节点列表
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00144">144</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab95fea586338e3b4a4bb7c20acc91e35" name="ab95fea586338e3b4a4bb7c20acc91e35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95fea586338e3b4a4bb7c20acc91e35">&#9670;&#160;</a></span>get_nearby()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.get_nearby </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>lng</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>radius_km</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取指定坐标附近的所有节点
+@param  lat        纬度
+@param  lng        经度
+@param  radius_km  搜索半径（公里），默认 50km
+@note   使用简化球面距离公式
+@return list       附近节点列表（按距离升序）
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00156">156</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af4727342c38668a91ea42bd352bae94d" name="af4727342c38668a91ea42bd352bae94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4727342c38668a91ea42bd352bae94d">&#9670;&#160;</a></span>hard_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.hard_delete </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  永久删除节点（仅管理员可用）
+@param  node_id  节点编号
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00249">249</a> 行定义.</p>
+
+</div>
+</div>
+<a id="accc884a2484e50385615fe59986b4f52" name="accc884a2484e50385615fe59986b4f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accc884a2484e50385615fe59986b4f52">&#9670;&#160;</a></span>to_row_dict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.to_row_dict </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>row</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  将 sqlite3.Row 转换为字典
+@param  row  sqlite3.Row 对象
+@return dict
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00065">65</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aec71a7fdf5f212d7e922027bc844e7a3" name="aec71a7fdf5f212d7e922027bc844e7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec71a7fdf5f212d7e922027bc844e7a3">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.node.Node.update </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  更新节点信息
+@param  node_id  节点编号
+@param  data     要更新的字段字典
+@return dict     更新后的节点数据
+</pre> 
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00213">213</a> 行定义.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
+<a id="a5643bff118c3cd11307d0a7458ca4bf8" name="a5643bff118c3cd11307d0a7458ca4bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5643bff118c3cd11307d0a7458ca4bf8">&#9670;&#160;</a></span>ALL_FIELDS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple models.node.Node.ALL_FIELDS</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  (</div>
+<div class="line">        <span class="stringliteral">&quot;node_id&quot;</span>, <span class="stringliteral">&quot;title&quot;</span>, <span class="stringliteral">&quot;location&quot;</span>, <span class="stringliteral">&quot;lat&quot;</span>, <span class="stringliteral">&quot;lng&quot;</span>, <span class="stringliteral">&quot;time&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;core_numbers&quot;</span>, <span class="stringliteral">&quot;famous_battle&quot;</span>, <span class="stringliteral">&quot;important_meeting&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;history_event&quot;</span>, <span class="stringliteral">&quot;core_site&quot;</span>, <span class="stringliteral">&quot;poem_article&quot;</span>, <span class="stringliteral">&quot;typical_story&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;typical_people&quot;</span>, <span class="stringliteral">&quot;historical_significance&quot;</span>, <span class="stringliteral">&quot;spark_remains&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;media_path&quot;</span>, <span class="stringliteral">&quot;image_list&quot;</span>, <span class="stringliteral">&quot;audio_path&quot;</span>, <span class="stringliteral">&quot;video_url&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;created_at&quot;</span>, <span class="stringliteral">&quot;updated_at&quot;</span></div>
+<div class="line">    )</div>
+</div><!-- fragment -->
+<p class="definition">在文件 <a class="el" href="node_8py_source.html">node.py</a> 第 <a class="el" href="node_8py_source.html#l00051">51</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>001 项目源码/models/<a class="el" href="node_8py_source.html">node.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespacemodels.html">models</a></li><li class="navelem"><a href="namespacemodels_1_1node.html">node</a></li><li class="navelem"><a href="classmodels_1_1node_1_1_node.html">Node</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

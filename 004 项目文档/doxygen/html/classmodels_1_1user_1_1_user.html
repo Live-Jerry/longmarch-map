@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>重走长征路: models.user.User类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">重走长征路
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classmodels_1_1user_1_1_user.html','','classmodels_1_1user_1_1_user-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">models.user.User类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a60ffafe336de547af23c53f9c99a6103" id="r_a60ffafe336de547af23c53f9c99a6103"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a60ffafe336de547af23c53f9c99a6103">get_by_id</a> (cls, user_id)</td></tr>
+<tr class="memitem:a0c56638adf77cd15e4f174ca195ef7e5" id="r_a0c56638adf77cd15e4f174ca195ef7e5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0c56638adf77cd15e4f174ca195ef7e5">get_by_username</a> (cls, username)</td></tr>
+<tr class="memitem:af901efed803d06ad2de9482904fd22d1" id="r_af901efed803d06ad2de9482904fd22d1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af901efed803d06ad2de9482904fd22d1">get_by_username_with_hash</a> (cls, username)</td></tr>
+<tr class="memitem:a17890f70e0a3f91f188c7a73686a85e3" id="r_a17890f70e0a3f91f188c7a73686a85e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a17890f70e0a3f91f188c7a73686a85e3">get_all</a> (cls, page=1, per_page=20)</td></tr>
+<tr class="memitem:a87aed483eeced2bb797147e5195d61b7" id="r_a87aed483eeced2bb797147e5195d61b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a87aed483eeced2bb797147e5195d61b7">authenticate</a> (cls, username, password)</td></tr>
+<tr class="memitem:a9bd22debb6413262a8a9ce7ed2334786" id="r_a9bd22debb6413262a8a9ce7ed2334786"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9bd22debb6413262a8a9ce7ed2334786">create</a> (cls, username, password, role=None)</td></tr>
+<tr class="memitem:a5e922a7b0b8df33406bdd047d084e52c" id="r_a5e922a7b0b8df33406bdd047d084e52c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5e922a7b0b8df33406bdd047d084e52c">update_role</a> (cls, user_id, new_role)</td></tr>
+<tr class="memitem:a8da9d5ad575e34bfcb46bea8991840ec" id="r_a8da9d5ad575e34bfcb46bea8991840ec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8da9d5ad575e34bfcb46bea8991840ec">delete</a> (cls, user_id)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a5d5c499837b7ec1a269ec1009adeb1ed" id="r_a5d5c499837b7ec1a269ec1009adeb1ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5d5c499837b7ec1a269ec1009adeb1ed">hash_password</a> (password)</td></tr>
+<tr class="memitem:ad6655e283a7d092bce380a9f23993ec8" id="r_ad6655e283a7d092bce380a9f23993ec8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad6655e283a7d092bce380a9f23993ec8">to_dict</a> (row)</td></tr>
+<tr class="memitem:a038772976ff2eec8f6d33561410cbd5c" id="r_a038772976ff2eec8f6d33561410cbd5c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a038772976ff2eec8f6d33561410cbd5c">is_admin</a> (user)</td></tr>
+<tr class="memitem:a72f4d3152913e0256d6f4fb33445104b" id="r_a72f4d3152913e0256d6f4fb33445104b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a72f4d3152913e0256d6f4fb33445104b">is_super</a> (user)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a1c88ada40ce77b05f799b929f8b04df2" id="r_a1c88ada40ce77b05f799b929f8b04df2"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#a1c88ada40ce77b05f799b929f8b04df2">ROLE_GUEST</a> = &quot;guest&quot;</td></tr>
+<tr class="memitem:acef3b6003519a61cf4f5d31caad5a6f9" id="r_acef3b6003519a61cf4f5d31caad5a6f9"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#acef3b6003519a61cf4f5d31caad5a6f9">ROLE_USER</a> = &quot;user&quot;</td></tr>
+<tr class="memitem:add5632ece942a1d2ea2dd990ccb2b3f8" id="r_add5632ece942a1d2ea2dd990ccb2b3f8"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#add5632ece942a1d2ea2dd990ccb2b3f8">ROLE_ADMIN</a> = &quot;admin&quot;</td></tr>
+<tr class="memitem:acda53e6f50db56cec33ee6a618784e07" id="r_acda53e6f50db56cec33ee6a618784e07"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#acda53e6f50db56cec33ee6a618784e07">ROLE_SUPER</a> = &quot;super&quot;</td></tr>
+<tr class="memitem:a6e858d4854e7b0f7245b5aa2fb140c34" id="r_a6e858d4854e7b0f7245b5aa2fb140c34"><td class="memItemLeft">tuple&#160;</td><td class="memItemRight"><a class="el" href="#a6e858d4854e7b0f7245b5aa2fb140c34">VALID_ROLES</a> = (<a class="el" href="#a1c88ada40ce77b05f799b929f8b04df2">ROLE_GUEST</a>, <a class="el" href="#acef3b6003519a61cf4f5d31caad5a6f9">ROLE_USER</a>, <a class="el" href="#add5632ece942a1d2ea2dd990ccb2b3f8">ROLE_ADMIN</a>, <a class="el" href="#acda53e6f50db56cec33ee6a618784e07">ROLE_SUPER</a>)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">@class User
+@brief 用户模型
+@details 支持 guest / user / admin / super 四种角色。
+</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00034">34</a> 行定义.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a87aed483eeced2bb797147e5195d61b7" name="a87aed483eeced2bb797147e5195d61b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87aed483eeced2bb797147e5195d61b7">&#9670;&#160;</a></span>authenticate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.authenticate </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>username</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>password</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 用户登录认证</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00106">106</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9bd22debb6413262a8a9ce7ed2334786" name="a9bd22debb6413262a8a9ce7ed2334786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bd22debb6413262a8a9ce7ed2334786">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.create </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>username</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>password</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>role</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 创建新用户</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00121">121</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8da9d5ad575e34bfcb46bea8991840ec" name="a8da9d5ad575e34bfcb46bea8991840ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da9d5ad575e34bfcb46bea8991840ec">&#9670;&#160;</a></span>delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.delete </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 删除用户</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00154">154</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a17890f70e0a3f91f188c7a73686a85e3" name="a17890f70e0a3f91f188c7a73686a85e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17890f70e0a3f91f188c7a73686a85e3">&#9670;&#160;</a></span>get_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.get_all </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>per_page</em></span><span class="paramdefsep"> = </span><span class="paramdefval">20</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 分页获取所有用户列表</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00094">94</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a60ffafe336de547af23c53f9c99a6103" name="a60ffafe336de547af23c53f9c99a6103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ffafe336de547af23c53f9c99a6103">&#9670;&#160;</a></span>get_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.get_by_id </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 通过 ID 获取用户</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00071">71</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0c56638adf77cd15e4f174ca195ef7e5" name="a0c56638adf77cd15e4f174ca195ef7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c56638adf77cd15e4f174ca195ef7e5">&#9670;&#160;</a></span>get_by_username()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.get_by_username </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>username</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 通过用户名获取用户</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00079">79</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af901efed803d06ad2de9482904fd22d1" name="af901efed803d06ad2de9482904fd22d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af901efed803d06ad2de9482904fd22d1">&#9670;&#160;</a></span>get_by_username_with_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.get_by_username_with_hash </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>username</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 通过用户名获取用户（含 password_hash）</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00087">87</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5d5c499837b7ec1a269ec1009adeb1ed" name="a5d5c499837b7ec1a269ec1009adeb1ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5c499837b7ec1a269ec1009adeb1ed">&#9670;&#160;</a></span>hash_password()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.hash_password </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>password</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 对密码进行 SHA-256 哈希</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00053">53</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a038772976ff2eec8f6d33561410cbd5c" name="a038772976ff2eec8f6d33561410cbd5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a038772976ff2eec8f6d33561410cbd5c">&#9670;&#160;</a></span>is_admin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.is_admin </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>user</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 判断用户是否为管理员（admin 或 super）</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00165">165</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a72f4d3152913e0256d6f4fb33445104b" name="a72f4d3152913e0256d6f4fb33445104b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72f4d3152913e0256d6f4fb33445104b">&#9670;&#160;</a></span>is_super()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.is_super </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>user</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 判断用户是否为超级管理员</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00172">172</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad6655e283a7d092bce380a9f23993ec8" name="ad6655e283a7d092bce380a9f23993ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6655e283a7d092bce380a9f23993ec8">&#9670;&#160;</a></span>to_dict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.to_dict </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>row</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 将 sqlite3.Row 转换为用户字典（移除 password_hash）</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00058">58</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5e922a7b0b8df33406bdd047d084e52c" name="a5e922a7b0b8df33406bdd047d084e52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e922a7b0b8df33406bdd047d084e52c">&#9670;&#160;</a></span>update_role()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">models.user.User.update_role </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>new_role</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief 更新用户角色</pre> 
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00145">145</a> 行定义.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
+<a id="add5632ece942a1d2ea2dd990ccb2b3f8" name="add5632ece942a1d2ea2dd990ccb2b3f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5632ece942a1d2ea2dd990ccb2b3f8">&#9670;&#160;</a></span>ROLE_ADMIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str models.user.User.ROLE_ADMIN = &quot;admin&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1c88ada40ce77b05f799b929f8b04df2" name="a1c88ada40ce77b05f799b929f8b04df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c88ada40ce77b05f799b929f8b04df2">&#9670;&#160;</a></span>ROLE_GUEST</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str models.user.User.ROLE_GUEST = &quot;guest&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<a id="acda53e6f50db56cec33ee6a618784e07" name="acda53e6f50db56cec33ee6a618784e07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acda53e6f50db56cec33ee6a618784e07">&#9670;&#160;</a></span>ROLE_SUPER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str models.user.User.ROLE_SUPER = &quot;super&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00044">44</a> 行定义.</p>
+
+</div>
+</div>
+<a id="acef3b6003519a61cf4f5d31caad5a6f9" name="acef3b6003519a61cf4f5d31caad5a6f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef3b6003519a61cf4f5d31caad5a6f9">&#9670;&#160;</a></span>ROLE_USER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str models.user.User.ROLE_USER = &quot;user&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00042">42</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6e858d4854e7b0f7245b5aa2fb140c34" name="a6e858d4854e7b0f7245b5aa2fb140c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e858d4854e7b0f7245b5aa2fb140c34">&#9670;&#160;</a></span>VALID_ROLES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple models.user.User.VALID_ROLES = (<a class="el" href="#a1c88ada40ce77b05f799b929f8b04df2">ROLE_GUEST</a>, <a class="el" href="#acef3b6003519a61cf4f5d31caad5a6f9">ROLE_USER</a>, <a class="el" href="#add5632ece942a1d2ea2dd990ccb2b3f8">ROLE_ADMIN</a>, <a class="el" href="#acda53e6f50db56cec33ee6a618784e07">ROLE_SUPER</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="user_8py_source.html">user.py</a> 第 <a class="el" href="user_8py_source.html#l00046">46</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>001 项目源码/models/<a class="el" href="user_8py_source.html">user.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespacemodels.html">models</a></li><li class="navelem"><a href="namespacemodels_1_1user.html">user</a></li><li class="navelem"><a href="classmodels_1_1user_1_1_user.html">User</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
