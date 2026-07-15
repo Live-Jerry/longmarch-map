@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>重走长征路: 版本日志</title>
+<title>我走长征路 - 长征文化数字平台: 版本日志</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">重走长征路
+   <div id="projectname">我走长征路 - 长征文化数字平台
    </div>
    <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
   </td>
@@ -120,17 +120,44 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md__c_h_a_n_g_
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+V1.0.1 (2026-07-15)</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+新增</h2>
+<ul>
+<li>面板打开转场动画（slide-in）</li>
+<li>TTS朗读高亮标注当前内容</li>
+<li>标题栏楷体艺术字</li>
+<li>星火拾遗按钮（右侧控制栏第7个）</li>
+<li>退出漫游按钮</li>
+<li>军队选择器：点击外部关闭 </li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+变更</h2>
+<ul>
+<li>设计文档修正：内同→内容、但前→当前、删除孤立段落</li>
+<li>设计文档更新：步骤2增加节点名字/时间段固定显示、激活点左侧定位、标题艺术字、自动缩放到路线</li>
+<li>漫游机制按新设计重写完成 </li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+固定</h2>
+<ul>
+<li>标题：我走长征路 → 我 走 长 征 路（字间距）</li>
+<li>地图：自动缩放至全路线范围（节点+路线合并）</li>
+<li>控制弹出面板：修复<span class="tt">style=display:none</span>覆盖CSS class问题</li>
+<li>设计文档错别字：内同→内容、但前→当前</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 变更说明</h2>
 <ul>
 <li>设计方案：V003 → V1.0.0（归档至 008 设计备份/V003/）</li>
 <li>节点信息：V004 → V1.0.0（新增 active_sections 字段，归档至 008 设计备份/V004/）</li>
 <li>版本号统一：代码 + 文档共用 V1.0.0</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 V1.0.0 (2026-07-15)</h1>
 <p>长征文化数字地图首个完整版本。对应设计方案 V1.0.0（原 V003 + 手动增强功能）。</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 ✨ 新增功能</h2>
 <ul>
 <li>军旗标记：红一方面军军旗 + 地名标签 + 微风吹拂动画（替代滴水形标记）</li>
@@ -145,7 +172,7 @@ V1.0.0 (2026-07-15)</h1>
 <li>星火拾遗后端：用户贡献内容提交→审核→发布完整流程</li>
 <li>加载封面动画（loading-overlay）</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 🔄 设计变更（V003 → V1.0.0）</h2>
 <ul>
 <li>控制栏：从右侧纵向 7 按钮 → 底部横向 8 按钮</li>
@@ -155,7 +182,7 @@ V1.0.0 (2026-07-15)</h1>
 <li>节点展示顺序：从 图片→战役→会议→事件→遗址→诗词→故事→人物→意义 改为 时间→战役→会议→事件→意义（扩展信息单独展示）</li>
 <li>JWT 有效期：从 24 小时延长至 7 天</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 ⏳ 待实现（排入后续版本）</h2>
 <ul>
 <li>节点照片：信息面板顶部显示该节点高清照片（资源不全时以军旗替代）</li>
@@ -165,7 +192,7 @@ V1.0.0 (2026-07-15)</h1>
 <li>节点搜索：按关键字搜索节点功能</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 V003 (2026-07-15)</h1>
 <p>设计方案版本。对应文件 <span class="tt">000 脚本策划/设计方案_V003.docx</span>。 </p>
 </div></div><!-- contents -->

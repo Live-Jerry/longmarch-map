@@ -42,7 +42,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "重走长征路"
+PROJECT_NAME           = "我走长征路 - 长征文化数字平台"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -1130,7 +1130,7 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which Doxygen is
 # run.
 
-EXCLUDE                =
+EXCLUDE                = AGENTS.md SOUL.md IDENTITY.md TOOLS.md USER.md HEARTBEAT.md MEMORY.md *.pyc __pycache__/ .git/ 009_变更记录/ memory/ 003 项目输出/ 005 代码备份/ 007 项目工具/ 008 设计备份/
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -1146,7 +1146,7 @@ EXCLUDE_SYMLINKS       = NO
 # Note that the wildcards are matched against the file with absolute path, so to
 # exclude all test directories for example use the pattern */test/*
 
-EXCLUDE                = ./AGENTS.md ./SOUL.md ./IDENTITY.md ./TOOLS.md ./USER.md ./HEARTBEAT.md ./MEMORY.md ./memory/ ./fix_doxygen.py ./docs/ ./docs_doxygen/
+EXCLUDE                = AGENTS.md SOUL.md IDENTITY.md TOOLS.md USER.md HEARTBEAT.md MEMORY.md *.pyc __pycache__/ .git/ 009_变更记录/ memory/ 003 项目输出/ 005 代码备份/ 007 项目工具/ 008 设计备份/ ./AGENTS.md ./SOUL.md ./IDENTITY.md ./TOOLS.md ./USER.md ./HEARTBEAT.md ./MEMORY.md ./memory/ ./fix_doxygen.py ./docs/ ./docs_doxygen/
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
@@ -1683,7 +1683,7 @@ GENERATE_HTMLHELP      = NO
 # written to the html output directory.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-CHM_FILE               =
+CHM_FILE               = longmarch.chm
 
 # The HHC_LOCATION tag can be used to specify the location (absolute path
 # including file name) of the HTML help compiler (hhc.exe). If non-empty,
@@ -1691,7 +1691,7 @@ CHM_FILE               =
 # The file has to be specified with full path.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-HHC_LOCATION           =
+# HHC_LOCATION           = (not installed, CHM unavailable)
 
 # The GENERATE_CHI flag controls if a separate .chi index file is generated
 # (YES) or that it should be included in the main .chm file (NO).

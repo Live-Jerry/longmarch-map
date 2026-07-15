@@ -24,23 +24,28 @@
 */
 var NAVTREE =
 [
-  [ "重走长征路", "index.html", [
+  [ "我走长征路 - 长征文化数字平台", "index.html", [
     [ "重走长征路 — 长征文化数字地图", "index.html", "index" ],
     [ "版本日志", "md__c_h_a_n_g_e_l_o_g.html", [
-      [ "V1.0.0 (2026-07-15)", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md2", [
-        [ "变更说明", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md1", null ],
-        [ "✨ 新增功能", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md3", null ],
-        [ "🔄 设计变更（V003 → V1.0.0）", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md4", null ],
-        [ "⏳ 待实现（排入后续版本）", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md5", null ]
+      [ "V1.0.1 (2026-07-15)", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md1", [
+        [ "新增", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md2", null ],
+        [ "变更", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md3", null ],
+        [ "固定", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md4", null ],
+        [ "变更说明", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md5", null ]
       ] ],
-      [ "V003 (2026-07-15)", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md7", null ]
+      [ "V1.0.0 (2026-07-15)", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md6", [
+        [ "✨ 新增功能", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md7", null ],
+        [ "🔄 设计变更（V003 → V1.0.0）", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md8", null ],
+        [ "⏳ 待实现（排入后续版本）", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md9", null ]
+      ] ],
+      [ "V003 (2026-07-15)", "md__c_h_a_n_g_e_l_o_g.html#autotoc_md11", null ]
     ] ],
     [ "开发路线图", "md__r_o_a_d_m_a_p.html", [
-      [ "V1.1.0 — 内容增强（优先级：高）", "md__r_o_a_d_m_a_p.html#autotoc_md17", null ],
-      [ "V1.2.0 — 交互增强（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md18", null ],
-      [ "V2.0.0 — 多军路线（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md19", null ],
-      [ "V2.1.0 — 用户共建（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md20", null ],
-      [ "V3.0.0 — 生产就绪（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md21", null ]
+      [ "V1.1.0 — 内容增强（优先级：高）", "md__r_o_a_d_m_a_p.html#autotoc_md21", null ],
+      [ "V1.2.0 — 交互增强（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md22", null ],
+      [ "V2.0.0 — 多军路线（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md23", null ],
+      [ "V2.1.0 — 用户共建（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md24", null ],
+      [ "V3.0.0 — 生产就绪（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md25", null ]
     ] ],
     [ "命名空间", "namespaces.html", [
       [ "命名空间列表", "namespaces.html", "namespaces_dup" ],
@@ -69,7 +74,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_xE9_x87_x8D_xE8_xB5_xB0_xE9_x95_xBF_xE5_xBE_x81_xE8_xB7_xAF_01_xE5_xBC_x98_xE6_x89_xAC_xE9_x95_9081c46b648d75e100fc2f08c87cc728.html",
-"namespaceconfig.html#a33d2a4c5197ba30a0670a65ca7075646"
+"namespaceapp.html#ae996542be63ac459a38531f7c2dd0a49"
 ];
 
 const SYNCONMSG = '点击 关闭 面板同步';

@@ -1,5 +1,6 @@
 var spark__api_8py =
 [
+    [ "api.spark_api.create_full_spark", "namespaceapi_1_1spark__api.html#a4f8c19740da0ce815e13758d8ab736fb", null ],
     [ "api.spark_api.delete_spark", "namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183", null ],
     [ "api.spark_api.err", "namespaceapi_1_1spark__api.html#afbefb92526e9410a9121fb89bb52e025", null ],
     [ "api.spark_api.get_spark", "namespaceapi_1_1spark__api.html#ade0cb15439549c4ba316831cf693a214", null ],

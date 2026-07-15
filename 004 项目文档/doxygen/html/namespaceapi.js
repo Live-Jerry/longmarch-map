@@ -46,6 +46,7 @@ var namespaceapi =
       [ "route_bp", "namespaceapi_1_1route__api.html#adde654c60624d6ac41bbed4a890cb803", null ]
     ] ],
     [ "spark_api", "namespaceapi_1_1spark__api.html", [
+      [ "create_full_spark", "namespaceapi_1_1spark__api.html#a4f8c19740da0ce815e13758d8ab736fb", null ],
       [ "delete_spark", "namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183", null ],
       [ "err", "namespaceapi_1_1spark__api.html#afbefb92526e9410a9121fb89bb52e025", null ],
       [ "get_spark", "namespaceapi_1_1spark__api.html#ade0cb15439549c4ba316831cf693a214", null ],

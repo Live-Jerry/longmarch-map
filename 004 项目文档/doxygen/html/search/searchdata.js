@@ -1,12 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "012_abcdeghijlmnoprstuv—→⏳✨交内变启多开待技新版生用设重长项🔄",
+  0: "012_abcdeghijlmnoprstuv—→⏳✨交内变启固多开待技新版生用设重长项🔄",
   1: "acdmnprstu",
-  2: "acmnrs重",
+  2: "acmnrst重",
   3: "_acmnrstu重",
   4: "_abcdeghilmnoprstuv",
   5: "_abcdehijlmnprstuv",
-  6: "012v—→⏳✨交内变启多开待技新版生用设重长项🔄"
+  6: "012v—→⏳✨交内变启固多开待技新版生用设重长项🔄"
 };
 
 var indexSectionNames =

@@ -38,5 +38,9 @@ var namespaces_dup =
       [ "main", "namespacerun.html#a51af30a60f9f02777c6396b8247e356f", null ]
     ] ],
     [ "services", "namespaceservices.html", "namespaceservices" ],
-    [ "spark_interface", "namespacespark__interface.html", null ]
+    [ "spark_interface", "namespacespark__interface.html", null ],
+    [ "tmp_update_doxy", "namespacetmp__update__doxy.html", [
+      [ "encoding", "namespacetmp__update__doxy.html#a3002b94faaabdc93a8651765533fe13f", null ],
+      [ "txt", "namespacetmp__update__doxy.html#ad2930f1b02cd05ec694fe0dba50a9633", null ]
+    ] ]
 ];
