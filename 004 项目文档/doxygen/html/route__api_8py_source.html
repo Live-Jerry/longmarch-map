@@ -7,20 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>我走长征路 - 长征文化数字平台: 001 项目源码/api/route_api.py 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="codefolding.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-mermaid.initialize({ startOnLoad: true, theme: theme });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -40,81 +26,28 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.17.0 -->
-<script type="text/javascript">
-let searchBox = new SearchBox("searchBox", "search/",'.html');
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', codefold.init);
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', () => {
-  initMenu('',true);
-  init_search();
-});
-</script>
-<div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
-</div>
-</div><!-- main-nav-mobile -->
 <div id="main-nav">
-  <ul class="sm sm-dox" id="main-menu">
-    <li id="searchBoxPos2" style="float:right">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-    </li>
-  </ul>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
 </div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_5afaca9fad7a88853b287149ac6623a5.html">api</a></li>  </ul>
+</div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py_source.html','',''); });
-</script>
-<div id="container">
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">载入中...</div>
-<div class="SRStatus" id="Searching">搜索中...</div>
-<div class="SRStatus" id="NoMatches">未找到</div>
-</div>
-</div>
-</div>
-</div>
-
 <div class="header">
   <div class="headertitle"><div class="title">route_api.py</div></div>
 </div><!--header-->
@@ -137,20 +70,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#adde654c60624d6ac41bbed4a890cb803">   16</a></span>route_bp = Blueprint(<span class="stringliteral">&quot;routes&quot;</span>, __name__)</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="" data-end="">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#a5df0c0f365cd81e210d52fa4326819ef">   19</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#a5df0c0f365cd81e210d52fa4326819ef">ok</a>(data=None, message=&quot;success&quot;):</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> jsonify({<span class="stringliteral">&quot;code&quot;</span>: 0, <span class="stringliteral">&quot;message&quot;</span>: message, <span class="stringliteral">&quot;data&quot;</span>: data}), 200</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-</div>
-<div class="foldopen" id="foldopen00023" data-start="" data-end="">
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#afbefb92526e9410a9121fb89bb52e025">   23</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#afbefb92526e9410a9121fb89bb52e025">err</a>(msg, code=1, status=400):</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> jsonify({<span class="stringliteral">&quot;code&quot;</span>: code, <span class="stringliteral">&quot;message&quot;</span>: msg}), status</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">@route_bp.route(&quot;&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00028" data-start="" data-end="">
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#a44f3081b93675898600ab22056978390">   28</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#a44f3081b93675898600ab22056978390">list_routes</a>():</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">    @fn    list_routes</span></div>
@@ -163,8 +91,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">@route_bp.route(&quot;/&lt;int:army&gt;&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00040" data-start="" data-end="">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#a27b6d609dd8024f0c703fd13aecd44ae">   40</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#a27b6d609dd8024f0c703fd13aecd44ae">get_route</a>(army):</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral">    @fn    get_route</span></div>
@@ -179,8 +105,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">@route_bp.route(&quot;/geojson&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00054" data-start="" data-end="">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#a8f2b971792556f8874ba97902cc47dbf">   54</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#a8f2b971792556f8874ba97902cc47dbf">get_geojson</a>():</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="stringliteral">    @fn    get_geojson</span></div>
@@ -194,8 +118,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">@route_bp.route(&quot;/autowalk&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00067" data-start="" data-end="">
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#a211962aa97815233855c8e2957fc6841">   67</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#a211962aa97815233855c8e2957fc6841">autowalk</a>():</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="stringliteral">    @fn    autowalk</span></div>
@@ -213,8 +135,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">@route_bp.route(&quot;/armies&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00084" data-start="" data-end="">
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespaceapi_1_1route__api.html#aa607c82062dec51528648ded41796fc6">   84</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1route__api.html#aa607c82062dec51528648ded41796fc6">list_armies</a>():</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="stringliteral">    @fn    list_armies</span></div>
@@ -226,7 +146,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">for</span> a, n <span class="keywordflow">in</span> RouteEngine.ARMY_NAMES.items()</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    ]</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceapi_1_1route__api.html#a5df0c0f365cd81e210d52fa4326819ef">ok</a>(armies)</div>
-</div>
 <div class="ttc" id="anamespaceapi_1_1route__api_html_a211962aa97815233855c8e2957fc6841"><div class="ttname"><a href="namespaceapi_1_1route__api.html#a211962aa97815233855c8e2957fc6841">api.route_api.autowalk</a></div><div class="ttdeci">autowalk()</div><div class="ttdef"><b>定义</b> <a href="#l00067">route_api.py:67</a></div></div>
 <div class="ttc" id="anamespaceapi_1_1route__api_html_a27b6d609dd8024f0c703fd13aecd44ae"><div class="ttname"><a href="namespaceapi_1_1route__api.html#a27b6d609dd8024f0c703fd13aecd44ae">api.route_api.get_route</a></div><div class="ttdeci">get_route(army)</div><div class="ttdef"><b>定义</b> <a href="#l00040">route_api.py:40</a></div></div>
 <div class="ttc" id="anamespaceapi_1_1route__api_html_a44f3081b93675898600ab22056978390"><div class="ttname"><a href="namespaceapi_1_1route__api.html#a44f3081b93675898600ab22056978390">api.route_api.list_routes</a></div><div class="ttdeci">list_routes()</div><div class="ttdef"><b>定义</b> <a href="#l00028">route_api.py:28</a></div></div>
@@ -236,14 +155,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('route__api_8py
 <div class="ttc" id="anamespaceapi_1_1route__api_html_afbefb92526e9410a9121fb89bb52e025"><div class="ttname"><a href="namespaceapi_1_1route__api.html#afbefb92526e9410a9121fb89bb52e025">api.route_api.err</a></div><div class="ttdeci">err(msg, code=1, status=400)</div><div class="ttdef"><b>定义</b> <a href="#l00023">route_api.py:23</a></div></div>
 <div class="ttc" id="anamespaceservices_1_1route__engine_html"><div class="ttname"><a href="namespaceservices_1_1route__engine.html">services.route_engine</a></div><div class="ttdef"><b>定义</b> <a href="route__engine_8py_source.html#l00001">route_engine.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_5afaca9fad7a88853b287149ac6623a5.html">api</a></li><li class="navelem"><a href="route__api_8py.html">route_api.py</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

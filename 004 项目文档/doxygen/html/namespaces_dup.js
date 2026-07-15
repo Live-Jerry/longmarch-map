@@ -39,8 +39,13 @@ var namespaces_dup =
     ] ],
     [ "services", "namespaceservices.html", "namespaceservices" ],
     [ "spark_interface", "namespacespark__interface.html", null ],
-    [ "tmp_update_doxy", "namespacetmp__update__doxy.html", [
-      [ "encoding", "namespacetmp__update__doxy.html#a3002b94faaabdc93a8651765533fe13f", null ],
-      [ "txt", "namespacetmp__update__doxy.html#ad2930f1b02cd05ec694fe0dba50a9633", null ]
+    [ "tmp_check_comments", "namespacetmp__check__comments.html", [
+      [ "encoding", "namespacetmp__check__comments.html#ab7a4b84ccaa9aac6b1616448fcb2a754", null ],
+      [ "idx", "namespacetmp__check__comments.html#a5a1f1e3a149dcf77cb92682510f6ff80", null ],
+      [ "lines", "namespacetmp__check__comments.html#ad6fdd455c8ab829c7ddb04b8c449898d", null ],
+      [ "path", "namespacetmp__check__comments.html#aad7bb0b6400f7a8b712d7df30945c3b7", null ],
+      [ "rest", "namespacetmp__check__comments.html#a262e42775b698eb0ed537a11b7180177", null ],
+      [ "s", "namespacetmp__check__comments.html#a0ee9dfb0a2a68b0ed6f74bb810b49f09", null ],
+      [ "src_dir", "namespacetmp__check__comments.html#ab8d92dec1b7fdbec8d511ce9ae35e814", null ]
     ] ]
 ];

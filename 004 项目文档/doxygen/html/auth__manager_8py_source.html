@@ -7,20 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>我走长征路 - 长征文化数字平台: 001 项目源码/services/auth_manager.py 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="codefolding.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-mermaid.initialize({ startOnLoad: true, theme: theme });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -40,81 +26,28 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.17.0 -->
-<script type="text/javascript">
-let searchBox = new SearchBox("searchBox", "search/",'.html');
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', codefold.init);
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', () => {
-  initMenu('',true);
-  init_search();
-});
-</script>
-<div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
-</div>
-</div><!-- main-nav-mobile -->
 <div id="main-nav">
-  <ul class="sm sm-dox" id="main-menu">
-    <li id="searchBoxPos2" style="float:right">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-    </li>
-  </ul>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
 </div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_7a51d0387a4e71e6942e6302ec2575b2.html">services</a></li>  </ul>
+</div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_8py_source.html','',''); });
-</script>
-<div id="container">
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">载入中...</div>
-<div class="SRStatus" id="Searching">搜索中...</div>
-<div class="SRStatus" id="NoMatches">未找到</div>
-</div>
-</div>
-</div>
-</div>
-
 <div class="header">
   <div class="headertitle"><div class="title">auth_manager.py</div></div>
 </div><!--header-->
@@ -140,7 +73,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacemodels_1_1user.html">models.user</a> <span class="keyword">import</span> User</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00022" data-start="" data-end="">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classservices_1_1auth__manager_1_1_auth_manager.html">AuthManager</a>:</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">    @class AuthManager</span></div>
@@ -149,17 +81,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="stringliteral">             令牌采用 HMAC-SHA256 签名，有效期 7 天。</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="" data-end="">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a9e113efd7dcf09ccabd41db059435bdf">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a9e113efd7dcf09ccabd41db059435bdf">__init__</a>(self):</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a6444f4b279c2e3ade08dbd10d09b2412">   31</a></span>        self.<a class="code hl_variable" href="classservices_1_1auth__manager_1_1_auth_manager.html#a6444f4b279c2e3ade08dbd10d09b2412">secret_key</a> = config.Config.SECRET_KEY.encode()</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#af84e674db33352e282b9e045a8c815a5">   32</a></span>        self.<a class="code hl_variable" href="classservices_1_1auth__manager_1_1_auth_manager.html#af84e674db33352e282b9e045a8c815a5">expiration</a> = config.Config.JWT_EXPIRATION_SECONDS</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment"># 令牌管理</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="" data-end="">
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#aea23bd9ee8feee4a35308530282c0726">   38</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#aea23bd9ee8feee4a35308530282c0726">generate_token</a>(self, user):</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">        @brief  为用户生成认证令牌</span></div>
@@ -187,8 +116,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> f<span class="stringliteral">&quot;{payload_b64}.{sig}&quot;</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-</div>
-<div class="foldopen" id="foldopen00065" data-start="" data-end="">
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#afa1429ccd33f1ea34c9e8774d224479e">   65</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#afa1429ccd33f1ea34c9e8774d224479e">verify_token</a>(self, token):</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">        @brief  验证令牌有效性</span></div>
@@ -224,8 +151,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">except</span> (ValueError, KeyError, json.JSONDecodeError):</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-</div>
-<div class="foldopen" id="foldopen00100" data-start="" data-end="">
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a230d73ac163d0173d2557f34134a1004">  100</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a230d73ac163d0173d2557f34134a1004">token_from_request</a>(self, request):</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="stringliteral">        @brief  从 Flask 请求中提取令牌</span></div>
@@ -240,8 +165,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="comment"># 其次从 URL query 参数获取</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> request.args.get(<span class="stringliteral">&quot;token&quot;</span>)</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-</div>
-<div class="foldopen" id="foldopen00114" data-start="" data-end="">
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a350ed6dfabb3ac29324558fdd4d19eea">  114</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a350ed6dfabb3ac29324558fdd4d19eea">current_user</a>(self, request):</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="stringliteral">        @brief  获取当前请求的登录用户</span></div>
@@ -257,12 +180,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="comment"># 重新从数据库获取最新用户信息</span></div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> User.get_by_id(payload[<span class="stringliteral">&quot;user_id&quot;</span>])</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment"># 认证操作</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="foldopen" id="foldopen00133" data-start="" data-end="">
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a51a2b259b5b02368ec6252a84c65d3e1">  133</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a51a2b259b5b02368ec6252a84c65d3e1">register</a>(self, username, password):</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="stringliteral">        @brief  用户注册</span></div>
@@ -280,8 +201,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        token = self.<a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#aea23bd9ee8feee4a35308530282c0726">generate_token</a>(user)</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> user, token</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-</div>
-<div class="foldopen" id="foldopen00150" data-start="" data-end="">
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#ab4a068eab94cda3b89a14a68c8f8e9ba">  150</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#ab4a068eab94cda3b89a14a68c8f8e9ba">login</a>(self, username, password):</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="stringliteral">        @brief  用户登录</span></div>
@@ -296,13 +215,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        token = self.<a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#aea23bd9ee8feee4a35308530282c0726">generate_token</a>(user)</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">return</span> user, token</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="comment"># 权限检查</span></div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="comment"># =========================================================================</span></div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="preprocessor">@staticmethod</span></div>
-<div class="foldopen" id="foldopen00169" data-start="" data-end="">
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a13c198effb8a015c8830bc7e8845d090">  169</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a13c198effb8a015c8830bc7e8845d090">require_login</a>(request):</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="stringliteral">        @brief  要求用户已登录，否则抛出异常</span></div>
@@ -314,9 +231,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">raise</span> PermissionError(<span class="stringliteral">&quot;请先登录&quot;</span>)</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordflow">return</span> user</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="preprocessor">@staticmethod</span></div>
-<div class="foldopen" id="foldopen00181" data-start="" data-end="">
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#a60b3b621f9e8ef988c7e9cfaa5397ebf">  181</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#a60b3b621f9e8ef988c7e9cfaa5397ebf">require_admin</a>(request):</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="stringliteral">        @brief  要求用户具有管理员权限</span></div>
@@ -327,9 +242,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keywordflow">raise</span> PermissionError(<span class="stringliteral">&quot;需要管理员权限&quot;</span>)</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">return</span> user</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="preprocessor">@staticmethod</span></div>
-<div class="foldopen" id="foldopen00192" data-start="" data-end="">
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classservices_1_1auth__manager_1_1_auth_manager.html#ae292f6e5b269d5301da3d3ef2f693067">  192</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classservices_1_1auth__manager_1_1_auth_manager.html#ae292f6e5b269d5301da3d3ef2f693067">require_super</a>(request):</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="stringliteral">        @brief  要求用户具有超级管理员权限</span></div>
@@ -339,8 +252,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> User.is_super(user):</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="keywordflow">raise</span> PermissionError(<span class="stringliteral">&quot;需要超级管理员权限&quot;</span>)</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">return</span> user</div>
-</div>
-</div>
 <div class="ttc" id="aclassservices_1_1auth__manager_1_1_auth_manager_html"><div class="ttname"><a href="classservices_1_1auth__manager_1_1_auth_manager.html">services.auth_manager.AuthManager</a></div><div class="ttdef"><b>定义</b> <a href="#l00022">auth_manager.py:22</a></div></div>
 <div class="ttc" id="aclassservices_1_1auth__manager_1_1_auth_manager_html_a13c198effb8a015c8830bc7e8845d090"><div class="ttname"><a href="classservices_1_1auth__manager_1_1_auth_manager.html#a13c198effb8a015c8830bc7e8845d090">services.auth_manager.AuthManager.require_login</a></div><div class="ttdeci">require_login(request)</div><div class="ttdef"><b>定义</b> <a href="#l00169">auth_manager.py:169</a></div></div>
 <div class="ttc" id="aclassservices_1_1auth__manager_1_1_auth_manager_html_a230d73ac163d0173d2557f34134a1004"><div class="ttname"><a href="classservices_1_1auth__manager_1_1_auth_manager.html#a230d73ac163d0173d2557f34134a1004">services.auth_manager.AuthManager.token_from_request</a></div><div class="ttdeci">token_from_request(self, request)</div><div class="ttdef"><b>定义</b> <a href="#l00100">auth_manager.py:100</a></div></div>
@@ -356,14 +267,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('auth__manager_
 <div class="ttc" id="aclassservices_1_1auth__manager_1_1_auth_manager_html_afa1429ccd33f1ea34c9e8774d224479e"><div class="ttname"><a href="classservices_1_1auth__manager_1_1_auth_manager.html#afa1429ccd33f1ea34c9e8774d224479e">services.auth_manager.AuthManager.verify_token</a></div><div class="ttdeci">verify_token(self, token)</div><div class="ttdef"><b>定义</b> <a href="#l00065">auth_manager.py:65</a></div></div>
 <div class="ttc" id="anamespacemodels_1_1user_html"><div class="ttname"><a href="namespacemodels_1_1user.html">models.user</a></div><div class="ttdef"><b>定义</b> <a href="user_8py_source.html#l00001">user.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_7a51d0387a4e71e6942e6302ec2575b2.html">services</a></li><li class="navelem"><a href="auth__manager_8py.html">auth_manager.py</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

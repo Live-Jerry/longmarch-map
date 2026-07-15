@@ -1,4 +1,4 @@
-# Doxyfile 1.17.0
+﻿# Doxyfile 1.17.0
 
 # This file describes the settings to be used by the documentation system
 # Doxygen (www.doxygen.org) for a project.
@@ -1676,7 +1676,7 @@ DOCSET_PUBLISHER_NAME  = Publisher
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-GENERATE_HTMLHELP      = NO
+GENERATE_HTMLHELP      = YES
 
 # The CHM_FILE tag can be used to specify the file name of the resulting .chm
 # file. You can add a path in front of the file if the result should not be
@@ -1685,13 +1685,13 @@ GENERATE_HTMLHELP      = NO
 
 CHM_FILE               = longmarch.chm
 
-# The HHC_LOCATION tag can be used to specify the location (absolute path
+HHC_LOCATION           = "C:\Program Files (x86)\HTML Help Workshop\hhc.exe"
 # including file name) of the HTML help compiler (hhc.exe). If non-empty,
 # Doxygen will try to run the HTML help compiler on the generated index.hhp.
 # The file has to be specified with full path.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-# HHC_LOCATION           = (not installed, CHM unavailable)
+# HHC_LOCATION           = C:\Program Files (x86)\HTML Help Workshop\hhc.exe
 
 # The GENERATE_CHI flag controls if a separate .chi index file is generated
 # (YES) or that it should be included in the main .chm file (NO).

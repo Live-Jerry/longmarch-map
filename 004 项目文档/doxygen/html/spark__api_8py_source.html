@@ -7,20 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>我走长征路 - 长征文化数字平台: 001 项目源码/api/spark_api.py 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="codefolding.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-mermaid.initialize({ startOnLoad: true, theme: theme });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -40,81 +26,28 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.17.0 -->
-<script type="text/javascript">
-let searchBox = new SearchBox("searchBox", "search/",'.html');
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', codefold.init);
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', () => {
-  initMenu('',true);
-  init_search();
-});
-</script>
-<div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
-</div>
-</div><!-- main-nav-mobile -->
 <div id="main-nav">
-  <ul class="sm sm-dox" id="main-menu">
-    <li id="searchBoxPos2" style="float:right">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-    </li>
-  </ul>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
 </div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_5afaca9fad7a88853b287149ac6623a5.html">api</a></li>  </ul>
+</div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py_source.html','',''); });
-</script>
-<div id="container">
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">载入中...</div>
-<div class="SRStatus" id="Searching">搜索中...</div>
-<div class="SRStatus" id="NoMatches">未找到</div>
-</div>
-</div>
-</div>
-</div>
-
 <div class="header">
   <div class="headertitle"><div class="title">spark_api.py</div></div>
 </div><!--header-->
@@ -140,13 +73,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a4472947904cba9ab3842b69015cd3065">   19</a></span>spark_bp = Blueprint(<span class="stringliteral">&quot;sparks&quot;</span>, __name__)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00022" data-start="" data-end="">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a5df0c0f365cd81e210d52fa4326819ef">   22</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a5df0c0f365cd81e210d52fa4326819ef">ok</a>(data=None, message=&quot;success&quot;):</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> jsonify({<span class="stringliteral">&quot;code&quot;</span>: 0, <span class="stringliteral">&quot;message&quot;</span>: message, <span class="stringliteral">&quot;data&quot;</span>: data}), 200</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-</div>
-<div class="foldopen" id="foldopen00026" data-start="" data-end="">
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#afbefb92526e9410a9121fb89bb52e025">   26</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#afbefb92526e9410a9121fb89bb52e025">err</a>(msg, code=1, status=400):</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> jsonify({<span class="stringliteral">&quot;code&quot;</span>: code, <span class="stringliteral">&quot;message&quot;</span>: msg}), status</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
@@ -156,8 +86,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"># =============================================================================</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">@spark_bp.route(&quot;&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00035" data-start="" data-end="">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a8d2eec3571344b853de8042f22c8c879">   35</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a8d2eec3571344b853de8042f22c8c879">list_sparks</a>():</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">    @fn    list_sparks</span></div>
@@ -175,8 +103,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">@spark_bp.route(&quot;/&lt;int:spark_id&gt;&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00052" data-start="" data-end="">
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#ade0cb15439549c4ba316831cf693a214">   52</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#ade0cb15439549c4ba316831cf693a214">get_spark</a>(spark_id):</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="stringliteral">    @fn    get_spark</span></div>
@@ -197,8 +123,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">@spark_bp.route(&quot;/stats&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00072" data-start="" data-end="">
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a35ddb4822c02f202f8521fc0cf36db09">   72</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a35ddb4822c02f202f8521fc0cf36db09">spark_stats</a>():</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">    @fn    spark_stats</span></div>
@@ -213,8 +137,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"># =============================================================================</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">@spark_bp.route(&quot;&quot;, methods=[&quot;POST&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00086" data-start="" data-end="">
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#ac445a65d6b153985629a864a0c609007">   86</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#ac445a65d6b153985629a864a0c609007">submit_spark</a>():</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="stringliteral">    @fn    submit_spark</span></div>
@@ -241,8 +163,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">@spark_bp.route(&quot;/my&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00112" data-start="" data-end="">
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#ab427d7e93210fdd96925043508140285">  112</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#ab427d7e93210fdd96925043508140285">my_sparks</a>():</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="stringliteral">    @fn    my_sparks</span></div>
@@ -264,8 +184,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"># =============================================================================</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">@spark_bp.route(&quot;/pending&quot;, methods=[&quot;GET&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00133" data-start="" data-end="">
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a7ef8dd304ee5f6d73c8922be7918dc23">  133</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a7ef8dd304ee5f6d73c8922be7918dc23">pending_sparks</a>():</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="stringliteral">    @fn    pending_sparks</span></div>
@@ -281,8 +199,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">@spark_bp.route(&quot;/&lt;int:spark_id&gt;/review&quot;, methods=[&quot;PUT&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00148" data-start="" data-end="">
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#ab8d174000a43b418e2cfd32a8f35a059">  148</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#ab8d174000a43b418e2cfd32a8f35a059">review_spark</a>(spark_id):</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="stringliteral">    @fn    review_spark</span></div>
@@ -312,8 +228,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">@spark_bp.route(&quot;/&lt;int:spark_id&gt;&quot;, methods=[&quot;DELETE&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00177" data-start="" data-end="">
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183">  177</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183">delete_spark</a>(spark_id):</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="stringliteral">    @fn    delete_spark</span></div>
@@ -331,8 +245,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">@spark_bp.route(&quot;/full&quot;, methods=[&quot;POST&quot;])</span></div>
-</div>
-<div class="foldopen" id="foldopen00194" data-start="" data-end="">
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="namespaceapi_1_1spark__api.html#a4f8c19740da0ce815e13758d8ab736fb">  194</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceapi_1_1spark__api.html#a4f8c19740da0ce815e13758d8ab736fb">create_full_spark</a>():</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="stringliteral">    @fn    create_full_spark</span></div>
@@ -448,7 +360,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    result = Spark.create(spark_data)</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceapi_1_1spark__api.html#a5df0c0f365cd81e210d52fa4326819ef">ok</a>(data={<span class="stringliteral">&quot;id&quot;</span>: result[<span class="stringliteral">&quot;id&quot;</span>]}, message=<span class="stringliteral">&quot;星火提交成功，等待审核&quot;</span>)</div>
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-</div>
 <div class="ttc" id="aclassservices_1_1auth__manager_1_1_auth_manager_html"><div class="ttname"><a href="classservices_1_1auth__manager_1_1_auth_manager.html">services.auth_manager.AuthManager</a></div><div class="ttdef"><b>定义</b> <a href="auth__manager_8py_source.html#l00022">auth_manager.py:22</a></div></div>
 <div class="ttc" id="anamespaceapi_1_1spark__api_html_a35ddb4822c02f202f8521fc0cf36db09"><div class="ttname"><a href="namespaceapi_1_1spark__api.html#a35ddb4822c02f202f8521fc0cf36db09">api.spark_api.spark_stats</a></div><div class="ttdeci">spark_stats()</div><div class="ttdef"><b>定义</b> <a href="#l00072">spark_api.py:72</a></div></div>
 <div class="ttc" id="anamespaceapi_1_1spark__api_html_a3f4788bc79d5607e7f60771cc45ea183"><div class="ttname"><a href="namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183">api.spark_api.delete_spark</a></div><div class="ttdeci">delete_spark(spark_id)</div><div class="ttdef"><b>定义</b> <a href="#l00177">spark_api.py:177</a></div></div>
@@ -466,14 +377,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('spark__api_8py
 <div class="ttc" id="anamespaceservices_1_1node__manager_html"><div class="ttname"><a href="namespaceservices_1_1node__manager.html">services.node_manager</a></div><div class="ttdef"><b>定义</b> <a href="node__manager_8py_source.html#l00001">node_manager.py:1</a></div></div>
 <div class="ttc" id="anamespaceservices_1_1spark__manager_html"><div class="ttname"><a href="namespaceservices_1_1spark__manager.html">services.spark_manager</a></div><div class="ttdef"><b>定义</b> <a href="spark__manager_8py_source.html#l00001">spark_manager.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_5afaca9fad7a88853b287149ac6623a5.html">api</a></li><li class="navelem"><a href="spark__api_8py.html">spark_api.py</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

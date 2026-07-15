@@ -7,20 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>我走长征路 - 长征文化数字平台: 001 项目源码/config.py 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="codefolding.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-mermaid.initialize({ startOnLoad: true, theme: theme });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -40,81 +26,28 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.17.0 -->
-<script type="text/javascript">
-let searchBox = new SearchBox("searchBox", "search/",'.html');
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', codefold.init);
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', () => {
-  initMenu('',true);
-  init_search();
-});
-</script>
-<div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
-</div>
-</div><!-- main-nav-mobile -->
 <div id="main-nav">
-  <ul class="sm sm-dox" id="main-menu">
-    <li id="searchBoxPos2" style="float:right">
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-    </li>
-  </ul>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
 </div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li>  </ul>
+</div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_source.html','',''); });
-</script>
-<div id="container">
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">载入中...</div>
-<div class="SRStatus" id="Searching">搜索中...</div>
-<div class="SRStatus" id="NoMatches">未找到</div>
-</div>
-</div>
-</div>
-</div>
-
 <div class="header">
   <div class="headertitle"><div class="title">config.py</div></div>
 </div><!--header-->
@@ -157,7 +90,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_sou
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"># Flask 配置</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"># =============================================================================</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="" data-end="">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classconfig_1_1_config.html">   39</a></span><span class="keyword">class </span><a class="code hl_class" href="classconfig_1_1_config.html">Config</a>:</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="stringliteral">&quot;&quot;&quot;Flask 全局配置基类&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment"># Flask 密钥（生产环境请使用随机字符串）</span></div>
@@ -192,16 +124,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_sou
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classconfig_1_1_config.html#ac6274efddae13671c9f2c2c86bd1bd42">   70</a></span>    SPARK_PENDING_THRESHOLD = 10</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-</div>
-<div class="foldopen" id="foldopen00073" data-start="" data-end="">
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classconfig_1_1_development_config.html">   73</a></span><span class="keyword">class </span><a class="code hl_class" href="classconfig_1_1_development_config.html">DevelopmentConfig</a>(<a class="code hl_class" href="classconfig_1_1_config.html">Config</a>):</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="stringliteral">&quot;&quot;&quot;开发环境配置&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classconfig_1_1_development_config.html#a76d4a07208b399c3404306067f64a05b">   75</a></span>    DEBUG = <span class="keyword">True</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classconfig_1_1_development_config.html#a23a1e357d874d2f18796fb9d3cbaa41c">   76</a></span>    TESTING = <span class="keyword">False</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-</div>
-<div class="foldopen" id="foldopen00079" data-start="" data-end="">
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classconfig_1_1_production_config.html">   79</a></span><span class="keyword">class </span><a class="code hl_class" href="classconfig_1_1_production_config.html">ProductionConfig</a>(<a class="code hl_class" href="classconfig_1_1_config.html">Config</a>):</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="stringliteral">&quot;&quot;&quot;生产环境配置&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classconfig_1_1_production_config.html#a8676adf2707dcfca29e6676cb3716a66">   81</a></span>    DEBUG = <span class="keyword">False</span></div>
@@ -209,8 +137,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_sou
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment"># SECRET_KEY 应通过环境变量注入</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-</div>
-<div class="foldopen" id="foldopen00086" data-start="" data-end="">
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classconfig_1_1_testing_config.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="classconfig_1_1_testing_config.html">TestingConfig</a>(<a class="code hl_class" href="classconfig_1_1_config.html">Config</a>):</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="stringliteral">&quot;&quot;&quot;测试环境配置&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classconfig_1_1_testing_config.html#ae9c697644e354177ecaa76ea6eebe2a1">   88</a></span>    DEBUG = <span class="keyword">True</span></div>
@@ -219,7 +145,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_sou
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"># 配置字典，按环境切换</span></div>
-</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespaceconfig.html#afb83f30bd51ac68598f2be1c0d763620">   94</a></span>config_dict = {</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="stringliteral">&quot;development&quot;</span>: DevelopmentConfig,</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="stringliteral">&quot;production&quot;</span>: ProductionConfig,</div>
@@ -228,27 +153,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('config_8py_sou
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="foldopen" id="foldopen00102" data-start="" data-end="">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespaceconfig.html#a9e108909c28754327abd584d8fc26490">  102</a></span><span class="keyword">def </span><a class="code hl_function" href="namespaceconfig.html#a9e108909c28754327abd584d8fc26490">get_config</a>(env=None):</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="stringliteral">&quot;&quot;&quot;获取指定环境的配置类&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> env <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        env = os.environ.get(<span class="stringliteral">&quot;FLASK_ENV&quot;</span>, <span class="stringliteral">&quot;default&quot;</span>)</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">return</span> config_dict.get(env, DevelopmentConfig)</div>
-</div>
 <div class="ttc" id="aclassconfig_1_1_config_html"><div class="ttname"><a href="classconfig_1_1_config.html">config.Config</a></div><div class="ttdef"><b>定义</b> <a href="#l00039">config.py:39</a></div></div>
 <div class="ttc" id="aclassconfig_1_1_development_config_html"><div class="ttname"><a href="classconfig_1_1_development_config.html">config.DevelopmentConfig</a></div><div class="ttdef"><b>定义</b> <a href="#l00073">config.py:73</a></div></div>
 <div class="ttc" id="aclassconfig_1_1_production_config_html"><div class="ttname"><a href="classconfig_1_1_production_config.html">config.ProductionConfig</a></div><div class="ttdef"><b>定义</b> <a href="#l00079">config.py:79</a></div></div>
 <div class="ttc" id="aclassconfig_1_1_testing_config_html"><div class="ttname"><a href="classconfig_1_1_testing_config.html">config.TestingConfig</a></div><div class="ttdef"><b>定义</b> <a href="#l00086">config.py:86</a></div></div>
 <div class="ttc" id="anamespaceconfig_html_a9e108909c28754327abd584d8fc26490"><div class="ttname"><a href="namespaceconfig.html#a9e108909c28754327abd584d8fc26490">config.get_config</a></div><div class="ttdeci">get_config(env=None)</div><div class="ttdef"><b>定义</b> <a href="#l00102">config.py:102</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="config_8py.html">config.py</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>
