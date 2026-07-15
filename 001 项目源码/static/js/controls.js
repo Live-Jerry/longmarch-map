@@ -158,6 +158,7 @@ function showSpeedSelector() {
         ss.style.bottom = "auto";
     }
 
+    ss.style.display = "";  // 清除 stopAutowalk 设置的 display:none
     ss.classList.add("visible");
 
     // 高亮当前速度
@@ -504,6 +505,7 @@ function showPlayControls() {
         pc.style.bottom = "auto";
     }
 
+    pc.style.display = "";  // 清除 stopAutowalk 设置的 display:none
     pc.classList.add("visible");
     // 重置暂停按钮状态
     const ppIcon = document.getElementById("btn-play-pause")?.querySelector(".icon");
@@ -640,8 +642,12 @@ function stopAutowalk() {
     autowalkState.paused = false;
 
     document.getElementById("autowalk-label").textContent = "漫游";
-    document.getElementById("speed-selector")?.classList.remove("visible");
-    document.getElementById("play-controls")?.classList.remove("visible");
+
+    // 关闭所有漫游子菜单
+    var ss = document.getElementById("speed-selector");
+    if (ss) { ss.classList.remove("visible"); ss.style.display = "none"; }
+    var pc = document.getElementById("play-controls");
+    if (pc) { pc.classList.remove("visible"); pc.style.display = "none"; }
 
     setActiveControl(null);
     console.log("[Autowalk] 已停止");
