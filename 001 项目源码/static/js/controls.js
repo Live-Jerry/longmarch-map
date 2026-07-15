@@ -768,16 +768,34 @@ function selectArmy(army) {
 // ============================================================================
 
 /**
+ * @function closeMessageBoard
+ * @brief 关闭留言板
+ */
+function closeMessageBoard() {
+    const el = document.getElementById("message-board");
+    if (!el) return;
+    messageBoardOpen = false;
+    el.classList.remove("visible");
+    el.style.display = "none";
+    setActiveControl(null);
+}
+
+/**
  * @function toggleMessageBoard
  * @brief 显示/隐藏留言板
  */
 function toggleMessageBoard() {
     const el = document.getElementById("message-board");
     if (!el) return;
-    messageBoardOpen = !messageBoardOpen;
-    el.classList.toggle("visible", messageBoardOpen);
-    setActiveControl(messageBoardOpen ? "message" : null);
-    if (messageBoardOpen) loadMessages();
+    if (el.classList.contains("visible")) {
+        closeMessageBoard();
+        return;
+    }
+    messageBoardOpen = true;
+    el.style.display = "";
+    el.classList.add("visible");
+    setActiveControl("message");
+    loadMessages();
 }
 
 /**

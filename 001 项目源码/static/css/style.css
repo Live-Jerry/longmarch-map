@@ -783,10 +783,33 @@ a:hover {
     display: flex;
 }
 
-#message-board h3 {
-    font-size: 14px;
+.msg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 12px;
+}
+
+.msg-header h3 {
+    font-size: 14px;
+    margin: 0;
     color: var(--color-light);
+}
+
+.msg-close {
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    line-height: 1;
+}
+
+.msg-close:hover {
+    color: var(--color-light);
+    background: rgba(255,255,255,0.1);
 }
 
 .message-list {
