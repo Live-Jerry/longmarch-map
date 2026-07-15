@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['be_20proactive_0',['💓 Heartbeats - Be Proactive!',['../md__a_g_e_n_t_s.html#autotoc_md14',1,'']]],
-  ['below_20when_20you_20want_20the_20agent_20to_20check_20something_20periodically_1',['Add tasks below when you want the agent to check something periodically.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md28',1,'']]],
-  ['boundaries_2',['Boundaries',['../md__s_o_u_l.html#autotoc_md65',1,'']]]
+  ['—_20交互增强（优先级：中）_0',['V1.2.0 — 交互增强（优先级：中）',['../md__r_o_a_d_m_a_p.html#autotoc_md18',1,'']]],
+  ['—_20内容增强（优先级：高）_1',['V1.1.0 — 内容增强（优先级：高）',['../md__r_o_a_d_m_a_p.html#autotoc_md17',1,'']]],
+  ['—_20多军路线（优先级：中）_2',['V2.0.0 — 多军路线（优先级：中）',['../md__r_o_a_d_m_a_p.html#autotoc_md19',1,'']]],
+  ['—_20生产就绪（优先级：低）_3',['V3.0.0 — 生产就绪（优先级：低）',['../md__r_o_a_d_m_a_p.html#autotoc_md21',1,'']]],
+  ['—_20用户共建（优先级：低）_4',['V2.1.0 — 用户共建（优先级：低）',['../md__r_o_a_d_m_a_p.html#autotoc_md20',1,'']]],
+  ['—_20长征文化数字地图_5',['重走长征路 — 长征文化数字地图',['../index.html',1,'']]]
 ];

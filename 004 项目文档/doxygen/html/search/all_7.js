@@ -8,8 +8,5 @@ var searchData=
   ['delete_5',['delete',['../classmodels_1_1media_1_1_media.html#a3bda04159348a00e5fcff48bb4118205',1,'models.media.Media.delete()'],['../classmodels_1_1node_1_1_node.html#ab1761876ba32e6eb652c69330e82f2db',1,'models.node.Node.delete()'],['../classmodels_1_1spark_1_1_spark.html#aa75424c7da9cc476c2b257f19e3da4ad',1,'models.spark.Spark.delete()'],['../classmodels_1_1user_1_1_user.html#a8da9d5ad575e34bfcb46bea8991840ec',1,'models.user.User.delete()']]],
   ['delete_5fnode_6',['delete_node',['../namespaceapi_1_1node__api.html#a9e5dfa2be156b028c33b610ad03a2cec',1,'api::node_api']]],
   ['delete_5fspark_7',['delete_spark',['../namespaceapi_1_1spark__api.html#a3f4788bc79d5607e7f60771cc45ea183',1,'api::spark_api']]],
-  ['developmentconfig_8',['DevelopmentConfig',['../classconfig_1_1_development_config.html',1,'config']]],
-  ['down_20no_20mental_20notes_9',['📝 Write It Down - No &quot;Mental Notes&quot;!',['../md__a_g_e_n_t_s.html#autotoc_md6',1,'']]],
-  ['doxygen_5fexe_10',['doxygen_exe',['../namespacerun__doxygen2.html#acbaa3f054bf84ff3890bb07a50864907',1,'run_doxygen2']]],
-  ['during_20heartbeats_11',['🔄 Memory Maintenance (During Heartbeats)',['../md__a_g_e_n_t_s.html#autotoc_md16',1,'']]]
+  ['developmentconfig_8',['DevelopmentConfig',['../classconfig_1_1_development_config.html',1,'config']]]
 ];

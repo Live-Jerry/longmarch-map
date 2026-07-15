@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['ok_0',['ok',['../namespaceapi_1_1auth__api.html#a5df0c0f365cd81e210d52fa4326819ef',1,'api.auth_api.ok()'],['../namespaceapi_1_1media__api.html#a5df0c0f365cd81e210d52fa4326819ef',1,'api.media_api.ok()'],['../namespaceapi_1_1node__api.html#a5df0c0f365cd81e210d52fa4326819ef',1,'api.node_api.ok()'],['../namespaceapi_1_1route__api.html#a5df0c0f365cd81e210d52fa4326819ef',1,'api.route_api.ok()'],['../namespaceapi_1_1spark__api.html#a5df0c0f365cd81e210d52fa4326819ef',1,'api.spark_api.ok()']]],
-  ['only_20comments_20to_20skip_20heartbeat_20api_20calls_1',['Keep this file empty (or with only comments) to skip heartbeat API calls.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md27',1,'']]],
-  ['or_20with_20only_20comments_20to_20skip_20heartbeat_20api_20calls_2',['Keep this file empty (or with only comments) to skip heartbeat API calls.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md27',1,'']]]
+  ['rate_0',['rate',['../classservices_1_1tts__service_1_1_t_t_s_config.html#ab35382f4a1cd7bec4e599f9d4ed004ae',1,'services::tts_service::TTSConfig']]],
+  ['readme_2emd_1',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['register_2',['register',['../classservices_1_1auth__manager_1_1_auth_manager.html#a51a2b259b5b02368ec6252a84c65d3e1',1,'services.auth_manager.AuthManager.register()'],['../namespaceapi_1_1auth__api.html#acc294a6cc8e69743746820e3d15e3f78',1,'api.auth_api.register()']]],
+  ['remove_5fnode_3',['remove_node',['../classservices_1_1node__manager_1_1_node_manager.html#af95c29357ef5afb6a57e145e7cdf507f',1,'services::node_manager::NodeManager']]],
+  ['require_5fadmin_4',['require_admin',['../classservices_1_1auth__manager_1_1_auth_manager.html#a60b3b621f9e8ef988c7e9cfaa5397ebf',1,'services::auth_manager::AuthManager']]],
+  ['require_5flogin_5',['require_login',['../classservices_1_1auth__manager_1_1_auth_manager.html#a13c198effb8a015c8830bc7e8845d090',1,'services::auth_manager::AuthManager']]],
+  ['require_5fsuper_6',['require_super',['../classservices_1_1auth__manager_1_1_auth_manager.html#ae292f6e5b269d5301da3d3ef2f693067',1,'services::auth_manager::AuthManager']]],
+  ['review_7',['review',['../classmodels_1_1spark_1_1_spark.html#acb37c6c63d77704bb4b9c8b4266bfa9b',1,'models::spark::Spark']]],
+  ['review_5fmedia_8',['review_media',['../classservices_1_1media__manager_1_1_media_manager.html#a018b9451baffd279cb6a6ab674c79f8a',1,'services.media_manager.MediaManager.review_media()'],['../namespaceapi_1_1media__api.html#ae974f8bfb1df9929e26e7e253d78e5ed',1,'api.media_api.review_media()']]],
+  ['review_5fspark_9',['review_spark',['../classservices_1_1spark__manager_1_1_spark_manager.html#a10508d39a5086083dad456f499e2d357',1,'services.spark_manager.SparkManager.review_spark()'],['../namespaceapi_1_1spark__api.html#ab8d174000a43b418e2cfd32a8f35a059',1,'api.spark_api.review_spark()']]],
+  ['roadmap_2emd_10',['ROADMAP.md',['../_r_o_a_d_m_a_p_8md.html',1,'']]],
+  ['role_5fadmin_11',['ROLE_ADMIN',['../classmodels_1_1user_1_1_user.html#add5632ece942a1d2ea2dd990ccb2b3f8',1,'models::user::User']]],
+  ['role_5fguest_12',['ROLE_GUEST',['../classmodels_1_1user_1_1_user.html#a1c88ada40ce77b05f799b929f8b04df2',1,'models::user::User']]],
+  ['role_5fsuper_13',['ROLE_SUPER',['../classmodels_1_1user_1_1_user.html#acda53e6f50db56cec33ee6a618784e07',1,'models::user::User']]],
+  ['role_5fuser_14',['ROLE_USER',['../classmodels_1_1user_1_1_user.html#acef3b6003519a61cf4f5d31caad5a6f9',1,'models::user::User']]],
+  ['route_5fapi_2epy_15',['route_api.py',['../route__api_8py.html',1,'']]],
+  ['route_5fbp_16',['route_bp',['../namespaceapi_1_1route__api.html#adde654c60624d6ac41bbed4a890cb803',1,'api::route_api']]],
+  ['route_5fengine_2epy_17',['route_engine.py',['../route__engine_8py.html',1,'']]],
+  ['route_5finterface_18',['route_interface',['../namespaceroute__interface.html',1,'']]],
+  ['route_5finterface_2epy_19',['route_interface.py',['../route__interface_8py.html',1,'']]],
+  ['routeengine_20',['RouteEngine',['../classservices_1_1route__engine_1_1_route_engine.html',1,'services::route_engine']]],
+  ['run_21',['run',['../namespacerun.html',1,'']]],
+  ['run_2epy_22',['run.py',['../run_8py.html',1,'']]]
 ];

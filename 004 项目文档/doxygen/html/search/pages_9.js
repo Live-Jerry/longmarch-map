@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['goes_20here_0',['What Goes Here',['../md__t_o_o_l_s.html#autotoc_md71',1,'']]],
-  ['group_20chats_1',['Group Chats',['../md__a_g_e_n_t_s.html#autotoc_md10',1,'']]]
+  ['内容增强（优先级：高）_0',['V1.1.0 — 内容增强（优先级：高）',['../md__r_o_a_d_m_a_p.html#autotoc_md17',1,'']]]
 ];

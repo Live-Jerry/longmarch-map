@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['a_20human_0',['😊 React Like a Human!',['../md__a_g_e_n_t_s.html#autotoc_md12',1,'']]],
-  ['about_20your_20human_1',['USER.md - About Your Human',['../md__u_s_e_r.html',1,'']]],
-  ['add_20tasks_20below_20when_20you_20want_20the_20agent_20to_20check_20something_20periodically_2',['Add tasks below when you want the agent to check something periodically.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md28',1,'']]],
-  ['agent_20to_20check_20something_20periodically_3',['Add tasks below when you want the agent to check something periodically.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md28',1,'']]],
-  ['agents_20md_20your_20workspace_4',['AGENTS.md - Your Workspace',['../md__a_g_e_n_t_s.html',1,'']]],
-  ['am_20i_5',['IDENTITY.md - Who Am I?',['../md__i_d_e_n_t_i_t_y.html',1,'']]],
-  ['api_20calls_6',['Keep this file empty (or with only comments) to skip heartbeat API calls.',['../md__h_e_a_r_t_b_e_a_t.html#autotoc_md27',1,'']]],
-  ['are_7',['SOUL.md - Who You Are',['../md__s_o_u_l.html',1,'']]]
+  ['v003_202026_2007_2015_0',['V003 (2026-07-15)',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md7',1,'']]],
+  ['v1_200_200）_1',['🔄 设计变更（V003 → V1.0.0）',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md4',1,'']]],
+  ['v1_200_200_202026_2007_2015_2',['V1.0.0 (2026-07-15)',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md2',1,'']]],
+  ['v1_201_200_20—_20内容增强（优先级：高）_3',['V1.1.0 — 内容增强（优先级：高）',['../md__r_o_a_d_m_a_p.html#autotoc_md17',1,'']]],
+  ['v1_202_200_20—_20交互增强（优先级：中）_4',['V1.2.0 — 交互增强（优先级：中）',['../md__r_o_a_d_m_a_p.html#autotoc_md18',1,'']]],
+  ['v2_200_200_20—_20多军路线（优先级：中）_5',['V2.0.0 — 多军路线（优先级：中）',['../md__r_o_a_d_m_a_p.html#autotoc_md19',1,'']]],
+  ['v2_201_200_20—_20用户共建（优先级：低）_6',['V2.1.0 — 用户共建（优先级：低）',['../md__r_o_a_d_m_a_p.html#autotoc_md20',1,'']]],
+  ['v3_200_200_20—_20生产就绪（优先级：低）_7',['V3.0.0 — 生产就绪（优先级：低）',['../md__r_o_a_d_m_a_p.html#autotoc_md21',1,'']]]
 ];

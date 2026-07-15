@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['soul_2emd_0',['SOUL.md',['../_s_o_u_l_8md.html',1,'']]],
-  ['spark_2epy_1',['spark.py',['../spark_8py.html',1,'']]],
-  ['spark_5fapi_2epy_2',['spark_api.py',['../spark__api_8py.html',1,'']]],
-  ['spark_5finterface_2epy_3',['spark_interface.py',['../spark__interface_8py.html',1,'']]],
-  ['spark_5fmanager_2epy_4',['spark_manager.py',['../spark__manager_8py.html',1,'']]]
+  ['重走长征路_20弘扬长征精神v001_2epy_0',['重走长征路 弘扬长征精神V001.py',['../_xE9_x87_x8D_xE8_xB5_xB0_xE9_x95_xBF_xE5_xBE_x81_xE8_xB7_xAF_01_xE5_xBC_x98_xE6_x89_xAC_xE9_x95_9081c46b648d75e100fc2f08c87cc728.html',1,'']]]
 ];

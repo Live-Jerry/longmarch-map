@@ -37,14 +37,6 @@ var namespaces_dup =
     [ "run", "namespacerun.html", [
       [ "main", "namespacerun.html#a51af30a60f9f02777c6396b8247e356f", null ]
     ] ],
-    [ "run_doxygen2", "namespacerun__doxygen2.html", [
-      [ "doxygen_exe", "namespacerun__doxygen2.html#acbaa3f054bf84ff3890bb07a50864907", null ],
-      [ "encoding", "namespacerun__doxygen2.html#a1996385e10293fa3f900116c8ad8b6da", null ],
-      [ "infile", "namespacerun__doxygen2.html#a6eeede9d5804fe43683eadda557f5c6a", null ],
-      [ "lines", "namespacerun__doxygen2.html#a94fef56ff5e6251a0dc69eaba359e145", null ],
-      [ "new_lines", "namespacerun__doxygen2.html#a7556539d2c900830bbf95ffb74ed5b5f", null ],
-      [ "s", "namespacerun__doxygen2.html#a5c0f18be2dcb72a5413a20c633469b8c", null ]
-    ] ],
     [ "services", "namespaceservices.html", "namespaceservices" ],
     [ "spark_interface", "namespacespark__interface.html", null ]
 ];

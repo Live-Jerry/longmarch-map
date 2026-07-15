@@ -1026,7 +1026,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = .
+INPUT                  = ./
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1036,7 +1036,7 @@ INPUT                  = .
 # See also: INPUT_FILE_ENCODING
 # The default value is: UTF-8.
 
-INPUT_ENCODING         = UTF-8
+INPUT                  = ./
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. The INPUT_FILE_ENCODING tag can be used to specify
@@ -1046,7 +1046,7 @@ INPUT_ENCODING         = UTF-8
 # form: pattern=encoding (like *.php=ISO-8859-1).
 # See also: INPUT_ENCODING for further information on supported encodings.
 
-INPUT_FILE_ENCODING    = 
+INPUT                  = ./
 
 # If the value of the INPUT tag contains directories, you can use the
 # FILE_PATTERNS tag to specify one or more wildcard patterns (like *.cpp and
@@ -1146,7 +1146,7 @@ EXCLUDE_SYMLINKS       = NO
 # Note that the wildcards are matched against the file with absolute path, so to
 # exclude all test directories for example use the pattern */test/*
 
-EXCLUDE_PATTERNS       =
+EXCLUDE                = ./AGENTS.md ./SOUL.md ./IDENTITY.md ./TOOLS.md ./USER.md ./HEARTBEAT.md ./MEMORY.md ./memory/ ./fix_doxygen.py ./docs/ ./docs_doxygen/
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
@@ -1206,7 +1206,7 @@ IMAGE_PATH             =
 # need to set EXTENSION_MAPPING for the extension otherwise the files are not
 # properly processed by Doxygen.
 
-INPUT_FILTER           = 
+INPUT                  = ./
 
 # The FILTER_PATTERNS tag can be used to specify filters on a per file pattern
 # basis. Doxygen will compare the file name with each pattern and apply the
