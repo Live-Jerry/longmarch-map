@@ -1,15 +1,14 @@
 /* -*- coding: utf-8 -*- */
 /**
  * @file    nodes.js
- * @brief   节点交互模块
- * @details V1.1.0: 按 active_sections 过滤显示, 图片固定在面板顶部不随内容滚动
+ * @brief   节点交互模块 — V1.1.0
+ * @details 显示激活节点信息面板。
+ *          按V003§3.3步骤2：标志图片→战役→会议→事件→遗址→诗词→故事→人物→意义。
+ *          所有活跃内容一次性渲染为上下可滚动的列表。无翻页，无步骤指示器。
  */
 
 /** @type {number} 当前激活的节点编号 */
 let currentNodeId = null;
-
-/** @type {number} 当前步骤（0~4） */
-let currentStep = 0;
 
 /** @type {Object|null} 当前节点数据 */
 let currentNodeData = null;
@@ -20,33 +19,31 @@ let currentNodeImageUrl = null;
 /** @type {Array} 节点活跃内容字段列表 */
 let currentActiveSections = [];
 
-/** 节点内容的步骤定义（5步流程） */
-const NODE_STEPS = [
-    { key: "time",                  label: "历史时间" },
+/**
+ * @const CONTENT_ORDER
+ * @brief 节点内容显示顺序（V003 §3.3 步骤2）
+ * @details 标志图片固定在最上方，后续内容按此顺序从上到下排列。
+ *          无内容的项跳过不显示。
+ */
+const CONTENT_ORDER = [
     { key: "famous_battle",         label: "著名战役" },
     { key: "important_meeting",     label: "重要会议" },
     { key: "history_event",         label: "历史事件" },
-    { key: "historical_significance", label: "历史意义" },
-];
-
-/** 其他内容（扩展信息） */
-const NODE_EXTRA = [
     { key: "core_site",             label: "核心遗址" },
     { key: "poem_article",          label: "诗词文章" },
     { key: "typical_story",         label: "典型故事" },
     { key: "typical_people",        label: "典型人物" },
-    { key: "spark_remains",         label: "星火遗存" },
+    { key: "historical_significance", label: "历史意义" },
 ];
 
 /**
  * @function showNodePanel
- * @brief 打开节点信息面板
+ * @brief 打开节点信息面板，一次性渲染所有活跃内容
  * @param {Object} node 节点数据
  */
 function showNodePanel(node) {
     currentNodeData = node;
     currentNodeId   = node.node_id;
-    currentStep     = 0;
 
     // 解析活跃字段列表
     currentActiveSections = [];
@@ -69,23 +66,32 @@ function showNodePanel(node) {
     // 设置节点图片URL
     currentNodeImageUrl = `/node-image/${node.node_id}`;
 
-    // 渲染图片区（固定在顶部，不随内容滚动）
+    // 渲染图片区（固定顶部）
     renderImageSection();
 
-    // 渲染第一步内容
-    renderStep(0);
-    updateStepIndicator();
+    // 渲染所有活跃内容（一次性，可滚动）
+    renderAllContent();
 
     // 显示面板
     document.getElementById("info-panel").classList.add("visible");
 
     // 关闭留言板
     hideMessageBoard();
+
+    // 全局语音开时自动朗读
+    if (window.voiceEnabled) {
+        // 延迟一点让面板渲染完成
+        setTimeout(() => {
+            if (typeof readCurrentContent === "function") {
+                readCurrentContent();
+            }
+        }, 300);
+    }
 }
 
 /**
  * @function renderImageSection
- * @brief 在 panel-image 区域渲染节点图片
+ * @brief 在 panel-image 区域渲染节点图片（固定顶部不滚动）
  */
 function renderImageSection() {
     const imgUrl = currentNodeImageUrl || `/node-image/${currentNodeId}`;
@@ -99,133 +105,44 @@ function renderImageSection() {
 }
 
 /**
- * @function renderStep
- * @brief 渲染指定步骤的内容，跳过 inactive 步骤
- * @param {number} stepIdx 步骤索引（0~4）
+ * @function renderAllContent
+ * @brief 一次性渲染所有活跃内容段，按设计顺序从上到下排列
+ * @details 无内容的段跳过不显示。整个 panel-body 可上下滑动。
  */
-function renderStep(stepIdx) {
+function renderAllContent() {
     if (!currentNodeData) return;
-    currentStep = stepIdx;
-
-    // 找到第一个 active 的步骤
-    const steps = getActiveSteps();
-    if (steps.length === 0) {
-        document.getElementById("panel-body").innerHTML = '<div class="empty-state">暂无内容</div>';
-        return;
-    }
-
-    // 确保 currentStep 指向有效的步骤
-    if (stepIdx >= steps.length) {
-        currentStep = steps.length - 1;
-        stepIdx = currentStep;
-    }
-
-    const stepKey = steps[stepIdx];
-    const stepDef = NODE_STEPS.find(s => s.key === stepKey) || { key: stepKey, label: stepKey };
-    let value = currentNodeData[stepKey] || "";
-    
-    // 如果value为空或无意义，也跳过
-    if (!value || value.trim() === '' || value.trim() === '无') {
-        value = '';
-    }
-
     const body = document.getElementById("panel-body");
-    let html = '';
+    if (!body) return;
 
-    // 渲染主步骤内容
-    if (value) {
+    let html = "";
+
+    // 是否活跃的判断
+    const isActive = (key) => {
+        if (currentActiveSections.length > 0) {
+            return currentActiveSections.includes(key);
+        }
+        // fallback：检查数据中是否有内容
+        const val = currentNodeData[key];
+        return val && typeof val === "string" && val.trim().length > 0 && val.trim() !== "无";
+    };
+
+    CONTENT_ORDER.forEach(item => {
+        if (!isActive(item.key)) return;
+        const val = currentNodeData[item.key];
+        if (!val || typeof val !== "string" || val.trim() === "" || val.trim() === "无") return;
         html += `
             <div class="info-section">
-                <div class="section-title">${stepDef.label}</div>
-                <div class="section-content">${escapeHtml(value)}</div>
+                <div class="section-title">${item.label}</div>
+                <div class="section-content">${escapeHtml(val)}</div>
             </div>
         `;
-    }
-
-    // 渲染扩展信息（只显示 active 的）
-    let extraHtml = "";
-    NODE_EXTRA.forEach(ex => {
-        if (!currentActiveSections.includes(ex.key)) return;
-        const val = currentNodeData[ex.key];
-        if (val && typeof val === "string" && val.trim().length > 0 && val.trim() !== '无') {
-            extraHtml += `
-                <div class="info-section">
-                    <div class="section-title">${ex.label}</div>
-                    <div class="section-content">${escapeHtml(val)}</div>
-                </div>`;
-        }
     });
 
-    if (extraHtml) {
-        html += `
-            <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)">
-                <div style="font-size:11px;color:#95a5a6;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px">更多信息</div>
-                ${extraHtml}
-            </div>`;
+    if (!html) {
+        html = '<div class="empty-state">暂无相关内容</div>';
     }
 
-    body.innerHTML = html || '<div class="empty-state">暂无相关内容</div>';
-    updateStepIndicator();
-}
-
-/**
- * @function getActiveSteps
- * @brief 获取当前节点活跃的主步骤列表（过滤掉 inactive 的步骤）
- * @return {Array<string>} step keys
- */
-function getActiveSteps() {
-    const allSteps = NODE_STEPS.map(s => s.key);
-    if (currentActiveSections.length > 0) {
-        return allSteps.filter(k => currentActiveSections.includes(k));
-    }
-    return allSteps; // fallback: show all if no active_sections data
-}
-
-/**
- * @function updateStepIndicator
- * @brief 更新左侧步骤指示器
- */
-function updateStepIndicator() {
-    const el = document.getElementById("step-indicator");
-    if (!el) return;
-
-    const steps = getActiveSteps();
-    const total = steps.length;
-    if (total === 0) {
-        el.classList.remove("visible");
-        return;
-    }
-
-    const currentStepKey = steps[currentStep] || steps[0];
-    const stepDef = NODE_STEPS.find(s => s.key === currentStepKey) || { label: currentStepKey };
-    const pct = ((currentStep + 1) / total) * 100;
-
-    el.querySelector(".step-title").textContent =
-        `${currentStep + 1}. ${stepDef.label}`;
-    el.querySelector(".step-progress-bar").style.width = `${pct}%`;
-
-    el.classList.add("visible");
-}
-
-/**
- * @function nextStep
- * @brief 显示下一步内容
- */
-function nextStep() {
-    const steps = getActiveSteps();
-    if (currentStep < steps.length - 1) {
-        renderStep(currentStep + 1);
-    }
-}
-
-/**
- * @function prevStep
- * @brief 显示上一步内容
- */
-function prevStep() {
-    if (currentStep > 0) {
-        renderStep(currentStep - 1);
-    }
+    body.innerHTML = html;
 }
 
 /**
@@ -234,26 +151,53 @@ function prevStep() {
  */
 function closeNodePanel() {
     document.getElementById("info-panel").classList.remove("visible");
-    document.getElementById("step-indicator").classList.remove("visible");
     currentNodeId   = null;
     currentNodeData = null;
-    currentStep     = 0;
     currentActiveSections = [];
     stopSpeech();
 }
 
 /**
- * @function readCurrentStep
- * @brief 朗读当前步骤内容（使用 Web Speech API）
+ * @function readCurrentContent
+ * @brief 朗读面板中所有可视内容（使用 Web Speech API）
  */
-function readCurrentStep() {
+function readCurrentContent() {
     if (!currentNodeData) return;
-    const steps = getActiveSteps();
-    if (currentStep >= steps.length) return;
-    const stepKey = steps[currentStep];
-    const text = currentNodeData[stepKey] || "";
-    if (!text) return;
-    speakText(text);
+
+    // 收集所有活跃的内容文本
+    const isActive = (key) => {
+        if (currentActiveSections.length > 0) return currentActiveSections.includes(key);
+        const val = currentNodeData[key];
+        return val && typeof val === "string" && val.trim().length > 0 && val.trim() !== "无";
+    };
+
+    let texts = [];
+    CONTENT_ORDER.forEach(item => {
+        if (!isActive(item.key)) return;
+        const val = currentNodeData[item.key];
+        if (val && typeof val === "string" && val.trim() !== "" && val.trim() !== "无") {
+            texts.push(item.label + "：" + val);
+        }
+    });
+
+    if (texts.length === 0) return;
+
+    // 朗读开始：移除所有旧高亮，给第一个 section 添加 reading 类
+    document.querySelectorAll('.info-section.reading').forEach(el => el.classList.remove('reading'));
+    const firstSection = document.querySelector('.info-section');
+    if (firstSection) {
+        firstSection.classList.add('reading');
+    }
+
+    // 关联 currentUtterance 的 onend 以清理高亮
+    speakText(texts.join("。"));
+    if (currentUtterance) {
+        const originalOnEnd = currentUtterance.onend;
+        currentUtterance.onend = function() {
+            document.querySelectorAll('.info-section.reading').forEach(el => el.classList.remove('reading'));
+            if (typeof originalOnEnd === 'function') originalOnEnd.call(this);
+        };
+    }
 }
 
 // ============================================================================
@@ -397,10 +341,8 @@ function hideMessageBoard() {
 
 // 导出
 window.showNodePanel   = showNodePanel;
-window.nextStep        = nextStep;
-window.prevStep        = prevStep;
 window.closeNodePanel  = closeNodePanel;
-window.readCurrentStep = readCurrentStep;
+window.readCurrentContent = readCurrentContent;
 window.stopSpeech      = stopSpeech;
 window.openSparkForm   = openSparkForm;
 window.submitSpark     = submitSpark;

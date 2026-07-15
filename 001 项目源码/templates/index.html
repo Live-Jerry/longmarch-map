@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>重走长征路 — 长征文化数字地图</title>
+    <title>我走长征路 — 交互式长征文化数字平台</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -16,7 +16,7 @@
          加载封面
          =================================================================== -->
     <div id="loading-overlay">
-        <div class="loading-title">重 走 长 征 路</div>
+        <div class="loading-title">我 走 长 征 路</div>
         <div class="loading-spinner"></div>
         <div style="margin-top:16px;color:#95a5a6;font-size:12px">正在加载长征文化数字地图...</div>
     </div>
@@ -29,18 +29,10 @@
         <div id="map"></div>
 
         <!-- 顶部标题栏 -->
+        <!-- 左上角：Logo + 标题（V003 §4.1） -->
         <div id="title-bar">
-            <h1>重走长征路</h1>
-            <div class="subtitle">长征文化数字地图 · 2026</div>
-        </div>
-
-        <!-- 左侧步骤指示器 -->
-        <div id="step-indicator" style="display:none">
-            <div class="step-label">当前步骤</div>
-            <div class="step-title">—</div>
-            <div class="step-progress">
-                <div class="step-progress-bar" style="width:0%"></div>
-            </div>
+            <h1>我走长征路</h1>
+            <div class="subtitle">交互式长征文化数字平台 · 2026</div>
         </div>
 
         <!-- 军队选择器 -->
@@ -88,16 +80,10 @@
                 <!-- 动态内容 -->
             </div>
             <div class="panel-footer">
-                <button class="btn-read" id="btn-read" onclick="readCurrentStep()">🔊 朗读</button>
+                <button class="btn-read" id="btn-read" onclick="readCurrentContent()">🔊 朗读</button>
                 <button class="btn-spark" id="btn-spark" onclick="openSparkForm()">✦ 星火投稿</button>
             </div>
-            <!-- 上一步/下一步导航 -->
-            <div style="padding:0 16px 12px;display:flex;gap:8px">
-                <button id="btn-prev-step" onclick="prevStep()"
-                    style="flex:1;padding:7px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:rgba(255,255,255,0.05);color:#95a5a6;cursor:pointer;font-size:12px">← 上一步</button>
-                <button id="btn-next-step" onclick="nextStep()"
-                    style="flex:1;padding:7px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:rgba(255,255,255,0.05);color:#95a5a6;cursor:pointer;font-size:12px">下一步 →</button>
-            </div>
+
         </div>
 
         <!-- 留言板 -->
@@ -113,31 +99,37 @@
             </div>
         </div>
 
-        <!-- 底部控制栏 -->
+        <!-- 右侧控制栏（V003 §4.1：右侧纵向排列，7个功能按钮） -->
         <div id="controls">
-            <button class="ctrl-btn" id="btn-tts" title="语音朗读">
+            <button class="ctrl-btn" id="btn-tts" title="打开/关闭语音播报">
                 <span class="icon">🔊</span>
                 <span class="label">语音</span>
             </button>
-            <button class="ctrl-btn" id="btn-autowalk" title="自动漫游">
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-autowalk" title="自动漫游模式">
                 <span class="icon">🚶</span>
-                <span class="label">漫游</span>
+                <span class="label" id="autowalk-label">漫游</span>
             </button>
-            <button class="ctrl-btn" id="btn-army" title="选择军队">
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-army" title="选择军队路线">
                 <span class="icon">⚑</span>
                 <span class="label">军队</span>
             </button>
             <div class="ctrl-divider"></div>
-            <button class="ctrl-btn" id="btn-message" title="留言板">
-                <span class="icon">💬</span>
-                <span class="label">留言</span>
+            <button class="ctrl-btn" id="btn-spark-main" title="星火拾遗 — 提交你的长征记忆">
+                <span class="icon">✦</span>
+                <span class="label">星火</span>
             </button>
-            <button class="ctrl-btn" id="btn-basemap" title="切换底图">
+            <button class="ctrl-btn" id="btn-basemap" title="切换卫星/普通地图">
                 <span class="icon">🗺</span>
                 <span class="label">卫星</span>
             </button>
             <div class="ctrl-divider"></div>
-            <button class="ctrl-btn" id="btn-login" title="登录"
+            <button class="ctrl-btn" id="btn-message" title="用户留言评论">
+                <span class="icon">💬</span>
+                <span class="label">留言</span>
+            </button>
+            <button class="ctrl-btn" id="btn-login" title="用户登录"
                 onclick="location.href='/login'">
                 <span class="icon">👤</span>
                 <span class="label">登录</span>
@@ -146,6 +138,36 @@
                 onclick="location.href='/admin'" style="display:none">
                 <span class="icon">⚙</span>
                 <span class="label">管理</span>
+            </button>
+        </div>
+
+        <!-- 速度选择弹出面板（向左弹出） -->
+        <div id="speed-selector" class="popout-panel" style="display:none">
+            <div class="popout-arrow-right"></div>
+            <div class="speed-label">节点间移动速度</div>
+            <button class="speed-btn active" data-speed="3" onclick="setAutowalkSpeed(3)">慢速 3s</button>
+            <button class="speed-btn" data-speed="2" onclick="setAutowalkSpeed(2)">中速 2s</button>
+            <button class="speed-btn" data-speed="1" onclick="setAutowalkSpeed(1)">快速 1s</button>
+        </div>
+
+        <!-- 播放控制弹出面板（向左弹出） -->
+        <div id="play-controls" class="popout-panel" style="display:none">
+            <div class="popout-arrow-right"></div>
+            <button class="ctrl-btn" id="btn-play-pause" title="暂停/继续">
+                <span class="icon">⏸</span>
+                <span class="label">暂停</span>
+            </button>
+            <button class="ctrl-btn" id="btn-skip" title="跳至下一节点">
+                <span class="icon">⏭</span>
+                <span class="label">跳过</span>
+            </button>
+            <button class="ctrl-btn" id="btn-restart" title="重头开始">
+                <span class="icon">⏮</span>
+                <span class="label">重头</span>
+            </button>
+            <button class="ctrl-btn" id="btn-exit-autowalk" title="退出漫游">
+                <span class="icon">✕</span>
+                <span class="label">退出</span>
             </button>
         </div>
     </div>
