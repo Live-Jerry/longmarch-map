@@ -129,7 +129,7 @@ function renderAllContent() {
     CONTENT_ORDER.forEach(item => {
         if (!isActive(item.key)) return;
         const val = currentNodeData[item.key];
-        if (!val || typeof val !== "string" || val.trim() === "" || val.trim() === "无") return;
+        if (!val || typeof val !== "string" || val.trim() === "" || val.trim() === "无" || val.trim().indexOf("无。") === 0) return;
         html += `
             <div class="info-section">
                 <div class="section-title">${item.label}</div>
@@ -183,7 +183,7 @@ function readCurrentContent() {
     CONTENT_ORDER.forEach(item => {
         if (!isActive(item.key)) return;
         const val = currentNodeData[item.key];
-        if (val && typeof val === "string" && val.trim() !== "" && val.trim() !== "无") {
+        if (val && typeof val === "string" && val.trim() !== "" && val.trim() !== "无" && val.trim().indexOf("无。") !== 0) {
             texts.push(item.label + "：" + val);
         }
     });

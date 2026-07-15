@@ -866,7 +866,7 @@ async function fetchContentForTTS(nodeId, onDone) {
         let texts = [];
         allFields.forEach(f => {
             const val = nd[f.key];
-            if (val && typeof val === "string" && val.trim() && val.trim() !== "无") {
+            if (val && typeof val === "string" && val.trim() && val.trim() !== "无" && val.trim().indexOf("无。") !== 0) {
                 texts.push(f.label + "：" + val);
             }
         });
