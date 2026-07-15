@@ -326,6 +326,244 @@ a:hover {
     margin-top: 2px;
 }
 
+/* =========================================================================
+   星火拾遗弹窗
+   ========================================================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-dialog {
+    background: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    width: min(800px, 90vw);
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(12px);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-muted);
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--color-light);
+}
+
+.modal-body {
+    padding: 16px 18px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.spark-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.spark-tab {
+    padding: 8px 20px;
+    border: none;
+    background: transparent;
+    color: var(--color-muted);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font-main);
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.spark-tab:hover {
+    color: var(--color-light);
+}
+
+.spark-tab.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-primary);
+}
+
+.spark-field-group {
+    margin-bottom: 12px;
+}
+
+.form-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    padding: 8px 0;
+    margin: 12px 0 8px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group.full {
+    width: 100%;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--color-muted);
+    margin-bottom: 4px;
+}
+
+.form-group .required {
+    color: var(--color-primary);
+}
+
+.form-group .suggested {
+    color: var(--color-chat-self);
+    font-size: 11px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-light);
+    font-size: 13px;
+    font-family: var(--font-main);
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 6px rgba(192,57,43,0.3);
+}
+
+.form-group input[type="file"] {
+    padding: 6px;
+    font-size: 12px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #2a2a2a;
+    color: var(--color-light);
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-light);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font-main);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background: #a93226;
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-cancel:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.form-status {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(39,174,96,0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(39,174,96,0.3);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(192,57,43,0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(192,57,43,0.3);
+}
+
 /* ============================================================================
    右侧信息面板（节点弹出面板）
    ============================================================================ */

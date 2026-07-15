@@ -69,8 +69,26 @@ function initMap() {
     // 路线图层组
     map.routeGroup = L.layerGroup().addTo(map.instance);
 
-    loadNodes();
-    loadRoutes();
+    // 并行加载节点和路线，全部完成后缩放到全路线范围
+    Promise.all([loadNodes(), loadRoutes()]).then(function() {
+        setTimeout(function() {
+            var allBounds = L.latLngBounds();
+            if (map.routeGroup && map.routeGroup.getBounds().isValid()) {
+                allBounds.extend(map.routeGroup.getBounds());
+            }
+            if (map.nodeGroup) {
+                map.nodeGroup.eachLayer(function(layer) {
+                    if (layer.getLatLng) {
+                        allBounds.extend(layer.getLatLng());
+                    }
+                });
+            }
+            if (allBounds.isValid()) {
+                map.instance.fitBounds(allBounds, { padding: [80, 80] });
+                console.log("[Map] ✅ 已缩放到全路线范围");
+            }
+        }, 500);
+    });
     console.log("[Map] ✅ 地图初始化完成 (ArcGIS卫星)");
 }
 
@@ -85,6 +103,8 @@ async function loadNodes() {
         if (json.code !== 0) return;
         const nodes = json.data?.items || json.data?.nodes || [];
         nodes.forEach(addNodeMarker);
+        // 全局暴露，供其他模块（如星火拾遗）使用
+        window.allNodes = nodes;
         console.log(`[Map] ✅ 节点: ${nodes.length} 个`);
     } catch (e) {
         console.error("[Map] 节点加载失败", e);
@@ -213,12 +233,6 @@ async function loadRoutes() {
                 radius: 6, color: color, fillColor: color, fillOpacity: 1, weight: 3
             }).addTo(map.routeGroup);
         });
-
-        // 缩放到路线范围
-        if (map.instance && map.routeGroup) {
-            const bounds = map.routeGroup.getBounds();
-            if (bounds.isValid()) map.instance.fitBounds(bounds, { padding: [60, 60] });
-        }
 
         console.log("[Map] ✅ 路线绘制完成（平滑曲线）");
     } catch (e) {

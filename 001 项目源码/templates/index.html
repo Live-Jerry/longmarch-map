@@ -31,7 +31,7 @@
         <!-- 顶部标题栏 -->
         <!-- 左上角：Logo + 标题（V003 §4.1） -->
         <div id="title-bar">
-            <h1>我走长征路</h1>
+            <h1>我 走 长 征 路</h1>
             <div class="subtitle">交互式长征文化数字平台 · 2026</div>
         </div>
 
@@ -142,7 +142,7 @@
         </div>
 
         <!-- 速度选择弹出面板（向左弹出） -->
-        <div id="speed-selector" class="popout-panel" style="display:none">
+        <div id="speed-selector" class="popout-panel">
             <div class="popout-arrow-right"></div>
             <div class="speed-label">节点间移动速度</div>
             <button class="speed-btn active" data-speed="3" onclick="setAutowalkSpeed(3)">慢速 3s</button>
@@ -151,7 +151,7 @@
         </div>
 
         <!-- 播放控制弹出面板（向左弹出） -->
-        <div id="play-controls" class="popout-panel" style="display:none">
+        <div id="play-controls" class="popout-panel">
             <div class="popout-arrow-right"></div>
             <button class="ctrl-btn" id="btn-play-pause" title="暂停/继续">
                 <span class="icon">⏸</span>
@@ -172,6 +172,151 @@
         </div>
     </div>
 
+    <!-- 星火弹窗 -->
+    <div id="spark-modal" class="modal-overlay" style="display:none">
+        <div class="modal-dialog" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title">⭐ 星火拾遗 — 提交您的长征记忆</span>
+                <button class="modal-close" onclick="closeSparkForm()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="spark-tabs">
+                    <button class="spark-tab active" data-tab="new-node" onclick="switchSparkTab('new-node')">新建节点</button>
+                    <button class="spark-tab" data-tab="update-node" onclick="switchSparkTab('update-node')">补充既有节点</button>
+                </div>
+                <form id="spark-form" class="spark-form">
+                    <!-- 隐藏字段 -->
+                    <input type="hidden" name="submission_type" value="new-node">
+                    <input type="hidden" name="lat" id="spark-lat" value="">
+                    <input type="hidden" name="lng" id="spark-lng" value="">
+
+                    <!-- 新建节点字段组 -->
+                    <div id="spark-fields-new" class="spark-field-group">
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>节点编号 <span class="required">*</span></label>
+                                <input type="text" name="node_id" placeholder="如 15.1" required>
+                            </div>
+                            <div class="form-group half">
+                                <label>节点标题 <span class="required">*</span></label>
+                                <input type="text" name="title" placeholder="如 四渡赤水" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>地区 <span class="required">*</span></label>
+                                <input type="text" name="location" placeholder="省/市/县" required>
+                            </div>
+                            <div class="form-group half">
+                                <label>时间 <span class="required">*</span></label>
+                                <input type="text" name="time" placeholder="1935年1月" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>纬度</label>
+                                <input type="number" name="lat_input" id="spark-lat-input" step="0.000001" placeholder="点击地图选择" onclick="showLatLngPicker()">
+                            </div>
+                            <div class="form-group half">
+                                <label>经度</label>
+                                <input type="number" name="lng_input" id="spark-lng-input" step="0.000001" placeholder="点击地图选择" onclick="showLatLngPicker()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 补充既有节点字段组 -->
+                    <div id="spark-fields-update" class="spark-field-group" style="display:none">
+                        <div class="form-group full">
+                            <label>选择节点 <span class="required">*</span></label>
+                            <select name="target_node_id" id="spark-node-select" required>
+                                <option value="">—— 请选择节点 ——</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 共用内容字段 -->
+                    <div class="form-section-title">历史内容字段</div>
+                    <div class="form-group full">
+                        <label>核心数字</label>
+                        <input type="text" name="core_numbers" placeholder="歼敌数、人数、温度等">
+                    </div>
+                    <div class="form-group full">
+                        <label>著名战役</label>
+                        <textarea name="famous_battle" rows="3" placeholder="战役名称、时间、经过、结果"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>重要会议</label>
+                        <textarea name="important_meeting" rows="3" placeholder="会议名称、时间、地点、决议"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>历史事件 <span class="suggested">*建议</span></label>
+                        <textarea name="history_event" rows="3" placeholder="核心事件描述"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>核心遗址 <span class="suggested">*建议</span></label>
+                        <textarea name="core_site" rows="3" placeholder="纪念馆、纪念碑、旧址等"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>诗词文章</label>
+                        <textarea name="poem_article" rows="3" placeholder="相关诗词全文"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>典型故事</label>
+                        <textarea name="typical_story" rows="3" placeholder="感人故事"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>典型人物</label>
+                        <textarea name="typical_people" rows="3" placeholder="关键人物及其贡献"></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label>历史意义 <span class="suggested">*建议</span></label>
+                        <textarea name="historical_significance" rows="3" placeholder="历史地位与影响"></textarea>
+                    </div>
+
+                    <div class="form-section-title">多媒体资源</div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>上传图片</label>
+                            <input type="file" name="images" accept="image/*" multiple>
+                        </div>
+                        <div class="form-group half">
+                            <label>上传视频</label>
+                            <input type="file" name="videos" accept="video/*">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>上传音频</label>
+                            <input type="file" name="audios" accept="audio/*">
+                        </div>
+                        <div class="form-group half">
+                            <label>上传文档</label>
+                            <input type="file" name="documents" accept=".pdf,.doc,.docx,.txt">
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label>上传者信息</label>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <input type="text" name="submitter_name" placeholder="姓名（选填）">
+                            </div>
+                            <div class="form-group half">
+                                <input type="text" name="submitter_phone" placeholder="电话（选填）">
+                            </div>
+                        </div>
+                        <input type="text" name="source" placeholder="来源/出处说明（选填）">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel" onclick="closeSparkForm()">取消</button>
+                        <button type="submit" class="btn btn-primary">提交审核</button>
+                    </div>
+                    <div id="spark-submit-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -180,6 +325,7 @@
     <script src="/static/js/map.js"></script>
     <script src="/static/js/nodes.js"></script>
     <script src="/static/js/controls.js"></script>
+    <script src="/static/js/spark.js"></script>
     <script src="/static/js/auth.js"></script>
 
     <script>

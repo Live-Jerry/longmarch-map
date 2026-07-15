@@ -8,10 +8,12 @@
 @date    2026-07-15
 """
 
+import os
 from flask import Blueprint, request, jsonify
 
 from services.spark_manager import SparkManager
 from services.auth_manager  import AuthManager
+import config as app_config
 
 
 spark_bp = Blueprint("sparks", __name__)
@@ -186,3 +188,121 @@ def delete_spark(spark_id):
     from models.spark import Spark
     Spark.delete(spark_id)
     return ok(message="星火内容已删除")
+
+
+@spark_bp.route("/full", methods=["POST"])
+def create_full_spark():
+    """
+    @fn    create_full_spark
+    @brief 提交完整节点维度星火（包含全部节点字段 + 文件上传）
+    @details 用户通过前端弹窗提交，支持新建节点和补充既有节点两种模式。
+             文件上传至 002 项目资源/星火上传/ 目录。
+             数据以 JSON 格式存入 spark 表的 content 字段。
+    @request JSON/form-data
+    @response JSON
+    """
+    try:
+        user = AuthManager.require_login(request)
+    except PermissionError as e:
+        return err(str(e), code=401, status=401)
+
+    # 收集表单数据
+    submission_type = request.form.get("submission_type", "new-node")
+    node_id = request.form.get("node_id", "")
+    target_node_id = request.form.get("target_node_id", "")
+
+    if submission_type == "update-node" and not target_node_id:
+        return err("补充模式请选择目标节点", code=400, status=400)
+    if submission_type == "new-node" and not node_id:
+        return err("新建模式请填写节点编号", code=400, status=400)
+
+    # 构建内容 JSON
+    fields = [
+        "title", "location", "time", "core_numbers",
+        "famous_battle", "important_meeting", "history_event",
+        "core_site", "poem_article", "typical_story",
+        "typical_people", "historical_significance"
+    ]
+    content = {"type": submission_type}
+    if submission_type == "new-node":
+        content["node_id"] = node_id
+        content["lat"] = request.form.get("lat", "")
+        content["lng"] = request.form.get("lng", "")
+    else:
+        content["target_node_id"] = target_node_id
+
+    for f in fields:
+        val = request.form.get(f, "")
+        if val:
+            content[f] = val
+
+    # 上传者信息
+    submitter = {}
+    for key in ["submitter_name", "submitter_phone", "source"]:
+        val = request.form.get(key, "")
+        if val:
+            submitter[key.replace("submitter_", "")] = val
+    if submitter:
+        content["submitter"] = submitter
+
+    # 处理文件上传
+    from werkzeug.utils import secure_filename
+    project_root = os.path.dirname(app_config.BASE_DIR)
+    upload_dir = os.path.join(project_root, "002 项目资源", "星火上传")
+    os.makedirs(upload_dir, exist_ok=True)
+
+    uploads = {"images": [], "videos": [], "audios": [], "documents": []}
+    allowed_exts = {
+        "images": (".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp"),
+        "videos": (".mp4", ".avi", ".mov", ".wmv", ".flv"),
+        "audios": (".mp3", ".wav", ".ogg", ".aac", ".wma"),
+        "documents": (".pdf", ".doc", ".docx", ".txt")
+    }
+
+    for field_name in uploads:
+        files = request.files.getlist(field_name)
+        for f in files:
+            if f and f.filename:
+                ext = os.path.splitext(f.filename)[1].lower()
+                if ext in allowed_exts.get(field_name, ()):
+                    safe_name = secure_filename(f.filename)
+                    # 添加时间戳防止重名
+                    import time
+                    stamp = str(int(time.time()))
+                    safe_name = stamp + "_" + safe_name
+                    save_path = os.path.join(upload_dir, safe_name)
+                    f.save(save_path)
+                    uploads[field_name].append(safe_name)
+
+    if any(uploads.values()):
+        content["uploads"] = uploads
+
+    # 保存到数据库
+    from models.spark import Spark
+    import json as jsonlib
+    import datetime
+    now = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    # 尝试获取节点名称
+    node_name = node_id or target_node_id or ""
+    if submission_type == "update-node" and target_node_id:
+        from services.node_manager import NodeManager
+        nm = NodeManager()
+        n = nm.get_by_id(target_node_id)
+        if n:
+            node_name = n.get("title") or n.get("location") or target_node_id
+
+    spark_data = {
+        "node_id": node_name,
+        "user_id": user["id"],
+        "title": request.form.get("title", "星火拾遗投稿") or "星火拾遗投稿",
+        "content": jsonlib.dumps(content, ensure_ascii=False),
+        "media_type": "text",
+        "source": request.form.get("source", ""),
+        "status": "pending",
+        "created_at": now
+    }
+
+    result = Spark.create(spark_data)
+    return ok(data={"id": result["id"]}, message="星火提交成功，等待审核")
+
