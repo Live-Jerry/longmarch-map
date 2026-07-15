@@ -172,6 +172,14 @@ function readCurrentContent() {
     };
 
     let texts = [];
+
+    // 开头朗读节点名称和时间
+    const nodeTitle = currentNodeData.title || "";
+    const nodeTime = currentNodeData.time || "";
+    if (nodeTitle) texts.push("节点：" + nodeTitle);
+    if (nodeTime) texts.push("时间：" + nodeTime);
+
+    // 各内容字段
     CONTENT_ORDER.forEach(item => {
         if (!isActive(item.key)) return;
         const val = currentNodeData[item.key];

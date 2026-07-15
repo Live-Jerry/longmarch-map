@@ -69,26 +69,23 @@ function initMap() {
     // 路线图层组
     map.routeGroup = L.layerGroup().addTo(map.instance);
 
-    // 并行加载节点和路线，全部完成后缩放到全路线范围
-    Promise.all([loadNodes(), loadRoutes()]).then(function() {
-        setTimeout(function() {
-            var allBounds = L.latLngBounds();
-            if (map.routeGroup && map.routeGroup.getBounds().isValid()) {
-                allBounds.extend(map.routeGroup.getBounds());
+    // 加载节点，然后从节点数据生成预置边界
+    loadNodes().then(function(nodesData) {
+        if (nodesData && nodesData.length > 0) {
+            var boundsAll = L.latLngBounds();
+            nodesData.forEach(function(n) {
+                if (n.lat && n.lng) {
+                    boundsAll.extend([parseFloat(n.lat), parseFloat(n.lng)]);
+                }
+            });
+            if (boundsAll.isValid()) {
+                // 加一点缓冲（10%），确保节点不贴边
+                map.instance.fitBounds(boundsAll, { padding: [100, 100] });
+                console.log("[Map] ✅ 缩放到全路线 +40% 缓冲");
             }
-            if (map.nodeGroup) {
-                map.nodeGroup.eachLayer(function(layer) {
-                    if (layer.getLatLng) {
-                        allBounds.extend(layer.getLatLng());
-                    }
-                });
-            }
-            if (allBounds.isValid()) {
-                map.instance.fitBounds(allBounds, { padding: [80, 80] });
-                console.log("[Map] ✅ 已缩放到全路线范围");
-            }
-        }, 500);
+        }
     });
+    loadRoutes();
     console.log("[Map] ✅ 地图初始化完成 (ArcGIS卫星)");
 }
 
@@ -100,14 +97,16 @@ async function loadNodes() {
     try {
         const resp = await fetch("/api/v1/nodes?per_page=1000");
         const json = await resp.json();
-        if (json.code !== 0) return;
+        if (json.code !== 0) return [];
         const nodes = json.data?.items || json.data?.nodes || [];
         nodes.forEach(addNodeMarker);
         // 全局暴露，供其他模块（如星火拾遗）使用
         window.allNodes = nodes;
         console.log(`[Map] ✅ 节点: ${nodes.length} 个`);
+        return nodes;
     } catch (e) {
         console.error("[Map] 节点加载失败", e);
+        return [];
     }
 }
 
