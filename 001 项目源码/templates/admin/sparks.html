@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星火审核 — 重走长征路</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <div class="admin-sidebar">
+            <h2>🚩 管理后台</h2>
+            <a href="/admin"       class="admin-nav-item">📊 总览</a>
+            <a href="/admin/nodes"  class="admin-nav-item">📍 节点管理</a>
+            <a href="/admin/users"  class="admin-nav-item">👥 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item active">✦ 星火审核</a>
+            <a href="/"            class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+        </div>
+
+        <div class="admin-main">
+            <h1>星火拾遗审核</h1>
+            <div id="spark-stats" style="display:flex;gap:12px;margin-bottom:20px">
+                <div class="stat-card" style="max-width:140px">
+                    <div class="stat-num" id="pending-count">—</div>
+                    <div class="stat-label">待审核</div>
+                </div>
+                <div class="stat-card" style="max-width:140px">
+                    <div class="stat-num" id="approved-count">—</div>
+                    <div class="stat-label">已通过</div>
+                </div>
+                <div class="stat-card" style="max-width:140px">
+                    <div class="stat-num" id="rejected-count">—</div>
+                    <div class="stat-label">已拒绝</div>
+                </div>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>标题</th><th>节点</th>
+                        <th>提交人</th><th>类型</th>
+                        <th>状态</th><th>时间</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="sparks-tbody">
+                    <tr><td colspan="8" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    const token = localStorage.getItem("lm_token");
+    if (!token) location.href = "/login";
+
+    async function loadPending() {
+        const headers = { "Authorization": `Bearer ${token}` };
+
+        // 统计
+        const sr = await fetch("/api/v1/sparks/stats", { headers });
+        const sj = await sr.json();
+        if (sj.data) {
+            document.getElementById("pending-count").textContent  = sj.data.pending;
+            document.getElementById("approved-count").textContent = sj.data.approved;
+            document.getElementById("rejected-count").textContent = sj.data.rejected;
+        }
+
+        // 待审核列表
+        const r  = await fetch("/api/v1/sparks/pending", { headers });
+        const j  = await r.json();
+        const tb = document.getElementById("sparks-tbody");
+
+        if (!j.data || !j.data.length) {
+            tb.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#95a5a6">暂无待审核内容</td></tr>';
+            return;
+        }
+
+        tb.innerHTML = j.data.map(s => `
+            <tr id="spark-row-${s.id}">
+                <td>${s.id}</td>
+                <td>
+                    <div style="font-weight:500">${s.title}</div>
+                    ${s.content ? `<div style="font-size:11px;color:#95a5a6;margin-top:2px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${s.content}</div>` : ""}
+                </td>
+                <td>${s.node_id || "—"}</td>
+                <td>${s.username || "—"}</td>
+                <td>${s.media_type || "text"}</td>
+                <td><span class="badge badge-${s.status}">${s.status}</span></td>
+                <td>${s.created_at ? s.created_at.slice(0, 10) : "—"}</td>
+                <td style="white-space:nowrap">
+                    <button onclick="reviewSpark(${s.id}, 'approved')"
+                        style="padding:4px 10px;background:#27ae60;color:white;border:none;border-radius:6px;cursor:pointer;font-size:11px;margin-right:4px">通过</button>
+                    <button onclick="reviewSpark(${s.id}, 'rejected')"
+                        style="padding:4px 10px;background:#e74c3c;color:white;border:none;border-radius:6px;cursor:pointer;font-size:11px">拒绝</button>
+                </td>
+            </tr>
+        `).join("");
+    }
+
+    async function reviewSpark(id, status) {
+        const comment = prompt("审核意见（可选）：") || "";
+        const r = await fetch(`/api/v1/sparks/${id}/review`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+            body: JSON.stringify({ status, admin_comment: comment }),
+        });
+        const j = await r.json();
+        alert(j.message);
+        if (j.code === 0) {
+            document.getElementById(`spark-row-${id}`)?.remove();
+            loadPending();
+        }
+    }
+
+    loadPending();
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点管理 — 重走长征路</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <div class="admin-sidebar">
+            <h2>🚩 管理后台</h2>
+            <a href="/admin"      class="admin-nav-item">📊 总览</a>
+            <a href="/admin/nodes" class="admin-nav-item active">📍 节点管理</a>
+            <a href="/admin/users" class="admin-nav-item">👥 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item">✦ 星火审核</a>
+            <a href="/"           class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+        </div>
+
+        <div class="admin-main">
+            <h1>节点管理</h1>
+
+            <div style="margin-bottom:16px;display:flex;gap:10px">
+                <input type="text" id="search-input" placeholder="搜索节点标题或地点..."
+                    style="flex:1;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#ecf0f1;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif;outline:none"
+                    onkeydown="if(event.key==='Enter')loadNodes(1)">
+                <button onclick="loadNodes(1)" style="padding:10px 20px;background:#c0392b;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">搜索</button>
+                <button onclick="showAddModal()" style="padding:10px 20px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">+ 新增节点</button>
+                <button onclick="importNodes()" style="padding:10px 20px;background:#2980b9;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">导入 JSON</button>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>编号</th><th>标题</th><th>地点</th><th>时间</th>
+                        <th>坐标</th><th>状态</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="nodes-tbody">
+                    <tr><td colspan="7" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+
+            <div id="pagination" style="margin-top:16px;display:flex;gap:8px;justify-content:center"></div>
+        </div>
+    </div>
+
+    <script>
+    const token = localStorage.getItem("lm_token");
+    if (!token) { location.href = "/login"; }
+
+    let currentPage = 1;
+
+    async function loadNodes(page) {
+        if (page) currentPage = page;
+        const search = document.getElementById("search-input").value.trim();
+        const headers = { "Authorization": `Bearer ${token}` };
+
+        let url = `/api/v1/nodes?page=${currentPage}&per_page=20`;
+        if (search) url += `&search=${encodeURIComponent(search)}`;
+
+        const resp = await fetch(url, { headers });
+        const json = await resp.json();
+        const items = json.data?.items || [];
+        const total = json.data?.total || 0;
+        const pages = Math.ceil(total / 20);
+
+        const tbody = document.getElementById("nodes-tbody");
+        if (!items.length) {
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#95a5a6">暂无数据</td></tr>';
+        } else {
+            tbody.innerHTML = items.map(n => `
+                <tr>
+                    <td>${n.node_id}</td>
+                    <td><a href="/admin/nodes/edit?node_id=${n.node_id}" style="color:#f39c12">${n.title}</a></td>
+                    <td>${n.location}</td>
+                    <td>${n.time}</td>
+                    <td>${parseFloat(n.lat).toFixed(2)}, ${parseFloat(n.lng).toFixed(2)}</td>
+                    <td><span class="badge badge-${n.status}">${n.status}</span></td>
+                    <td>
+                        <a href="/admin/nodes/edit?node_id=${n.node_id}" style="color:#3498db;margin-right:8px">编辑</a>
+                        <a href="javascript:deleteNode('${n.node_id}')" style="color:#e74c3c">删除</a>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        // 分页
+        const pg = document.getElementById("pagination");
+        let html = "";
+        for (let i = 1; i <= pages; i++) {
+            html += `<button onclick="loadNodes(${i})" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:${i===currentPage?'#c0392b':'rgba(255,255,255,0.05)'};color:${i===currentPage?'white':'#95a5a6'};cursor:pointer;font-size:12px">${i}</button>`;
+        }
+        pg.innerHTML = html;
+    }
+
+    async function deleteNode(nodeId) {
+        if (!confirm(`确认删除节点 ${nodeId}？`)) return;
+        const r = await fetch(`/api/v1/nodes/${nodeId}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` },
+        });
+        const j = await r.json();
+        alert(j.message);
+        if (j.code === 0) loadNodes(currentPage);
+    }
+
+    function showAddModal() {
+        const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;display:flex;align-items:center;justify-content:center">
+            <div style="background:#1a1a2e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:32px;width:480px;max-height:80vh;overflow-y:auto">
+                <h3 style="color:#ecf0f1;margin-bottom:20px">新增节点</h3>
+                <form id="add-node-form">
+                    <div class="form-group"><label>节点编号</label><input name="node_id" required placeholder="如 001"></div>
+                    <div class="form-group"><label>标题</label><input name="title" required></div>
+                    <div class="form-group"><label>地点</label><input name="location" required></div>
+                    <div style="display:flex;gap:12px">
+                        <div class="form-group" style="flex:1"><label>纬度</label><input name="lat" type="number" step="0.0001" required></div>
+                        <div class="form-group" style="flex:1"><label>经度</label><input name="lng" type="number" step="0.0001" required></div>
+                    </div>
+                    <div class="form-group"><label>时间</label><input name="time" placeholder="如 1934年10月"></div>
+                    <div class="form-group"><label>部队番号</label><input name="core_numbers"></div>
+                    <div class="form-group"><label>著名战役</label><textarea name="famous_battle" rows="2"></textarea></div>
+                    <div class="form-group"><label>历史事件</label><textarea name="history_event" rows="2"></textarea></div>
+                    <div class="form-group"><label>历史意义</label><textarea name="historical_significance" rows="2"></textarea></div>
+                    <div style="display:flex;gap:10px;margin-top:8px">
+                        <button type="submit" style="flex:1;padding:10px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer">保存</button>
+                        <button type="button" onclick="this.closest('[style]').remove()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);color:#95a5a6;border:none;border-radius:8px;cursor:pointer">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>`;
+        document.body.insertAdjacentHTML("beforeend", html);
+        document.getElementById("add-node-form").onsubmit = async e => {
+            e.preventDefault();
+            const fd = new FormData(e.target);
+            const data = Object.fromEntries(fd.entries());
+            data.lat = parseFloat(data.lat);
+            data.lng = parseFloat(data.lng);
+            const r = await fetch("/api/v1/nodes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+                body: JSON.stringify(data),
+            });
+            const j = await r.json();
+            alert(j.message);
+            if (j.code === 0) { document.querySelector('[style*="position:fixed"]').remove(); loadNodes(1); }
+        };
+    }
+
+    async function importNodes() {
+        const path = prompt("请输入节点 JSON 文件路径（服务器端绝对路径）：");
+        if (!path) return;
+        const r = await fetch("/api/v1/nodes/import", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+            body: JSON.stringify({ json_path: path }),
+        });
+        const j = await r.json();
+        alert(`导入完成：新增 ${j.data?.imported || 0}，跳过 ${j.data?.skipped || 0}`);
+        if (j.code === 0) loadNodes(1);
+    }
+
+    loadNodes(1);
+    </script>
+</body>
+</html>

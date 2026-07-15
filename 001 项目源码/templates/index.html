@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重走长征路 — 长征文化数字地图</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- ===================================================================
+         加载封面
+         =================================================================== -->
+    <div id="loading-overlay">
+        <div class="loading-title">重 走 长 征 路</div>
+        <div class="loading-spinner"></div>
+        <div style="margin-top:16px;color:#95a5a6;font-size:12px">正在加载长征文化数字地图...</div>
+    </div>
+
+    <!-- ===================================================================
+         主应用容器
+         =================================================================== -->
+    <div id="app">
+        <!-- 地图容器 -->
+        <div id="map"></div>
+
+        <!-- 顶部标题栏 -->
+        <div id="title-bar">
+            <h1>重走长征路</h1>
+            <div class="subtitle">长征文化数字地图 · 2026</div>
+        </div>
+
+        <!-- 左侧步骤指示器 -->
+        <div id="step-indicator" style="display:none">
+            <div class="step-label">当前步骤</div>
+            <div class="step-title">—</div>
+            <div class="step-progress">
+                <div class="step-progress-bar" style="width:0%"></div>
+            </div>
+        </div>
+
+        <!-- 军队选择器 -->
+        <div id="army-selector">
+            <div class="army-list">
+                <div class="army-item active" data-army="1" onclick="selectArmy(1)">
+                    <span class="army-dot" style="background:#c0392b"></span>中央红军（红一方面军）
+                </div>
+                <div class="army-item" data-army="2" onclick="selectArmy(2)">
+                    <span class="army-dot" style="background:#27ae60"></span>红二方面军
+                </div>
+                <div class="army-item" data-army="4" onclick="selectArmy(4)">
+                    <span class="army-dot" style="background:#2980b9"></span>红四方面军
+                </div>
+                <div class="army-item" data-army="25" onclick="selectArmy(25)">
+                    <span class="army-dot" style="background:#8e44ad"></span>红二十五军
+                </div>
+            </div>
+        </div>
+
+        <!-- 自动漫游状态栏 -->
+        <div id="autowalk-status">
+            <span class="army-name">长征路线</span>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar" style="width:0%"></div>
+            </div>
+            <span class="segment-info">0 / 0</span>
+            <span class="current-title" style="margin-left:8px;color:#95a5a6;font-size:12px"></span>
+            <button class="btn-stop" onclick="stopAutowalk()">停止</button>
+        </div>
+
+        <!-- 右侧节点信息面板 -->
+        <div id="info-panel">
+            <div class="panel-header">
+                <div>
+                    <div class="node-title" id="panel-title">—</div>
+                    <div class="node-meta" id="panel-meta">—</div>
+                </div>
+                <button class="btn-close" id="btn-close-panel" onclick="closeNodePanel()">×</button>
+            </div>
+            <div class="panel-image" id="panel-image">
+                <!-- 节点图片 -->
+            </div>
+            <div class="panel-body" id="panel-body">
+                <!-- 动态内容 -->
+            </div>
+            <div class="panel-footer">
+                <button class="btn-read" id="btn-read" onclick="readCurrentStep()">🔊 朗读</button>
+                <button class="btn-spark" id="btn-spark" onclick="openSparkForm()">✦ 星火投稿</button>
+            </div>
+            <!-- 上一步/下一步导航 -->
+            <div style="padding:0 16px 12px;display:flex;gap:8px">
+                <button id="btn-prev-step" onclick="prevStep()"
+                    style="flex:1;padding:7px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:rgba(255,255,255,0.05);color:#95a5a6;cursor:pointer;font-size:12px">← 上一步</button>
+                <button id="btn-next-step" onclick="nextStep()"
+                    style="flex:1;padding:7px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:rgba(255,255,255,0.05);color:#95a5a6;cursor:pointer;font-size:12px">下一步 →</button>
+            </div>
+        </div>
+
+        <!-- 留言板 -->
+        <div id="message-board">
+            <h3>📝 留言板</h3>
+            <div class="message-list">
+                <!-- 动态内容 -->
+            </div>
+            <div class="message-input-row">
+                <input type="text" placeholder="说点什么..." id="msg-input"
+                    onkeydown="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+
+        <!-- 底部控制栏 -->
+        <div id="controls">
+            <button class="ctrl-btn" id="btn-tts" title="语音朗读">
+                <span class="icon">🔊</span>
+                <span class="label">语音</span>
+            </button>
+            <button class="ctrl-btn" id="btn-autowalk" title="自动漫游">
+                <span class="icon">🚶</span>
+                <span class="label">漫游</span>
+            </button>
+            <button class="ctrl-btn" id="btn-army" title="选择军队">
+                <span class="icon">⚑</span>
+                <span class="label">军队</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-message" title="留言板">
+                <span class="icon">💬</span>
+                <span class="label">留言</span>
+            </button>
+            <button class="ctrl-btn" id="btn-basemap" title="切换底图">
+                <span class="icon">🗺</span>
+                <span class="label">卫星</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-login" title="登录"
+                onclick="location.href='/login'">
+                <span class="icon">👤</span>
+                <span class="label">登录</span>
+            </button>
+            <button class="ctrl-btn" id="btn-admin" title="管理后台"
+                onclick="location.href='/admin'" style="display:none">
+                <span class="icon">⚙</span>
+                <span class="label">管理</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <!-- 应用 JS -->
+    <script src="/static/js/map.js"></script>
+    <script src="/static/js/nodes.js"></script>
+    <script src="/static/js/controls.js"></script>
+    <script src="/static/js/auth.js"></script>
+
+    <script>
+    /**
+     * @brief 应用初始化入口
+     */
+    (function() {
+        "use strict";
+
+        // 初始化地图
+        initMap();
+
+        // 初始化控制栏
+        initControls();
+
+        // 初始化认证状态
+        initAuth().then(() => {
+            // 根据用户角色显示管理后台入口
+            if (window.currentUser && ["admin", "super"].includes(window.currentUser.role)) {
+                document.getElementById("btn-admin").style.display = "";
+            }
+        });
+
+        // 隐藏加载封面
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const overlay = document.getElementById("loading-overlay");
+                if (overlay) {
+                    overlay.classList.add("fade-out");
+                    setTimeout(() => overlay.remove(), 700);
+                }
+            }, 800);
+        });
+
+        // 键盘快捷键
+        document.addEventListener("keydown", (e) => {
+            // ESC 关闭面板
+            if (e.key === "Escape") {
+                closeNodePanel();
+                document.getElementById("message-board")?.classList.remove("visible");
+                document.getElementById("army-selector")?.classList.remove("visible");
+            }
+            // 左右方向键切换步骤
+            if (document.getElementById("info-panel").classList.contains("visible")) {
+                if (e.key === "ArrowRight") nextStep();
+                if (e.key === "ArrowLeft")  prevStep();
+            }
+        });
+
+        console.log("[App] 长征文化数字地图初始化完成");
+    })();
+    </script>
+</body>
+</html>

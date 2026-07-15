@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Flask
+*.db
+instance/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Environment
+.env
+env/
+venv/
+.venv/
+
+# Project specific - large binaries
+*.zip
+*.bin
+doxygen.exe
+
+# Doxygen output
+html/
+docs_doxygen/

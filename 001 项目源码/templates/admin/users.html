@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 — 重走长征路</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <div class="admin-sidebar">
+            <h2>🚩 管理后台</h2>
+            <a href="/admin"       class="admin-nav-item">📊 总览</a>
+            <a href="/admin/nodes"  class="admin-nav-item">📍 节点管理</a>
+            <a href="/admin/users"  class="admin-nav-item active">👥 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item">✦ 星火审核</a>
+            <a href="/"            class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+        </div>
+
+        <div class="admin-main">
+            <h1>用户管理</h1>
+            <table class="admin-table">
+                <thead>
+                    <tr><th>ID</th><th>用户名</th><th>角色</th><th>注册时间</th><th>操作</th></tr>
+                </thead>
+                <tbody id="users-tbody">
+                    <tr><td colspan="5" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+            <div id="pagination" style="margin-top:16px;display:flex;gap:8px;justify-content:center"></div>
+        </div>
+    </div>
+
+    <script>
+    const token = localStorage.getItem("lm_token");
+    if (!token) location.href = "/login";
+
+    async function loadUsers(page = 1) {
+        const resp = await fetch(`/api/v1/auth/me`, {
+            headers: { "Authorization": `Bearer ${token}` },
+        });
+        const me = await resp.json();
+        if (!me.data || !["admin", "super"].includes(me.data.role)) {
+            alert("权限不足"); location.href = "/"; return;
+        }
+
+        const r = await fetch("/api/v1/nodes?per_page=1", { headers: { "Authorization": `Bearer ${token}` } });
+        // 用户列表需另开接口，这里用模拟
+        document.getElementById("users-tbody").innerHTML =
+            '<tr><td colspan="5" style="text-align:center;color:#95a5a6">用户管理功能需要扩展用户列表 API</td></tr>';
+    }
+
+    loadUsers();
+    </script>
+</body>
+</html>

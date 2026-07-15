@@ -1,0 +1,53 @@
+# 长征脚本 V004 — 照片获取指南
+## 各节点官方图片下载参考网址
+
+以下网站均可通过浏览器手动访问下载官方图片：
+
+**1 赣南闽西**
+- 1.1 江西瑞金：baike.baidu.com/item/瑞金 / 瑞金中央革命根据地纪念馆官网
+- 1.2 福建长汀：baike.baidu.com/item/长汀 / 长汀中复村
+- 1.3 江西于都：baike.baidu.com/item/于都 / 中央红军长征出发地纪念园
+
+**2 湘江血战**
+- 2.1 湘江战役：baike.baidu.com/item/湘江战役 / 全州红军长征湘江战役纪念馆
+
+**3 通道转兵**
+- 3.1 湖南通道：baike.baidu.com/item/通道会议 / 通道转兵纪念馆
+
+**4 伟大转折**
+- 4.1 贵州黎平：baike.baidu.com/item/黎平会议
+- 4.2 贵州瓮安：baike.baidu.com/item/猴场会议 / 强渡乌江
+- 4.3 贵州遵义：baike.baidu.com/item/遵义会议（最重点）
+- 4.4 云南扎西：baike.baidu.com/item/扎西会议
+- 4.5 贵州苟坝：baike.baidu.com/item/苟坝会议
+
+**5 四渡赤水**
+- 5.1 四渡赤水：baike.baidu.com/item/四渡赤水 / 四渡赤水纪念馆
+
+**6 巧渡金沙**
+- 6.1 巧渡金沙江：baike.baidu.com/item/巧渡金沙江
+
+**7 大渡河畔**
+- 7.1 强渡大渡河：baike.baidu.com/item/强渡大渡河
+- 7.2 飞夺泸定桥：baike.baidu.com/item/飞夺泸定桥 / 泸定桥
+
+**8 翻越雪山**
+- 8.1 翻越夹金山：baike.baidu.com/item/夹金山
+
+**9 懋功会师**
+- 9.1-9.3：baike.baidu.com/item/懋功会师 / 两河口会议
+
+**10 草地风云**
+- 10.1-10.3：baike.baidu.com/item/松潘草地 / 巴西会议
+
+**11 北上甘南**
+- 11.2 腊子口：baike.baidu.com/item/腊子口战役
+- 11.3 哈达铺：baike.baidu.com/item/哈达铺
+
+**12-14**
+- 12.1 六盘山：baike.baidu.com/item/六盘山红军长征纪念馆
+- 13.1 吴起镇：baike.baidu.com/item/吴起镇会师
+- 14.1 会宁：baike.baidu.com/item/会宁会师
+- 14.2 将台堡：baike.baidu.com/item/将台堡会师
+
+下载后保存到：`002 项目资源\[节点名]\` 文件夹。

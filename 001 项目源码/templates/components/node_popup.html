@@ -1,0 +1,21 @@
+<!-- node_popup.html — 节点弹出窗组件（Leaflet Popup 内联模板） -->
+<div class="node-popup-content">
+    <div class="popup-title">{{title}}</div>
+    <div class="popup-meta">{{time}} · {{location}}</div>
+    <div class="popup-action">
+        <button onclick="window.showNodePanel && window.showNodePanel(window._popupNodeData)"
+                style="
+                    margin-top:8px;
+                    padding:6px 14px;
+                    background:#c0392b;
+                    color:white;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:12px;
+                    font-family:PingFang SC,Microsoft YaHei,sans-serif;
+                ">
+            查看详情 →
+        </button>
+    </div>
+</div>
