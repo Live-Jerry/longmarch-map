@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['新增功能_0',['✨ 新增功能',['../md__c_h_a_n_g_e_l_o_g.html#autotoc_md22',1,'']]]
+  ['数据库_20sqlite_0',['数据库 (SQLite)',['../md__m_e_m_o_r_y.html#autotoc_md40',1,'']]]
 ];

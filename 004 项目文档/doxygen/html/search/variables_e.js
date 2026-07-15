@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_0',['s',['../namespacerun__doxygen.html#afad849c89acef08f0aa274d6a7c4464e',1,'run_doxygen']]],
+  ['s_0',['s',['../namespacerun__doxygen2.html#a5c0f18be2dcb72a5413a20c633469b8c',1,'run_doxygen2']]],
   ['secret_5fkey_1',['SECRET_KEY',['../classconfig_1_1_config.html#a3412fe9e721c7369004cc09445f52a67',1,'config::Config']]],
   ['secret_5fkey_2',['secret_key',['../classservices_1_1auth__manager_1_1_auth_manager.html#a6444f4b279c2e3ade08dbd10d09b2412',1,'services::auth_manager::AuthManager']]],
   ['serve_5fforever_3',['serve_forever',['../namespace_xE9_x87_x8D_xE8_xB5_xB0_xE9_x95_xBF_xE5_xBE_x81_xE8_xB7_xAF_01_xE5_xBC_x98_xE6_x89_xAC02447be83f98dfa00f754f211bde732a.html#abcc078c32d5aa194b37b67a801834544',1,'重走长征路 弘扬长征精神V001']]],

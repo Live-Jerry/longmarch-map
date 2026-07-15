@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "重走长征路", "index.html", [
+    [ "重走长征路 — 长征文化数字地图", "index.html", "index" ],
     [ "AGENTS.md - Your Workspace", "md__a_g_e_n_t_s.html", [
       [ "不可违逆：工具输出真实", "md__a_g_e_n_t_s.html#autotoc_md1", null ],
       [ "First Run", "md__a_g_e_n_t_s.html#autotoc_md2", null ],
@@ -85,28 +86,28 @@ var NAVTREE =
       ] ]
     ] ],
     [ "开发路线图", "md__r_o_a_d_m_a_p.html", [
-      [ "V1.1.0 — 内容增强（优先级：高）", "md__r_o_a_d_m_a_p.html#autotoc_md49", null ],
-      [ "V1.2.0 — 交互增强（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md50", null ],
-      [ "V2.0.0 — 多军路线（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md51", null ],
-      [ "V2.1.0 — 用户共建（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md52", null ],
-      [ "V3.0.0 — 生产就绪（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md53", null ]
+      [ "V1.1.0 — 内容增强（优先级：高）", "md__r_o_a_d_m_a_p.html#autotoc_md57", null ],
+      [ "V1.2.0 — 交互增强（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md58", null ],
+      [ "V2.0.0 — 多军路线（优先级：中）", "md__r_o_a_d_m_a_p.html#autotoc_md59", null ],
+      [ "V2.1.0 — 用户共建（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md60", null ],
+      [ "V3.0.0 — 生产就绪（优先级：低）", "md__r_o_a_d_m_a_p.html#autotoc_md61", null ]
     ] ],
     [ "SOUL.md - Who You Are", "md__s_o_u_l.html", [
-      [ "Core Truths", "md__s_o_u_l.html#autotoc_md56", null ],
-      [ "Boundaries", "md__s_o_u_l.html#autotoc_md57", null ],
-      [ "Vibe", "md__s_o_u_l.html#autotoc_md58", null ],
-      [ "Continuity", "md__s_o_u_l.html#autotoc_md59", null ],
-      [ "Related", "md__s_o_u_l.html#autotoc_md61", null ]
+      [ "Core Truths", "md__s_o_u_l.html#autotoc_md64", null ],
+      [ "Boundaries", "md__s_o_u_l.html#autotoc_md65", null ],
+      [ "Vibe", "md__s_o_u_l.html#autotoc_md66", null ],
+      [ "Continuity", "md__s_o_u_l.html#autotoc_md67", null ],
+      [ "Related", "md__s_o_u_l.html#autotoc_md69", null ]
     ] ],
     [ "TOOLS.md - Local Notes", "md__t_o_o_l_s.html", [
-      [ "What Goes Here", "md__t_o_o_l_s.html#autotoc_md63", null ],
-      [ "Examples", "md__t_o_o_l_s.html#autotoc_md64", null ],
-      [ "Why Separate?", "md__t_o_o_l_s.html#autotoc_md65", null ],
-      [ "Related", "md__t_o_o_l_s.html#autotoc_md67", null ]
+      [ "What Goes Here", "md__t_o_o_l_s.html#autotoc_md71", null ],
+      [ "Examples", "md__t_o_o_l_s.html#autotoc_md72", null ],
+      [ "Why Separate?", "md__t_o_o_l_s.html#autotoc_md73", null ],
+      [ "Related", "md__t_o_o_l_s.html#autotoc_md75", null ]
     ] ],
     [ "USER.md - About Your Human", "md__u_s_e_r.html", [
-      [ "Context", "md__u_s_e_r.html#autotoc_md69", null ],
-      [ "Related", "md__u_s_e_r.html#autotoc_md71", null ]
+      [ "Context", "md__u_s_e_r.html#autotoc_md77", null ],
+      [ "Related", "md__u_s_e_r.html#autotoc_md79", null ]
     ] ],
     [ "命名空间", "namespaces.html", [
       [ "命名空间列表", "namespaces.html", "namespaces_dup" ],
@@ -135,7 +136,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_xE9_x87_x8D_xE8_xB5_xB0_xE9_x95_xBF_xE5_xBE_x81_xE8_xB7_xAF_01_xE5_xBC_x98_xE6_x89_xAC_xE9_x95_9081c46b648d75e100fc2f08c87cc728.html",
-"namespaceapi_1_1node__api.html#a5df0c0f365cd81e210d52fa4326819ef"
+"namespaceapi_1_1media__api.html#a71be7ed114bf523be88a0fff5b4d1333"
 ];
 
 const SYNCONMSG = '点击 关闭 面板同步';

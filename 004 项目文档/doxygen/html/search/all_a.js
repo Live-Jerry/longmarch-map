@@ -34,6 +34,6 @@ var searchData=
   ['get_5ftts_5fconfig_31',['get_tts_config',['../classservices_1_1tts__service_1_1_t_t_s_service.html#a41708f99828cafbf1d18aa4186ebb22f',1,'services::tts_service::TTSService']]],
   ['get_5fupload_5fdir_32',['get_upload_dir',['../classservices_1_1media__manager_1_1_media_manager.html#a19193e735d4c159f64e905eab081dcc2',1,'services::media_manager::MediaManager']]],
   ['get_5fuser_5fsparks_33',['get_user_sparks',['../classservices_1_1spark__manager_1_1_spark_manager.html#a5cf77480dc363ab9a174cebe9517079e',1,'services::spark_manager::SparkManager']]],
-  ['goes_20here_34',['What Goes Here',['../md__t_o_o_l_s.html#autotoc_md63',1,'']]],
+  ['goes_20here_34',['What Goes Here',['../md__t_o_o_l_s.html#autotoc_md71',1,'']]],
   ['group_20chats_35',['Group Chats',['../md__a_g_e_n_t_s.html#autotoc_md10',1,'']]]
 ];

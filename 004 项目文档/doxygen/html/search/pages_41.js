@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['😊_20react_20like_20a_20human_0',['😊 React Like a Human!',['../md__a_g_e_n_t_s.html#autotoc_md12',1,'']]]
+  ['🔧_20技术架构_0',['🔧 技术架构',['../md__m_e_m_o_r_y.html#autotoc_md37',1,'']]]
 ];

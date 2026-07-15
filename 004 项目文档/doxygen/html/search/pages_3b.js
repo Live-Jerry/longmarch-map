@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📏_20修改工作规范（不可违背）_0',['📏 修改工作规范（不可违背）',['../md__m_e_m_o_r_y.html#autotoc_md34',1,'']]]
+  ['💬_20know_20when_20to_20speak_0',['💬 Know When to Speak!',['../md__a_g_e_n_t_s.html#autotoc_md11',1,'']]]
 ];
