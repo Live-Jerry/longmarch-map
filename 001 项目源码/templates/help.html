@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助 — 长征文化用户手册</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=20260716">
+    <style>
+        /* 覆盖主样式表 html,body {overflow:hidden;height:100%} */
+        html {
+            overflow: visible !important;
+            height: auto !important;
+        }
+        body.help-body {
+            overflow: visible !important;
+            height: auto !important;
+            min-height: 100vh;
+        }
+        .help-body {
+            width: 100%;
+            min-height: 100vh;
+            overflow: visible;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-darker) 100%);
+            padding: 40px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .help-container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--color-panel);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .help-container h1 {
+            color: var(--color-primary);
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .help-container .help-subtitle {
+            text-align: center;
+            color: var(--color-muted);
+            font-size: 13px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .help-container h2 {
+            color: var(--color-accent);
+            font-size: 18px;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(243,156,18,0.2);
+        }
+        .help-container h3 {
+            color: var(--color-light);
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        .help-container p {
+            font-size: 14px;
+            color: var(--color-light);
+            margin-bottom: 10px;
+        }
+        .help-container ul, .help-container ol {
+            margin: 8px 0 12px 20px;
+            font-size: 14px;
+            color: var(--color-light);
+        }
+        .help-container li {
+            margin-bottom: 6px;
+        }
+        .help-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+        .help-container th {
+            background: rgba(255,255,255,0.05);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--color-muted);
+            border-bottom: 1px solid var(--color-border);
+            font-weight: 600;
+        }
+        .help-container td {
+            padding: 8px 12px;
+            color: var(--color-light);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .help-container tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .help-container strong {
+            color: var(--color-accent);
+        }
+        .help-container blockquote {
+            border-left: 3px solid var(--color-primary);
+            padding: 8px 16px;
+            margin: 12px 0;
+            background: rgba(192,57,43,0.08);
+            border-radius: 0 6px 6px 0;
+            font-size: 13px;
+            color: var(--color-muted);
+        }
+        .help-container .faq-q {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .help-container code {
+            background: rgba(255,255,255,0.08);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        /* 悬浮返回按钮 — 永远可见 */
+        .help-back-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: var(--color-panel);
+            border-top: 1px solid var(--color-border);
+            backdrop-filter: blur(12px);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .help-back-bar .btn-back {
+            padding: 10px 32px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 14px;
+            font-family: var(--font-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .help-back-bar .btn-back:hover {
+            background: #a93226;
+            text-decoration: none;
+        }
+        .help-back-bar .help-tip {
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+        @media (max-width: 640px) {
+            .help-container {
+                padding: 20px 16px;
+            }
+            .help-body {
+                padding: 16px 10px 80px;
+            }
+        }
+    </style>
+    <script>
+        // 强制覆盖 html {overflow:hidden;height:100%}
+        document.documentElement.style.overflow = "visible";
+        document.documentElement.style.height = "auto";
+    </script>
+</head>
+<body class="help-body">
+    <div class="help-container">
+        <h1>长征文化数字地图</h1>
+        <div class="help-subtitle">用 户 手 册 · V005 · 2026-07-16</div>
+
+        <h2>一、产品理念与目的</h2>
+
+        <h3>1.1 为什么做这个产品</h3>
+        <p>长征是中国共产党和红军在 1934-1936 年间进行的一次战略大转移，途经 14 个省，行程约二万五千里。长征不仅是一次军事行动，更是一种精神象征。</p>
+        <p><strong>长征文化数字地图</strong> 是一个交互式卫星地图平台，旨在：</p>
+        <ul>
+            <li>用现代数字技术还原长征的完整路线和关键节点</li>
+            <li>以多媒体形式（图片、文字、语音）呈现每个节点的历史细节</li>
+            <li>让用户在"重走长征路"的过程中身临其境感受那段历史</li>
+            <li>吸引公众参与历史资料的收集与分享（星火拾遗）</li>
+        </ul>
+
+        <h3>1.2 核心设计理念</h3>
+        <ul>
+            <li><strong>交互性</strong>：用户通过点击地图上的红旗标记探索节点，支持自动漫游</li>
+            <li><strong>开放性</strong>：任何用户无需注册即可提交史料（星火拾遗），经审核后入库</li>
+            <li><strong>多媒体</strong>：每个节点包含战役、会议、事件、遗址、人物、诗词等多维度信息</li>
+            <li><strong>参与感</strong>：留言板、星火投稿等机制让用户从"看客"变为"参与者"</li>
+        </ul>
+
+        <h3>1.3 适用对象</h3>
+        <ul>
+            <li>历史爱好者、红色文化研究者</li>
+            <li>中小学师生（作为爱国主义教育辅助工具）</li>
+            <li>党员教育、红色旅游导览</li>
+            <li>对长征感兴趣的普通公众</li>
+        </ul>
+
+        <h2>二、功能介绍</h2>
+
+        <h3>2.1 交互式卫星地图</h3>
+        <ul>
+            <li><strong>底图切换</strong>：支持 ArcGIS 卫星图（默认）和 OpenStreetMap 浅色/深色地图</li>
+            <li><strong>节点标记</strong>：所有长征节点以红旗标记标注在地图上</li>
+            <li><strong>点击交互</strong>：点击红旗下方的编号标签，弹出信息面板</li>
+            <li><strong>军队路线</strong>：支持显示中央红军、红二方面军、红四方面军、红 25 军四支军队的行军路线</li>
+        </ul>
+
+        <h3>2.2 节点信息面板</h3>
+        <p>每个节点打开后显示 5 步信息：</p>
+        <table>
+            <tr><th>步骤</th><th>内容</th></tr>
+            <tr><td>① 时间与地点</td><td>事件发生的时间、地点、编号</td></tr>
+            <tr><td>② 著名战役</td><td>战役名称、经过、结果（如适用）</td></tr>
+            <tr><td>③ 重要会议</td><td>会议名称、时间、决议（如适用）</td></tr>
+            <tr><td>④ 历史事件</td><td>核心事件描述</td></tr>
+            <tr><td>⑤ 历史意义</td><td>事件的历史地位与影响</td></tr>
+        </table>
+        <p>此外还包含核心数字、典型故事、诗词文章、核心遗址、节点图片等。</p>
+
+        <h3>2.3 自动漫游</h3>
+        <ul>
+            <li>沿长征路线自动移动，模拟 30km/h 速度</li>
+            <li>到达每个节点自动弹出信息面板</li>
+            <li>支持语音朗读（TTS，中文语音合成）</li>
+            <li>控制功能：暂停/继续、跳过当前节点、重头开始、退出漫游</li>
+            <li>速度选择：慢速（3s/节点）、中速（2s/节点）、快速（1s/节点）</li>
+        </ul>
+
+        <h3>2.4 星火拾遗（用户贡献）</h3>
+        <ul>
+            <li>无需注册即可提交长征相关素材</li>
+            <li>支持两种模式：<strong>新建节点</strong> 和 <strong>补充既有节点</strong></li>
+            <li>支持文件上传：图片、视频、音频、文档</li>
+            <li>提交者信息可选（姓名、电话）</li>
+            <li>所有内容进入待审核状态，由管理员审核后发布</li>
+        </ul>
+
+        <h3>2.5 用户认证</h3>
+        <ul>
+            <li><strong>注册</strong>：创建账号（用户名 ≥ 3 字符，密码 ≥ 6 字符）</li>
+            <li><strong>登录</strong>：使用用户名和密码登录</li>
+            <li><strong>忘记密码</strong>：重置密码（验证用户名后设置新密码）</li>
+            <li>登录后星火投稿可追踪个人提交记录</li>
+        </ul>
+
+        <h3>2.6 留言板</h3>
+        <ul>
+            <li>查看所有用户留言</li>
+            <li>登录后可发表留言</li>
+            <li>留言与长征节点关联</li>
+        </ul>
+
+        <h2>三、操作说明</h2>
+
+        <h3>3.1 快速开始</h3>
+        <ol>
+            <li>在浏览器中打开平台首页</li>
+            <li>页面加载后，自动显示长征路线和节点标记</li>
+            <li>点击地图上任意红旗节点的编号标签，右侧弹出信息面板</li>
+            <li>点击面板下方的 <strong>▶ 朗读</strong> 按钮收听语音讲解</li>
+        </ol>
+
+        <h3>3.2 控制栏说明</h3>
+        <p>右侧纵向控制栏包含以下按钮：</p>
+        <table>
+            <tr><th>图标</th><th>名称</th><th>功能</th></tr>
+            <tr><td>🏁</td><td>速度</td><td>设置自动漫游速度和开始漫游</td></tr>
+            <tr><td>✦</td><td>星火</td><td>打开星火拾遗投稿弹窗</td></tr>
+            <tr><td>🗺</td><td>卫星</td><td>切换卫星图/普通地图/深色地图</td></tr>
+            <tr><td>💬</td><td>留言</td><td>打开/关闭留言板</td></tr>
+            <tr><td>👤</td><td>登录</td><td>打开认证弹窗（登录/注册/忘记密码）</td></tr>
+            <tr><td>💡</td><td>帮助</td><td>打开本用户手册</td></tr>
+            <tr><td>⚙</td><td>管理</td><td>进入管理后台（仅管理员显示）</td></tr>
+        </table>
+
+        <h3>3.3 探索节点</h3>
+        <p><strong>方法一：直接点击</strong></p>
+        <ol>
+            <li>在地图上找到有红色军队标记的节点</li>
+            <li>鼠标悬停时标记会放大，显示节点编号</li>
+            <li>点击编号标签，左侧弹出信息面板</li>
+        </ol>
+        <p><strong>方法二：自动漫游</strong></p>
+        <ol>
+            <li>点击控制栏的 <strong>🏁 速度</strong> 按钮</li>
+            <li>在弹出的面板中选择速度（慢速/中速/快速）</li>
+            <li>点击 <strong>开始</strong> 按钮</li>
+            <li>地图自动沿路线移动到每个节点并弹出信息</li>
+            <li>使用顶部状态栏的暂停/跳过/重头/退出控制漫游</li>
+        </ol>
+
+        <h3>3.4 切换军队路线</h3>
+        <ol>
+            <li>点击控制栏的 <strong>🏁 速度</strong> 按钮旁的军队下拉</li>
+            <li>选择中央红军、红二方面军、红四方面军或红 25 军</li>
+            <li>地图自动切换对应的行军路线</li>
+        </ol>
+
+        <h3>3.5 提交星火内容</h3>
+        <p>无需注册，直接操作：</p>
+        <ol>
+            <li>点击控制栏的 <strong>✦ 星火</strong> 按钮</li>
+            <li>选择模式：新建节点 或 补充既有节点</li>
+            <li>填写历史内容字段（战役、会议、事件、故事等）</li>
+            <li>可选上传多媒体文件（图片、视频、音频、文档）</li>
+            <li>可选填写提交者姓名和电话</li>
+            <li>点击 <strong>提交审核</strong> 按钮</li>
+            <li>内容进入待审核状态，经管理员审核后发布</li>
+        </ol>
+
+        <h3>3.6 登录/注册</h3>
+        <ol>
+            <li>点击控制栏的 <strong>👤 登录</strong> 按钮</li>
+            <li>弹窗中三个标签页：<strong>登录 / 注册 / 忘记密码</strong></li>
+            <li>登录成功后按钮变为「退出」，单击退出登出</li>
+            <li>忘记密码：输入用户名和新密码即可重置</li>
+        </ol>
+
+        <h3>3.7 留言</h3>
+        <ol>
+            <li>点击控制栏的 <strong>💬 留言</strong> 按钮</li>
+            <li>在留言板输入框中输入内容</li>
+            <li>点击发送（登录后方可发送）</li>
+        </ol>
+
+        <h3>3.8 管理后台</h3>
+        <p><em>需要 admin 或 super 角色权限</em></p>
+        <ol>
+            <li>登录管理员账号后，控制栏自动显示 <strong>⚙ 管理</strong> 按钮</li>
+            <li>点击进入管理后台，左侧导航栏：仪表盘、节点管理、用户管理、星火审核</li>
+        </ol>
+
+        <h2>四、常见问题</h2>
+
+        <p><span class="faq-q">Q: 星火投稿需要注册吗？</span><br>
+        A: 不需要。任何用户都可以直接提交星火内容，提交者信息（姓名/电话）可选填写。</p>
+
+        <p><span class="faq-q">Q: 提交星火后多久能显示？</span><br>
+        A: 管理员审核通过后即显示。审核时间取决于管理员处理进度。</p>
+
+        <p><span class="faq-q">Q: 忘记密码怎么办？</span><br>
+        A: 在认证弹窗中点击"忘记密码"标签页，输入用户名和新密码即可重置。</p>
+
+        <p><span class="faq-q">Q: 如何成为管理员？</span><br>
+        A: 管理员账号由系统初始化时创建，普通用户无法自行升级。</p>
+
+        <p><span class="faq-q">Q: 可以上传哪些类型的文件？</span><br>
+        A: 图片（jpg/png/gif/webp）、视频（mp4/avi/mov）、音频（mp3/wav/ogg）、文档（pdf/doc/docx/txt）。</p>
+
+        <p><span class="faq-q">Q: 自动漫游时如何手动查看某个节点？</span><br>
+        A: 点击暂停按钮暂停漫游，然后直接在地图上点击你想看的节点标记。漫游会自动继续剩余路线。</p>
+
+        <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--color-muted)">
+            长征文化数字地图项目组 · 2026年7月
+        </p>
+    </div>
+
+    <!-- 悬浮底部返回栏 - 永远可见、不会挡住滚动 -->
+    <div class="help-back-bar">
+        <span class="help-tip">使用 Ctrl+F 在本页搜索</span>
+        <a href="/" class="btn-back">← 返回地图</a>
+    </div>
+</body>
+</html>

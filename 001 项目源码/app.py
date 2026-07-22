@@ -110,6 +110,7 @@ def _get_schema_sql():
         lat                REAL    NOT NULL,
         lng                REAL    NOT NULL,
         time               TEXT    NOT NULL,
+        army               TEXT    NOT NULL DEFAULT '中央红军',
         core_numbers       TEXT,
         famous_battle      TEXT,
         important_meeting  TEXT,
@@ -260,23 +261,8 @@ def _register_blueprints(app):
 
 
 # =============================================================================
-# 主入口
+# 页面路由
 # =============================================================================
-
-def _register_blueprints(app):
-    """注册所有 API 蓝图"""
-    from api.auth_api   import auth_bp
-    from api.node_api   import node_bp
-    from api.route_api  import route_bp
-    from api.media_api  import media_bp
-    from api.spark_api  import spark_bp
-
-    # 所有 API 路由统一前缀 /api/v1
-    app.register_blueprint(auth_bp,  url_prefix="/api/v1/auth")
-    app.register_blueprint(node_bp,  url_prefix="/api/v1/nodes")
-    app.register_blueprint(route_bp, url_prefix="/api/v1/routes")
-    app.register_blueprint(media_bp, url_prefix="/api/v1/media")
-    app.register_blueprint(spark_bp, url_prefix="/api/v1/sparks")
 
 
 def _register_page_routes(app):
@@ -294,6 +280,15 @@ def _register_page_routes(app):
     @app.route("/register")
     def register_page():
         return render_template("register.html")
+
+    @app.route("/manual")
+    def help_page():
+        from flask import make_response
+        resp = make_response(render_template("help.html"))
+        resp.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        resp.headers["Pragma"] = "no-cache"
+        resp.headers["Expires"] = "0"
+        return resp
 
     @app.route("/admin")
     def admin_page():

@@ -10,6 +10,7 @@
 
 const map = {};
 const nodeMarkers = {};
+const nodeArmies = {};  // army -> [nodeId, ...]
 const routeLayers = {};
 let currentBaseLayer = "satellite";
 
@@ -199,6 +200,40 @@ function addNodeMarker(node) {
 
     marker.addTo(map.nodeGroup);
     nodeMarkers[node.node_id] = marker;
+
+    // 按军队分组记录节点
+    var army = node.army || "中央红军（红一方面军）";
+    var armyMap = {"中央红军（红一方面军）":1,"中央红军":1,"红二方面军":2,"红四方面军":4,"红25军":25};
+    var aNum = armyMap[army] || 1;
+    if (!nodeArmies[aNum]) nodeArmies[aNum] = [];
+    nodeArmies[aNum].push(node.node_id);
+}
+
+/**
+ * @function filterNodesByArmy
+ * @brief 显示/隐藏节点标记，按军队筛选
+ * @param {number} army  0=全部显示, 1/2/4/25=只显示该军
+ */
+function filterNodesByArmy(army) {
+    if (army === 0) {
+        // 全部显示
+        for (var nid in nodeMarkers) {
+            map.nodeGroup.addLayer(nodeMarkers[nid]);
+        }
+        return;
+    }
+
+    // 先隐藏所有节点
+    for (var nid in nodeMarkers) {
+        map.nodeGroup.removeLayer(nodeMarkers[nid]);
+    }
+
+    // 再显示选中军队的节点
+    var ids = nodeArmies[army] || [];
+    ids.forEach(function(nid) {
+        var m = nodeMarkers[nid];
+        if (m) map.nodeGroup.addLayer(m);
+    });
 }
 
 /**
@@ -215,9 +250,9 @@ async function loadRoutes() {
             const army = feature.properties?.army;
             const color = armyColors[army] || "#e74c3c";
 
-            // 用 Catmull-Rom 样条平滑：对原始坐标点按 3x 密度插值
+            // 用 Catmull-Rom 样条平滑：对原始坐标点按 8x 密度插值
             var coords = feature.geometry.coordinates;
-            var smoothCoords = smoothCurve(coords, 3);
+            var smoothCoords = smoothCurve(coords, 8);
 
             var layer = L.polyline(smoothCoords, {
                 color: color,
@@ -320,17 +355,43 @@ function flyToNode(nodeId) {
 
 /**
  * @function toggleArmy
- * @brief 显示/隐藏军队路线
+ * @brief 显示/隐藏军队路线，同时同步筛选节点
+ * @param {number} army  0=全部显示, 1=中央红军, 2=红二, 4=红四, 25=红25
  */
 function toggleArmy(army) {
-    var layer = routeLayers[army];
-    if (!layer) return;
-    if (map.instance.hasLayer(layer)) {
-        map.instance.removeLayer(layer);
-    } else {
-        layer.addTo(map.instance);
+    var allArmies = [1, 2, 4, 25];
+
+    if (army === 0) {
+        // 全部显示：添加所有军队路线 + 所有节点
+        allArmies.forEach(function(a) {
+            var layer = routeLayers[a];
+            if (layer && !map.instance.hasLayer(layer)) {
+                layer.addTo(map.instance);
+            }
+        });
+        filterNodesByArmy(0);
+        return;
     }
+
+    // 单选一支军队：先移除所有路线，再添加选中的
+    allArmies.forEach(function(a) {
+        var layer = routeLayers[a];
+        if (layer && map.instance.hasLayer(layer)) {
+            map.instance.removeLayer(layer);
+        }
+    });
+
+    var selected = routeLayers[army];
+    if (selected) {
+        selected.addTo(map.instance);
+    }
+
+    // 同步筛选节点：只显示该军队的节点
+    filterNodesByArmy(army);
 }
+
+window.toggleArmy = toggleArmy;
+window.filterNodesByArmy = filterNodesByArmy;
 
 window.map = map;
 window.initMap = initMap;
@@ -338,4 +399,3 @@ window.loadNodes = loadNodes;
 window.loadRoutes = loadRoutes;
 window.switchBaseLayer = switchBaseLayer;
 window.flyToNode = flyToNode;
-window.toggleArmy = toggleArmy;

@@ -60,6 +60,29 @@ def register():
         return err(str(e))
 
 
+@auth_bp.route("/reset-password", methods=["POST"])
+def reset_password():
+    """
+    @fn    reset_password
+    @brief 忘记密码 — 重设用户密码
+    @req   JSON: { username, new_password }
+    @res   { code, message }
+    """
+    data = request.get_json(silent=True) or {}
+    username = data.get("username", "").strip()
+    new_password = data.get("new_password", "")
+
+    if not username or not new_password:
+        return err("用户名和新密码不能为空")
+
+    try:
+        manager = AuthManager()
+        manager.reset_password(username, new_password)
+        return ok(message="密码重置成功，请使用新密码登录")
+    except ValueError as e:
+        return err(str(e))
+
+
 @auth_bp.route("/login", methods=["POST"])
 def login():
     """

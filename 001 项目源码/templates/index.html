@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -33,13 +33,14 @@
         <div id="title-bar">
             <h1>我 走 长 征 路</h1>
             <div class="subtitle">交互式长征文化数字平台 · 2026</div>
-        </div>
-
-        <!-- 军队选择器 -->
+      <!-- 军队选择器 -->
         <div id="army-selector">
             <div class="army-list">
-                <div class="army-item active" data-army="1" onclick="selectArmy(1)">
-                    <span class="army-dot" style="background:#c0392b"></span>中央红军（红一方面军）
+                <div class="army-item active" data-army="0" onclick="selectArmy(0)">
+                    <span class="army-dot" style="background:linear-gradient(90deg,#e74c3c,#27ae60,#2980b9,#8e44ad)"></span>全部显示
+                </div>
+                <div class="army-item" data-army="1" onclick="selectArmy(1)">
+                    <span class="army-dot" style="background:#e74c3c"></span>中央红军（红一方面军）
                 </div>
                 <div class="army-item" data-army="2" onclick="selectArmy(2)">
                     <span class="army-dot" style="background:#27ae60"></span>红二方面军
@@ -52,12 +53,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- 自动漫游状态栏 -->
-        <div id="autowalk-status">
-            <span class="army-name">长征路线</span>
-            <div class="progress-bar-wrap">
-                <div class="progress-bar" style="width:0%"></div>
             </div>
             <span class="segment-info">0 / 0</span>
             <span class="current-title" style="margin-left:8px;color:#95a5a6;font-size:12px"></span>
@@ -81,7 +76,7 @@
             </div>
             <div class="panel-footer">
                 <button class="btn-read" id="btn-read" onclick="readCurrentContent()">🔊 朗读</button>
-                <button class="btn-spark" id="btn-spark" onclick="openSparkForm()">✦ 星火投稿</button>
+                <button class="btn-spark" id="btn-spark" onclick="openNodeEditor('拾遗', window.activeNode?.node_id || null, sparkSubmitCallback)">✦ 星火投稿</button>
             </div>
 
         </div>
@@ -119,7 +114,8 @@
                 <span class="label">军队</span>
             </button>
             <div class="ctrl-divider"></div>
-            <button class="ctrl-btn" id="btn-spark-main" title="星火拾遗 — 提交你的长征记忆">
+            <button class="ctrl-btn" id="btn-spark-main" title="星火拾遗 — 提交你的长征记忆"
+                onclick="openNodeEditor('拾遗', window.activeNode?.node_id || null, sparkSubmitCallback)">
                 <span class="icon">✦</span>
                 <span class="label">星火</span>
             </button>
@@ -132,12 +128,16 @@
                 <span class="icon">💬</span>
                 <span class="label">留言</span>
             </button>
-            <button class="ctrl-btn" id="btn-login" title="用户登录"
-                onclick="location.href='/login'">
+            <button class="ctrl-btn" id="btn-login" title="用户登录/注册">
                 <span class="icon">👤</span>
                 <span class="label">登录</span>
             </button>
-            <button class="ctrl-btn" id="btn-admin" title="管理后台"
+            <button class="ctrl-btn" id="btn-help" title="帮助 — 用户手册"
+                onclick="location.href='/manual'">
+                <span class="icon">💡</span>
+                <span class="label">帮助</span>
+            </button>
+            <button class="ctrl-btn" id="btn-admin" title="管理后台",
                 onclick="location.href='/admin'" style="display:none">
                 <span class="icon">⚙</span>
                 <span class="label">管理</span>
@@ -176,147 +176,90 @@
         </div>
     </div>
 
-    <!-- 星火弹窗 -->
-    <div id="spark-modal" class="modal-overlay" style="display:none">
-        <div class="modal-dialog" onclick="event.stopPropagation()">
+    {% include "_spark_modal.html" %}
+
+    <!-- ===================================================================
+         认证弹窗（登录/注册/忘记密码）
+         =================================================================== -->
+    <div id="auth-modal" class="modal-overlay" style="display:none">
+        <div class="modal-dialog" onclick="event.stopPropagation()" style="width:400px">
             <div class="modal-header">
-                <span class="modal-title">⭐ 星火拾遗 — 提交您的长征记忆</span>
-                <button class="modal-close" onclick="closeSparkForm()">&times;</button>
+                <span class="modal-title">👤 用户认证</span>
+                <button class="modal-close" onclick="closeAuthModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="spark-tabs">
-                    <button class="spark-tab active" data-tab="new-node" onclick="switchSparkTab('new-node')">新建节点</button>
-                    <button class="spark-tab" data-tab="update-node" onclick="switchSparkTab('update-node')">补充既有节点</button>
+                <!-- 登录表单 -->
+                <div id="auth-login" class="auth-form-panel">
+                    <form onsubmit="handleLoginForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="请输入用户名" required autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" name="password" placeholder="请输入密码" required autocomplete="current-password">
+                        </div>
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">登 录</button>
+                        </div>
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            还没有账号？<a href="#" onclick="switchAuthTab('register');return false">立即注册</a>
+                            &nbsp;|&nbsp;
+                            <a href="#" onclick="switchAuthTab('reset');return false">忘记密码？</a>
+                        </div>
+                    </form>
                 </div>
-                <form id="spark-form" class="spark-form">
-                    <!-- 隐藏字段 -->
-                    <input type="hidden" name="submission_type" value="new-node">
-                    <input type="hidden" name="lat" id="spark-lat" value="">
-                    <input type="hidden" name="lng" id="spark-lng" value="">
 
-                    <!-- 新建节点字段组 -->
-                    <div id="spark-fields-new" class="spark-field-group">
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>节点编号 <span class="required">*</span></label>
-                                <input type="text" name="node_id" placeholder="如 15.1" required>
-                            </div>
-                            <div class="form-group half">
-                                <label>节点标题 <span class="required">*</span></label>
-                                <input type="text" name="title" placeholder="如 四渡赤水" required>
-                            </div>
+                <!-- 注册表单 -->
+                <div id="auth-register" class="auth-form-panel" style="display:none">
+                    <form onsubmit="handleRegisterForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="至少 3 个字符" required minlength="3" autocomplete="username">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>地区 <span class="required">*</span></label>
-                                <input type="text" name="location" placeholder="省/市/县" required>
-                            </div>
-                            <div class="form-group half">
-                                <label>时间 <span class="required">*</span></label>
-                                <input type="text" name="time" placeholder="1935年1月" required>
-                            </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" name="password" placeholder="至少 6 个字符" required minlength="6" autocomplete="new-password">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>纬度</label>
-                                <input type="number" name="lat_input" id="spark-lat-input" step="0.000001" placeholder="点击地图选择" onclick="showLatLngPicker()">
-                            </div>
-                            <div class="form-group half">
-                                <label>经度</label>
-                                <input type="number" name="lng_input" id="spark-lng-input" step="0.000001" placeholder="点击地图选择" onclick="showLatLngPicker()">
-                            </div>
+                        <div class="form-group">
+                            <label>确认密码</label>
+                            <input type="password" name="password2" placeholder="再次输入密码" required autocomplete="new-password">
                         </div>
-                    </div>
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">注 册</button>
+                        </div>
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            已有账号？<a href="#" onclick="switchAuthTab('login');return false">立即登录</a>
+                        </div>
+                    </form>
+                </div>
 
-                    <!-- 补充既有节点字段组 -->
-                    <div id="spark-fields-update" class="spark-field-group" style="display:none">
-                        <div class="form-group full">
-                            <label>选择节点 <span class="required">*</span></label>
-                            <select name="target_node_id" id="spark-node-select" required>
-                                <option value="">—— 请选择节点 ——</option>
-                            </select>
+                <!-- 忘记密码表单 -->
+                <div id="auth-reset" class="auth-form-panel" style="display:none">
+                    <form onsubmit="handleResetForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="请输入你的用户名" required autocomplete="username">
                         </div>
-                    </div>
-
-                    <!-- 共用内容字段 -->
-                    <div class="form-section-title">历史内容字段</div>
-                    <div class="form-group full">
-                        <label>核心数字</label>
-                        <input type="text" name="core_numbers" placeholder="歼敌数、人数、温度等">
-                    </div>
-                    <div class="form-group full">
-                        <label>著名战役</label>
-                        <textarea name="famous_battle" rows="3" placeholder="战役名称、时间、经过、结果"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>重要会议</label>
-                        <textarea name="important_meeting" rows="3" placeholder="会议名称、时间、地点、决议"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>历史事件 <span class="suggested">*建议</span></label>
-                        <textarea name="history_event" rows="3" placeholder="核心事件描述"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>核心遗址 <span class="suggested">*建议</span></label>
-                        <textarea name="core_site" rows="3" placeholder="纪念馆、纪念碑、旧址等"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>诗词文章</label>
-                        <textarea name="poem_article" rows="3" placeholder="相关诗词全文"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>典型故事</label>
-                        <textarea name="typical_story" rows="3" placeholder="感人故事"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>典型人物</label>
-                        <textarea name="typical_people" rows="3" placeholder="关键人物及其贡献"></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label>历史意义 <span class="suggested">*建议</span></label>
-                        <textarea name="historical_significance" rows="3" placeholder="历史地位与影响"></textarea>
-                    </div>
-
-                    <div class="form-section-title">多媒体资源</div>
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label>上传图片</label>
-                            <input type="file" name="images" accept="image/*" multiple>
+                        <div class="form-group">
+                            <label>新密码</label>
+                            <input type="password" name="new_password" placeholder="至少 6 个字符" required minlength="6" autocomplete="new-password">
                         </div>
-                        <div class="form-group half">
-                            <label>上传视频</label>
-                            <input type="file" name="videos" accept="video/*">
+                        <div class="form-group">
+                            <label>确认新密码</label>
+                            <input type="password" name="new_password2" placeholder="再次输入新密码" required autocomplete="new-password">
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label>上传音频</label>
-                            <input type="file" name="audios" accept="audio/*">
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">重置密码</button>
                         </div>
-                        <div class="form-group half">
-                            <label>上传文档</label>
-                            <input type="file" name="documents" accept=".pdf,.doc,.docx,.txt">
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            <a href="#" onclick="switchAuthTab('login');return false">← 返回登录</a>
                         </div>
-                    </div>
-                    <div class="form-group full">
-                        <label>上传者信息</label>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <input type="text" name="submitter_name" placeholder="姓名（选填）">
-                            </div>
-                            <div class="form-group half">
-                                <input type="text" name="submitter_phone" placeholder="电话（选填）">
-                            </div>
-                        </div>
-                        <input type="text" name="source" placeholder="来源/出处说明（选填）">
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-cancel" onclick="closeSparkForm()">取消</button>
-                        <button type="submit" class="btn btn-primary">提交审核</button>
-                    </div>
-                    <div id="spark-submit-status" class="form-status"></div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -326,13 +269,56 @@
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <!-- 应用 JS -->
-    <script src="/static/js/map.js"></script>
-    <script src="/static/js/nodes.js"></script>
-    <script src="/static/js/controls.js"></script>
-    <script src="/static/js/spark.js"></script>
-    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/map.js?v=1784204871"></script>
+    <script src="/static/js/nodes.js?v=1784204871"></script>
+    <script src="/static/js/controls.js?v=1784204871"></script>
+    <script src="/static/js/spark.js?v=1784204871"></script>
+    <script src="/static/js/auth.js?v=1784204871"></script>
 
     <script>
+    /**
+     * 星火投稿的回调：将表单数据提交至 Spark API（含文件上传）
+     */
+    function sparkSubmitCallback(form, callType, mode, nodeId) {
+        var formData = new FormData(form);
+        var statusEl = document.getElementById("node-submit-status");
+        var submitBtn = document.getElementById("node-submit-btn");
+
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "提交中..."; }
+
+        // 补充既有节点模式：设置 target_node_id
+        var fdMode = mode === 'edit' ? 'update-node' : 'new-node';
+        formData.set('submission_type', fdMode);
+        if (mode === 'edit' && nodeId) {
+            formData.set('target_node_id', nodeId);
+        }
+
+        var fetchOpts = { method: "POST", body: formData };
+        if (window.authToken) {
+            fetchOpts.headers = { "Authorization": "Bearer " + window.authToken };
+        }
+
+        fetch("/api/v1/sparks/full", fetchOpts)
+            .then(function(r) { return r.json(); })
+            .then(function(json) {
+                if (json.code === 0) {
+                    statusEl.className = "form-status success";
+                    statusEl.textContent = "✅ 提交成功！等待管理员审核。";
+                    setTimeout(closeNodeEditor, 3000);
+                } else {
+                    statusEl.className = "form-status error";
+                    statusEl.textContent = "❌ " + (json.message || "提交失败");
+                }
+            })
+            .catch(function() {
+                statusEl.className = "form-status error";
+                statusEl.textContent = "❌ 网络错误，请重试";
+            })
+            .finally(function() {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "提交审核"; }
+            });
+    }
+
     /**
      * @brief 应用初始化入口
      */
@@ -345,13 +331,8 @@
         // 初始化控制栏
         initControls();
 
-        // 初始化认证状态
-        initAuth().then(() => {
-            // 根据用户角色显示管理后台入口
-            if (window.currentUser && ["admin", "super"].includes(window.currentUser.role)) {
-                document.getElementById("btn-admin").style.display = "";
-            }
-        });
+        // 初始化认证状态（updateAuthUI 会自动处理管理按钮显示）
+        initAuth();
 
         // 隐藏加载封面
         window.addEventListener("load", () => {
@@ -384,3 +365,7 @@
     </script>
 </body>
 </html>
+
+
+
+

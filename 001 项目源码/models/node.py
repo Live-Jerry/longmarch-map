@@ -50,7 +50,7 @@ class Node:
     # =========================================================================
     ALL_FIELDS = (
         "node_id", "title", "location", "lat", "lng", "time",
-        "core_numbers", "famous_battle", "important_meeting",
+        "army", "core_numbers", "famous_battle", "important_meeting",
         "history_event", "core_site", "poem_article", "typical_story",
         "typical_people", "historical_significance", "spark_remains",
         "media_path", "image_list", "audio_path", "video_url",
@@ -83,7 +83,7 @@ class Node:
     # =========================================================================
 
     @classmethod
-    def get_all(cls, page=1, per_page=20, search=None, province=None, status=None):
+    def get_all(cls, page=1, per_page=20, search=None, province=None, status=None, army=None):
         """
         @brief      分页获取节点列表
         @param      page       页码（从 1 开始）
@@ -91,6 +91,7 @@ class Node:
         @param      search     模糊搜索关键词（搜索 title / location）
         @param      province   省份过滤
         @param      status     状态过滤，默认只返回 active
+        @param      army       军队归属过滤（如"中央红军"、"红二方面军"等）
         @return     tuple      (节点列表, 总数)
         """
         conn = _get_db()
@@ -111,6 +112,10 @@ class Node:
             conditions.append("location LIKE ?")
             params.append(f"%{province}%")
 
+        if army:
+            conditions.append("army = ?")
+            params.append(army)
+
         where_clause = " AND ".join(conditions) if conditions else "1=1"
 
         total = conn.execute(
@@ -121,7 +126,15 @@ class Node:
         rows = conn.execute(
             f"""SELECT * FROM node
                 WHERE {where_clause}
-                ORDER BY time ASC
+                ORDER BY
+                    CASE army
+                        WHEN '中央红军' THEN 1
+                        WHEN '红25军' THEN 2
+                        WHEN '红二方面军' THEN 3
+                        WHEN '红四方面军' THEN 4
+                        ELSE 5
+                    END,
+                    time ASC
                 LIMIT ? OFFSET ?""",
             params + [per_page, offset]
         ).fetchall()

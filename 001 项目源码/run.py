@@ -6,7 +6,10 @@
          生产部署建议使用 gunicorn：gunicorn -w 4 -b 0.0.0.0:5000 app:app
 @author  长征文化数字地图项目组
 @date    2026-07-15
+@version 2.0.0
 """
+
+__version__ = "2.0.0"
 
 import os
 import sys

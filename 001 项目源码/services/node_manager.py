@@ -24,7 +24,7 @@ class NodeManager:
     """
 
     @staticmethod
-    def get_nodes(page=1, per_page=None, search=None, province=None, status=None):
+    def get_nodes(page=1, per_page=None, search=None, province=None, status=None, army=None):
         """
         @brief  获取节点列表（带分页）
         @param  page       页码
@@ -32,6 +32,7 @@ class NodeManager:
         @param  search     搜索关键词
         @param  province   省份过滤
         @param  status     状态过滤
+        @param  army       军队归属过滤（如"中央红军"、"红二方面军"等）
         @return dict       包含 items, total, page, per_page, pages
         """
         if per_page is None:
@@ -39,7 +40,7 @@ class NodeManager:
 
         nodes, total = Node.get_all(
             page=page, per_page=per_page,
-            search=search, province=province, status=status
+            search=search, province=province, status=status, army=army
         )
 
         return {

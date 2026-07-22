@@ -720,8 +720,8 @@ function toggleArmySelector() {
         const rect = btn.getBoundingClientRect();
         // 出现在按钮左侧 8px 位置，垂直对齐
         el.style.top = rect.top + "px";
-        el.style.right = (window.innerWidth - rect.left + 8) + "px";
-        el.style.left = "auto";
+        el.style.right = "auto";
+        el.style.left = (rect.left - 210) + "px";
         el.style.bottom = "auto";
     }
 
@@ -888,6 +888,14 @@ async function fetchContentForTTS(nodeId, onDone) {
         ];
 
         let texts = [];
+
+        // 开头朗读节点标题和时间
+        const nodeTitle = nd.title || "";
+        const nodeTime = nd.time || "";
+        if (nodeTitle) texts.push(nodeTitle);
+        if (nodeTime) texts.push(nodeTime);
+
+        // 各内容字段
         allFields.forEach(f => {
             const val = nd[f.key];
             if (val && typeof val === "string" && val.trim() && val.trim() !== "无" && val.trim().indexOf("无。") !== 0) {

@@ -35,8 +35,26 @@ doxygen.exe
 html/
 docs_doxygen/
 
-007 项目工具/HHW_extracted/
-007 项目工具/*.exe
+007 锟斤拷目锟斤拷锟斤拷/HHW_extracted/
+007 锟斤拷目锟斤拷锟斤拷/*.exe
 tmp_*.py
-*.pyc
-__pycache__/
+
+# Temporary temp scripts
+_check_*.py
+check_git*.js
+lt_*
+*.log
+
+# Media assets (photos, uploads)
+002 椤圭洰璧勬簮/
+002_椤圭洰璧勬簮/
+
+# Upload directory
+uploads/
+
+# Doxygen full output
+004 椤圭洰鏂囨。/doxygen/
+
+# Office temp files
+~$*
+

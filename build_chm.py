@@ -1,143 +1,134 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Fix CHM encoding: convert UTF-8 encoded Chinese in .hhc/.hhk to GBK,
-then compile CHM using hhc.exe.
+Post-process doxygen output for CHM compatibility.
+Old HTML Help Workshop requires GBK-encoded HTML content.
 
-Usage:
-  python build_chm.py          # fix + compile
-  python build_chm.py --doxy   # re-run Doxygen first, then fix + compile
+Fix: Doxyfile OUTPUT_ENCODING and CHM_INDEX_ENCODING are both UTF-8,
+so Doxygen produces all files (HTML, CSS, JS, HHC, HHK, HHP) in UTF-8.
+This script converts them ALL to GBK for HTML Help Workshop.
 """
-import os
-import sys
-import subprocess
+import os, glob, subprocess
 
-HTML_DIR = os.path.abspath('D:/长征文化/004 项目文档/doxygen/html')
-HHC_EXE = r'C:\Program Files (x86)\HTML Help Workshop\hhc.exe'
-NAME_PATTERN = b'<param name="Name" value="'
-PREFIX_LEN = len(NAME_PATTERN)  # 26
+DOX_DIR = r'D:\长征文化\004 项目文档\doxygen\html'
+HHC = r'C:\Program Files (x86)\HTML Help Workshop\hhc.exe'
 
-
-def fix_file(path):
-    """Convert UTF-8 encoded Name values to GBK in .hhc/.hhk files."""
-    with open(path, 'rb') as f:
-        raw = bytearray(f.read())
-
-    idx = 0
-    fixed = 0
-    while True:
-        idx = raw.find(NAME_PATTERN, idx)
-        if idx < 0:
-            break
-        value_start = idx + PREFIX_LEN
-        value_end = raw.find(b'"', value_start)
-        if value_end < 0:
-            break
-
-        val_bytes = bytes(raw[value_start:value_end])
-
-        # Already valid GBK? Leave as-is.
-        try:
-            val_bytes.decode('gbk')
-            idx = value_end + 1
-            continue
-        except UnicodeDecodeError:
-            pass
-
-        # Try UTF-8 decoding
-        try:
-            utf8_text = val_bytes.decode('utf-8')
-        except UnicodeDecodeError:
-            idx = value_end + 1
-            continue
-
-        # Convert to GBK (replace emoji characters with ?)
-        gbk_bytes = utf8_text.encode('gbk', errors='replace')
-        raw[value_start:value_end] = gbk_bytes
-        idx = value_start + len(gbk_bytes) + 1
-        fixed += 1
-        if fixed <= 3:
-            print(f'  [{fixed}] "{utf8_text[:50]}"')
-
-    with open(path, 'wb') as f:
-        f.write(raw)
-    return fixed
-
-
-def compile_chm():
-    """Run hhc.exe via cmd.exe to avoid subprocess path resolution bug."""
-    chm = os.path.join(HTML_DIR, 'longmarch.chm')
-    if os.path.exists(chm):
-        os.remove(chm)
-
-    # hhc.exe has a path resolution issue when called via Python subprocess
-    # directly; using cmd.exe /c wrapper solves it.
-    cmd = f'cd /d "{HTML_DIR}" && "{HHC_EXE}" index.hhp'
-    proc = subprocess.run(
-        ['cmd.exe', '/c', cmd],
-        capture_output=True,
-        timeout=120
-    )
-    out = proc.stdout.decode('gbk', errors='replace').strip()
-    if out:
-        # Show summary lines only
-        for line in out.split('\n'):
-            if any(k in line for k in ('Compiling', 'Created', 'Topics', 'Compression',
-                                        'Compile time', 'Error:', 'HHC5')):
-                print(f'  {line.strip()}')
-
-    if os.path.exists(chm):
-        print(f'\nCHM: {os.path.getsize(chm)} bytes ✓')
-        return True
-    else:
-        print('\nCHM NOT GENERATED ✗')
-        if out:
-            print(f'  Last output: {out[-200:]}')
+def convert_file(fp):
+    """Convert one file from UTF-8 to GBK if it contains non-ASCII."""
+    with open(fp, 'rb') as f:
+        raw = f.read()
+    
+    # Only process if file has non-ASCII bytes
+    if not any(b > 127 for b in raw):
         return False
-
-
-def run_doxygen():
-    """Re-run Doxygen to regenerate HTML + .hhc/.hhk/.hhp."""
-    print('=== Running Doxygen ===')
-    # Clean output first
-    for f in os.listdir(HTML_DIR):
-        fp = os.path.join(HTML_DIR, f)
-        if os.path.isfile(fp) or os.path.islink(fp):
-            os.unlink(fp)
-        elif os.path.isdir(fp):
-            import shutil
-            shutil.rmtree(fp)
     
-    doxy = os.path.join(os.path.dirname(os.path.dirname(HTML_DIR)), '..', '..', 'Doxyfile')
-    if not os.path.exists(doxy):
-        doxy = 'D:/长征文化/Doxyfile'
+    # Some files already have META charset declaration, some don't.
+    # We decode as UTF-8 (which is what Doxygen now writes), then re-encode as GBK.
+    try:
+        text = raw.decode('utf-8')
+    except UnicodeDecodeError:
+        # Try GBK as fallback
+        try:
+            text = raw.decode('gbk')
+        except:
+            return False  # Can't handle this file
     
-    result = subprocess.run(
-        [os.path.join(os.path.dirname(HTML_DIR), '..', '..',
-                       '007 项目工具/doxygen-1.17.0.windows.x64.bin/doxygen.exe'),
-         doxy],
-        capture_output=True, text=True, timeout=300
-    )
-    for line in result.stderr.split('\n'):
-        if 'html help compiler' in line or 'finished' in line:
-            print(f'  {line.strip()}')
-    print('  Doxygen done')
+    # Update charset declarations in HTML files
+    ext = os.path.splitext(fp)[1].lower()
+    if ext == '.html':
+        text = text.replace('charset=UTF-8', 'charset=GB2312')
+        text = text.replace('charset=utf-8', 'charset=GB2312')
+    elif ext == '.hhc':
+        # HHC files: also add/update charset param if missing
+        # HTML Help Workshop needs charset=gb2312 in the HTML header
+        if 'charset=' not in text[:500].lower():
+            # Insert charset after <HEAD>
+            text = text.replace('<HEAD>', '<HEAD><meta http-equiv="Content-Type" content="text/html; charset=GB2312">')
+        else:
+            text = text.replace('charset=UTF-8', 'charset=GB2312')
+            text = text.replace('charset=utf-8', 'charset=GB2312')
+    elif ext == '.hhk':
+        if 'charset=' not in text[:500].lower():
+            text = text.replace('<HEAD>', '<HEAD><meta http-equiv="Content-Type" content="text/html; charset=GB2312">')
+        else:
+            text = text.replace('charset=UTF-8', 'charset=GB2312')
+            text = text.replace('charset=utf-8', 'charset=GB2312')
+    
+    # Encode as GBK (superset of GB2312, handles more Chinese chars)
+    try:
+        gbk = text.encode('gbk')
+    except UnicodeEncodeError as e:
+        # Find and report the specific bad chars
+        bad_chars = set()
+        for i in range(e.start, min(e.start + 100, len(text))):
+            try:
+                text[i].encode('gbk')
+            except:
+                cp = ord(text[i])
+                bad_chars.add(f'U+{cp:04X}')
+        print(f'  WARN: {os.path.basename(fp)} has non-GBK chars: {bad_chars}')
+        # Strip non-GBK characters instead of replacing with ?
+        clean = ''
+        for c in text:
+            try:
+                c.encode('gbk')
+                clean += c
+            except:
+                pass  # strip it entirely
+        gbk = clean.encode('gbk')
+    
+    with open(fp, 'wb') as f:
+        f.write(gbk)
+    return True
 
+def convert_to_gbk(directory):
+    """Convert all relevant files from UTF-8 to GBK."""
+    count = 0
+    # Files to convert: HTML, CSS, JS, HHC, HHK, HHP
+    patterns = ['*.html', '*.css', '*.js', '*.hhc', '*.hhk', '*.hhp']
+    for pattern in patterns:
+        for fp in glob.glob(os.path.join(directory, pattern)):
+            if convert_file(fp):
+                count += 1
+                if count % 50 == 0:
+                    print(f'  ... converted {count} files')
+    return count
 
-def main():
-    if '--doxy' in sys.argv:
-        run_doxygen()
+def run_hhc(project_dir):
+    """Run HTML Help Workshop compiler."""
+    old_cwd = os.getcwd()
+    os.chdir(project_dir)
+    try:
+        result = subprocess.run(
+            [HHC, 'index.hhp'],
+            capture_output=True, text=True, encoding='gbk', errors='replace'
+        )
+        print(result.stdout)
+        if result.stderr:
+            print('STDERR:', result.stderr)
+        return result.returncode
+    finally:
+        os.chdir(old_cwd)
 
-    print('=== Fixing .hhc ===')
-    n = fix_file(os.path.join(HTML_DIR, 'index.hhc'))
-    print(f'Fixed {n} entries')
+# Step 1: Clean old CHM
+chm = os.path.join(DOX_DIR, 'longmarch.chm')
+if os.path.exists(chm):
+    os.remove(chm)
+    print('Removed old CHM')
 
-    print('\n=== Fixing .hhk ===')
-    n = fix_file(os.path.join(HTML_DIR, 'index.hhk'))
-    print(f'Fixed {n} entries')
+# Step 2: Convert all files to GBK
+print('Converting files from UTF-8 to GBK...')
+converted = convert_to_gbk(DOX_DIR)
+print(f'Converted {converted} files to GBK')
 
-    print('\n=== Compiling CHM ===')
-    compile_chm()
+# Step 3: Run HHC
+print('Running HHC...')
+rc = run_hhc(DOX_DIR)
+print(f'HHC exit code: {rc}')
 
-
-if __name__ == '__main__':
-    main()
+# Step 4: Verify
+if os.path.exists(chm):
+    size = os.path.getsize(chm)
+    print(f'CHM created: {size} bytes')
+else:
+    print('CHM NOT created!')

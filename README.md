@@ -6,7 +6,7 @@
 
 ## 版本
 
-V1.0.0（详见 VERSION、CHANGELOG.md）
+V2.0.0（详见 VERSION、CHANGELOG.md）
 
 ## 技术栈
 

@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>节点管理 — 重走长征路</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="admin-layout">
         <div class="admin-sidebar">
             <h2>🚩 管理后台</h2>
-            <a href="/admin"      class="admin-nav-item">📊 总览</a>
-            <a href="/admin/nodes" class="admin-nav-item active">📍 节点管理</a>
-            <a href="/admin/users" class="admin-nav-item">👥 用户管理</a>
+            <a href="/admin"       class="admin-nav-item">📊 总览</a>
+            <a href="/admin/nodes"  class="admin-nav-item active">📍 节点管理</a>
+            <a href="/admin/users"  class="admin-nav-item">👥 用户管理</a>
             <a href="/admin/sparks" class="admin-nav-item">✦ 星火审核</a>
-            <a href="/"           class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+            <a href="/"            class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
         </div>
 
         <div class="admin-main">
@@ -22,11 +23,11 @@
 
             <div style="margin-bottom:16px;display:flex;gap:10px">
                 <input type="text" id="search-input" placeholder="搜索节点标题或地点..."
-                    style="flex:1;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#ecf0f1;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif;outline:none"
+                    style="flex:1;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#ecf0f1;font-size:13px;outline:none"
                     onkeydown="if(event.key==='Enter')loadNodes(1)">
-                <button onclick="loadNodes(1)" style="padding:10px 20px;background:#c0392b;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">搜索</button>
-                <button onclick="showAddModal()" style="padding:10px 20px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">+ 新增节点</button>
-                <button onclick="importNodes()" style="padding:10px 20px;background:#2980b9;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-family:PingFang SC,Microsoft YaHei,sans-serif">导入 JSON</button>
+                <button onclick="loadNodes(1)" style="padding:10px 20px;background:#c0392b;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">搜索</button>
+                <button onclick="openNodeEditor('新增', '1.1', adminAddCallback)" style="padding:10px 20px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">+ 新增节点</button>
+                <button onclick="importNodes()" style="padding:10px 20px;background:#2980b9;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">导入 JSON</button>
             </div>
 
             <table class="admin-table">
@@ -45,118 +46,171 @@
         </div>
     </div>
 
-    <script>
-    const token = localStorage.getItem("lm_token");
-    if (!token) { location.href = "/login"; }
+    <!-- ==================================================== -->
+    <!-- 节点编辑器 — 与首页共享同一份弹窗代码                -->
+    <!-- ==================================================== -->
+    <script src="/static/js/spark.js?v=20260716"></script>
+    {% include "_spark_modal.html" %}
 
-    let currentPage = 1;
+    <script>
+    // =========================================================================
+    // 节点管理
+    // 新增/编辑/查看通过 openNodeEditor() 打开共享节点编辑器，
+    // 提交回调直接把数据写入节点 API（JSON，非 FormData）
+    // =========================================================================
+
+    if (!localStorage.getItem("lm_token")) { location.href = "/login"; }
+
+    var currentPage = 1;
+
+    // ======================== 节点列表 ========================
 
     async function loadNodes(page) {
-        if (page) currentPage = page;
-        const search = document.getElementById("search-input").value.trim();
-        const headers = { "Authorization": `Bearer ${token}` };
+        if (page !== undefined) currentPage = page;
+        var token = localStorage.getItem("lm_token");
+        var search = document.getElementById("search-input").value.trim();
+        var url = "/api/v1/nodes?page=" + currentPage + "&per_page=20";
+        if (search) url += "&search=" + encodeURIComponent(search);
 
-        let url = `/api/v1/nodes?page=${currentPage}&per_page=20`;
-        if (search) url += `&search=${encodeURIComponent(search)}`;
+        var resp = await fetch(url, { headers: { "Authorization": "Bearer " + token } });
+        var json = await resp.json();
+        var items = json.data?.items || [];
+        var total = json.data?.total || 0;
+        var pages = Math.ceil(total / 20);
 
-        const resp = await fetch(url, { headers });
-        const json = await resp.json();
-        const items = json.data?.items || [];
-        const total = json.data?.total || 0;
-        const pages = Math.ceil(total / 20);
-
-        const tbody = document.getElementById("nodes-tbody");
+        var tbody = document.getElementById("nodes-tbody");
         if (!items.length) {
             tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#95a5a6">暂无数据</td></tr>';
         } else {
-            tbody.innerHTML = items.map(n => `
-                <tr>
-                    <td>${n.node_id}</td>
-                    <td><a href="/admin/nodes/edit?node_id=${n.node_id}" style="color:#f39c12">${n.title}</a></td>
-                    <td>${n.location}</td>
-                    <td>${n.time}</td>
-                    <td>${parseFloat(n.lat).toFixed(2)}, ${parseFloat(n.lng).toFixed(2)}</td>
-                    <td><span class="badge badge-${n.status}">${n.status}</span></td>
-                    <td>
-                        <a href="/admin/nodes/edit?node_id=${n.node_id}" style="color:#3498db;margin-right:8px">编辑</a>
-                        <a href="javascript:deleteNode('${n.node_id}')" style="color:#e74c3c">删除</a>
-                    </td>
-                </tr>
-            `).join("");
+            var html = "";
+            for (var i = 0; i < items.length; i++) {
+                var n = items[i];
+                html += '<tr>' +
+                    '<td>' + n.node_id + '</td>' +
+                    '<td><a href="javascript:openNodeEditor(\'查看\',\'' + n.node_id + '\', null)" style="color:#f39c12">' + n.title + '</a></td>' +
+                    '<td>' + n.location + '</td>' +
+                    '<td>' + n.time + '</td>' +
+                    '<td>' + parseFloat(n.lat).toFixed(2) + ", " + parseFloat(n.lng).toFixed(2) + '</td>' +
+                    '<td><span class="badge badge-' + (n.status || "active") + '">' + (n.status || "active") + '</span></td>' +
+                    '<td>' +
+                        '<a href="javascript:openNodeEditor(\'查看\',\'' + n.node_id + '\', null)" style="color:#95a5a6;margin-right:8px">查看</a>' +
+                        '<a href="javascript:openNodeEditor(\'编辑\',\'' + n.node_id + '\', adminEditCallback)" style="color:#3498db;margin-right:8px">编辑</a>' +
+                        '<a href="javascript:deleteNode(\'' + n.node_id + '\')" style="color:#e74c3c">删除</a>' +
+                    '</td>' +
+                '</tr>';
+            }
+            tbody.innerHTML = html;
         }
 
-        // 分页
-        const pg = document.getElementById("pagination");
-        let html = "";
-        for (let i = 1; i <= pages; i++) {
-            html += `<button onclick="loadNodes(${i})" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:${i===currentPage?'#c0392b':'rgba(255,255,255,0.05)'};color:${i===currentPage?'white':'#95a5a6'};cursor:pointer;font-size:12px">${i}</button>`;
+        var pg = document.getElementById("pagination");
+        var phtml = "";
+        for (var i = 1; i <= pages; i++) {
+            var bg = i === currentPage ? '#c0392b' : 'rgba(255,255,255,0.05)';
+            var cl = i === currentPage ? 'white' : '#95a5a6';
+            phtml += '<button onclick="loadNodes(' + i + ')" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;background:' + bg + ';color:' + cl + ';cursor:pointer;font-size:12px">' + i + '</button>';
         }
-        pg.innerHTML = html;
+        pg.innerHTML = phtml;
     }
 
-    async function deleteNode(nodeId) {
-        if (!confirm(`确认删除节点 ${nodeId}？`)) return;
-        const r = await fetch(`/api/v1/nodes/${nodeId}`, {
-            method: "DELETE",
-            headers: { "Authorization": `Bearer ${token}` },
+    // ======================== 新增 / 编辑 回调（统一使用 FormData）========================
+
+    /**
+     * 新增节点回调：FormData → POST /api/v1/nodes（后端同时支持 JSON 和 multipart）
+     */
+    function adminAddCallback(form, callType, mode, nodeId) {
+        var formData = new FormData(form);
+        var statusEl = document.getElementById("node-submit-status");
+        var submitBtn = document.getElementById("node-submit-btn");
+
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "新增中..."; }
+
+        var token = localStorage.getItem("lm_token");
+        fetch("/api/v1/nodes", {
+            method: "POST",
+            headers: { "Authorization": "Bearer " + token },
+            body: formData,
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+            if (json.code === 0) {
+                statusEl.className = "form-status success";
+                statusEl.textContent = "✅ " + (json.message || "新增成功");
+                setTimeout(function() { closeNodeEditor(); loadNodes(1); }, 800);
+            } else {
+                statusEl.className = "form-status error";
+                statusEl.textContent = "❌ " + (json.message || "新增失败");
+            }
+        })
+        .catch(function() {
+            statusEl.className = "form-status error";
+            statusEl.textContent = "❌ 网络错误";
+        })
+        .finally(function() {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "新增"; }
         });
-        const j = await r.json();
+    }
+
+    /**
+     * 编辑节点回调：FormData → PUT /api/v1/nodes/<id>
+     */
+    function adminEditCallback(form, callType, mode, nodeId) {
+        var formData = new FormData(form);
+        var statusEl = document.getElementById("node-submit-status");
+        var submitBtn = document.getElementById("node-submit-btn");
+
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "保存中..."; }
+
+        var token = localStorage.getItem("lm_token");
+        fetch("/api/v1/nodes/" + nodeId, {
+            method: "PUT",
+            headers: { "Authorization": "Bearer " + token },
+            body: formData,
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+            if (json.code === 0) {
+                statusEl.className = "form-status success";
+                statusEl.textContent = "✅ " + (json.message || "保存成功");
+                setTimeout(function() { closeNodeEditor(); loadNodes(1); }, 800);
+            } else {
+                statusEl.className = "form-status error";
+                statusEl.textContent = "❌ " + (json.message || "保存失败");
+            }
+        })
+        .catch(function() {
+            statusEl.className = "form-status error";
+            statusEl.textContent = "❌ 网络错误";
+        })
+        .finally(function() {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "保存"; }
+        });
+    }
+
+    // ======================== 删除 / 导入 ========================
+
+    async function deleteNode(nodeId) {
+        if (!confirm("确认删除节点 " + nodeId + "？")) return;
+        var token = localStorage.getItem("lm_token");
+        var r = await fetch("/api/v1/nodes/" + nodeId, {
+            method: "DELETE",
+            headers: { "Authorization": "Bearer " + token },
+        });
+        var j = await r.json();
         alert(j.message);
         if (j.code === 0) loadNodes(currentPage);
     }
 
-    function showAddModal() {
-        const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;display:flex;align-items:center;justify-content:center">
-            <div style="background:#1a1a2e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:32px;width:480px;max-height:80vh;overflow-y:auto">
-                <h3 style="color:#ecf0f1;margin-bottom:20px">新增节点</h3>
-                <form id="add-node-form">
-                    <div class="form-group"><label>节点编号</label><input name="node_id" required placeholder="如 001"></div>
-                    <div class="form-group"><label>标题</label><input name="title" required></div>
-                    <div class="form-group"><label>地点</label><input name="location" required></div>
-                    <div style="display:flex;gap:12px">
-                        <div class="form-group" style="flex:1"><label>纬度</label><input name="lat" type="number" step="0.0001" required></div>
-                        <div class="form-group" style="flex:1"><label>经度</label><input name="lng" type="number" step="0.0001" required></div>
-                    </div>
-                    <div class="form-group"><label>时间</label><input name="time" placeholder="如 1934年10月"></div>
-                    <div class="form-group"><label>部队番号</label><input name="core_numbers"></div>
-                    <div class="form-group"><label>著名战役</label><textarea name="famous_battle" rows="2"></textarea></div>
-                    <div class="form-group"><label>历史事件</label><textarea name="history_event" rows="2"></textarea></div>
-                    <div class="form-group"><label>历史意义</label><textarea name="historical_significance" rows="2"></textarea></div>
-                    <div style="display:flex;gap:10px;margin-top:8px">
-                        <button type="submit" style="flex:1;padding:10px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer">保存</button>
-                        <button type="button" onclick="this.closest('[style]').remove()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);color:#95a5a6;border:none;border-radius:8px;cursor:pointer">取消</button>
-                    </div>
-                </form>
-            </div>
-        </div>`;
-        document.body.insertAdjacentHTML("beforeend", html);
-        document.getElementById("add-node-form").onsubmit = async e => {
-            e.preventDefault();
-            const fd = new FormData(e.target);
-            const data = Object.fromEntries(fd.entries());
-            data.lat = parseFloat(data.lat);
-            data.lng = parseFloat(data.lng);
-            const r = await fetch("/api/v1/nodes", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-                body: JSON.stringify(data),
-            });
-            const j = await r.json();
-            alert(j.message);
-            if (j.code === 0) { document.querySelector('[style*="position:fixed"]').remove(); loadNodes(1); }
-        };
-    }
-
     async function importNodes() {
-        const path = prompt("请输入节点 JSON 文件路径（服务器端绝对路径）：");
+        var path = prompt("请输入节点 JSON 文件路径（服务器端绝对路径）：");
         if (!path) return;
-        const r = await fetch("/api/v1/nodes/import", {
+        var token = localStorage.getItem("lm_token");
+        var r = await fetch("/api/v1/nodes/import", {
             method: "POST",
-            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
             body: JSON.stringify({ json_path: path }),
         });
-        const j = await r.json();
-        alert(`导入完成：新增 ${j.data?.imported || 0}，跳过 ${j.data?.skipped || 0}`);
+        var j = await r.json();
+        alert("导入完成：新增 " + (j.data?.imported || 0) + "，跳过 " + (j.data?.skipped || 0));
         if (j.code === 0) loadNodes(1);
     }
 

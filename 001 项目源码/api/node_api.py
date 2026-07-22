@@ -27,6 +27,51 @@ def err(msg, code=1, status=400):
     return jsonify({"code": code, "message": msg}), status
 
 
+def _extract_data(request):
+    """
+    @brief 从请求中提取节点数据，兼容 JSON 和 multipart/form-data
+    @return dict
+    """
+    data = request.get_json(silent=True)
+    if data:
+        return data
+
+    # multipart/form-data：从 form + files 收集
+    data = {}
+    for key in ["node_id", "title", "location", "time",
+                "army", "core_numbers", "famous_battle", "important_meeting",
+                "history_event", "core_site", "poem_article",
+                "typical_story", "typical_people", "historical_significance"]:
+        v = request.form.get(key)
+        if v:
+            data[key] = v
+
+    # 经纬度
+    lat_input = request.form.get("lat_input")
+    lng_input = request.form.get("lng_input")
+    lat = request.form.get("lat")
+    lng = request.form.get("lng")
+    if lat_input:
+        data["lat"] = float(lat_input)
+    elif lat:
+        data["lat"] = float(lat)
+    if lng_input:
+        data["lng"] = float(lng_input)
+    elif lng:
+        data["lng"] = float(lng)
+
+    # 文件上传
+    for file_key in ["images", "videos", "audios", "documents"]:
+        f = request.files.get(file_key)
+        if f and f.filename:
+            # 存到 data 中，NodeManager 可后续处理
+            if "files" not in data:
+                data["files"] = {}
+            data["files"][file_key] = f
+
+    return data
+
+
 # =============================================================================
 # GET 接口（公开）
 # =============================================================================
@@ -35,21 +80,24 @@ def err(msg, code=1, status=400):
 def list_nodes():
     """
     @fn    list_nodes
-    @brief 获取节点列表（分页、搜索、省份过滤）
+    @brief 获取节点列表（分页、搜索、省份、军队过滤）
     @query page      页码，默认 1
     @query per_page  每页数量，默认 20
     @query search    关键词（搜索 title / location）
     @query province  省份过滤
+    @query army      军队归属过滤（中央红军/红二方面军/红四方面军/红25军）
     @res   { code, data: { items, total, page, per_page, pages } }
     """
     page     = request.args.get("page", 1, type=int)
     per_page = request.args.get("per_page", 20, type=int)
     search   = request.args.get("search", "").strip() or None
     province = request.args.get("province", "").strip() or None
+    army     = request.args.get("army", "").strip() or None
 
     data = NodeManager.get_nodes(
         page=page, per_page=per_page,
-        search=search, province=province
+        search=search, province=province,
+        army=army
     )
     return ok(data)
 
@@ -115,7 +163,7 @@ def create_node():
     except PermissionError as e:
         return err(str(e), code=403, status=403)
 
-    data = request.get_json(silent=True) or {}
+    data = _extract_data(request)
     if not data:
         return err("请求体不能为空")
 
@@ -183,7 +231,7 @@ def update_node(node_id):
     except PermissionError as e:
         return err(str(e), code=403, status=403)
 
-    data = request.get_json(silent=True) or {}
+    data = _extract_data(request)
     if not data:
         return err("请求体不能为空")
 

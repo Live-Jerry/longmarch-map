@@ -40,9 +40,9 @@ GET /sparks/<id>
 """
 POST /sparks
 
-描述: 提交新的星火拾遗内容（需登录）。
+描述: 提交新的星火拾遗内容（无需登录）。
 
-权限: 需要登录用户
+权限: 公开（匿名用户也可提交）
 
 请求体:
 {
@@ -59,6 +59,9 @@ POST /sparks
     "code": 0,
     "data": { ...spark_object }
 }
+
+注意: 匿名用户提交时 user_id 为 NULL，提交者信息（姓名/电话）
+      应通过 submitter_name / submitter_phone 字段传入。
 """
 
 
@@ -68,9 +71,9 @@ POST /sparks
 """
 GET /sparks/my
 
-描述: 获取当前用户提交的所有星火（包含待审核）。
+描述: 获取当前登录用户自己提交的所有星火（包含待审核）。
 
-权限: 需要登录
+权限: 需要登录（匿名提交无法使用此接口）
 """
 
 
@@ -115,4 +118,54 @@ DELETE /sparks/<id>
 描述: 删除星火内容（管理员）。
 
 权限: admin/super
+"""
+
+
+# =============================================================================
+# POST /sparks/full — 完整节点维度提交（前端弹窗入口）
+# =============================================================================
+"""
+POST /sparks/full
+
+描述: 前端弹窗表单提交入口，支持新建节点和补充既有节点两种模式。
+      支持多文件上传（图片/视频/音频/文档）。
+
+权限: 公开（无需登录）
+
+请求: multipart/form-data
+
+字段:
+  submission_type  "new-node" | "update-node"（必填）
+  node_id          新建节点时的节点编号（new-node 模式必填）
+  target_node_id   补充既有节点时的目标节点（update-node 模式必填）
+  title            标题（必填）
+  location         地区
+  time             时间
+  lat/lng          经纬度（点击地图拾取）
+  core_numbers     核心数字
+  famous_battle    著名战役
+  important_meeting 重要会议
+  history_event    历史事件
+  core_site        核心遗址
+  poem_article     诗词文章
+  typical_story    典型故事
+  typical_people   典型人物
+  historical_significance 历史意义
+  images           图片（多文件）
+  videos           视频
+  audios           音频
+  documents        文档
+  submitter_name   提交者姓名（选填）
+  submitter_phone  提交者电话（选填）
+  source           来源说明（选填）
+
+响应 (201):
+{
+    "code": 0,
+    "data": { "id": spark_id },
+    "message": "星火提交成功，等待审核"
+}
+
+注意: 未登录用户也可提交，user_id 存为 NULL。
+      所有上传文件存入 002 项目资源/星火上传/ 目录。
 """

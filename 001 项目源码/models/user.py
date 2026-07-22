@@ -151,6 +151,14 @@ class User:
         _commit(conn)
 
     @classmethod
+    def update_password(cls, user_id, new_password):
+        """@brief 更新用户密码（用于忘记密码重置）"""
+        pw_hash = cls.hash_password(new_password)
+        conn = _get_db()
+        conn.execute("UPDATE user SET password_hash = ? WHERE id = ?", (pw_hash, user_id))
+        _commit(conn)
+
+    @classmethod
     def delete(cls, user_id):
         """@brief 删除用户"""
         conn = _get_db()

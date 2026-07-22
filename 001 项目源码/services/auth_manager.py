@@ -198,3 +198,21 @@ class AuthManager:
         if not User.is_super(user):
             raise PermissionError("需要超级管理员权限")
         return user
+
+    # =========================================================================
+    # 密码重置
+    # =========================================================================
+
+    def reset_password(self, username, new_password):
+        """
+        @brief  重置用户密码（忘记密码功能）
+        @param  username      用户名
+        @param  new_password  新密码
+        @raises ValueError    用户不存在或密码不合规
+        """
+        if not new_password or len(new_password) < 6:
+            raise ValueError("新密码至少需要 6 个字符")
+        user = User.get_by_username_with_hash(username)
+        if not user:
+            raise ValueError("用户不存在")
+        User.update_password(user["id"], new_password)

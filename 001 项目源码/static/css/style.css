@@ -244,6 +244,17 @@ a:hover {
     display: flex;
 }
 
+#army-selector {
+    position: fixed;
+    z-index: 9999;
+    display: none;
+}
+
+#army-selector.visible {
+    display: block;
+}
+
+
 .popout-arrow-right {
     position: absolute;
     right: -6px;
@@ -440,8 +451,52 @@ a:hover {
     border-bottom-color: var(--color-primary);
 }
 
+/* ===== 节点编辑器 Tab（共享弹窗）===== */
+.editor-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.editor-tab {
+    padding: 8px 20px;
+    border: none;
+    background: transparent;
+    color: var(--color-muted);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font-main);
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.editor-tab:hover {
+    color: var(--color-light);
+}
+
+.editor-tab.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-primary);
+}
+
+.editor-tab.grayed {
+    color: rgba(149, 165, 166, 0.35) !important;
+    cursor: not-allowed !important;
+    border-bottom-color: transparent !important;
+}
+
+.editor-tab.grayed:hover {
+    color: rgba(149, 165, 166, 0.35) !important;
+}
+
 .spark-field-group {
     margin-bottom: 12px;
+}
+
+/* 星火拾遗专用字段（多媒体等，管理员模式隐藏）*/
+.spark-only-fields {
+    display: none;
 }
 
 .form-section-title {
@@ -876,14 +931,45 @@ a:hover {
 /* ============================================================================
    军队选择器
    ============================================================================ */
-#army-selector {
-    position: fixed;
-    z-index: 9999;
-    display: none;
+
+
+.army-list {
+    background: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow);
 }
 
-#army-selector.visible {
-    display: block;
+.army-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--color-light);
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.army-item:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+.army-item.active {
+    background: rgba(255,255,255,0.1);
+    font-weight: 600;
+}
+
+.army-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .army-list {
@@ -919,6 +1005,30 @@ a:hover {
     width: 10px;
     height: 10px;
     border-radius: 50%;
+}
+
+/* ============================================================================
+   认证弹窗
+   ============================================================================ */
+.auth-form-panel {
+    padding: 4px 0;
+}
+
+.auth-form-panel input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,0.05);
+    color: var(--color-light);
+    font-size: 14px;
+    font-family: var(--font-main);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.auth-form-panel input:focus {
+    border-color: var(--color-primary);
 }
 
 /* ============================================================================
@@ -1375,4 +1485,14 @@ a:hover {
     font-size: 11px;
     color: #c0392b;
     font-weight: 500;
+}
+
+/* 节点选择下拉滚动 */
+#army-selector {
+    max-height: 400px;
+    overflow-y: auto;
+}
+#node-select-existing {
+    max-height: 300px;
+    overflow-y: auto;
 }

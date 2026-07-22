@@ -3,7 +3,7 @@
 @file    api/spark_api.py
 @brief   星火拾遗 REST API
 @details 提供星火内容的提交、查询、待审核列表和管理员审核接口。
-         已审核内容对所有用户开放，提交需登录，审核需管理员权限。
+         已审核内容对所有用户开放，公开提交（无需登录），审核需管理员权限。
 @author  长征文化数字地图项目组
 @date    2026-07-15
 """
@@ -79,27 +79,25 @@ def spark_stats():
 
 
 # =============================================================================
-# 提交接口（需登录）
+# 提交接口（无需登录）
 # =============================================================================
 
 @spark_bp.route("", methods=["POST"])
 def submit_spark():
     """
     @fn    submit_spark
-    @brief 提交新的星火内容（需登录）
+    @brief 提交新的星火内容（无需登录）
     @req   JSON: { title, content?, node_id?, media_type?, file_path?, source? }
     @res   { code, data: spark }
     """
-    manager = AuthManager()
-    user = manager.current_user(request)
-    if not user:
-        return err("请先登录", code=401, status=401)
-
     data = request.get_json(silent=True) or {}
     if not data.get("title"):
         return err("标题不能为空")
 
-    data["user_id"] = user["id"]
+    # 登录用户取 user_id，未登录用户存提交者信息
+    manager = AuthManager()
+    user = manager.current_user(request)
+    data["user_id"] = user["id"] if user else None
 
     try:
         spark = SparkManager.submit_spark(data)
@@ -196,15 +194,14 @@ def create_full_spark():
     @fn    create_full_spark
     @brief 提交完整节点维度星火（包含全部节点字段 + 文件上传）
     @details 用户通过前端弹窗提交，支持新建节点和补充既有节点两种模式。
+             无需登录即可提交，提交者信息（姓名/电话）可选填写。
              文件上传至 002 项目资源/星火上传/ 目录。
              数据以 JSON 格式存入 spark 表的 content 字段。
     @request JSON/form-data
     @response JSON
     """
-    try:
-        user = AuthManager.require_login(request)
-    except PermissionError as e:
-        return err(str(e), code=401, status=401)
+    manager = AuthManager()
+    user = manager.current_user(request)
 
     # 收集表单数据
     submission_type = request.form.get("submission_type", "new-node")
@@ -294,7 +291,7 @@ def create_full_spark():
 
     spark_data = {
         "node_id": node_name,
-        "user_id": user["id"],
+        "user_id": user["id"] if user else None,
         "title": request.form.get("title", "星火拾遗投稿") or "星火拾遗投稿",
         "content": jsonlib.dumps(content, ensure_ascii=False),
         "media_type": "text",
