@@ -34,6 +34,15 @@ D:\长征文化\
 └── 008 设计备份/       — 多版本设计文档
 ```
 
+## 🔗 Git & GitHub
+
+- **远程仓库**: https://github.com/Live-Jerry/longmarch-map.git
+- **默认分支**: main
+- **Git 身份**: 长征文化数字地图项目组 / project@longmarch-map.cn
+- **认证方式**: GitHub Personal Access Token（通过 Git Credential Manager 缓存）
+- **本地最新提交**: fc39c64 — chore: version 2.0.0 baseline push to GitHub
+- **.gitignore 忽略项**: `002 项目资源/`, `*.db`, `uploads/`, `004 项目文档/doxygen/`, `*.log`, `~$*`, 临时脚本
+
 ## 🗺️ 长征节点（25 个）
 
 按时间线排列（node_id 含义：主序号.子序号）：

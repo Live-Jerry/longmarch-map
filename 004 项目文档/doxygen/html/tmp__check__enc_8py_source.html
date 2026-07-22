@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: tmp_check_enc.py 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">tmp_check_enc.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tmp__check__enc_8py.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html">    1</a></span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> re</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#af87ace4169fb10746ebf47f9d52b88d1">    5</a></span>d = <span class="stringliteral">&#39;D:/长征文化/004 项目文档/doxygen/html&#39;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordflow">for</span> fname <span class="keywordflow">in</span> [<span class="stringliteral">&#39;index.hhc&#39;</span>, <span class="stringliteral">&#39;index.hhk&#39;</span>]:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a87e5357606033310416e487d4ca9cff5">    8</a></span>    path = os.path.join(d, fname)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(path):</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        print(f<span class="stringliteral">&#39;{fname}: NOT FOUND&#39;</span>)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keywordflow">continue</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">with</span> open(path, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a87fb1c924500172813e2be889bbe37d0">   13</a></span>        raw = f.read()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    print(f<span class="stringliteral">&#39;=== {fname} === ({len(raw)} bytes)&#39;</span>)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a899c28588060b1b29c4e2751c40ca7f0">   15</a></span>    lines = raw.split(b<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> i, line <span class="keywordflow">in</span> enumerate(lines[:30]):</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a740d758e1347adf14ccf0daf08622a59">   17</a></span>        text = line.decode(<span class="stringliteral">&#39;gbk&#39;</span>, errors=<span class="stringliteral">&#39;replace&#39;</span>)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        print(f<span class="stringliteral">&#39;{i}: {text[:120]}&#39;</span>)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#af5f5aeeb1f65e63a101423bb43d53231">   19</a></span>    qm = raw.count(b<span class="stringliteral">&#39;?&#39;</span>)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    print(f<span class="stringliteral">&#39;  =&gt; {qm} question marks&#39;</span>)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a715fb528bcaddcd293f496171f047d51">   21</a></span>    m = re.search(b<span class="stringliteral">&#39;[Cc]harset[= ]+([^&quot;\\n&gt;]+)&#39;</span>, raw[:500])</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> m:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        print(f<span class="stringliteral">&#39;  =&gt; charset: {m.group(1)}&#39;</span>)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    print()</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"># Also check first HTML file&#39;s charset</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordflow">for</span> fname <span class="keywordflow">in</span> [<span class="stringliteral">&#39;index.html&#39;</span>, <span class="stringliteral">&#39;app_8py.html&#39;</span>]:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    path = os.path.join(d, fname)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">with</span> open(path, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        raw = f.read()</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    m = re.search(b<span class="stringliteral">&#39;charset[= ]+([^&quot;\\n&gt;]+)&#39;</span>, raw[:500])</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#a4337b5da8215da8f063ac332f67f8312">   32</a></span>    title_m = re.search(b<span class="stringliteral">&#39;&lt;title&gt;([^&lt;]+)&lt;/title&gt;&#39;</span>, raw[:1000])</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">if</span> m:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        print(f<span class="stringliteral">&#39;{fname}: charset={m.group(1)}&#39;</span>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> title_m:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacetmp__check__enc.html#ae17ef97b5df0f61b62e792f773b2bf52">   36</a></span>        title = title_m.group(1).decode(<span class="stringliteral">&#39;utf-8&#39;</span>, errors=<span class="stringliteral">&#39;replace&#39;</span>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        print(f<span class="stringliteral">&#39;{fname}: title={title}&#39;</span>)</div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

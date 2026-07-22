@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: 环境搭建指南</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li class="current"><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div><div class="header">
+  <div class="headertitle"><div class="title">环境搭建指南 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md110"></a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+快速开始</h1>
+<p>双击 <span class="tt">setup.bat</span>，脚本会自动：</p>
+<ol type="1">
+<li>检查 Python 环境</li>
+<li>创建虚拟环境 <span class="tt">.venv</span></li>
+<li>安装所有 Python 依赖</li>
+<li>检查 Git、Doxygen 等可选工具</li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+手动安装步骤</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
+1. 安装 Python</h2>
+<p>下载 Python 3.12+（建议 3.14）:</p><ul>
+<li><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></li>
+<li>安装时 <b>务必勾选</b> "Add Python to PATH"</li>
+</ul>
+<p>检查是否安装成功： </p><div class="fragment"><div class="line">python --version</div>
+<div class="line">pip --version</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
+2. 安装 Python 依赖</h2>
+<div class="fragment"><div class="line">cd &quot;001 项目源码&quot;</div>
+<div class="line">pip install -r requirements.txt</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+3. 启动应用</h2>
+<div class="fragment"><div class="line">cd &quot;001 项目源码&quot;</div>
+<div class="line">python run.py</div>
+</div><!-- fragment --><p>浏览器访问 <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a></p>
+<p>管理员账号：admin / admin123</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
+可选工具</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">工具  </th><th class="markdownTableHeadNone">用途  </th><th class="markdownTableHeadNone">获取方式  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Git  </td><td class="markdownTableBodyNone">版本管理  </td><td class="markdownTableBodyNone"><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Doxygen  </td><td class="markdownTableBodyNone">项目文档生成  </td><td class="markdownTableBodyNone"><span class="tt">007 项目工具/doxygen-1.17.0.windows.x64.bin/doxygen.exe</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HTML Help Workshop  </td><td class="markdownTableBodyNone">CHM 文档编译  </td><td class="markdownTableBodyNone"><span class="tt">007 项目工具/htmlhelp.exe</span>（安装后启用）  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">7-Zip  </td><td class="markdownTableBodyNone">解压工具  </td><td class="markdownTableBodyNone"><a href="https://7-zip.org/">https://7-zip.org/</a>  </td></tr>
+</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+项目文件结构</h1>
+<div class="fragment"><div class="line">D:\长征文化\</div>
+<div class="line">├── 001 项目源码/    — Flask 全栈应用</div>
+<div class="line">│   ├── api/         — REST API</div>
+<div class="line">│   ├── services/    — 业务逻辑</div>
+<div class="line">│   ├── static/      — 前端资源</div>
+<div class="line">│   └── templates/   — HTML 模板</div>
+<div class="line">├── 002 项目资源/    — 节点照片</div>
+<div class="line">├── 004 项目文档/    — 文档（含 Doxygen HTML + CHM）</div>
+<div class="line">├── 007 项目工具/    — 开发工具安装包</div>
+<div class="line">├── setup.bat        — 一键环境配置脚本</div>
+<div class="line">└── .gitignore</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

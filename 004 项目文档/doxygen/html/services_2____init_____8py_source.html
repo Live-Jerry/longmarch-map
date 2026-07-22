@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: 001 项目源码/services/__init__.py 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 项目源码</a></li><li class="navelem"><a href="dir_7a51d0387a4e71e6942e6302ec2575b2.html">services</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">__init__.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="services_2____init_____8py.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceservices.html">    1</a></span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral">@file    services/__init__.py</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">@brief   业务逻辑层初始化</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="stringliteral">@details 提供所有业务服务的统一导出，包括节点管理、路线引擎、认证、素材和星火。</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral">@author  长征文化数字地图项目组</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="stringliteral">@date    2026-07-15</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1node__manager.html">services.node_manager</a>  <span class="keyword">import</span> NodeManager</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1route__engine.html">services.route_engine</a>  <span class="keyword">import</span> RouteEngine</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1auth__manager.html">services.auth_manager</a>  <span class="keyword">import</span> AuthManager</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1media__manager.html">services.media_manager</a> <span class="keyword">import</span> MediaManager</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1spark__manager.html">services.spark_manager</a> <span class="keyword">import</span> SparkManager</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespaceservices_1_1tts__service.html">services.tts_service</a>   <span class="keyword">import</span> TTSService</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceservices.html#a613839fad4c64a70940388e195522290">   17</a></span>__all__ = [</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="stringliteral">&quot;NodeManager&quot;</span>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="stringliteral">&quot;RouteEngine&quot;</span>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="stringliteral">&quot;AuthManager&quot;</span>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="stringliteral">&quot;MediaManager&quot;</span>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="stringliteral">&quot;SparkManager&quot;</span>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="stringliteral">&quot;TTSService&quot;</span>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>]</div>
+<div class="ttc" id="anamespaceservices_1_1auth__manager_html"><div class="ttname"><a href="namespaceservices_1_1auth__manager.html">services.auth_manager</a></div><div class="ttdef"><b>定义</b> <a href="auth__manager_8py_source.html#l00001">auth_manager.py:1</a></div></div>
+<div class="ttc" id="anamespaceservices_1_1media__manager_html"><div class="ttname"><a href="namespaceservices_1_1media__manager.html">services.media_manager</a></div><div class="ttdef"><b>定义</b> <a href="media__manager_8py_source.html#l00001">media_manager.py:1</a></div></div>
+<div class="ttc" id="anamespaceservices_1_1node__manager_html"><div class="ttname"><a href="namespaceservices_1_1node__manager.html">services.node_manager</a></div><div class="ttdef"><b>定义</b> <a href="node__manager_8py_source.html#l00001">node_manager.py:1</a></div></div>
+<div class="ttc" id="anamespaceservices_1_1route__engine_html"><div class="ttname"><a href="namespaceservices_1_1route__engine.html">services.route_engine</a></div><div class="ttdef"><b>定义</b> <a href="route__engine_8py_source.html#l00001">route_engine.py:1</a></div></div>
+<div class="ttc" id="anamespaceservices_1_1spark__manager_html"><div class="ttname"><a href="namespaceservices_1_1spark__manager.html">services.spark_manager</a></div><div class="ttdef"><b>定义</b> <a href="spark__manager_8py_source.html#l00001">spark_manager.py:1</a></div></div>
+<div class="ttc" id="anamespaceservices_1_1tts__service_html"><div class="ttname"><a href="namespaceservices_1_1tts__service.html">services.tts_service</a></div><div class="ttdef"><b>定义</b> <a href="tts__service_8py_source.html#l00001">tts_service.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

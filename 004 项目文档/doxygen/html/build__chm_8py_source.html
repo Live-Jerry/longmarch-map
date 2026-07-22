@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: build_chm.py 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">build_chm.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="build__chm_8py.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html">    1</a></span><span class="comment">#!/usr/bin/env python</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">Post-process doxygen output for CHM compatibility.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="stringliteral">Old HTML Help Workshop requires GBK-encoded HTML content.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="stringliteral">Fix: Doxyfile OUTPUT_ENCODING and CHM_INDEX_ENCODING are both UTF-8,</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">so Doxygen produces all files (HTML, CSS, JS, HHC, HHK, HHP) in UTF-8.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="stringliteral">This script converts them ALL to GBK for HTML Help Workshop.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> os, glob, subprocess</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#a7c97253b086c78672fd2a65dd283bf83">   13</a></span>DOX_DIR = <span class="stringliteral">r&#39;D:\长征文化\004 项目文档\doxygen\html&#39;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#a7f252c7b83c6c6983836362694775f38">   14</a></span>HHC = <span class="stringliteral">r&#39;C:\Program Files (x86)\HTML Help Workshop\hhc.exe&#39;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328">   16</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328">convert_file</a>(fp):</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="stringliteral">&quot;&quot;&quot;Convert one file from UTF-8 to GBK if it contains non-ASCII.&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">with</span> open(fp, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        raw = f.read()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment"># Only process if file has non-ASCII bytes</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> any(b &gt; 127 <span class="keywordflow">for</span> b <span class="keywordflow">in</span> raw):</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment"># Some files already have META charset declaration, some don&#39;t.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment"># We decode as UTF-8 (which is what Doxygen now writes), then re-encode as GBK.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        text = raw.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">except</span> UnicodeDecodeError:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment"># Try GBK as fallback</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            text = raw.decode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> <span class="keyword">False</span>  <span class="comment"># Can&#39;t handle this file</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment"># Update charset declarations in HTML files</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ext = os.path.splitext(fp)[1].lower()</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> ext == <span class="stringliteral">&#39;.html&#39;</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        text = text.replace(<span class="stringliteral">&#39;charset=UTF-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        text = text.replace(<span class="stringliteral">&#39;charset=utf-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">elif</span> ext == <span class="stringliteral">&#39;.hhc&#39;</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment"># HHC files: also add/update charset param if missing</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment"># HTML Help Workshop needs charset=gb2312 in the HTML header</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> <span class="stringliteral">&#39;charset=&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> text[:500].lower():</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="comment"># Insert charset after &lt;HEAD&gt;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            text = text.replace(<span class="stringliteral">&#39;&lt;HEAD&gt;&#39;</span>, <span class="stringliteral">&#39;&lt;HEAD&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=GB2312&quot;&gt;&#39;</span>)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            text = text.replace(<span class="stringliteral">&#39;charset=UTF-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            text = text.replace(<span class="stringliteral">&#39;charset=utf-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">elif</span> ext == <span class="stringliteral">&#39;.hhk&#39;</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">if</span> <span class="stringliteral">&#39;charset=&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> text[:500].lower():</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            text = text.replace(<span class="stringliteral">&#39;&lt;HEAD&gt;&#39;</span>, <span class="stringliteral">&#39;&lt;HEAD&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=GB2312&quot;&gt;&#39;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            text = text.replace(<span class="stringliteral">&#39;charset=UTF-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            text = text.replace(<span class="stringliteral">&#39;charset=utf-8&#39;</span>, <span class="stringliteral">&#39;charset=GB2312&#39;</span>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment"># Encode as GBK (superset of GB2312, handles more Chinese chars)</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        gbk = text.encode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">except</span> UnicodeEncodeError <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment"># Find and report the specific bad chars</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        bad_chars = set()</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(e.start, min(e.start + 100, len(text))):</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                text[i].encode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                cp = ord(text[i])</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                bad_chars.add(f<span class="stringliteral">&#39;U+{cp:04X}&#39;</span>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        print(f<span class="stringliteral">&#39;  WARN: {os.path.basename(fp)} has non-GBK chars: {bad_chars}&#39;</span>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="comment"># Strip non-GBK characters instead of replacing with ?</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        clean = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">for</span> c <span class="keywordflow">in</span> text:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                c.encode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                clean += c</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="keywordflow">pass</span>  <span class="comment"># strip it entirely</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        gbk = clean.encode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">with</span> open(fp, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        f.write(gbk)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84">   84</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84">convert_to_gbk</a>(directory):</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="stringliteral">&quot;&quot;&quot;Convert all relevant files from UTF-8 to GBK.&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    count = 0</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment"># Files to convert: HTML, CSS, JS, HHC, HHK, HHP</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    patterns = [<span class="stringliteral">&#39;*.html&#39;</span>, <span class="stringliteral">&#39;*.css&#39;</span>, <span class="stringliteral">&#39;*.js&#39;</span>, <span class="stringliteral">&#39;*.hhc&#39;</span>, <span class="stringliteral">&#39;*.hhk&#39;</span>, <span class="stringliteral">&#39;*.hhp&#39;</span>]</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">for</span> pattern <span class="keywordflow">in</span> patterns:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">for</span> fp <span class="keywordflow">in</span> glob.glob(os.path.join(directory, pattern)):</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span> <a class="code hl_function" href="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328">convert_file</a>(fp):</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                count += 1</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <span class="keywordflow">if</span> count % 50 == 0:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    print(f<span class="stringliteral">&#39;  ... converted {count} files&#39;</span>)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> count</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#a1849abab51c2bade83bfe7149a8e7f0f">   97</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacebuild__chm.html#a1849abab51c2bade83bfe7149a8e7f0f">run_hhc</a>(project_dir):</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="stringliteral">&quot;&quot;&quot;Run HTML Help Workshop compiler.&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    old_cwd = os.getcwd()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    os.chdir(project_dir)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        result = subprocess.run(</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            [HHC, <span class="stringliteral">&#39;index.hhp&#39;</span>],</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;gbk&#39;</span>, errors=<span class="stringliteral">&#39;replace&#39;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        )</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        print(result.stdout)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">if</span> result.stderr:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            print(<span class="stringliteral">&#39;STDERR:&#39;</span>, result.stderr)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> result.returncode</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">finally</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        os.chdir(old_cwd)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"># Step 1: Clean old CHM</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#ae43a8ba8a5e5a981dbd5272f27e64ad1">  114</a></span>chm = os.path.join(DOX_DIR, <span class="stringliteral">&#39;longmarch.chm&#39;</span>)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keywordflow">if</span> os.path.exists(chm):</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    os.remove(chm)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    print(<span class="stringliteral">&#39;Removed old CHM&#39;</span>)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"># Step 2: Convert all files to GBK</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>print(<span class="stringliteral">&#39;Converting files from UTF-8 to GBK...&#39;</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#aead1c8a082c3b7f6b1e02c9a64bb3c6f">  121</a></span>converted = <a class="code hl_function" href="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84">convert_to_gbk</a>(DOX_DIR)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>print(f<span class="stringliteral">&#39;Converted {converted} files to GBK&#39;</span>)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"># Step 3: Run HHC</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>print(<span class="stringliteral">&#39;Running HHC...&#39;</span>)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#ac7f8f1d3560c9382d8e06d877932e6e2">  126</a></span>rc = <a class="code hl_function" href="namespacebuild__chm.html#a1849abab51c2bade83bfe7149a8e7f0f">run_hhc</a>(DOX_DIR)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>print(f<span class="stringliteral">&#39;HHC exit code: {rc}&#39;</span>)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"># Step 4: Verify</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keywordflow">if</span> os.path.exists(chm):</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespacebuild__chm.html#a26c731c1aed225f364e622badd6ed75e">  131</a></span>    size = os.path.getsize(chm)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    print(f<span class="stringliteral">&#39;CHM created: {size} bytes&#39;</span>)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    print(<span class="stringliteral">&#39;CHM NOT created!&#39;</span>)</div>
+<div class="ttc" id="anamespacebuild__chm_html_a1849abab51c2bade83bfe7149a8e7f0f"><div class="ttname"><a href="namespacebuild__chm.html#a1849abab51c2bade83bfe7149a8e7f0f">build_chm.run_hhc</a></div><div class="ttdeci">run_hhc(project_dir)</div><div class="ttdef"><b>定义</b> <a href="#l00097">build_chm.py:97</a></div></div>
+<div class="ttc" id="anamespacebuild__chm_html_aa65eee7540deefb14dca5a0b69358e84"><div class="ttname"><a href="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84">build_chm.convert_to_gbk</a></div><div class="ttdeci">convert_to_gbk(directory)</div><div class="ttdef"><b>定义</b> <a href="#l00084">build_chm.py:84</a></div></div>
+<div class="ttc" id="anamespacebuild__chm_html_abafed5749db6724d8fa5ac2713e6b328"><div class="ttname"><a href="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328">build_chm.convert_file</a></div><div class="ttdeci">convert_file(fp)</div><div class="ttdef"><b>定义</b> <a href="#l00016">build_chm.py:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

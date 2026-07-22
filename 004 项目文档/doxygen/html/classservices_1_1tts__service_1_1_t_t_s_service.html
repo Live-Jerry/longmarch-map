@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: services.tts_service.TTSService类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li class="current"><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>类列表</span></a></li>
+      <li><a href="classes.html"><span>类索引</span></a></li>
+      <li><a href="hierarchy.html"><span>类继承关系</span></a></li>
+      <li><a href="functions.html"><span>类成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="namespaceservices.html">services</a></li><li class="navelem"><a href="namespaceservices_1_1tts__service.html">tts_service</a></li><li class="navelem"><a href="classservices_1_1tts__service_1_1_t_t_s_service.html">TTSService</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="classservices_1_1tts__service_1_1_t_t_s_service-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">services.tts_service.TTSService类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a92b1c6a6b2a2e8a730946ae4673143cb" id="r_a92b1c6a6b2a2e8a730946ae4673143cb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a92b1c6a6b2a2e8a730946ae4673143cb">build_speech_text</a> (node_data)</td></tr>
+<tr class="memitem:a41708f99828cafbf1d18aa4186ebb22f" id="r_a41708f99828cafbf1d18aa4186ebb22f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a41708f99828cafbf1d18aa4186ebb22f">get_tts_config</a> ()</td></tr>
+<tr class="memitem:a1d67d823a2cede0066f24905857076aa" id="r_a1d67d823a2cede0066f24905857076aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1d67d823a2cede0066f24905857076aa">get_node_audio_segments</a> (node_data)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a26c622655965e74c257d2bec40d0b444" id="r_a26c622655965e74c257d2bec40d0b444"><td class="memItemLeft">list&#160;</td><td class="memItemRight"><a class="el" href="#a26c622655965e74c257d2bec40d0b444">CONTENT_FIELDS</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">@class TTSService
+@brief 文本转语音服务
+@details 提供前端调用的语音合成参数配置。
+         实际语音合成使用浏览器内置的 Web Speech API，
+         此服务提供节点内容的语音文本构建和配置参数。
+</pre> 
+<p class="definition">在文件 <a class="el" href="tts__service_8py_source.html">tts_service.py</a> 第 <a class="el" href="tts__service_8py_source.html#l00028">28</a> 行定义.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a92b1c6a6b2a2e8a730946ae4673143cb" name="a92b1c6a6b2a2e8a730946ae4673143cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b1c6a6b2a2e8a730946ae4673143cb">&#9670;&#160;</a></span>build_speech_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.tts_service.TTSService.build_speech_text </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  根据节点数据构建完整的语音朗读文本
+@param  node_data  节点数据字典
+@return str        合并后的朗读文本
+</pre> 
+<p class="definition">在文件 <a class="el" href="tts__service_8py_source.html">tts_service.py</a> 第 <a class="el" href="tts__service_8py_source.html#l00055">55</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1d67d823a2cede0066f24905857076aa" name="a1d67d823a2cede0066f24905857076aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d67d823a2cede0066f24905857076aa">&#9670;&#160;</a></span>get_node_audio_segments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.tts_service.TTSService.get_node_audio_segments </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>node_data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  将节点内容拆分为多个朗读段落（用于分步朗读）
+@param  node_data  节点数据字典
+@return list       段落列表，每个元素含 text 和 label
+</pre> 
+<p class="definition">在文件 <a class="el" href="tts__service_8py_source.html">tts_service.py</a> 第 <a class="el" href="tts__service_8py_source.html#l00096">96</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a41708f99828cafbf1d18aa4186ebb22f" name="a41708f99828cafbf1d18aa4186ebb22f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41708f99828cafbf1d18aa4186ebb22f">&#9670;&#160;</a></span>get_tts_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">services.tts_service.TTSService.get_tts_config </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief  获取默认 TTS 配置（供前端使用）
+@return dict  TTS 配置参数
+</pre> 
+<p class="definition">在文件 <a class="el" href="tts__service_8py_source.html">tts_service.py</a> 第 <a class="el" href="tts__service_8py_source.html#l00075">75</a> 行定义.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
+<a id="a26c622655965e74c257d2bec40d0b444" name="a26c622655965e74c257d2bec40d0b444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c622655965e74c257d2bec40d0b444">&#9670;&#160;</a></span>CONTENT_FIELDS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">list services.tts_service.TTSService.CONTENT_FIELDS</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  [</div>
+<div class="line">        (<span class="stringliteral">&quot;title&quot;</span>,                   <span class="stringliteral">&quot;标题&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;time&quot;</span>,                    <span class="stringliteral">&quot;时间&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;location&quot;</span>,                <span class="stringliteral">&quot;地点&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;core_numbers&quot;</span>,            <span class="stringliteral">&quot;部队番号&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;famous_battle&quot;</span>,           <span class="stringliteral">&quot;著名战役&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;important_meeting&quot;</span>,       <span class="stringliteral">&quot;重要会议&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;history_event&quot;</span>,           <span class="stringliteral">&quot;历史事件&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;core_site&quot;</span>,               <span class="stringliteral">&quot;核心遗址&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;poem_article&quot;</span>,            <span class="stringliteral">&quot;诗词文章&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;typical_story&quot;</span>,           <span class="stringliteral">&quot;典型故事&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;typical_people&quot;</span>,          <span class="stringliteral">&quot;典型人物&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;historical_significance&quot;</span>, <span class="stringliteral">&quot;历史意义&quot;</span>),</div>
+<div class="line">        (<span class="stringliteral">&quot;spark_remains&quot;</span>,           <span class="stringliteral">&quot;星火遗存&quot;</span>),</div>
+<div class="line">    ]</div>
+</div><!-- fragment -->
+<p class="definition">在文件 <a class="el" href="tts__service_8py_source.html">tts_service.py</a> 第 <a class="el" href="tts__service_8py_source.html#l00038">38</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>001 项目源码/services/<a class="el" href="tts__service_8py_source.html">tts_service.py</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

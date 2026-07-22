@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: 修改记录 V005</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li class="current"><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div><div class="header">
+  <div class="headertitle"><div class="title">修改记录 V005 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<blockquote class="doxtable">
+<p>记录时间: 2026-07-16 基于 V004 版本的修改 </p>
+</blockquote>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+1. 星火拾遗 — 去掉登录要求</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+背景</h2>
+<p>用户提交星火内容（民间史料、照片、录音等）时，原先要求用户必须登录。根据产品决策，改为无需登录即可提交。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+改动文件</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">文件  </th><th class="markdownTableHeadNone">修改  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="spark__api_8py.html">api/spark_api.py</a></span>  </td><td class="markdownTableBodyNone"><span class="tt">submit_spark()</span> 去掉 <span class="tt">AuthManager.current_user()</span> 的 None 检查；<span class="tt">create_full_spark()</span> 去掉 <span class="tt">require_login()</span>，改为可选获取用户  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">static/js/spark.js</span>  </td><td class="markdownTableBodyNone">提交 <span class="tt">/full</span> 时，有 token 才发 Authorization 头，无 token 时省略  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="spark__interface_8py.html">interfaces/spark_interface.py</a></span>  </td><td class="markdownTableBodyNone">更新接口文档，标注"公开（无需登录）"，补充 <span class="tt">/full</span> 端点文档  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+关键逻辑</h2>
+<ul>
+<li>登录用户提交：<span class="tt">user_id</span> 存用户 ID</li>
+<li>匿名用户提交：<span class="tt">user_id</span> 存 <span class="tt">NULL</span></li>
+<li>提交者信息（姓名/电话）通过表单字段 <span class="tt">submitter_name</span> / <span class="tt">submitter_phone</span> 收集，存入 <span class="tt">content</span> JSON</li>
+<li>无论是否登录，所有提交均进入 <span class="tt">pending</span> 状态，需管理员审核</li>
+<li>数据库 <span class="tt">spark</span> 表的 <span class="tt">user_id</span> 列已是 nullable，无需迁移</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+2. 认证系统 — 弹窗集成注册/忘记密码</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+背景</h2>
+<p>原来登录按钮跳转独立 <span class="tt">/login</span> 页面，注册有独立 <span class="tt">/register</span> 页面。改为在主页右侧控制栏点击登录按钮时，打开弹窗（modal），弹窗内集成三个标签页：登录、注册、忘记密码。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+改动文件</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">文件  </th><th class="markdownTableHeadNone">修改  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="auth__api_8py.html">api/auth_api.py</a></span>  </td><td class="markdownTableBodyNone">新增 <span class="tt">POST /api/v1/auth/reset-password</span> 端点  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="auth__manager_8py.html">services/auth_manager.py</a></span>  </td><td class="markdownTableBodyNone">新增 <span class="tt">reset_password()</span> 方法  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="user_8py.html">models/user.py</a></span>  </td><td class="markdownTableBodyNone">新增 <span class="tt">update_password()</span> 类方法  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">static/js/auth.js</span>  </td><td class="markdownTableBodyNone">新增弹窗控制函数、三个表单处理器、<span class="tt">resetPassword()</span> API 函数；改造 <span class="tt">updateAuthUI()</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">templates/index.html</span>  </td><td class="markdownTableBodyNone">新增认证弹窗 HTML（登录/注册/忘记密码三个表单页面，底部链接导航切换）  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">static/css/style.css</span>  </td><td class="markdownTableBodyNone">新增 <span class="tt">.auth-form-panel</span> 样式  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+新 API</h2>
+<div class="fragment"><div class="line">POST /api/v1/auth/reset-password</div>
+<div class="line">请求: { &quot;username&quot;: &quot;...&quot;, &quot;new_password&quot;: &quot;...&quot; }</div>
+<div class="line">响应: { &quot;code&quot;: 0, &quot;message&quot;: &quot;密码重置成功，请使用新密码登录&quot; }</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+用户流程</h2>
+<ol type="1">
+<li>点击右侧「 登录」→ 打开认证弹窗</li>
+<li>弹窗三个标签页：登录 / 注册 / 忘记密码</li>
+<li>注册成功自动登录并关闭弹窗</li>
+<li>忘记密码重置成功后自动切回登录页</li>
+<li>登录后按钮变为「 退出」，单击退出</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+兼容性</h2>
+<ul>
+<li>独立 <span class="tt">/login</span> 和 <span class="tt">/register</span> 页面仍然保留，可直接访问</li>
+<li>独立页面与弹窗共用 <span class="tt">auth.js</span> 中的 <span class="tt">login()</span> / <span class="tt">register()</span> / <span class="tt">resetPassword()</span> 函数</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+设计变更</h2>
+<ul>
+<li>去掉顶部三个标签页按钮（登录/注册/忘记密码），改为底部文字链接切换</li>
+<li>用户流程：登录页底部「立即注册」「忘记密码？」→ 注册页底部「立即登录」→ 重置页底部「← 返回登录」</li>
+<li>更符合常见弹窗设计惯例</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+3. 用户手册 — 新增</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+改动文件</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">文件  </th><th class="markdownTableHeadNone">内容  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">004 项目文档/长征文化用户手册.md</span>  </td><td class="markdownTableBodyNone">完整用户手册（产品理念、功能介绍、操作说明）  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">templates/help.html</span>  </td><td class="markdownTableBodyNone">用户手册的 HTML 渲染模板  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app_8py.html">app.py</a></span>  </td><td class="markdownTableBodyNone">新增 <span class="tt">/manual</span> 页面路由  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">templates/index.html</span>  </td><td class="markdownTableBodyNone">新增帮助按钮  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+修复记录（V005.1）</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">问题  </th><th class="markdownTableHeadNone">原因  </th><th class="markdownTableHeadNone">修复  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">帮助页不能滚动  </td><td class="markdownTableBodyNone"><span class="tt">style.css</span> 的 <span class="tt">html,body {overflow:hidden;height:100%}</span> 锁定视口  </td><td class="markdownTableBodyNone"><span class="tt">html {overflow:visible !important}</span> + <span class="tt">&lt;script&gt;</span> JS 强制覆盖  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">帮助页无退出按钮  </td><td class="markdownTableBodyNone">返回按钮在文档末尾，被 cut off  </td><td class="markdownTableBodyNone">添加 <span class="tt">position:fixed;bottom:0</span> 底部悬浮栏，含「← 返回地图」按钮  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">浏览器缓存旧 JS  </td><td class="markdownTableBodyNone"><span class="tt">spark.js</span> 未加版本号  </td><td class="markdownTableBodyNone">所有 JS 加 <span class="tt">?v=20260716</span> 缓存破坏参数  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">浏览器缓存帮助页  </td><td class="markdownTableBodyNone">页面无 Cache-Control 头  </td><td class="markdownTableBodyNone"><span class="tt">/manual</span> 路由返回 <span class="tt">Cache-Control: no-store</span> + <span class="tt">Pragma: no-cache</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app_8py.html">app.py</a></span> 重复代码  </td><td class="markdownTableBodyNone"><span class="tt">_register_blueprints()</span> 定义两次  </td><td class="markdownTableBodyNone">删除重复定义，合并代码  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">登录按钮打不开  </td><td class="markdownTableBodyNone"><span class="tt">initAuth()</span> 无 token 时直接 <span class="tt">return</span>，导致 <span class="tt">updateAuthUI()</span> 从未执行，按钮没有绑定 onclick  </td><td class="markdownTableBodyNone">移除 early return，末尾无条件调用 <span class="tt">updateAuthUI()</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">修改节点模式不能提交  </td><td class="markdownTableBodyNone"><span class="tt">#spark-fields-new</span> 中 <span class="tt">required</span> 字段被 CSS 隐藏后，浏览器校验仍然静默阻止提交  </td><td class="markdownTableBodyNone"><span class="tt">switchSparkTab()</span> 中切换时动态添加/移除 <span class="tt">required</span> 属性  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">管理后台节点新增/编辑/查看失效  </td><td class="markdownTableBodyNone">编辑链接指向不存在的路由；JS 动态生成弹窗代码脆弱  </td><td class="markdownTableBodyNone">创建 <span class="tt">_node_dialog.html</span> + <span class="tt">_node_form_fields.html</span> 共享模板，admin/nodes.html 通过 <span class="tt">{% include %}</span> 复用同一份代码。增/改/查同一表单，node_id 编辑时只读、查看时全字段 disabled。注意：Jinja2 注释中不能用 <span class="tt">{% raw %}{% include %}{% endraw %}</span> 字样避免无限递归  </td></tr>
+</table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: 长征文化数字地图 — 用户手册</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li class="current"><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div><div class="header">
+  <div class="headertitle"><div class="title">长征文化数字地图 — 用户手册 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md18"></a></p>
+<p><b>版本</b>: V005 · 2026-07-16</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+一、产品理念与目的</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+1.1 为什么做这个产品</h2>
+<p>长征是中国共产党和红军在 1934-1936 年间进行的一次战略大转移，途经 14 个省，行程约二万五千里。长征不仅是一次军事行动，更是一种精神象征。</p>
+<p><b>长征文化数字地图</b> 是一个交互式卫星地图平台，旨在：</p><ul>
+<li>用现代数字技术还原长征的完整路线和关键节点</li>
+<li>以多媒体形式（图片、文字、语音）呈现每个节点的历史细节</li>
+<li>让用户在"重走长征路"的过程中身临其境感受那段历史</li>
+<li>吸引公众参与历史资料的收集与分享（星火拾遗）</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+1.2 核心设计理念</h2>
+<ul>
+<li>**交互性**：用户通过点击地图上的红旗标记探索节点，支持自动漫游</li>
+<li>**开放性**：任何用户无需注册即可提交史料（星火拾遗），经审核后入库</li>
+<li>**多媒体**：每个节点包含战役、会议、事件、遗址、人物、诗词等多维度信息</li>
+<li>**参与感**：留言板、星火投稿等机制让用户从"看客"变为"参与者"</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+1.3 适用对象</h2>
+<ul>
+<li>历史爱好者、红色文化研究者</li>
+<li>中小学师生（作为爱国主义教育辅助工具）</li>
+<li>党员教育、红色旅游导览</li>
+<li>对长征感兴趣的普通公众</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+二、功能介绍</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+2.1 交互式卫星地图</h2>
+<ul>
+<li>**底图切换**：支持 ArcGIS 卫星图（默认）和 OpenStreetMap 浅色/深色地图</li>
+<li>**节点标记**：所有长征节点以红旗标记标注在地图上</li>
+<li>**点击交互**：点击红旗下方的编号标签，弹出信息面板</li>
+<li>**军队路线**：支持显示中央红军、红二方面军、红四方面军、红 25 军四支军队的行军路线</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+2.2 节点信息面板</h2>
+<p>每个节点打开后显示 5 步信息：</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">步骤  </th><th class="markdownTableHeadNone">内容  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">① 时间与地点  </td><td class="markdownTableBodyNone">事件发生的时间、地点、编号  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">② 著名战役  </td><td class="markdownTableBodyNone">战役名称、经过、结果（如适用）  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">③ 重要会议  </td><td class="markdownTableBodyNone">会议名称、时间、决议（如适用）  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">④ 历史事件  </td><td class="markdownTableBodyNone">核心事件描述  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">⑤ 历史意义  </td><td class="markdownTableBodyNone">事件的历史地位与影响  </td></tr>
+</table>
+<p>此外还包含：</p><ul>
+<li>核心数字（歼敌数、行军人数、温度等）</li>
+<li>典型故事与典型人物</li>
+<li>诗词文章（如《七律·长征》等）</li>
+<li>核心遗址（纪念馆、纪念碑、旧址等）</li>
+<li>节点图片（自动加载相关历史照片）</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+2.3 自动漫游</h2>
+<ul>
+<li>沿长征路线自动移动，模拟 30km/h 速度</li>
+<li>到达每个节点自动弹出信息面板</li>
+<li>支持语音朗读（TTS，中文语音合成）</li>
+<li>控制功能：暂停/继续、跳过当前节点、重头开始、退出漫游</li>
+<li>速度选择：慢速（3s/节点）、中速（2s/节点）、快速（1s/节点）</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+2.4 星火拾遗（用户贡献）</h2>
+<ul>
+<li>无需注册即可提交长征相关素材</li>
+<li>支持两种模式：<ul>
+<li>**新建节点**：自行定义新节点（编号、标题、经纬度、内容等）</li>
+<li>**补充既有节点**：为现有节点增加内容</li>
+</ul>
+</li>
+<li>支持文件上传：图片、视频、音频、文档</li>
+<li>提交者信息可选（姓名、电话）</li>
+<li>所有内容进入待审核状态，由管理员审核后发布</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+2.5 用户认证</h2>
+<ul>
+<li>**注册**：创建账号（用户名 ≥ 3 字符，密码 ≥ 6 字符）</li>
+<li>**登录**：使用用户名和密码登录</li>
+<li>**忘记密码**：重置密码（验证用户名后设置新密码）</li>
+<li>登录后星火投稿可追踪个人提交记录</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+2.6 留言板</h2>
+<ul>
+<li>查看所有用户留言</li>
+<li>登录后可发表留言</li>
+<li>留言与长征节点关联</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
+2.7 管理后台</h2>
+<ul>
+<li>管理员入口（需 admin/super 角色）</li>
+<li>用户管理：查看、角色修改、删除</li>
+<li>节点管理：CRUD 操作</li>
+<li>星火审核：通过/拒绝用户提交的内容</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+三、操作说明</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+3.1 快速开始</h2>
+<ol type="1">
+<li>在浏览器中打开 <span class="tt"><a href="http://localhost:5000">http://localhost:5000</a></span>（或部署后的实际地址）</li>
+<li>页面加载后，自动显示长征路线和节点标记</li>
+<li>点击地图上任意红旗节点的编号标签（如 <b>13.1**），右侧弹出信息面板</b></li>
+<li><b>点击面板下方的 **▶ 朗读</b> 按钮收听语音讲解</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+3.2 控制栏说明</h2>
+<p>右侧纵向控制栏包含以下按钮（从上到下）：</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">图标  </th><th class="markdownTableHeadNone">名称  </th><th class="markdownTableHeadNone">功能  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">速度  </td><td class="markdownTableBodyNone">设置自动漫游速度和开始漫游  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">星火  </td><td class="markdownTableBodyNone">打开星火拾遗投稿弹窗  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">卫星  </td><td class="markdownTableBodyNone">切换卫星图/普通地图/深色地图  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">留言  </td><td class="markdownTableBodyNone">打开/关闭留言板  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">登录  </td><td class="markdownTableBodyNone">打开认证弹窗（登录/注册/忘记密码）  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">帮助  </td><td class="markdownTableBodyNone">打开本用户手册  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">管理  </td><td class="markdownTableBodyNone">进入管理后台（仅管理员显示）  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+3.3 探索节点</h2>
+<p><b>方法一：直接点击</b></p><ol type="1">
+<li>在地图上找到有红色军队标记的节点</li>
+<li>鼠标悬停时标记会放大，显示节点编号</li>
+<li>点击编号标签（红色文字），左侧弹出信息面板</li>
+</ol>
+<p><b>方法二：自动漫游</b></p><ol type="1">
+<li>点击控制栏的 ** 速度** 按钮</li>
+<li>在弹出的面板中选择速度（慢速/中速/快速）</li>
+<li>点击 <b>开始</b> 按钮</li>
+<li>地图会自动沿路线移动到每个节点并弹出信息</li>
+<li>使用顶部状态栏的暂停/跳过/重头/退出控制漫游</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+3.4 切换军队路线</h2>
+<ol type="1">
+<li>点击控制栏的 ** 速度** 按钮旁的军队下拉</li>
+<li>选择：<ul>
+<li>中央红军（红一方面军）— 红色</li>
+<li>红二方面军 — 绿色</li>
+<li>红四方面军 — 蓝色</li>
+<li>红 25 军 — （另行标注）</li>
+</ul>
+</li>
+<li>地图自动切换对应的行军路线</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+3.5 提交星火内容（无需注册）</h2>
+<ol type="1">
+<li>点击控制栏的 ** 星火** 按钮</li>
+<li>选择模式：<ul>
+<li><b>新建节点**：填写节点编号、标题、地区、时间、经纬度（点击地图拾取）</b></li>
+<li><b>**补充既有节点**：从下拉列表选择要补充的节点</b></li>
+</ul>
+</li>
+<li><b>填写历史内容字段（战役、会议、事件、故事等）</b></li>
+<li><b>可选上传多媒体文件（图片、视频、音频、文档）</b></li>
+<li><b>可选填写提交者姓名和电话</b></li>
+<li><b>点击 **提交审核</b> 按钮</li>
+<li>内容进入待审核状态，经管理员审核后发布</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+3.6 登录/注册</h2>
+<ol type="1">
+<li>点击控制栏的 ** 登录** 按钮</li>
+<li>弹窗中三个标签页：<ul>
+<li><b>登录**：输入用户名和密码</b></li>
+<li><b>**注册**：创建新账号（两遍密码确认）</b></li>
+<li><b>**忘记密码**：输入用户名和新密码重置</b></li>
+</ul>
+</li>
+<li><b>登录成功后按钮变为 ** 退出</b></li>
+<li>单击退出按钮即可登出</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+3.7 留言</h2>
+<ol type="1">
+<li>点击控制栏的 ** 留言** 按钮</li>
+<li>在留言板输入框中输入内容</li>
+<li>点击发送（登录后方可发送）</li>
+<li>所有留言按时间倒序显示</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
+3.8 管理后台</h2>
+<blockquote class="doxtable">
+<p>需要 admin 或 super 角色权限 </p>
+</blockquote>
+<ol type="1">
+<li>登录管理员账号后，控制栏自动显示 ** 管理** 按钮</li>
+<li>点击进入管理后台</li>
+<li>左侧导航栏：<ul>
+<li><b>仪表盘</b> — 系统统计数据</li>
+<li><b>节点管理</b> — 增删改查长征节点</li>
+<li><b>用户管理</b> — 查看和管理用户</li>
+<li><b>星火审核</b> — 审核/拒绝用户提交的内容</li>
+</ul>
+</li>
+</ol>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
+四、常见问题</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+Q: 星火投稿需要注册吗？</h2>
+<p>不需要。任何用户都可以直接提交星火内容，提交者信息（姓名/电话）可选填写。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+Q: 提交星火后多久能显示？</h2>
+<p>管理员审核通过后即显示。审核时间取决于管理员的处理。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
+Q: 忘记密码怎么办？</h2>
+<p>在认证弹窗中点击"忘记密码"标签页，输入用户名和新密码即可重置。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
+Q: 如何成为管理员？</h2>
+<p>目前管理员账号由系统初始化时创建（默认账号见部署配置），普通用户无法自行升级。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md49"></a>
+Q: 可以上传哪些类型的文件？</h2>
+<p>图片（jpg/png/gif/webp）、视频（mp4/avi/mov）、音频（mp3/wav/ogg）、文档（pdf/doc/docx/txt）。</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
+Q: 自动漫游时如何手动查看某个节点？</h2>
+<p>点击暂停按钮暂停漫游，然后直接在地图上点击你想看的节点标记。漫游会继续播放剩余路线。</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
+五、技术信息</h1>
+<ul>
+<li><b>技术栈</b>: Python Flask（后端）+ Leaflet.js（前端地图）+ SQLite（数据库）</li>
+<li><b>代码位置</b>: <span class="tt">001 项目源码/</span></li>
+<li><b>数据文件</b>: <span class="tt">001 项目源码/data/longmarch.db</span></li>
+<li><b>节点图片</b>: <span class="tt">002 项目资源/</span></li>
+<li><b>用户上传文件</b>: <span class="tt">002 项目资源/星火上传/</span></li>
+</ul>
+<hr  />
+<p><em>—— 长征文化数字地图项目组 · 2026年7月</em> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

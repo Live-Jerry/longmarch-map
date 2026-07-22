@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台: tmp_verify_chm2 命名空间参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台
+   </div>
+   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="namespaces.html"><span>命名空间列表</span></a></li>
+      <li><a href="namespacemembers.html"><span>命名空间成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">tmp_verify_chm2 命名空间参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ab334d0f15dd96410286a5223b94c2547" id="r_ab334d0f15dd96410286a5223b94c2547"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab334d0f15dd96410286a5223b94c2547">raw</a> = f.read()</td></tr>
+<tr class="memitem:ac9f794be65da39ce59d3333d69267cc0" id="r_ac9f794be65da39ce59d3333d69267cc0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac9f794be65da39ce59d3333d69267cc0">text</a> = raw.decode('gbk', errors='replace')</td></tr>
+<tr class="memitem:ad3476d2162ee0527e3c4b7b73be168c2" id="r_ad3476d2162ee0527e3c4b7b73be168c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad3476d2162ee0527e3c4b7b73be168c2">idx</a> = text.find('Name&quot; value=&quot;')</td></tr>
+<tr class="memitem:a2e32b9e104bd4aace504e63b7341bcd3" id="r_a2e32b9e104bd4aace504e63b7341bcd3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2e32b9e104bd4aace504e63b7341bcd3">idx2</a> = text.find('&quot;', idx + 14)</td></tr>
+<tr class="memitem:aa8e37a47959bc6ab748da320ae565401" id="r_aa8e37a47959bc6ab748da320ae565401"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa8e37a47959bc6ab748da320ae565401">idx3</a> = text.find('&quot;', idx2 + 1)</td></tr>
+<tr class="memitem:a2799f671e20a24ebb335b3f962939d36" id="r_a2799f671e20a24ebb335b3f962939d36"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2799f671e20a24ebb335b3f962939d36">root_name</a> = <a class="el" href="#ac9f794be65da39ce59d3333d69267cc0">text</a>[<a class="el" href="#a2e32b9e104bd4aace504e63b7341bcd3">idx2</a>+1:<a class="el" href="#aa8e37a47959bc6ab748da320ae565401">idx3</a>]</td></tr>
+<tr class="memitem:a063447c3a62554c5090b996e5c521916" id="r_a063447c3a62554c5090b996e5c521916"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a063447c3a62554c5090b996e5c521916">names</a> = set()</td></tr>
+<tr class="memitem:a37722a150250e2a5a98e5e0d11e53449" id="r_a37722a150250e2a5a98e5e0d11e53449"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a37722a150250e2a5a98e5e0d11e53449">start</a> = 0</td></tr>
+<tr class="memitem:a02c6f921c44dc9e3412c4ac15023672d" id="r_a02c6f921c44dc9e3412c4ac15023672d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a02c6f921c44dc9e3412c4ac15023672d">s</a> = text.find('value=&quot;', start)</td></tr>
+<tr class="memitem:a8aa374a95708b6423d66d79113cd4d64" id="r_a8aa374a95708b6423d66d79113cd4d64"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8aa374a95708b6423d66d79113cd4d64">e</a> = text.find('&quot;', s + 7)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">Verify the .hhc/hhk have proper GBK encoding after fix.</pre> </div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a8aa374a95708b6423d66d79113cd4d64" name="a8aa374a95708b6423d66d79113cd4d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa374a95708b6423d66d79113cd4d64">&#9670;&#160;</a></span>e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.e = text.find('&quot;', s + 7)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00023">23</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad3476d2162ee0527e3c4b7b73be168c2" name="ad3476d2162ee0527e3c4b7b73be168c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3476d2162ee0527e3c4b7b73be168c2">&#9670;&#160;</a></span>idx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.idx = text.find('Name&quot; value=&quot;')</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00010">10</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2e32b9e104bd4aace504e63b7341bcd3" name="a2e32b9e104bd4aace504e63b7341bcd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e32b9e104bd4aace504e63b7341bcd3">&#9670;&#160;</a></span>idx2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.idx2 = text.find('&quot;', idx + 14)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00011">11</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa8e37a47959bc6ab748da320ae565401" name="aa8e37a47959bc6ab748da320ae565401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e37a47959bc6ab748da320ae565401">&#9670;&#160;</a></span>idx3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.idx3 = text.find('&quot;', idx2 + 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00012">12</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a063447c3a62554c5090b996e5c521916" name="a063447c3a62554c5090b996e5c521916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063447c3a62554c5090b996e5c521916">&#9670;&#160;</a></span>names</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.names = set()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00017">17</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab334d0f15dd96410286a5223b94c2547" name="ab334d0f15dd96410286a5223b94c2547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab334d0f15dd96410286a5223b94c2547">&#9670;&#160;</a></span>raw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.raw = f.read()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00004">4</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2799f671e20a24ebb335b3f962939d36" name="a2799f671e20a24ebb335b3f962939d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2799f671e20a24ebb335b3f962939d36">&#9670;&#160;</a></span>root_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.root_name = <a class="el" href="#ac9f794be65da39ce59d3333d69267cc0">text</a>[<a class="el" href="#a2e32b9e104bd4aace504e63b7341bcd3">idx2</a>+1:<a class="el" href="#aa8e37a47959bc6ab748da320ae565401">idx3</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00013">13</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a02c6f921c44dc9e3412c4ac15023672d" name="a02c6f921c44dc9e3412c4ac15023672d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c6f921c44dc9e3412c4ac15023672d">&#9670;&#160;</a></span>s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.s = text.find('value=&quot;', start)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00020">20</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a37722a150250e2a5a98e5e0d11e53449" name="a37722a150250e2a5a98e5e0d11e53449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37722a150250e2a5a98e5e0d11e53449">&#9670;&#160;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int start = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00018">18</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac9f794be65da39ce59d3333d69267cc0" name="ac9f794be65da39ce59d3333d69267cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f794be65da39ce59d3333d69267cc0">&#9670;&#160;</a></span>text</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tmp_verify_chm2.text = raw.decode('gbk', errors='replace')</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="tmp__verify__chm2_8py_source.html">tmp_verify_chm2.py</a> 第 <a class="el" href="tmp__verify__chm2_8py_source.html#l00007">7</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

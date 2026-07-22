@@ -31,8 +31,8 @@ venv/
 *.bin
 doxygen.exe
 
-# Doxygen output
-html/
+# Doxygen root-level output
+/html/
 docs_doxygen/
 
 007 ��Ŀ����/HHW_extracted/
@@ -52,8 +52,8 @@ lt_*
 # Upload directory
 uploads/
 
-# Doxygen full output
-004 项目文档/doxygen/
+# Doxygen config only (output tracked in docs)
+Doxyfile
 
 # Office temp files
 ~$*
