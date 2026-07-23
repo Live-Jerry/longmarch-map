@@ -88,6 +88,16 @@ def convert_file(fp):
         f.write(gbk)
     return True
 
+def _post_doxygen_cleanup(directory):
+    """Fix known Doxygen CSS issues before GBK conversion."""
+    css_path = os.path.join(directory, "doxygen.css")
+    if os.path.exists(css_path):
+        with open(css_path, "r", encoding="utf-8") as f:
+            text = f.read()
+        text = text.replace(chr(0x2610), "[ ]").replace(chr(0x2611), "[x]")
+        with open(css_path, "w", encoding="utf-8") as f:
+            f.write(text)
+
 def _is_gbk(c):
     try:
         c.encode('gbk')
@@ -135,6 +145,7 @@ def main():
         print('Removed old CHM')
     
     print('Converting files from UTF-8 to GBK...')
+    _post_doxygen_cleanup(DOX_DIR)
     converted = convert_to_gbk(DOX_DIR)
     print(f'Converted {converted} files to GBK')
     
