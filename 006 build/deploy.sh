@@ -77,7 +77,7 @@ do_deploy() {
     # 安装/更新 Python 依赖
     log "安装 Python 依赖..."
     "${VENV_DIR}/bin/pip" install --upgrade pip
-    "${VENV_DIR}/bin/pip" install -r requirements.txt
+    "${VENV_DIR}/bin/pip" install -r "${PROJECT_DIR}/001 项目源码/requirements.txt"
     "${VENV_DIR}/bin/pip" install gunicorn  # 生产 WSGI 服务器
 
     # 确保数据库和上传目录存在
