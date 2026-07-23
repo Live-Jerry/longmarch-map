@@ -312,11 +312,11 @@ li.unchecked::before, li.checked::before {
 }
 
 li.unchecked::before {
-	content: "☐";
+	content: "[ ]";
 }
 
 li.checked::before {
-	content: "☑";
+	content: "[x]";
 }
 
 ul.check li > p {

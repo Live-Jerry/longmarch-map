@@ -31,8 +31,14 @@
         <!-- 顶部标题栏 -->
         <!-- 左上角：Logo + 标题（V003 §4.1） -->
         <div id="title-bar">
-            <h1>我 走 长 征 路</h1>
-            <div class="subtitle">交互式长征文化数字平台 · 2026</div>
+            <div class="title-bar-left">
+                <h1>我 走 长 征 路</h1>
+                <div class="subtitle">交互式长征文化数字平台 · 2026</div>
+            </div>
+            <div class="version-badge {% if app_env == 'production' %}version-prod{% else %}version-dev{% endif %}">
+                {{ app_version_full }}
+                {% if app_env != 'production' %}<span class="version-env">{{ app_env }}</span>{% endif %}
+            </div>
       <!-- 军队选择器 -->
         <div id="army-selector">
             <div class="army-list">

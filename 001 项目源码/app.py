@@ -271,7 +271,9 @@ def _register_page_routes(app):
 
     @app.route("/")
     def index():
-        return render_template("index.html")
+        return render_template("index.html",
+                               app_version_full=config.APP_VERSION_FULL,
+                               app_env=os.environ.get("FLASK_ENV", "development"))
 
     @app.route("/login")
     def login_page():

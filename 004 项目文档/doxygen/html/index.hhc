@@ -1,18 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<HTML><HEAD></HEAD><BODY>
+<HTML><HEAD><meta http-equiv="Content-Type" content="text/html; charset=GB2312"></HEAD><BODY>
 <OBJECT type="text/site properties">
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="我走长征路 — 长征文化数字平台 2.0.0"><param name="Local" value="index.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目简介"><param name="Local" value="index.html#autotoc_md107"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="版本"><param name="Local" value="index.html#autotoc_md108"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="技术栈"><param name="Local" value="index.html#autotoc_md109"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目结构"><param name="Local" value="index.html#autotoc_md110"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="长征节点"><param name="Local" value="index.html#autotoc_md111"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="启动"><param name="Local" value="index.html#autotoc_md112"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="设计理念"><param name="Local" value="index.html#autotoc_md113"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目简介"><param name="Local" value="index.html#autotoc_md96"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="版本"><param name="Local" value="index.html#autotoc_md97"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="技术栈"><param name="Local" value="index.html#autotoc_md98"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目结构"><param name="Local" value="index.html#autotoc_md99"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="长征节点"><param name="Local" value="index.html#autotoc_md100"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="启动"><param name="Local" value="index.html#autotoc_md101"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="设计理念"><param name="Local" value="index.html#autotoc_md102"><param name="ImageNumber" value="11"></OBJECT>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="修改记录 V005"><param name="Local" value="md_004_01_x_e9_x_a1_x_b9_x_e7_x9_b_x_a_e_x_e6_x96_x87_x_e6_x_a1_x_a3_2_x_e4_x_b_f_x_a_e_x_e6_x94fdbb7838563c4e68ff282693e8eb7c6e.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
@@ -110,56 +110,33 @@
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="版本日志"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0 (2026-07-16)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md92"><param name="ImageNumber" value="1"></OBJECT>
-    <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="重大更新"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md93"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="变更说明"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md94"><param name="ImageNumber" value="11"></OBJECT>
-    </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.0.1 (2026-07-15)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md95"><param name="ImageNumber" value="1"></OBJECT>
-    <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="新增"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md96"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="变更"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md97"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="固定"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md98"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="变更说明"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md99"><param name="ImageNumber" value="11"></OBJECT>
-    </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.0.0 (2026-07-15)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md100"><param name="ImageNumber" value="1"></OBJECT>
-    <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="新增功能"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md101"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="设计变更（V003 → V1.0.0）"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md102"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="待实现（排入后续版本）"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md103"><param name="ImageNumber" value="11"></OBJECT>
-    </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V003 (2026-07-15)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md105"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0 (2026-07-23)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md92"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0 (2026-07-16)"><param name="Local" value="md__c_h_a_n_g_e_l_o_g.html#autotoc_md94"><param name="ImageNumber" value="11"></OBJECT>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="开发路线图"><param name="Local" value="md__r_o_a_d_m_a_p.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.1.0 — 内容增强（优先级：高）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md115"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.2.0 — 交互增强（优先级：中）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md116"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0 — 多军路线（优先级：中）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md117"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.1.0 — 用户共建（优先级：低）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md118"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="V3.0.0 — 生产就绪（优先级：低）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md119"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.1.0 — 内容增强（优先级：高）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md104"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V1.2.0 — 交互增强（优先级：中）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md105"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0 — 多军路线（优先级：中）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md106"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.1.0 — 用户共建（优先级：低）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md107"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="V3.0.0 — 生产就绪（优先级：低）"><param name="Local" value="md__r_o_a_d_m_a_p.html#autotoc_md108"><param name="ImageNumber" value="11"></OBJECT>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="环境搭建指南"><param name="Local" value="md__s_e_t_u_p.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="快速开始"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md122"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="手动安装步骤"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md123"><param name="ImageNumber" value="1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="快速开始"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md111"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="手动安装步骤"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md112"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="安装 Python"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md124"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="安装 Python 依赖"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md125"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="启动应用"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md126"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="安装 Python"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md113"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="安装 Python 依赖"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md114"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="启动应用"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md115"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="可选工具"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md127"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目文件结构"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md128"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="可选工具"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md116"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="项目文件结构"><param name="Local" value="md__s_e_t_u_p.html#autotoc_md117"><param name="ImageNumber" value="11"></OBJECT>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="命名空间"><param name="Local" value="namespaces.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="命名空间列表"><param name="Local" value="namespaces.html#top"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="_check_doxy"><param name="Local" value="namespace__check__doxy.html"><param name="ImageNumber" value="1"></OBJECT>
-      <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="data"><param name="Local" value="namespace__check__doxy.html#a0834b6a8ba3b12b3ccc49a342b1b9f20"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="decoded"><param name="Local" value="namespace__check__doxy.html#a7c8c609dc58b03b1d13d89759fbfa1fd"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="raw_line"><param name="Local" value="namespace__check__doxy.html#a7a0b0864c694c376874e790590eed69c"><param name="ImageNumber" value="11"></OBJECT>
-      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="_final_check"><param name="Local" value="namespace__final__check.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="chm"><param name="Local" value="namespace__final__check.html#aa3f91bb357c34490d9e33ab39f0e7826"><param name="ImageNumber" value="11"></OBJECT>
@@ -261,6 +238,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm"><param name="Local" value="namespacebuild__chm.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="_is_gbk"><param name="Local" value="namespacebuild__chm.html#a518b06ce91ae90e6e8d0ee94f3c4df6e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="_post_doxygen_cleanup"><param name="Local" value="namespacebuild__chm.html#adc7ba06c3c7788843626808d5c308d84"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="clean_output"><param name="Local" value="namespacebuild__chm.html#a4dff08392d4eaf4d0ede94a3d9780653"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="convert_file"><param name="Local" value="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="convert_to_gbk"><param name="Local" value="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84"><param name="ImageNumber" value="11"></OBJECT>
@@ -1046,6 +1024,7 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm.py"><param name="Local" value="build__chm_8py.html"><param name="ImageNumber" value="1"></OBJECT>
         <UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm._is_gbk"><param name="Local" value="namespacebuild__chm.html#a518b06ce91ae90e6e8d0ee94f3c4df6e"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm._post_doxygen_cleanup"><param name="Local" value="namespacebuild__chm.html#adc7ba06c3c7788843626808d5c308d84"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm.clean_output"><param name="Local" value="namespacebuild__chm.html#a4dff08392d4eaf4d0ede94a3d9780653"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm.convert_file"><param name="Local" value="namespacebuild__chm.html#abafed5749db6724d8fa5ac2713e6b328"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="build_chm.convert_to_gbk"><param name="Local" value="namespacebuild__chm.html#aa65eee7540deefb14dca5a0b69358e84"><param name="ImageNumber" value="11"></OBJECT>
@@ -1063,12 +1042,6 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="V2.0.0"><param name="Local" value="dir_3a33979a7217c3b45375a54db1026f15.html"><param name="ImageNumber" value="11"></OBJECT>
         <UL>
         </UL>
-      </UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="_check_doxy.py"><param name="Local" value="__check__doxy_8py.html"><param name="ImageNumber" value="1"></OBJECT>
-      <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="_check_doxy.data"><param name="Local" value="namespace__check__doxy.html#a0834b6a8ba3b12b3ccc49a342b1b9f20"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="_check_doxy.decoded"><param name="Local" value="namespace__check__doxy.html#a7c8c609dc58b03b1d13d89759fbfa1fd"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="_check_doxy.raw_line"><param name="Local" value="namespace__check__doxy.html#a7a0b0864c694c376874e790590eed69c"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="_final_check.py"><param name="Local" value="__final__check_8py.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
