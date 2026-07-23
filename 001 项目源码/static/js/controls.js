@@ -510,7 +510,7 @@ function showPlayControls() {
     // 重置暂停按钮状态
     const ppIcon = document.getElementById("btn-play-pause")?.querySelector(".icon");
     const ppLabel = document.getElementById("btn-play-pause")?.querySelector(".label");
-    if (ppIcon) ppIcon.textContent = "⏸";
+    if (ppIcon) ppIcon.textContent = "暂停";
     if (ppLabel) ppLabel.textContent = "暂停";
 }
 
@@ -527,7 +527,7 @@ function togglePause() {
     const btn = document.getElementById("btn-play-pause");
     const icon = btn?.querySelector(".icon");
     const label = btn?.querySelector(".label");
-    if (icon) icon.textContent = state.paused ? "▶" : "⏸";
+    if (icon) icon.textContent = state.paused ? "播放" : "暂停";
     if (label) label.textContent = state.paused ? "继续" : "暂停";
 
     if (!state.paused) {

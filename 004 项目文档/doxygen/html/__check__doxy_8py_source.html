@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台 2.0.0: _check_doxy.py 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台 2.0.0<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">_check_doxy.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="__check__doxy_8py.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html">    1</a></span><span class="keyword">import</span> sys, os</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#aefdba5aa69104df6f2cad03b5463bae2">    2</a></span>sys.stdout.reconfigure(encoding=<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"># Check raw .hhc bytes</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">with</span> open(<span class="stringliteral">r&#39;004 项目文档\doxygen\html\index.hhc&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#ad560919b35ab5fa2b127eea6a0e66ed0">    6</a></span>    raw = f.read()</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"># Find all Name values that are sitemap entries (not frame/property params)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> re</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"># Look for param name=&quot;Name&quot; value=&quot;...&quot; in UL/LI context (sitemap entries)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#a6241ed895a044b5e145420e2f6756c9c">   11</a></span>pattern = rb<span class="stringliteral">&#39;&lt;param name=&quot;Name&quot; value=&quot;([^&quot;]+)&quot;&gt;&#39;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#a2b1f8b94acaf924d61ee0c0ea7fdd908">   12</a></span>matches = re.findall(pattern, raw)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordflow">for</span> i, val <span class="keywordflow">in</span> enumerate(matches[:10]):</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#a7c8c609dc58b03b1d13d89759fbfa1fd">   15</a></span>        decoded = val.decode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        print(f<span class="stringliteral">&#39;{i}: {decoded}   (raw: {val[:60]})&#39;</span>)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">except</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        print(f<span class="stringliteral">&#39;{i}: DECODE ERROR (raw: {val[:60]})&#39;</span>)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>print()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#ab4817808fce8978f29f6658f8e599552">   21</a></span>HTML_DIR = <span class="stringliteral">r&#39;D:\长征文化\004 项目文档\doxygen\html&#39;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#a617e6cff63bb0db085277371da268c22">   22</a></span>doxy1 = os.path.join(os.path.dirname(os.path.dirname(HTML_DIR)), <span class="stringliteral">&#39;..&#39;</span>, <span class="stringliteral">&#39;..&#39;</span>, <span class="stringliteral">&#39;Doxyfile&#39;</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespace__check__doxy.html#a9516a328c381af5993beb956066c8cd6">   23</a></span>doxy2 = <span class="stringliteral">r&#39;D:\长征文化\Doxyfile&#39;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>print(<span class="stringliteral">&#39;Computed doxy path:&#39;</span>, doxy1)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>print(<span class="stringliteral">&#39;  Exists:&#39;</span>, os.path.exists(doxy1))</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>print(<span class="stringliteral">&#39;Fallback doxy path:&#39;</span>, doxy2)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>print(<span class="stringliteral">&#39;  Exists:&#39;</span>, os.path.exists(doxy2))</div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>æˆ‘èµ°é•¿å¾è·¯ - é•¿å¾æ–‡åŒ–æ•°å­—å¹³å°: _check_hhc.py æºæ–‡ä»¶</title>
+<title>ÎÒ×ß³¤Õ÷Â· - ³¤Õ÷ÎÄ»¯Êı×ÖÆ½Ì¨ 2.0.0: _check_hhc.py Ô´ÎÄ¼ş</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,29 +16,28 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">æˆ‘èµ°é•¿å¾è·¯ - é•¿å¾æ–‡åŒ–æ•°å­—å¹³å°<span id="projectnumber">&#160;2.0.0</span>
+   <div id="projectname">ÎÒ×ß³¤Õ÷Â· - ³¤Õ÷ÎÄ»¯Êı×ÖÆ½Ì¨ 2.0.0<span id="projectnumber">&#160;2.0.0</span>
    </div>
-   <div id="projectbrief">é•¿å¾æ–‡åŒ–æ•°å­—åœ°å›¾ - äº¤äº’å¼é•¿å¾å†å²æ•°å­—å±•ç¤ºå¹³å°</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- åˆ¶ä½œè€… Doxygen 1.17.0 -->
+<!-- ÖÆ×÷Õß Doxygen 1.17.0 -->
 <div id="main-nav">
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>é¦–é¡µ</span></a></li>
-      <li><a href="pages.html"><span>ç›¸å…³é¡µé¢</span></a></li>
-      <li><a href="namespaces.html"><span>å‘½åç©ºé—´</span></a></li>
-      <li><a href="annotated.html"><span>ç±»</span></a></li>
-      <li class="current"><a href="files.html"><span>æ–‡ä»¶</span></a></li>
+      <li><a href="index.html"><span>Ê×Ò³</span></a></li>
+      <li><a href="pages.html"><span>Ïà¹ØÒ³Ãæ</span></a></li>
+      <li><a href="namespaces.html"><span>ÃüÃû¿Õ¼ä</span></a></li>
+      <li><a href="annotated.html"><span>Àà</span></a></li>
+      <li class="current"><a href="files.html"><span>ÎÄ¼ş</span></a></li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>æ–‡ä»¶åˆ—è¡¨</span></a></li>
+      <li><a href="files.html"><span>ÎÄ¼şÁĞ±í</span></a></li>
     </ul>
   </div>
 </div><!-- main-nav -->
@@ -48,45 +47,24 @@
   <div class="headertitle"><div class="title">_check_hhc.py</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="__check__hhc_8py.html">æµè§ˆè¯¥æ–‡ä»¶çš„æ–‡æ¡£.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html">    1</a></span><span class="keyword">import</span> os</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a588e9884af8f6e74f9fa63fded08862a">    3</a></span>hhc = os.path.join(<span class="stringliteral">r&#39;D:\é•¿å¾æ–‡åŒ–\004 é¡¹ç›®æ–‡æ¡£\doxygen\html&#39;</span>, <span class="stringliteral">&#39;index.hhc&#39;</span>)</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">with</span> open(hhc, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
+<a href="__check__hhc_8py.html">ä¯ÀÀ¸ÃÎÄ¼şµÄÎÄµµ.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html">    1</a></span><span class="keyword">import</span> sys, re</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#add1da223f2b2e5357b2098e00fbde5bc">    2</a></span>sys.stdout.reconfigure(encoding=<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">with</span> open(<span class="stringliteral">r&#39;004 ÏîÄ¿ÎÄµµ\doxygen\html\index.hhc&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> f:</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a7625373e0055086dd2b1ff8787f0bcc3">    5</a></span>    raw = f.read()</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#ae40354a1051342eb5a9db005715dcfa9">    7</a></span>idx = 0</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#aa94e8fc59ac422d5e3a83cf0d72dd1c2">    8</a></span>count = 0</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a10a417f04247633c20fe80a7581979e4">   10</a></span>    marker = b<span class="stringliteral">&#39;Name=&#39;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    idx = raw.find(marker, idx)</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">if</span> idx &lt; 0:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordflow">break</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment"># After Name=, expect &quot;content&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a4f004b8a8fbb7d3d5d1e891ed75ce85f">   15</a></span>    quote_start = idx + 5</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span> quote_start &gt;= len(raw) <span class="keywordflow">or</span> raw[quote_start:quote_start+1] != b<span class="stringliteral">&#39;&quot;&#39;</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        idx += 1</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">continue</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#aada0c7c3e279d775776219ca66ecd458">   19</a></span>    end = raw.find(b<span class="stringliteral">&#39;&quot;&#39;</span>, quote_start + 1)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span> end &lt; 0:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">break</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a117a48643687966737ee845074ab23f4">   22</a></span>    name_bytes = raw[quote_start+1:end]</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> any(b &gt;= 128 <span class="keywordflow">for</span> b <span class="keywordflow">in</span> name_bytes):</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        count += 1</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#ad67e01cb8a50f3e7d7d2915cd840abb0">   26</a></span>            name = name_bytes.decode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            print(f<span class="stringliteral">&#39;GBK[{count:3d}]: {name[:80]}&#39;</span>)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">except</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                name = name_bytes.decode(<span class="stringliteral">&#39;utf-8&#39;</span>, errors=<span class="stringliteral">&#39;replace&#39;</span>)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a750c3c8da40f4d6ba5f4504ff87e7ef2">   31</a></span>                rep = name.count(chr(65533))</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                print(f<span class="stringliteral">&#39;UTF[{count:3d}]({rep}rep): {name[:80]}&#39;</span>)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">except</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                print(f<span class="stringliteral">&#39;RAW[{count:3d}]: {name_bytes[:40].hex()}&#39;</span>)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    idx = end + 1</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#abf9f6f617ec673aed5f757bb4eb5b738">    7</a></span>pattern = rb<span class="stringliteral">&#39;&lt;param name=&quot;Name&quot; value=&quot;([^&quot;]+)&quot;&gt;&#39;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a2e61376d85b150b279bcb7e626fc8d91">    8</a></span>matches = re.findall(pattern, raw)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordflow">for</span> i, val <span class="keywordflow">in</span> enumerate(matches[:15]):</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace__check__hhc.html#a3470c93b5e50d0600f3dd9d41367ab2f">   11</a></span>        decoded = val.decode(<span class="stringliteral">&#39;gbk&#39;</span>)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        print(f<span class="stringliteral">&#39;{i}: {decoded}&#39;</span>)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        print(f<span class="stringliteral">&#39;{i}: DECODE ERROR - {e}&#39;</span>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-åˆ¶ä½œè€…&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+ÖÆ×÷Õß&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
 </small></address>
 </div><!-- doc-content -->
 </body>

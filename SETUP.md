@@ -15,7 +15,7 @@
 
 下载 Python 3.12+（建议 3.14）:
 - https://www.python.org/downloads/
-- 安装时 **务必勾选** "Add Python to PATH"
+- 安装时 务必勾选 "Add Python to PATH"
 
 检查是否安装成功：
 ```cmd

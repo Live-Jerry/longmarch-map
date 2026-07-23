@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>我走长征路 - 长征文化数字平台: node_interface 命名空间参考</title>
+<title>���߳���· - �����Ļ�����ƽ̨ 2.0.0: node_interface �����ռ�ο�</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,68 +16,67 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">我走长征路 - 长征文化数字平台<span id="projectnumber">&#160;2.0.0</span>
+   <div id="projectname">���߳���· - �����Ļ�����ƽ̨ 2.0.0<span id="projectnumber">&#160;2.0.0</span>
    </div>
-   <div id="projectbrief">长征文化数字地图 - 交互式长征历史数字展示平台</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.17.0 -->
+<!-- ������ Doxygen 1.17.0 -->
 <div id="main-nav">
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>首页</span></a></li>
-      <li><a href="pages.html"><span>相关页面</span></a></li>
-      <li class="current"><a href="namespaces.html"><span>命名空间</span></a></li>
-      <li><a href="annotated.html"><span>类</span></a></li>
-      <li><a href="files.html"><span>文件</span></a></li>
+      <li><a href="index.html"><span>��ҳ</span></a></li>
+      <li><a href="pages.html"><span>���ҳ��</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>�����ռ�</span></a></li>
+      <li><a href="annotated.html"><span>��</span></a></li>
+      <li><a href="files.html"><span>�ļ�</span></a></li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="namespaces.html"><span>命名空间列表</span></a></li>
-      <li><a href="namespacemembers.html"><span>命名空间成员</span></a></li>
+      <li><a href="namespaces.html"><span>�����ռ��б�</span></a></li>
+      <li><a href="namespacemembers.html"><span>�����ռ��Ա</span></a></li>
     </ul>
   </div>
 </div><!-- main-nav -->
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">node_interface 命名空间参考</div></div>
+  <div class="headertitle"><div class="title">node_interface �����ռ�ο�</div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">��ϸ����</h2>
 <div class="textblock"><pre class="fragment">@file    interfaces/node_interface.py
-@brief   节点接口定义（Interface Definitions）
-@details 以文档形式定义 Node 模块所有 REST API 的接口规范，
-         包括请求格式、响应格式、错误码、权限要求。
-         供前端开发者和第三方集成方参考，不参与实际业务逻辑。
-@author  长征文化数字地图项目组
+@brief   �ڵ�ӿڶ��壨Interface Definitions��
+@details ���ĵ���ʽ���� Node ģ������ REST API �Ľӿڹ淶��
+         ���������ʽ����Ӧ��ʽ�������롢Ȩ��Ҫ��
+         ��ǰ�˿����ߺ͵��������ɷ��ο���������ʵ��ҵ���߼���
+@author  �����Ļ����ֵ�ͼ��Ŀ��
 @date    2026-07-15
 
-接口基础 URL: /api/v1/nodes
-认证方式: Bearer Token（见 auth_interface.py）
+�ӿڻ��� URL: /api/v1/nodes
+��֤��ʽ: Bearer Token���� auth_interface.py��
 
-通用响应格式:
+ͨ����Ӧ��ʽ:
 {
-    "code":    0,          // 0=成功，其他=错误
-    "message": "success",  // 状态描述
-    "data":    {}          // 业务数据（成功时有）
+    "code":    0,          // 0=�ɹ�������=����
+    "message": "success",  // ״̬����
+    "data":    {}          // ҵ�����ݣ��ɹ�ʱ�У�
 }
 
-通用错误码:
-    1   一般错误
-    401 未登录或令牌无效
-    403 权限不足
-    404 资源不存在
-    500 服务器内部错误
+ͨ�ô�����:
+    1   һ�����
+    401 δ��¼��������Ч
+    403 Ȩ�޲���
+    404 ��Դ������
+    500 �������ڲ�����
 </pre> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+������&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
 </small></address>
 </div><!-- doc-content -->
 </body>

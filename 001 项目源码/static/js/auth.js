@@ -131,15 +131,15 @@ async function handleLoginForm(e) {
     try {
         var result = await login(username, password);
         if (result.success) {
-            statusEl.textContent = "✅ 登录成功";
+            statusEl.textContent = "登录成功";
             statusEl.className = "form-status success";
             setTimeout(closeAuthModal, 1000);
         } else {
-            statusEl.textContent = "❌ " + result.message;
+            statusEl.textContent = " " + result.message;
             statusEl.className = "form-status error";
         }
     } catch (err) {
-        statusEl.textContent = "❌ 网络错误，请重试";
+        statusEl.textContent = " 网络错误，请重试";
         statusEl.className = "form-status error";
     } finally {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "登 录"; }
@@ -170,15 +170,15 @@ async function handleRegisterForm(e) {
     try {
         var result = await register(username, password);
         if (result.success) {
-            statusEl.textContent = "✅ 注册成功！已自动登录";
+            statusEl.textContent = "注册成功！已自动登录";
             statusEl.className = "form-status success";
             setTimeout(closeAuthModal, 1000);
         } else {
-            statusEl.textContent = "❌ " + result.message;
+            statusEl.textContent = " " + result.message;
             statusEl.className = "form-status error";
         }
     } catch (err) {
-        statusEl.textContent = "❌ 网络错误，请重试";
+        statusEl.textContent = " 网络错误，请重试";
         statusEl.className = "form-status error";
     } finally {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "注 册"; }
@@ -214,16 +214,16 @@ async function handleResetForm(e) {
     try {
         var result = await resetPassword(username, newPassword);
         if (result.success) {
-            statusEl.textContent = "✅ 密码重置成功，请登录";
+            statusEl.textContent = " 密码重置成功，请登录";
             statusEl.className = "form-status success";
             // 2秒后切换到登录页
             setTimeout(function() { switchAuthTab("login"); }, 2000);
         } else {
-            statusEl.textContent = "❌ " + result.message;
+            statusEl.textContent = " " + result.message;
             statusEl.className = "form-status error";
         }
     } catch (err) {
-        statusEl.textContent = "❌ 网络错误，请重试";
+        statusEl.textContent = " 网络错误，请重试";
         statusEl.className = "form-status error";
     } finally {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "重置密码"; }
@@ -350,11 +350,11 @@ function updateAuthUI() {
     const loginBtn = document.getElementById("btn-login");
     if (loginBtn) {
         if (currentUser) {
-            loginBtn.innerHTML = '<span class="icon">👤</span><span class="label">退出</span>';
+            loginBtn.innerHTML = '<span class="icon"></span><span class="label">退出</span>';
             loginBtn.onclick = logout;
             loginBtn.title = "退出登录";
         } else {
-            loginBtn.innerHTML = '<span class="icon">👤</span><span class="label">登录</span>';
+            loginBtn.innerHTML = '<span class="icon"></span><span class="label">登录</span>';
             loginBtn.onclick = function() { openAuthModal("login"); };
             loginBtn.title = "用户登录/注册";
         }

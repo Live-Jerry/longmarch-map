@@ -82,12 +82,12 @@ function initMap() {
             if (boundsAll.isValid()) {
                 // 加一点缓冲（10%），确保节点不贴边
                 map.instance.fitBounds(boundsAll, { padding: [100, 100] });
-                console.log("[Map] ✅ 缩放到全路线 +40% 缓冲");
+                console.log("[Map] 缩放到全路线 +40% 缓冲");
             }
         }
     });
     loadRoutes();
-    console.log("[Map] ✅ 地图初始化完成 (ArcGIS卫星)");
+    console.log("[Map] 地图初始化完成 (ArcGIS卫星)");
 }
 
 /**
@@ -103,7 +103,7 @@ async function loadNodes() {
         nodes.forEach(addNodeMarker);
         // 全局暴露，供其他模块（如星火拾遗）使用
         window.allNodes = nodes;
-        console.log(`[Map] ✅ 节点: ${nodes.length} 个`);
+        console.log(`[Map]  节点: ${nodes.length} 个`);
         return nodes;
     } catch (e) {
         console.error("[Map] 节点加载失败", e);
@@ -275,7 +275,7 @@ async function loadRoutes() {
             }).addTo(map.routeGroup);
         });
 
-        console.log("[Map] ✅ 路线绘制完成（平滑曲线）");
+        console.log("[Map]  路线绘制完成（平滑曲线）");
     } catch (e) {
         console.error("[Map] 路线加载失败", e);
     }

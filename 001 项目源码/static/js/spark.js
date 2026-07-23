@@ -85,7 +85,7 @@ function closeNodeEditor() {
  * 编辑节点 → 补充既有 Spark 提交
  */
 function initSparkMode() {
-    document.getElementById("node-editor-title").textContent = "⭐ 星火拾遗 — 提交您的长征记忆";
+    document.getElementById("node-editor-title").textContent = "星火拾遗 — 提交您的长征记忆";
 
     setTabGray('view');
     setTabActive('add');
@@ -109,7 +109,7 @@ function initSparkMode() {
  * 查看模式：查看节点激活，新增+编辑变灰
  */
 function initViewMode(nodeId) {
-    document.getElementById("node-editor-title").textContent = "🔍 查看节点 — " + nodeId;
+    document.getElementById("node-editor-title").textContent = "查看节点 — " + nodeId;
 
     setTabActive('view');
     setTabGray('add');
@@ -131,7 +131,7 @@ function initViewMode(nodeId) {
  * 新增模式：新增节点激活，查看+编辑变灰
  */
 function initAddMode(nodeId) {
-    document.getElementById("node-editor-title").textContent = "📝 新增节点";
+    document.getElementById("node-editor-title").textContent = " 新增节点";
 
     setTabGray('view');
     setTabActive('add');
@@ -153,7 +153,7 @@ function initAddMode(nodeId) {
  * 编辑模式：编辑节点激活，查看+新增变灰
  */
 function initEditMode(nodeId) {
-    document.getElementById("node-editor-title").textContent = "📝 编辑节点 — " + nodeId;
+    document.getElementById("node-editor-title").textContent = " 编辑节点 — " + nodeId;
 
     setTabGray('view');
     setTabGray('add');
@@ -374,10 +374,10 @@ function loadExistingMedia(nodeId) {
             }
             var html = "";
             j.data.items.forEach(function(m) {
-                var icon = "📄";
-                if (m.type === "image") icon = "🖼️";
-                else if (m.type === "video") icon = "🎬";
-                else if (m.type === "audio") icon = "🎵";
+                var icon = "";
+                if (m.type === "image") icon = "";
+                else if (m.type === "video") icon = "";
+                else if (m.type === "audio") icon = "";
                 html += "<div style='padding:4px 0;font-size:12px;color:#ecf0f1'>" +
                     icon + " " + m.title + "</div>";
             });
@@ -539,7 +539,7 @@ function handleNodeFormSubmit(e) {
             editorCallback(form, editorCallType, mode, actualNodeId);
         } catch (err) {
             statusEl.className = "form-status error";
-            statusEl.textContent = "❌ " + (err.message || "提交失败");
+            statusEl.textContent = " " + (err.message || "提交失败");
             console.error("[NodeEditor] 提交错误", err);
         }
     } else {

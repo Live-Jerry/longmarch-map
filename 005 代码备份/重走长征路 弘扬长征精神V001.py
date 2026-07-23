@@ -1,4 +1,4 @@
-"""🚩 长征路线 - 卫星地图 + 真实照片版
+""" 长征路线 - 卫星地图 + 真实照片版
 
 生成交互式卫星地图的 Python 脚本。
 使用 Leaflet.js 在 ArcGIS 卫星影像上绘制长征路线，
@@ -29,7 +29,7 @@ IMAGES = {
 
 html = r'''<!DOCTYPE html>
 <html><head><meta charset="utf-8">
-<title>🚩 红军长征路线图</title>
+<title> 红军长征路线图</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -51,14 +51,14 @@ html = r'''<!DOCTYPE html>
 .title{position:absolute;top:15px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(0,0,0,0.75);color:#fff;padding:10px 30px;border-radius:30px;font-size:18px;text-align:center}
 .layers{position:absolute;bottom:20px;left:15px;z-index:1000;background:rgba(255,255,255,0.9);padding:7px 12px;border-radius:8px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
 </style></head><body>
-<div class="title">🚩 红军长征路线图 · 瑞金→延安 1934-1935</div>
+<div class="title"> 红军长征路线图 · 瑞金→延安 1934-1935</div>
 <div id="map"></div>
-<div class="layers" id="swBtn">🛰️ 卫星地图</div>
+<div class="layers" id="swBtn"> 卫星地图</div>
 <script>
 var layers = {
-  "🛰️ 卫星影像": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18}),
-  "🗺️ 标准地图": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{maxZoom:19}),
-  "🌙 深色地图": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{maxZoom:19}),
+  " 卫星影像": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18}),
+  " 标准地图": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{maxZoom:19}),
+  " 深色地图": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{maxZoom:19}),
 };
 var keys=Object.keys(layers),cur=0;
 var map=L.map('map',{center:[31.5,108.5],zoom:6,layers:[layers[keys[0]]]});
@@ -110,7 +110,7 @@ var stops = [
   ["懋功会师",31.00,102.40,"tag-ev","胜利会师",
    "1935年6月18日，中央红军与红四方面军在懋功（今小金县）胜利会师。",
    "两大红军主力会师，壮大了革命力量。",
-   "🤝","#F39C12"],
+   "","#F39C12"],
   ["过草地",33.58,102.97,"tag-ev","重要事件",
    "穿越松潘草地，七天七夜泥潭沼泽，上万人牺牲。",
    "《清平乐·六盘山》\n\n天高云淡，望断南飞雁。\n不到长城非好汉，屈指行程二万。\n六盘山上高峰，红旗漫卷西风。\n今日长缨在手，何时缚住苍龙？",
@@ -145,11 +145,11 @@ stops.forEach(function(d,i){
   }
 
   var pop = imgHtml +
-    '<div class="pop-body"><h3>📍 '+n+'</h3>'+
-    '<div class="info">'+info+'</div><div class="poem">📜 '+poem+'</div>'+
+    '<div class="pop-body"><h3> '+n+'</h3>'+
+    '<div class="info">'+info+'</div><div class="poem"> '+poem+'</div>'+
     '<button class="btn-read" onclick="speakText(\''+
     info.replace(/'/g,'').replace(/"/g,'')+'。'+poem.replace(/'/g,'').replace(/"/g,'').replace(/\n/g,'。')+
-    '\',this)">🔊 朗读全文</button></div>';
+    '\',this)"> 朗读全文</button></div>';
 
   L.marker([la,lo],{icon:L.divIcon({html:'<div style="background:'+colors[i]+';width:32px;height:32px;border-radius:50%;border:3px solid white;box-shadow:0 3px 12px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:bold">'+(i+1)+'</div>',iconSize:[32,32],className:'',popupAnchor:[0,-18]})})
    .addTo(map).bindPopup(pop,{maxWidth:350});
@@ -159,7 +159,7 @@ var route = L.polyline(pts,{color:'#E74C3C',weight:4,dashArray:'10,8'}).addTo(ma
 for(var i=0;i<pts.length-1;i++){
   var p1=pts[i],p2=pts[i+1],mid=[(p1[0]+p2[0])/2,(p1[1]+p2[1])/2];
   var ang=Math.atan2(p2[0]-p1[0],p2[1]-p1[1])*180/Math.PI;
-  L.marker(mid,{icon:L.divIcon({html:'<div style="transform:rotate('+ang+'deg);font-size:20px;color:#E74C3C;text-shadow:0 0 6px #000">➤</div>',iconSize:[20,20],className:''}),interactive:false}).addTo(map);
+  L.marker(mid,{icon:L.divIcon({html:'<div style="transform:rotate('+ang+'deg);font-size:20px;color:#E74C3C;text-shadow:0 0 6px #000"></div>',iconSize:[20,20],className:''}),interactive:false}).addTo(map);
 }
 map.fitBounds(route.getBounds(),{padding:[50,50]});
 </script></body></html>'''
@@ -176,6 +176,6 @@ if __name__ == "__main__":
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     url = f"http://localhost:{PORT}/{os.path.basename(html_path)}"
     webbrowser.open(url)
-    print(f"✅ 启动！{url}")
-    print("📸 12个站点有真实照片，1个插图占位")
+    print(f" 启动！{url}")
+    print(" 12个站点有真实照片，1个插图占位")
     input("回车退出...")

@@ -10,11 +10,11 @@
 <body>
     <div class="admin-layout">
         <div class="admin-sidebar">
-            <h2>🚩 管理后台</h2>
-            <a href="/admin"       class="admin-nav-item">📊 总览</a>
-            <a href="/admin/nodes"  class="admin-nav-item active">📍 节点管理</a>
-            <a href="/admin/users"  class="admin-nav-item">👥 用户管理</a>
-            <a href="/admin/sparks" class="admin-nav-item">✦ 星火审核</a>
+            <h2>管理后台</h2>
+            <a href="/admin"       class="admin-nav-item">总览</a>
+            <a href="/admin/nodes"  class="admin-nav-item active"> 节点管理</a>
+            <a href="/admin/users"  class="admin-nav-item"> 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item"> 星火审核</a>
             <a href="/"            class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
         </div>
 
@@ -134,16 +134,16 @@
         .then(function(json) {
             if (json.code === 0) {
                 statusEl.className = "form-status success";
-                statusEl.textContent = "✅ " + (json.message || "新增成功");
+                statusEl.textContent = " " + (json.message || "新增成功");
                 setTimeout(function() { closeNodeEditor(); loadNodes(1); }, 800);
             } else {
                 statusEl.className = "form-status error";
-                statusEl.textContent = "❌ " + (json.message || "新增失败");
+                statusEl.textContent = " " + (json.message || "新增失败");
             }
         })
         .catch(function() {
             statusEl.className = "form-status error";
-            statusEl.textContent = "❌ 网络错误";
+            statusEl.textContent = " 网络错误";
         })
         .finally(function() {
             if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "新增"; }
@@ -170,16 +170,16 @@
         .then(function(json) {
             if (json.code === 0) {
                 statusEl.className = "form-status success";
-                statusEl.textContent = "✅ " + (json.message || "保存成功");
+                statusEl.textContent = " " + (json.message || "保存成功");
                 setTimeout(function() { closeNodeEditor(); loadNodes(1); }, 800);
             } else {
                 statusEl.className = "form-status error";
-                statusEl.textContent = "❌ " + (json.message || "保存失败");
+                statusEl.textContent = " " + (json.message || "保存失败");
             }
         })
         .catch(function() {
             statusEl.className = "form-status error";
-            statusEl.textContent = "❌ 网络错误";
+            statusEl.textContent = " 网络错误";
         })
         .finally(function() {
             if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "保存"; }
