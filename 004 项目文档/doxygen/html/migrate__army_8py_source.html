@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=GB2312"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ÎÒ×ß³¤Õ÷Â· - ³¤Õ÷ÎÄ»¯Êı×ÖÆ½Ì¨ 2.0.0: 001 ÏîÄ¿Ô´Âë/scripts/migrate_army.py Ô´ÎÄ¼ş</title>
+<title>æˆ‘èµ°é•¿å¾è·¯ - é•¿å¾æ–‡åŒ–æ•°å­—å¹³å° 2.0.0: 001 é¡¹ç›®æºç /scripts/migrate_army.py æºæ–‡ä»¶</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,7 +16,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ÎÒ×ß³¤Õ÷Â· - ³¤Õ÷ÎÄ»¯Êı×ÖÆ½Ì¨ 2.0.0<span id="projectnumber">&#160;2.0.0</span>
+   <div id="projectname">æˆ‘èµ°é•¿å¾è·¯ - é•¿å¾æ–‡åŒ–æ•°å­—å¹³å° 2.0.0<span id="projectnumber">&#160;2.0.0</span>
    </div>
   </td>
  </tr>
@@ -24,26 +24,26 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- ÖÆ×÷Õß Doxygen 1.17.0 -->
+<!-- åˆ¶ä½œè€… Doxygen 1.17.0 -->
 <div id="main-nav">
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Ê×Ò³</span></a></li>
-      <li><a href="pages.html"><span>Ïà¹ØÒ³Ãæ</span></a></li>
-      <li><a href="namespaces.html"><span>ÃüÃû¿Õ¼ä</span></a></li>
-      <li><a href="annotated.html"><span>Àà</span></a></li>
-      <li class="current"><a href="files.html"><span>ÎÄ¼ş</span></a></li>
+      <li><a href="index.html"><span>é¦–é¡µ</span></a></li>
+      <li><a href="pages.html"><span>ç›¸å…³é¡µé¢</span></a></li>
+      <li><a href="namespaces.html"><span>å‘½åç©ºé—´</span></a></li>
+      <li><a href="annotated.html"><span>ç±»</span></a></li>
+      <li class="current"><a href="files.html"><span>æ–‡ä»¶</span></a></li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>ÎÄ¼şÁĞ±í</span></a></li>
+      <li><a href="files.html"><span>æ–‡ä»¶åˆ—è¡¨</span></a></li>
     </ul>
   </div>
 </div><!-- main-nav -->
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 ÏîÄ¿Ô´Âë</a></li><li class="navelem"><a href="dir_aba17772621469c2513e38fd5634dd15.html">scripts</a></li>  </ul>
+<li class="navelem"><a href="dir_ea910ddb42ec4dc2712a34a1f1455dfb.html">001 é¡¹ç›®æºç </a></li><li class="navelem"><a href="dir_aba17772621469c2513e38fd5634dd15.html">scripts</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -51,14 +51,14 @@
   <div class="headertitle"><div class="title">migrate_army.py</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="migrate__army_8py.html">ä¯ÀÀ¸ÃÎÄ¼şµÄÎÄµµ.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacemigrate__army.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
+<a href="migrate__army_8py.html">æµè§ˆè¯¥æ–‡ä»¶çš„æ–‡æ¡£.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacemigrate__army.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"># -*- coding: utf-8 -*-</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">Êı¾İ¿âÇ¨ÒÆ½Å±¾ - Îª node ±íÌí¼Ó army ×Ö¶Î²¢µ¼ÈëĞÂ½ÚµãÊı¾İ</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">æ•°æ®åº“è¿ç§»è„šæœ¬ - ä¸º node è¡¨æ·»åŠ  army å­—æ®µå¹¶å¯¼å…¥æ–°èŠ‚ç‚¹æ•°æ®</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral">ÓÃ·¨:</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="stringliteral">    python3 scripts/migrate_army.py          # Ö´ĞĞÇ¨ÒÆ</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">    python3 scripts/migrate_army.py --check  # ½ö¼ì²é×´Ì¬</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral">ç”¨æ³•:</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="stringliteral">    python3 scripts/migrate_army.py          # æ‰§è¡Œè¿ç§»</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">    python3 scripts/migrate_army.py --check  # ä»…æ£€æŸ¥çŠ¶æ€</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> sqlite3</div>
@@ -71,29 +71,29 @@
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacemigrate__army.html#a1847af785cda6a738da963eb89bb8901">   20</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemigrate__army.html#a1847af785cda6a738da963eb89bb8901">check_db</a>():</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="stringliteral">&quot;&quot;&quot;¼ì²éÊı¾İ¿âµ±Ç°×´Ì¬&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="stringliteral">&quot;&quot;&quot;æ£€æŸ¥æ•°æ®åº“å½“å‰çŠ¶æ€&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    db_path = config.DATABASE_PATH</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(db_path):</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        print(f<span class="stringliteral">&quot;[ERR] Êı¾İ¿âÎÄ¼ş²»´æÔÚ: {db_path}&quot;</span>)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        print(f<span class="stringliteral">&quot;[ERR] æ•°æ®åº“æ–‡ä»¶ä¸å­˜åœ¨: {db_path}&quot;</span>)</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    conn = sqlite3.connect(db_path)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    cursor = conn.cursor()</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment"># ¼ì²éÊÇ·ñÓĞ army ÁĞ</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment"># æ£€æŸ¥æ˜¯å¦æœ‰ army åˆ—</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    cursor.execute(<span class="stringliteral">&quot;PRAGMA table_info(node)&quot;</span>)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    columns = [row[1] <span class="keywordflow">for</span> row <span class="keywordflow">in</span> cursor.fetchall()]</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    print(f<span class="stringliteral">&quot;node ±íÏÖÓĞÁĞ: {columns}&quot;</span>)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    print(f<span class="stringliteral">&quot;node è¡¨ç°æœ‰åˆ—: {columns}&quot;</span>)</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    has_army = <span class="stringliteral">&quot;army&quot;</span> <span class="keywordflow">in</span> columns</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    print(f<span class="stringliteral">&quot;  ¡ú army ÁĞ {&#39;ÒÑ´æÔÚ&#39; if has_army else &#39;²»´æÔÚ&#39;}&quot;</span>)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    print(f<span class="stringliteral">&quot;  â†’ army åˆ— {&#39;å·²å­˜åœ¨&#39; if has_army else &#39;ä¸å­˜åœ¨&#39;}&quot;</span>)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment"># ¼ì²é½ÚµãÊıÁ¿</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment"># æ£€æŸ¥èŠ‚ç‚¹æ•°é‡</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    cursor.execute(<span class="stringliteral">&quot;SELECT COUNT(*) FROM node&quot;</span>)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    node_count = cursor.fetchone()[0]</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    print(f<span class="stringliteral">&quot;  ¡ú ÏÖÓĞ½ÚµãÊı: {node_count}&quot;</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    print(f<span class="stringliteral">&quot;  â†’ ç°æœ‰èŠ‚ç‚¹æ•°: {node_count}&quot;</span>)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment"># °´ army ·Ö×é</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment"># æŒ‰ army åˆ†ç»„</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> has_army:</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        cursor.execute(<span class="stringliteral">&quot;SELECT army, COUNT(*) FROM node GROUP BY army&quot;</span>)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        rows = cursor.fetchall()</div>
@@ -105,46 +105,46 @@
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacemigrate__army.html#a9408b306198c02944047463bbb546b88">   54</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemigrate__army.html#a9408b306198c02944047463bbb546b88">run_migration</a>():</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="stringliteral">&quot;&quot;&quot;Ö´ĞĞÊı¾İ¿âÇ¨ÒÆ&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="stringliteral">&quot;&quot;&quot;æ‰§è¡Œæ•°æ®åº“è¿ç§»&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    db_path = config.DATABASE_PATH</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    json_path = config.NODE_DATA_JSON</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    print(f<span class="stringliteral">&quot;Êı¾İ¿âÂ·¾¶: {db_path}&quot;</span>)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    print(f<span class="stringliteral">&quot;Êı¾İÎÄ¼şÂ·¾¶: {json_path}&quot;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    print(f<span class="stringliteral">&quot;æ•°æ®åº“è·¯å¾„: {db_path}&quot;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    print(f<span class="stringliteral">&quot;æ•°æ®æ–‡ä»¶è·¯å¾„: {json_path}&quot;</span>)</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    conn = sqlite3.connect(db_path)</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    cursor = conn.cursor()</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment"># 1. Ìí¼Ó army ÁĞ£¨Èç¹û²»´æÔÚ£©</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment"># 1. æ·»åŠ  army åˆ—ï¼ˆå¦‚æœä¸å­˜åœ¨ï¼‰</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    cursor.execute(<span class="stringliteral">&quot;PRAGMA table_info(node)&quot;</span>)</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    columns = [row[1] <span class="keywordflow">for</span> row <span class="keywordflow">in</span> cursor.fetchall()]</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span> <span class="stringliteral">&quot;army&quot;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> columns:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        print(<span class="stringliteral">&quot;[1/3] Ìí¼Ó army ÁĞ...&quot;</span>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        print(<span class="stringliteral">&quot;[1/3] æ·»åŠ  army åˆ—...&quot;</span>)</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        cursor.execute(</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="stringliteral">&quot;ALTER TABLE node ADD COLUMN army TEXT DEFAULT &#39;ÖĞÑëºì¾ü&#39;&quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="stringliteral">&quot;ALTER TABLE node ADD COLUMN army TEXT DEFAULT &#39;ä¸­å¤®çº¢å†›&#39;&quot;</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        )</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment"># ¸üĞÂÏÖÓĞ½ÚµãµÄ army ×Ö¶Î</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        cursor.execute(<span class="stringliteral">&quot;UPDATE node SET army = &#39;ÖĞÑëºì¾ü&#39; WHERE army IS NULL OR army = &#39;ÖĞÑëºì¾ü&#39;&quot;</span>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment"># æ›´æ–°ç°æœ‰èŠ‚ç‚¹çš„ army å­—æ®µ</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        cursor.execute(<span class="stringliteral">&quot;UPDATE node SET army = &#39;ä¸­å¤®çº¢å†›&#39; WHERE army IS NULL OR army = &#39;ä¸­å¤®çº¢å†›&#39;&quot;</span>)</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        conn.commit()</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        print(<span class="stringliteral">&quot;  ¡ú ÒÑÍê³É&quot;</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        print(<span class="stringliteral">&quot;  â†’ å·²å®Œæˆ&quot;</span>)</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> <span class="stringliteral">&quot;active_sections&quot;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> columns:</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        print(<span class="stringliteral">&quot;[1.1/3] Ìí¼Ó active_sections ÁĞ...&quot;</span>)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        print(<span class="stringliteral">&quot;[1.1/3] æ·»åŠ  active_sections åˆ—...&quot;</span>)</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        cursor.execute(</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="stringliteral">&quot;ALTER TABLE node ADD COLUMN active_sections TEXT DEFAULT &#39;[]&#39;&quot;</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        )</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        conn.commit()</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        print(<span class="stringliteral">&quot;  ¡ú ÒÑÍê³É&quot;</span>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        print(<span class="stringliteral">&quot;  â†’ å·²å®Œæˆ&quot;</span>)</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment"># 2. ¶ÁÈ¡ĞÂ JSON Êı¾İ</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    print(f<span class="stringliteral">&quot;[2/3] ´Ó JSON ¶ÁÈ¡Êı¾İ...&quot;</span>)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment"># 2. è¯»å–æ–° JSON æ•°æ®</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    print(f<span class="stringliteral">&quot;[2/3] ä» JSON è¯»å–æ•°æ®...&quot;</span>)</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">with</span> open(json_path, <span class="stringliteral">&quot;r&quot;</span>, encoding=<span class="stringliteral">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        all_nodes = json.load(f)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    print(f<span class="stringliteral">&quot;  ¡ú ¹² {len(all_nodes)} ¸ö½Úµã&quot;</span>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    print(f<span class="stringliteral">&quot;  â†’ å…± {len(all_nodes)} ä¸ªèŠ‚ç‚¹&quot;</span>)</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment"># 3. ²åÈë»ò¸üĞÂ½Úµã</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    print(<span class="stringliteral">&quot;[3/3] Ğ´ÈëÊı¾İ¿â...&quot;</span>)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment"># 3. æ’å…¥æˆ–æ›´æ–°èŠ‚ç‚¹</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    print(<span class="stringliteral">&quot;[3/3] å†™å…¥æ•°æ®åº“...&quot;</span>)</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    imported = 0</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    updated = 0</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    skipped = 0</div>
@@ -157,11 +157,11 @@
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                skipped += 1</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <span class="keywordflow">continue</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment"># ¼ì²éÊÇ·ñÒÑ´æÔÚ</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment"># æ£€æŸ¥æ˜¯å¦å·²å­˜åœ¨</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            cursor.execute(<span class="stringliteral">&quot;SELECT id FROM node WHERE node_id = ?&quot;</span>, (node_id,))</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            existing = cursor.fetchone()</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="comment"># ×¼±¸×Ö¶Î</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="comment"># å‡†å¤‡å­—æ®µ</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            fields = [</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="stringliteral">&quot;node_id&quot;</span>, <span class="stringliteral">&quot;title&quot;</span>, <span class="stringliteral">&quot;location&quot;</span>, <span class="stringliteral">&quot;lat&quot;</span>, <span class="stringliteral">&quot;lng&quot;</span>, <span class="stringliteral">&quot;time&quot;</span>,</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="stringliteral">&quot;army&quot;</span>, <span class="stringliteral">&quot;core_numbers&quot;</span>, <span class="stringliteral">&quot;famous_battle&quot;</span>, <span class="stringliteral">&quot;important_meeting&quot;</span>,</div>
@@ -179,18 +179,18 @@
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                        v = json.dumps(v, ensure_ascii=<span class="keyword">False</span>)</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                    data[f] = v</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="comment"># È·±£±ØÒª×Ö¶Î</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="comment"># ç¡®ä¿å¿…è¦å­—æ®µ</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            data.setdefault(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;active&quot;</span>)</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            data.setdefault(<span class="stringliteral">&quot;created_at&quot;</span>, <span class="stringliteral">&quot;2025-01-01T00:00:00Z&quot;</span>)</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            data.setdefault(<span class="stringliteral">&quot;updated_at&quot;</span>, <span class="stringliteral">&quot;2026-07-16T00:00:00Z&quot;</span>)</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">if</span> existing:</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="comment"># ¸üĞÂ</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="comment"># æ›´æ–°</span></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                sets = []</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                values = []</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                <span class="keywordflow">for</span> k, v <span class="keywordflow">in</span> data.items():</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                    <span class="keywordflow">if</span> k <span class="keywordflow">in</span> (<span class="stringliteral">&quot;node_id&quot;</span>, <span class="stringliteral">&quot;created_at&quot;</span>):</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                        <span class="keywordflow">continue</span>  <span class="comment"># ²»¸üĞÂÖ÷¼üºÍ´´½¨Ê±¼ä</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                        <span class="keywordflow">continue</span>  <span class="comment"># ä¸æ›´æ–°ä¸»é”®å’Œåˆ›å»ºæ—¶é—´</span></div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                    sets.append(f<span class="stringliteral">&quot;{k} = ?&quot;</span>)</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    values.append(v)</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                values.append(node_id)</div>
@@ -200,7 +200,7 @@
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                )</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                updated += 1</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <span class="comment"># ²åÈë</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <span class="comment"># æ’å…¥</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                columns = <span class="stringliteral">&quot;, &quot;</span>.join(data.keys())</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                placeholders = <span class="stringliteral">&quot;, &quot;</span>.join([<span class="stringliteral">&quot;?&quot;</span>] * len(data))</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                cursor.execute(</div>
@@ -216,13 +216,13 @@
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    conn.commit()</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    conn.close()</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    print(f<span class="stringliteral">&quot;\n  ¡ú µ¼Èë {imported}, ¸üĞÂ {updated}, Ìø¹ı {skipped}&quot;</span>)</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    print(f<span class="stringliteral">&quot;\n  â†’ å¯¼å…¥ {imported}, æ›´æ–° {updated}, è·³è¿‡ {skipped}&quot;</span>)</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">if</span> errors:</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        print(f<span class="stringliteral">&quot;  ¡ú ´íÎó {len(errors)}:&quot;</span>)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        print(f<span class="stringliteral">&quot;  â†’ é”™è¯¯ {len(errors)}:&quot;</span>)</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">for</span> e <span class="keywordflow">in</span> errors:</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            print(f<span class="stringliteral">&quot;    {e}&quot;</span>)</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment"># ÑéÖ¤</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment"># éªŒè¯</span></div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_function" href="namespacemigrate__army.html#ad83ffaf2bb4b18b8e081ef534ba7ec3e">verify_db</a>()</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> {</div>
@@ -234,14 +234,14 @@
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="namespacemigrate__army.html#ad83ffaf2bb4b18b8e081ef534ba7ec3e">  183</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemigrate__army.html#ad83ffaf2bb4b18b8e081ef534ba7ec3e">verify_db</a>():</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="stringliteral">&quot;&quot;&quot;ÑéÖ¤Êı¾İ¿â&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    print(<span class="stringliteral">&quot;\n=== ÑéÖ¤Êı¾İ¿â ===&quot;</span>)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="stringliteral">&quot;&quot;&quot;éªŒè¯æ•°æ®åº“&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    print(<span class="stringliteral">&quot;\n=== éªŒè¯æ•°æ®åº“ ===&quot;</span>)</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    conn = sqlite3.connect(config.DATABASE_PATH)</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    cursor = conn.cursor()</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    cursor.execute(<span class="stringliteral">&quot;SELECT COUNT(*) FROM node&quot;</span>)</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    total = cursor.fetchone()[0]</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    print(f<span class="stringliteral">&quot;×Ü½ÚµãÊı: {total}&quot;</span>)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    print(f<span class="stringliteral">&quot;æ€»èŠ‚ç‚¹æ•°: {total}&quot;</span>)</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    cursor.execute(<span class="stringliteral">&quot;SELECT army, COUNT(*) FROM node GROUP BY army ORDER BY army&quot;</span>)</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    rows = cursor.fetchall()</div>
@@ -256,13 +256,13 @@
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_function" href="namespacemigrate__army.html#a1847af785cda6a738da963eb89bb8901">check_db</a>()</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <a class="code hl_function" href="namespacemigrate__army.html#a9408b306198c02944047463bbb546b88">run_migration</a>()</div>
-<div class="ttc" id="anamespacemigrate__army_html_a1847af785cda6a738da963eb89bb8901"><div class="ttname"><a href="namespacemigrate__army.html#a1847af785cda6a738da963eb89bb8901">migrate_army.check_db</a></div><div class="ttdeci">check_db()</div><div class="ttdef"><b>¶¨Òå</b> <a href="#l00020">migrate_army.py:20</a></div></div>
-<div class="ttc" id="anamespacemigrate__army_html_a9408b306198c02944047463bbb546b88"><div class="ttname"><a href="namespacemigrate__army.html#a9408b306198c02944047463bbb546b88">migrate_army.run_migration</a></div><div class="ttdeci">run_migration()</div><div class="ttdef"><b>¶¨Òå</b> <a href="#l00054">migrate_army.py:54</a></div></div>
-<div class="ttc" id="anamespacemigrate__army_html_ad83ffaf2bb4b18b8e081ef534ba7ec3e"><div class="ttname"><a href="namespacemigrate__army.html#ad83ffaf2bb4b18b8e081ef534ba7ec3e">migrate_army.verify_db</a></div><div class="ttdeci">verify_db()</div><div class="ttdef"><b>¶¨Òå</b> <a href="#l00183">migrate_army.py:183</a></div></div>
+<div class="ttc" id="anamespacemigrate__army_html_a1847af785cda6a738da963eb89bb8901"><div class="ttname"><a href="namespacemigrate__army.html#a1847af785cda6a738da963eb89bb8901">migrate_army.check_db</a></div><div class="ttdeci">check_db()</div><div class="ttdef"><b>å®šä¹‰</b> <a href="#l00020">migrate_army.py:20</a></div></div>
+<div class="ttc" id="anamespacemigrate__army_html_a9408b306198c02944047463bbb546b88"><div class="ttname"><a href="namespacemigrate__army.html#a9408b306198c02944047463bbb546b88">migrate_army.run_migration</a></div><div class="ttdeci">run_migration()</div><div class="ttdef"><b>å®šä¹‰</b> <a href="#l00054">migrate_army.py:54</a></div></div>
+<div class="ttc" id="anamespacemigrate__army_html_ad83ffaf2bb4b18b8e081ef534ba7ec3e"><div class="ttname"><a href="namespacemigrate__army.html#ad83ffaf2bb4b18b8e081ef534ba7ec3e">migrate_army.verify_db</a></div><div class="ttdeci">verify_db()</div><div class="ttdef"><b>å®šä¹‰</b> <a href="#l00183">migrate_army.py:183</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-ÖÆ×÷Õß&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+åˆ¶ä½œè€…&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
 </small></address>
 </div><!-- doc-content -->
 </body>

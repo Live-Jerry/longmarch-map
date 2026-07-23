@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>我走长征路 - 长征文化数字平台 2.0.0: gunicorn_config 命名空间参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">我走长征路 - 长征文化数字平台 2.0.0<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="namespaces.html"><span>命名空间列表</span></a></li>
+      <li><a href="namespacemembers.html"><span>命名空间成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">gunicorn_config 命名空间参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a74e05f6e9c316a2c7a13c3de26b8b1ed" id="r_a74e05f6e9c316a2c7a13c3de26b8b1ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">project_root</a> = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</td></tr>
+<tr class="memitem:ad8b04568f5a034e41cfc8f34b1319e48" id="r_ad8b04568f5a034e41cfc8f34b1319e48"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad8b04568f5a034e41cfc8f34b1319e48">app_dir</a> = os.path.join(<a class="el" href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">project_root</a>, &quot;001 项目源码&quot;)</td></tr>
+<tr class="memitem:ac17a818d0d345047069ec93c9bfe91e5" id="r_ac17a818d0d345047069ec93c9bfe91e5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac17a818d0d345047069ec93c9bfe91e5">log_dir</a> = os.path.join(<a class="el" href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">project_root</a>, &quot;logs&quot;)</td></tr>
+<tr class="memitem:ae5103d7c306cbb738a40d3840a7e9310" id="r_ae5103d7c306cbb738a40d3840a7e9310"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae5103d7c306cbb738a40d3840a7e9310">exist_ok</a></td></tr>
+<tr class="memitem:a0a03e85c0e450f7a5614eb255e5ffcb2" id="r_a0a03e85c0e450f7a5614eb255e5ffcb2"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#a0a03e85c0e450f7a5614eb255e5ffcb2">bind</a> = &quot;0.0.0.0:5000&quot;</td></tr>
+<tr class="memitem:a0a7e066dfbb8260e9ace8e0f099dfbdb" id="r_a0a7e066dfbb8260e9ace8e0f099dfbdb"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0a7e066dfbb8260e9ace8e0f099dfbdb">backlog</a> = 2048</td></tr>
+<tr class="memitem:a93b56a4453894cd409e32ae5887f9aa5" id="r_a93b56a4453894cd409e32ae5887f9aa5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a93b56a4453894cd409e32ae5887f9aa5">workers</a> = multiprocessing.cpu_count() * 2 + 1</td></tr>
+<tr class="memitem:a3dc167af96e140089ade135c466b3c9b" id="r_a3dc167af96e140089ade135c466b3c9b"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#a3dc167af96e140089ade135c466b3c9b">worker_class</a> = &quot;sync&quot;</td></tr>
+<tr class="memitem:abd474c151e8e7358d2d60498bfa30c0b" id="r_abd474c151e8e7358d2d60498bfa30c0b"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#abd474c151e8e7358d2d60498bfa30c0b">timeout</a> = 120</td></tr>
+<tr class="memitem:a0337c52820c9de2cbbe18b255208f97d" id="r_a0337c52820c9de2cbbe18b255208f97d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0337c52820c9de2cbbe18b255208f97d">keepalive</a> = 2</td></tr>
+<tr class="memitem:aebefa6f2eb97f3ce545f77c528641b9f" id="r_aebefa6f2eb97f3ce545f77c528641b9f"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#aebefa6f2eb97f3ce545f77c528641b9f">proc_name</a> = &quot;longmarch_map&quot;</td></tr>
+<tr class="memitem:a8e0408634f5c8ef2aa7eccf4940595ff" id="r_a8e0408634f5c8ef2aa7eccf4940595ff"><td class="memItemLeft">str&#160;</td><td class="memItemRight"><a class="el" href="#a8e0408634f5c8ef2aa7eccf4940595ff">loglevel</a> = &quot;info&quot;</td></tr>
+<tr class="memitem:a0011ecbaa900846a1eb8332887d2e91e" id="r_a0011ecbaa900846a1eb8332887d2e91e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0011ecbaa900846a1eb8332887d2e91e">accesslog</a> = os.path.join(<a class="el" href="#ac17a818d0d345047069ec93c9bfe91e5">log_dir</a>, &quot;access.log&quot;)</td></tr>
+<tr class="memitem:a43439d2e2e41d6273c84291906166544" id="r_a43439d2e2e41d6273c84291906166544"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a43439d2e2e41d6273c84291906166544">errorlog</a> = os.path.join(<a class="el" href="#ac17a818d0d345047069ec93c9bfe91e5">log_dir</a>, &quot;error.log&quot;)</td></tr>
+<tr class="memitem:a22651c643be9ad2049b282a5b30cc60e" id="r_a22651c643be9ad2049b282a5b30cc60e"><td class="memItemLeft">list&#160;</td><td class="memItemRight"><a class="el" href="#a22651c643be9ad2049b282a5b30cc60e">raw_env</a></td></tr>
+<tr class="memitem:aa204ee3f49596995a3e614d4c80dda2e" id="r_aa204ee3f49596995a3e614d4c80dda2e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa204ee3f49596995a3e614d4c80dda2e">chdir</a> = <a class="el" href="#ad8b04568f5a034e41cfc8f34b1319e48">app_dir</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><pre class="fragment">Gunicorn configuration for production deployment.
+Used by deploy.sh and longmarch.service.
+</pre> </div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="a0011ecbaa900846a1eb8332887d2e91e" name="a0011ecbaa900846a1eb8332887d2e91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0011ecbaa900846a1eb8332887d2e91e">&#9670;&#160;</a></span>accesslog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.accesslog = os.path.join(<a class="el" href="#ac17a818d0d345047069ec93c9bfe91e5">log_dir</a>, &quot;access.log&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00031">31</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad8b04568f5a034e41cfc8f34b1319e48" name="ad8b04568f5a034e41cfc8f34b1319e48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8b04568f5a034e41cfc8f34b1319e48">&#9670;&#160;</a></span>app_dir</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.app_dir = os.path.join(<a class="el" href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">project_root</a>, &quot;001 项目源码&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00011">11</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0a7e066dfbb8260e9ace8e0f099dfbdb" name="a0a7e066dfbb8260e9ace8e0f099dfbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a7e066dfbb8260e9ace8e0f099dfbdb">&#9670;&#160;</a></span>backlog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gunicorn_config.backlog = 2048</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00018">18</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0a03e85c0e450f7a5614eb255e5ffcb2" name="a0a03e85c0e450f7a5614eb255e5ffcb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a03e85c0e450f7a5614eb255e5ffcb2">&#9670;&#160;</a></span>bind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">str gunicorn_config.bind = &quot;0.0.0.0:5000&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00017">17</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa204ee3f49596995a3e614d4c80dda2e" name="aa204ee3f49596995a3e614d4c80dda2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa204ee3f49596995a3e614d4c80dda2e">&#9670;&#160;</a></span>chdir</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.chdir = <a class="el" href="#ad8b04568f5a034e41cfc8f34b1319e48">app_dir</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a43439d2e2e41d6273c84291906166544" name="a43439d2e2e41d6273c84291906166544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43439d2e2e41d6273c84291906166544">&#9670;&#160;</a></span>errorlog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.errorlog = os.path.join(<a class="el" href="#ac17a818d0d345047069ec93c9bfe91e5">log_dir</a>, &quot;error.log&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00032">32</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae5103d7c306cbb738a40d3840a7e9310" name="ae5103d7c306cbb738a40d3840a7e9310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5103d7c306cbb738a40d3840a7e9310">&#9670;&#160;</a></span>exist_ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.exist_ok</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00014">14</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0337c52820c9de2cbbe18b255208f97d" name="a0337c52820c9de2cbbe18b255208f97d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0337c52820c9de2cbbe18b255208f97d">&#9670;&#160;</a></span>keepalive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gunicorn_config.keepalive = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00024">24</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac17a818d0d345047069ec93c9bfe91e5" name="ac17a818d0d345047069ec93c9bfe91e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17a818d0d345047069ec93c9bfe91e5">&#9670;&#160;</a></span>log_dir</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.log_dir = os.path.join(<a class="el" href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">project_root</a>, &quot;logs&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00012">12</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8e0408634f5c8ef2aa7eccf4940595ff" name="a8e0408634f5c8ef2aa7eccf4940595ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0408634f5c8ef2aa7eccf4940595ff">&#9670;&#160;</a></span>loglevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">str gunicorn_config.loglevel = &quot;info&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00030">30</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aebefa6f2eb97f3ce545f77c528641b9f" name="aebefa6f2eb97f3ce545f77c528641b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebefa6f2eb97f3ce545f77c528641b9f">&#9670;&#160;</a></span>proc_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">str gunicorn_config.proc_name = &quot;longmarch_map&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00027">27</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a74e05f6e9c316a2c7a13c3de26b8b1ed" name="a74e05f6e9c316a2c7a13c3de26b8b1ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e05f6e9c316a2c7a13c3de26b8b1ed">&#9670;&#160;</a></span>project_root</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gunicorn_config.project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00010">10</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a22651c643be9ad2049b282a5b30cc60e" name="a22651c643be9ad2049b282a5b30cc60e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22651c643be9ad2049b282a5b30cc60e">&#9670;&#160;</a></span>raw_env</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list gunicorn_config.raw_env</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  [</div>
+<div class="line">    <span class="stringliteral">&quot;FLASK_ENV=production&quot;</span>,</div>
+<div class="line">]</div>
+</div><!-- fragment -->
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00035">35</a> 行定义.</p>
+
+</div>
+</div>
+<a id="abd474c151e8e7358d2d60498bfa30c0b" name="abd474c151e8e7358d2d60498bfa30c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd474c151e8e7358d2d60498bfa30c0b">&#9670;&#160;</a></span>timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gunicorn_config.timeout = 120</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00023">23</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3dc167af96e140089ade135c466b3c9b" name="a3dc167af96e140089ade135c466b3c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc167af96e140089ade135c466b3c9b">&#9670;&#160;</a></span>worker_class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">str gunicorn_config.worker_class = &quot;sync&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00022">22</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a93b56a4453894cd409e32ae5887f9aa5" name="a93b56a4453894cd409e32ae5887f9aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b56a4453894cd409e32ae5887f9aa5">&#9670;&#160;</a></span>workers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gunicorn_config.workers = multiprocessing.cpu_count() * 2 + 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="gunicorn__config_8py_source.html">gunicorn_config.py</a> 第 <a class="el" href="gunicorn__config_8py_source.html#l00021">21</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
