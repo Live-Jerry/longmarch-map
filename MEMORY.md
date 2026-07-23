@@ -53,6 +53,13 @@ D:\长征文化\
 - 本地最新提交: bbccbcd — fix: add wsgi.py entry point for gunicorn
 - .gitignore 忽略项: `002 项目资源/`, `*.db`, `uploads/`, `004 项目文档/doxygen/`, `*.log`, `~$*`, 临时脚本
 
+### 版本日志维护规则
+
+- CHANGELOG.md 由每次提交代码的人同步更新
+- 规则：每次 push 前，检查是否有值得记录的变更，有则加一行
+- 版本号格式：V{主}.{次}.{修} (YYYY-MM-DD)
+- 条目简洁明了，每个变更一句话，不要大段叙述
+
 ##  长征节点（25 个）
 
 按时间线排列（node_id 含义：主序号.子序号）：
@@ -118,7 +125,7 @@ D:\长征文化\
 
 ## 部署详情
 
-- 服务器: root@iZuf61gpktwo4kt3xf09pzZ （公网 IP: 8.133.203.255）
+- 服务器: root@8.133.203.255（主机名 iZuf61gpktwo4kt3xf09pzZ 仅内网可用，公网连接用 IP）
 - SSH 密钥: longmarch_ecs
 - 项目路径: /opt/longmarch-map/
 - Python 虚拟环境: /opt/longmarch-map/venv/
