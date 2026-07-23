@@ -1,11 +1,11 @@
 # MEMORY.md — 长征文化数字地图
 
-##  项目概况
+## 项目概况
 
-项目名称： 重走长征路 — 长征文化数字地图  
-项目目标： 用交互式卫星地图展示红军长征历史路线，集成多媒体内容（图片、语音、文字）和用户互动功能  
-技术栈： Python Flask 后端 + Leaflet.js 前端 + SQLite 数据库  
-状态： V004 版本，代码完备，待启动运行
+项目名称： 我走长征路 — 长征文化数字平台 2.0.0
+项目目标： 用交互式卫星地图展示红军长征历史路线，集成多媒体内容（图片、语音、文字）和用户互动功能
+技术栈： Python Flask 后端 + Leaflet.js 前端 + SQLite 数据库
+状态： V004 版本，生产部署完成（开发测试环境）
 
 ##  修改工作规范（不可违背）
 
@@ -44,13 +44,13 @@ D:\长征文化\
 └── 008 设计备份/       — 多版本设计文档
 ```
 
-##  Git & GitHub
+## Git & GitHub
 
 - 远程仓库: https://github.com/Live-Jerry/longmarch-map.git
-- 默认分支: main
+- 开发分支: develop（日常集成用），main（稳定发布）
 - Git 身份: 长征文化数字地图项目组 / project@longmarch-map.cn
 - 认证方式: GitHub Personal Access Token（通过 Git Credential Manager 缓存）
-- 本地最新提交: fc39c64 — chore: version 2.0.0 baseline push to GitHub
+- 本地最新提交: bbccbcd — fix: add wsgi.py entry point for gunicorn
 - .gitignore 忽略项: `002 项目资源/`, `*.db`, `uploads/`, `004 项目文档/doxygen/`, `*.log`, `~$*`, 临时脚本
 
 ##  长征节点（25 个）
@@ -110,16 +110,39 @@ D:\长征文化\
 ### 数据库 (SQLite)
 - 6 张表：user, node, media, spark, comment, route_point
 
-##  待办事项
+## 开发分支工作流
 
-- [x] 补充素材 — 各节点的高清历史照片（97张，覆盖全部29个节点，来源：百度百科 + 百度图片搜索）
+- develop 分支：日常开发集成，所有功能分支合并到此测试
+- main 分支：稳定发布
+- 本地提交后 push origin develop，服务器从 develop 拉取部署
+
+## 部署详情
+
+- 服务器: root@iZuf61gpktwo4kt3xf09pzZ （公网 IP: 8.133.203.255）
+- SSH 密钥: longmarch_ecs
+- 项目路径: /opt/longmarch-map/
+- Python 虚拟环境: /opt/longmarch-map/venv/
+- WSGI 服务: gunicorn (wsgi:app) via deploy.sh
+- 端口: 5000（直接访问，尚未配置 nginx 反代）
+- 日志: /opt/longmarch-map/logs/{error,access}.log
+- 数据库: /opt/longmarch-map/001 项目源码/data/longmarch.db（从旧部署 /root/longmarch/ 迁移）
+- 旧部署路径: /root/longmarch/longmarch_app/（已停止，数据迁移完成）
+- 部署命令: cd /opt/longmarch-map && SECRET_KEY=<key> bash ./006\ build/deploy.sh
+
+## 待办事项
+
+- [x] 补充素材 — 各节点的高清历史照片（97张，覆盖全部29个节点）
 - [x] 照片入库 — media 表 97 条记录，type=image, status=approved
-- [ ] 增强数据 — 部分节点（如长汀、通道、黎平等）的诗词文章、典型故事字段为空，需补充
-- [ ] 路线数据 — route_point 表目前可能为空，需要初始化路线点数据
-- [ ] 生产部署 — 配置 SECRET_KEY、改用 gunicorn、Nginx 反代
-- [ ] 前端优化 — 留言板后端接口、星火投稿完整流程、管理后台功能完善
+- [x] develop 分支搭建 — 日常集成工作流就绪
+- [x] 006 build/ 部署脚本 — deploy.sh, gunicorn_config.py, longmarch.service, wsgi.py
+- [x] 服务器部署 — develop 分支部署到阿里云 ECS (8.133.203.255)，gunicorn 运行中
+- [x] 数据库迁移 — 从旧部署 /root/longmarch/ 迁移到 /opt/longmarch-map/
+- [ ] 增强数据 — 部分节点（长汀、通道、黎平等）诗词文章、典型故事为空，需补充
+- [ ] 路线数据 — route_point 表可能为空，需初始化路线点
+- [ ] 生产部署 — SECRET_KEY 安全加固、Nginx 反代配置、HTTPS
+- [ ] 前端优化 — 留言板后端接口、星火投稿流程、管理后台完善
 
-##  参考资源
+## 参考资源
 - `照片获取指南.txt` — 百度百科各节点词条链接
 - `node_data.json` — 完整的 25 节点历史数据
 - `requirements.txt` — 仅 Flask + Werkzeug 依赖

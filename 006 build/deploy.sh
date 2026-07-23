@@ -54,6 +54,13 @@ do_init() {
     # 创建日志目录
     mkdir -p "${LOG_DIR}"
 
+    # 迁移旧数据库（如果有）
+    if [ -f "/root/longmarch/longmarch_app/data/longmarch.db" ]; then
+        log "发现旧数据库，正在迁移..."
+        cp "/root/longmarch/longmarch_app/data/longmarch.db" "${PROJECT_DIR}/001 项目源码/data/longmarch.db"
+        log "数据库迁移完成"
+    fi
+
     log "初始化完成。请设置 SECRET_KEY 环境变量，然后重新运行 deploy.sh"
 }
 
