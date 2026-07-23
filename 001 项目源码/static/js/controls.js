@@ -235,6 +235,15 @@ async function startAutowalk() {
     // 提取全部路线点（用于平滑移动）
     const routePts = pathData.segments.map(s => ({ lat: s.lat, lng: s.lng }));
 
+    // 构建节点到路线点的索引映射（routePts 中每个节点对应的索引位置）
+    const nodeRouteIndices = [];
+    for (let pi = 0, ni = 0; pi < routePts.length && ni < nodes.length; pi++) {
+        if (pathData.segments[pi].node_id === nodes[ni].node_id) {
+            nodeRouteIndices.push(pi);
+            ni++;
+        }
+    }
+
     // 初始化状态
     autowalkState = {
         active:     true,
@@ -243,6 +252,7 @@ async function startAutowalk() {
         army:       army,
         nodes:      nodes,
         routePts:   routePts,
+        nodeRouteIndices: nodeRouteIndices,
         nodeIdx:    0,      // 从第一个节点出发
         segStart:   { lat: nodes[0].lat, lng: nodes[0].lng },
         segEnd:     { lat: nodes[1].lat, lng: nodes[1].lng },
@@ -334,30 +344,22 @@ function animateMovement(segPts, ptIdx) {
  */
 function getSegmentRoutePoints(routePts, fromNodeIdx, toNodeIdx) {
     const state = autowalkState;
-    const fromNode = state.nodes[fromNodeIdx];
-    const toNode = state.nodes[toNodeIdx];
-    if (!fromNode || !toNode) return [];
+    if (!state.nodes[fromNodeIdx] || !state.nodes[toNodeIdx]) return [];
 
-    // 在 routePts 中找到两个节点对应的索引
-    const eps = 0.001; // 0.001度约 100m 容差
-    let fromIdx = -1, toIdx = -1;
-    for (let i = 0; i < routePts.length; i++) {
-        const p = routePts[i];
-        const d1 = Math.abs(p.lat - fromNode.lat) + Math.abs(p.lng - fromNode.lng);
-        const d2 = Math.abs(p.lat - toNode.lat) + Math.abs(p.lng - toNode.lng);
-        if (d1 < eps && fromIdx === -1) fromIdx = i;
-        if (d2 < eps) toIdx = i;
-    }
+    // 通过 nodeRouteIndices 映射表直接获取索引，无需坐标匹配
+    const indices = state.nodeRouteIndices;
+    const fromIdx = indices[fromNodeIdx];
+    const toIdx   = indices[toNodeIdx];
 
-    if (fromIdx === -1 || toIdx === -1 || toIdx <= fromIdx) {
-        // 保底：返回两点间的直线插值
+    if (fromIdx === undefined || toIdx === undefined || toIdx <= fromIdx) {
+        // 保底：返回两点间的直线插值（始终以终点精确结束）
         const pts = [];
         const steps = 30;
         for (let i = 0; i < steps; i++) {
-            const t = i / steps;
+            const t = (i + 1) / steps;
             pts.push({
-                lat: fromNode.lat + (toNode.lat - fromNode.lat) * t,
-                lng: fromNode.lng + (toNode.lng - fromNode.lng) * t,
+                lat: state.nodes[fromNodeIdx].lat + (state.nodes[toNodeIdx].lat - state.nodes[fromNodeIdx].lat) * t,
+                lng: state.nodes[fromNodeIdx].lng + (state.nodes[toNodeIdx].lng - state.nodes[fromNodeIdx].lng) * t,
             });
         }
         return pts;
@@ -391,8 +393,19 @@ function arriveAtNode(nodeIdx) {
         fetch(`/api/v1/nodes/${node.node_id}`)
             .then(r => r.json())
             .then(json => {
-                if (json.data && typeof showNodePanel === "function") {
-                    showNodePanel(json.data);
+                if (json.data) {
+                    // 对齐漫游标记到节点真实坐标（route_point 与 node 表坐标可能有偏差）
+                    const nd = json.data;
+                    if (state.marker) {
+                        state.marker.setLatLng([nd.lat, nd.lng]);
+                    }
+                    map.instance.panTo([nd.lat, nd.lng], { animate: true, duration: 0.5 });
+                    // 更新 nodes[] 中的坐标为真实节点坐标，后续段对齐使用
+                    state.nodes[nodeIdx].lat = nd.lat;
+                    state.nodes[nodeIdx].lng = nd.lng;
+                    if (typeof showNodePanel === "function") {
+                        showNodePanel(nd);
+                    }
                 }
             });
     }
