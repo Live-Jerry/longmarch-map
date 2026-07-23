@@ -98,7 +98,7 @@ do_deploy() {
 
     "${VENV_DIR}/bin/gunicorn" \
         -c "${PROJECT_DIR}/006 build/gunicorn_config.py" \
-        app:app \
+        wsgi:app \
         --daemon
 
     sleep 2

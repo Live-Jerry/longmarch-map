@@ -9,7 +9,7 @@ Group=root
 WorkingDirectory=/opt/longmarch-map/001 项目源码
 Environment=FLASK_ENV=production
 Environment=SECRET_KEY=longmarch-secret-key-2026
-ExecStart=/opt/longmarch-map/venv/bin/gunicorn -c /opt/longmarch-map/006\ build/gunicorn_config.py app:app
+ExecStart=/opt/longmarch-map/venv/bin/gunicorn -c /opt/longmarch-map/006\ build/gunicorn_config.py wsgi:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
 PIDFile=/opt/longmarch-map/logs/gunicorn.pid

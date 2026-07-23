@@ -34,5 +34,5 @@ cd /opt/longmarch-map
 
 ```bash
 cd 001 项目源码
-gunicorn -c ../006\ build/gunicorn_config.py app:app
+gunicorn -c ../006\ build/gunicorn_config.py wsgi:app
 ```
