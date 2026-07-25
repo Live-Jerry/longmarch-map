@@ -2,6 +2,14 @@
 
 版本日志由项目管理员维护。每次版本变更时，开发者在提交代码的同时更新此文件。
 
+## V2.0.1 (2026-07-25)
+
+拆分 nginx 配置为生产和测试独立文件
+
+变更：
+- 删除混合配置 zhichangxuan.conf，拆分为 prd_zhichangxuan.conf 和 dev_zhichangxuan.conf
+- 两个环境统一使用 zhichangxuan.com 证书
+
 ## V2.0.0 (2026-07-23)
 
 生产部署与开发分支就绪
@@ -20,6 +28,12 @@
 - help.html 和用户手册文字修正，README.md 项目简介修正
 - Gunicorn 入口：wsgi.py 解决 gunicorn 找不到 app 实例问题
 - 所有 emoji 和 ** 粗体标记从文档中清除
+- 漫游标记与节点偏移（root cause）：route_point 表 22 个节点坐标与 node 表不一致，漫游标记沿 route_point 坐标移动，而地图旗帜标记使用 node 表坐标，两者位置对不上
+  - 修复：route_point 中有 node_id 的条目坐标直接覆盖为 node 表坐标
+  - 中间插值点按新的节点坐标重新插值，保持路线形状
+  - 涉及全部 4 支军队（830 个 route_point），验证后零偏差
+- 防御性增强：arriveAtNode 到达节点时 snap 漫游标记到 node 表真实坐标
+- 路线点索引映射（nodeRouteIndices）替代模糊坐标匹配
 
 变更：
 - 分支策略：develop（日常集成）+ main（稳定发布）
