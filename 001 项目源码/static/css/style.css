@@ -114,50 +114,18 @@ a:hover {
    ============================================================================ */
 #title-bar {
     position: fixed;
-    top: 16px;
-    left: 16px;
+    top: 12px;
+    left: 12px;
     z-index: 1000;
     background: var(--color-panel);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 10px 24px;
+    padding: 8px 20px;
     backdrop-filter: blur(8px);
     box-shadow: var(--shadow);
     display: flex;
     align-items: center;
     gap: 20px;
-}
-
-#title-bar .title-bar-left {
-    flex: 1;
-}
-
-.version-badge {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 10px;
-    white-space: nowrap;
-    font-family: "Consolas", "Courier New", monospace;
-    letter-spacing: 0.5px;
-    cursor: default;
-}
-
-.version-badge.version-prod {
-    background: rgba(39, 174, 96, 0.25);
-    color: #2ecc71;
-    border: 1px solid rgba(39, 174, 96, 0.4);
-}
-
-.version-badge.version-dev {
-    background: rgba(243, 156, 18, 0.2);
-    color: #f1c40f;
-    border: 1px solid rgba(243, 156, 18, 0.4);
-}
-
-.version-badge .version-env {
-    margin-left: 4px;
-    text-transform: uppercase;
 }
 
 #title-bar h1 {
@@ -166,12 +134,6 @@ a:hover {
     color: var(--color-light);
     letter-spacing: 2px;
     font-family: "STKaiti", "KaiTi", "楷体", "FangSong", "仿宋", serif;
-}
-
-#title-bar .subtitle {
-    font-size: 14px;
-    color: var(--color-muted);
-    margin-top: 2px;
 }
 
 /* ============================================================================
@@ -198,16 +160,16 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
-    padding: 6px 8px;
+    gap: 3px;
+    padding: 9px 12px;
     border-radius: var(--radius);
     border: none;
     background: transparent;
     color: var(--color-light);
     cursor: pointer;
-    font-size: 11px;
+    font-size: 16px;
     transition: var(--transition);
-    min-width: 48px;
+    min-width: 72px;
     width: 100%;
 }
 
@@ -221,12 +183,28 @@ a:hover {
 }
 
 .ctrl-btn .icon {
-    font-size: 18px;
+    font-size: 27px;
     line-height: 1;
 }
 
+/* #6: 语音关闭时显示红 X */
+#btn-tts:not(.active) .icon {
+    position: relative;
+}
+#btn-tts:not(.active) .icon::after {
+    content: "\2716";
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+    pointer-events: none;
+}
+
 .ctrl-btn .label {
-    font-size: 10px;
+    font-size: 15px;
     white-space: nowrap;
 }
 
@@ -254,7 +232,7 @@ a:hover {
 }
 
 .ctrl-sm .label {
-    font-size: 9px;
+    font-size: 15px;
 }
 
 /* 速度选择器 */
@@ -302,7 +280,7 @@ a:hover {
 }
 
 .speed-label {
-    font-size: 10px;
+    font-size: 15px;
     color: var(--color-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -318,7 +296,7 @@ a:hover {
     background: transparent;
     color: var(--color-light);
     cursor: pointer;
-    font-size: 11px;
+    font-size: 15px;
     font-family: var(--font-main);
     transition: var(--transition);
     text-align: center;
@@ -343,7 +321,7 @@ a:hover {
     background: var(--color-primary);
     color: white;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 15px;
     font-family: var(--font-main);
     font-weight: 600;
     transition: var(--transition);
@@ -369,14 +347,14 @@ a:hover {
 }
 
 #play-controls .ctrl-btn {
-    padding: 6px 8px;
-    min-width: 40px;
+    padding: 9px 12px;
+    min-width: 60px;
     border-radius: 6px;
     border: none;
     background: transparent;
     color: var(--color-light);
     cursor: pointer;
-    font-size: 10px;
+    font-size: 16px;
     font-family: var(--font-main);
     text-align: center;
     transition: var(--transition);
@@ -387,12 +365,12 @@ a:hover {
 }
 
 #play-controls .ctrl-btn .icon {
-    font-size: 16px;
+    font-size: 24px;
     display: block;
 }
 
 #play-controls .ctrl-btn .label {
-    font-size: 9px;
+    font-size: 15px;
     margin-top: 2px;
 }
 
@@ -848,13 +826,26 @@ a:hover {
     background: rgba(243, 156, 18, 0.25);
 }
 
+/* 路线点地名标注 */
+.route-point-label {
+    font-size: 10px;
+    color: #000;
+    text-shadow:
+        0 0 4px rgba(255,255,255,0.9),
+        0 0 12px rgba(255,255,255,0.6);
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.4;
+}
+
 /* ============================================================================
    留言板面板
    ============================================================================ */
 #message-board {
     position: fixed;
-    bottom: 90px;
-    right: 16px;
+    bottom: 0;
+    right: 100px;
     width: 320px;
     z-index: 1000;
     background: var(--color-panel);
@@ -1352,6 +1343,17 @@ a:hover {
 /* ============================================================================
    响应式
    ============================================================================ */
+
+#title-bar .title-bar-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+
+
 @media (max-width: 768px) {
     #info-panel {
         width: calc(100vw - 32px);
@@ -1378,9 +1380,9 @@ a:hover {
     }
 
     .ctrl-btn {
-        min-width: 40px;
-        padding: 6px 6px;
-        font-size: 10px;
+        min-width: 60px;
+        padding: 9px 9px;
+        font-size: 15px;
     }
 
     .ctrl-divider {
@@ -1390,22 +1392,8 @@ a:hover {
     }
 
     #title-bar {
-        top: 8px;
-        padding: 8px 12px;
-        gap: 10px;
-    }
-
-    #title-bar h1 {
-        font-size: 14px;
-    }
-
-    #title-bar .subtitle {
-        font-size: 10px;
-    }
-
-    .version-badge {
-        font-size: 10px;
-        padding: 2px 8px;
+        top: 6px;
+        padding: 4px 12px;
     }
 }
 
@@ -1481,7 +1469,7 @@ a:hover {
 }
 
 .flag-marker-label {
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 700;
     color: #fff;
     text-shadow:

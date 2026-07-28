@@ -38,6 +38,9 @@ let autowalkState = {
     waitTimer:  null,      // 停留定时器
 };
 
+// 同步到 window 供其他模块（如 map.js）检测漫游状态
+window.autowalkState = autowalkState;
+
 // ============================================================================
 // 初始化
 // ============================================================================
@@ -74,8 +77,21 @@ function initControls() {
 
     document.getElementById("btn-autowalk")?.addEventListener("click", () => {
         if (!autowalkState.active) {
-            // 首次点击：显示速度选择
-            showSpeedSelector();
+            // 未激活：如果速度选择器已显示则关闭，否则显示
+            var ss = document.getElementById("speed-selector");
+            if (ss && ss.classList.contains("visible")) {
+                hideSpeedSelector();
+                // 同时关闭漫游控制框
+                var pcEl = document.getElementById("play-controls");
+                if (pcEl) {
+                    pcEl.classList.remove("visible");
+                    pcEl.style.display = "none";
+                }
+                var pcb = document.getElementById("pc-backdrop");
+                if (pcb) pcb.remove();
+            } else {
+                showSpeedSelector();
+            }
         } else {
             // 已激活：暂停/继续
             togglePause();
@@ -144,7 +160,30 @@ function setActiveControl(ctrl) {
  * @function showSpeedSelector
  * @brief 显示速度选择器（向左弹出），用户选择后开始漫游
  */
+/**
+ * @function hideSpeedSelector
+ * @brief 直接隐藏速度选择器
+ */
+function hideSpeedSelector() {
+    const ss = document.getElementById("speed-selector");
+    if (!ss) return;
+    ss.classList.remove("visible");
+    ss.style.display = "none";
+    var startBtn = document.getElementById("btn-autowalk-start");
+    if (startBtn) startBtn.disabled = true;
+    // 移除背板
+    var backdrop = document.getElementById("ss-backdrop");
+    if (backdrop) backdrop.remove();
+}
+
+/**
+ * @function showSpeedSelector
+ * @brief 显示速度选择器（向左弹出），用户选择后开始漫游
+ */
 function showSpeedSelector() {
+    // 先关闭已打开的面板
+    hideSpeedSelector();
+
     const ss = document.getElementById("speed-selector");
     if (!ss) return;
 
@@ -165,7 +204,53 @@ function showSpeedSelector() {
     document.querySelectorAll(".speed-btn").forEach(btn => {
         btn.classList.toggle("active", parseInt(btn.dataset.speed) === autowalkSpeed);
     });
+
+    // 同时显示漫游控制框（让用户看到可用操作，未开始前可点外部关闭）
+    if (!autowalkState.active) {
+        var pcEl4 = document.getElementById("play-controls");
+        if (pcEl4 && !pcEl4.classList.contains("visible")) {
+            var btn4 = document.getElementById("btn-autowalk");
+            if (btn4) {
+                var rect4 = btn4.getBoundingClientRect();
+                pcEl4.style.top = rect4.top + "px";
+                pcEl4.style.right = (window.innerWidth - rect4.left + 8) + "px";
+                pcEl4.style.left = "auto";
+                pcEl4.style.bottom = "auto";
+            }
+            pcEl4.style.display = "";
+            pcEl4.classList.add("visible");
+            if (btn4) {
+                var pcRect4 = pcEl4.getBoundingClientRect();
+                ss.style.top = (pcRect4.bottom + 4) + "px";
+                ss.style.right = (window.innerWidth - btn4.getBoundingClientRect().left + 8) + "px";
+            }
+        }
+    }
+
+    // 添加全屏背板，点击背板关闭速度选择器
+    var backdrop = document.createElement("div");
+    backdrop.id = "ss-backdrop";
+    backdrop.style.cssText = "position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:transparent;cursor:default;";
+    backdrop.addEventListener("click", function() {
+        // 漫游已开始时只有关闭按钮才能退出
+        if (autowalkState.active) return;
+        hideSpeedSelector();
+        // 同时关闭漫游控制框
+        var pcEl = document.getElementById("play-controls");
+        if (pcEl) {
+            pcEl.classList.remove("visible");
+            pcEl.style.display = "none";
+        }
+        var pcb = document.getElementById("pc-backdrop");
+        if (pcb) pcb.remove();
+    });
+    document.body.appendChild(backdrop);
+
+    // 自动选中当前速度
+    selectAutowalkSpeed(autowalkSpeed);
 }
+
+
 
 /**
  * @function setAutowalkSpeed
@@ -192,6 +277,8 @@ function selectAutowalkSpeed(seconds) {
  * @async
  */
 async function startAutowalk() {
+    // 速度选择弹窗与漫游控制弹窗行为保持一致，不提前关闭
+    
     const army = autowalkState.army || 1;
 
     // 获取路径数据
@@ -235,15 +322,6 @@ async function startAutowalk() {
     // 提取全部路线点（用于平滑移动）
     const routePts = pathData.segments.map(s => ({ lat: s.lat, lng: s.lng }));
 
-    // 构建节点到路线点的索引映射（routePts 中每个节点对应的索引位置）
-    const nodeRouteIndices = [];
-    for (let pi = 0, ni = 0; pi < routePts.length && ni < nodes.length; pi++) {
-        if (pathData.segments[pi].node_id === nodes[ni].node_id) {
-            nodeRouteIndices.push(pi);
-            ni++;
-        }
-    }
-
     // 初始化状态
     autowalkState = {
         active:     true,
@@ -252,7 +330,6 @@ async function startAutowalk() {
         army:       army,
         nodes:      nodes,
         routePts:   routePts,
-        nodeRouteIndices: nodeRouteIndices,
         nodeIdx:    0,      // 从第一个节点出发
         segStart:   { lat: nodes[0].lat, lng: nodes[0].lng },
         segEnd:     { lat: nodes[1].lat, lng: nodes[1].lng },
@@ -263,6 +340,9 @@ async function startAutowalk() {
         waiting:    false,
         waitTimer:  null,
     };
+
+    // 同步到 window 供 map.js 检测漫游状态
+    window.autowalkState = autowalkState;
 
     // 显示播放控制按钮（向左弹出）
     document.getElementById("autowalk-label").textContent = "漫游中";
@@ -344,22 +424,30 @@ function animateMovement(segPts, ptIdx) {
  */
 function getSegmentRoutePoints(routePts, fromNodeIdx, toNodeIdx) {
     const state = autowalkState;
-    if (!state.nodes[fromNodeIdx] || !state.nodes[toNodeIdx]) return [];
+    const fromNode = state.nodes[fromNodeIdx];
+    const toNode = state.nodes[toNodeIdx];
+    if (!fromNode || !toNode) return [];
 
-    // 通过 nodeRouteIndices 映射表直接获取索引，无需坐标匹配
-    const indices = state.nodeRouteIndices;
-    const fromIdx = indices[fromNodeIdx];
-    const toIdx   = indices[toNodeIdx];
+    // 在 routePts 中找到两个节点对应的索引
+    const eps = 0.001; // 0.001度约 100m 容差
+    let fromIdx = -1, toIdx = -1;
+    for (let i = 0; i < routePts.length; i++) {
+        const p = routePts[i];
+        const d1 = Math.abs(p.lat - fromNode.lat) + Math.abs(p.lng - fromNode.lng);
+        const d2 = Math.abs(p.lat - toNode.lat) + Math.abs(p.lng - toNode.lng);
+        if (d1 < eps && fromIdx === -1) fromIdx = i;
+        if (d2 < eps) toIdx = i;
+    }
 
-    if (fromIdx === undefined || toIdx === undefined || toIdx <= fromIdx) {
-        // 保底：返回两点间的直线插值（始终以终点精确结束）
+    if (fromIdx === -1 || toIdx === -1 || toIdx <= fromIdx) {
+        // 保底：返回两点间的直线插值
         const pts = [];
         const steps = 30;
         for (let i = 0; i < steps; i++) {
-            const t = (i + 1) / steps;
+            const t = i / steps;
             pts.push({
-                lat: state.nodes[fromNodeIdx].lat + (state.nodes[toNodeIdx].lat - state.nodes[fromNodeIdx].lat) * t,
-                lng: state.nodes[fromNodeIdx].lng + (state.nodes[toNodeIdx].lng - state.nodes[fromNodeIdx].lng) * t,
+                lat: fromNode.lat + (toNode.lat - fromNode.lat) * t,
+                lng: fromNode.lng + (toNode.lng - fromNode.lng) * t,
             });
         }
         return pts;
@@ -393,19 +481,8 @@ function arriveAtNode(nodeIdx) {
         fetch(`/api/v1/nodes/${node.node_id}`)
             .then(r => r.json())
             .then(json => {
-                if (json.data) {
-                    // 对齐漫游标记到节点真实坐标（route_point 与 node 表坐标可能有偏差）
-                    const nd = json.data;
-                    if (state.marker) {
-                        state.marker.setLatLng([nd.lat, nd.lng]);
-                    }
-                    map.instance.panTo([nd.lat, nd.lng], { animate: true, duration: 0.5 });
-                    // 更新 nodes[] 中的坐标为真实节点坐标，后续段对齐使用
-                    state.nodes[nodeIdx].lat = nd.lat;
-                    state.nodes[nodeIdx].lng = nd.lng;
-                    if (typeof showNodePanel === "function") {
-                        showNodePanel(nd);
-                    }
+                if (json.data && typeof showNodePanel === "function") {
+                    showNodePanel(json.data);
                 }
             });
     }
@@ -452,6 +529,9 @@ function arriveAtNode(nodeIdx) {
         // 语音关闭：停留 8 秒
         state.waitTimer = setTimeout(() => {
             state.waiting = false;
+
+    const wasAnimating = !!state.animFrame;
+    // 标记动画状态（animFrame会在下面被清除）
             moveToNextSegment();
         }, 8000);
     }
@@ -518,12 +598,29 @@ function showPlayControls() {
         pc.style.bottom = "auto";
     }
 
+    // 添加漫游控制框背板：仅漫游未开始时有效
+    // 漫游中只能点退出按钮退出
+    if (!document.getElementById("pc-backdrop") && !autowalkState.active) {
+        var pcBd2 = document.createElement("div");
+        pcBd2.id = "pc-backdrop";
+        pcBd2.style.cssText = "position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:transparent;cursor:default;";
+        pcBd2.addEventListener("click", function() {
+            var pEl = document.getElementById("play-controls");
+            if (pEl) {
+                pEl.classList.remove("visible");
+                pEl.style.display = "none";
+            }
+            this.remove();
+        });
+        document.body.appendChild(pcBd2);
+    }
+
     pc.style.display = "";  // 清除 stopAutowalk 设置的 display:none
     pc.classList.add("visible");
     // 重置暂停按钮状态
     const ppIcon = document.getElementById("btn-play-pause")?.querySelector(".icon");
     const ppLabel = document.getElementById("btn-play-pause")?.querySelector(".label");
-    if (ppIcon) ppIcon.textContent = "暂停";
+    if (ppIcon) ppIcon.textContent = "⏸";
     if (ppLabel) ppLabel.textContent = "暂停";
 }
 
@@ -540,7 +637,7 @@ function togglePause() {
     const btn = document.getElementById("btn-play-pause");
     const icon = btn?.querySelector(".icon");
     const label = btn?.querySelector(".label");
-    if (icon) icon.textContent = state.paused ? "播放" : "暂停";
+    if (icon) icon.textContent = state.paused ? "▶" : "⏸";
     if (label) label.textContent = state.paused ? "继续" : "暂停";
 
     if (!state.paused) {
@@ -564,7 +661,10 @@ function skipToNext() {
     const state = autowalkState;
     if (!state.active) return;
 
-    // 清除当前动画
+    // 记录当前是否在动画中（必须先记录再清除）
+    const wasAnimating = !!state.animFrame;
+
+    // 清除当前动画/等待
     if (state.animFrame) {
         clearTimeout(state.animFrame);
         state.animFrame = null;
@@ -582,11 +682,27 @@ function skipToNext() {
         return;
     }
 
-    // 直接跳到下一个节点
-    const nextNode = state.nodes[nextIdx];
-    arriveAtNode(nextIdx);
+    if (wasAnimating) {
+        // 动画进行中：直接跳到目标节点（避免标记回退）
+        state.nodeIdx = nextIdx;
+        var tn = state.nodes[nextIdx];
+        if (state.marker) {
+            state.marker.setLatLng([tn.lat, tn.lng]);
+            if (typeof map !== "undefined" && map.instance) {
+                map.instance.panTo([tn.lat, tn.lng], { animate: true, duration: 0.5 });
+            }
+        }
+        arriveAtNode(nextIdx);
+    } else {
+        // 等待中/空闲：平滑动画到下一节点
+        var segPts = getSegmentRoutePoints(state.routePts, state.nodeIdx, nextIdx);
+        if (segPts.length > 0) {
+            animateMovement(segPts, 0);
+        } else {
+            arriveAtNode(nextIdx);
+        }
+    }
 }
-
 /**
  * @function restartAutowalk
  * @brief 重头开始
@@ -621,13 +737,13 @@ function restartAutowalk() {
         waiting: false, waitTimer: null,
     };
 
+    // 同步到 window
+    window.autowalkState = autowalkState;
+
     document.getElementById("autowalk-label").textContent = "漫游";
 
-    setTimeout(() => {
-        if (typeof setAutowalkSpeed === "function") {
-            showSpeedSelector();
-        }
-    }, 300);
+    // 直接重新开始漫游（不弹速度选择，速度面板一直可见）
+    startAutowalk();
 }
 
 /**
@@ -657,10 +773,11 @@ function stopAutowalk() {
     document.getElementById("autowalk-label").textContent = "漫游";
 
     // 关闭所有漫游子菜单
-    var ss = document.getElementById("speed-selector");
-    if (ss) { ss.classList.remove("visible"); ss.style.display = "none"; }
+    hideSpeedSelector();
     var pc = document.getElementById("play-controls");
     if (pc) { pc.classList.remove("visible"); pc.style.display = "none"; }
+    var bd3 = document.getElementById("pc-backdrop");
+    if (bd3) bd3.remove();
 
     setActiveControl(null);
     console.log("[Autowalk] 已停止");
@@ -818,17 +935,25 @@ function toggleMessageBoard() {
 function loadMessages() {
     const list = document.querySelector(".message-list");
     if (!list) return;
-    list.innerHTML = `
-        <div class="message-item">
-            <span class="msg-user">游客张三</span>
-            <span class="msg-time">2026-07-15</span>
-            <div style="margin-top:4px">瑞金，长征的起点！</div>
-        </div>
-        <div class="message-item">
-            <span class="msg-user">历史爱好者</span>
-            <span class="msg-time">2026-07-14</span>
-            <div style="margin-top:4px">湘江战役是长征途中最惨烈的战役之一</div>
-        </div>`;
+    // 调 API 获取留言
+    fetch("/api/v1/messages")
+        .then(r => r.json())
+        .then(resp => {
+            if (resp.code !== 0 || !resp.data) return;
+            if (resp.data.length === 0) {
+                list.innerHTML = "<div class=\"message-item\" style=\"color:#999\">暂无留言，来写下第一条吧</div>";
+                return;
+            }
+            list.innerHTML = resp.data.map(function(msg) {
+                var name = msg.user_name || "匿名用户";
+                var time = msg.created_at || "";
+                return "<div class=\"message-item\">" +
+                    "<span class=\"msg-user\">" + escapeHtml(name) + "</span>" +
+                    "<span class=\"msg-time\">" + escapeHtml(time) + "</span>" +
+                    "<div style=\"margin-top:4px\">" + escapeHtml(msg.content) + "</div>" +
+                    "</div>";
+            }).join("");
+        });
 }
 
 /**
@@ -841,15 +966,16 @@ function sendMessage() {
     if (!text) return;
     console.log("[Message] 发送:", text);
     input.value = "";
-    const list = document.querySelector(".message-list");
-    if (list) {
-        const now = new Date().toLocaleDateString("zh-CN");
-        list.innerHTML = `<div class="message-item">
-            <span class="msg-user">我</span>
-            <span class="msg-time">${now}</span>
-            <div style="margin-top:4px">${escapeHtml(text)}</div>
-        </div>` + list.innerHTML;
-    }
+    // 调 API 提交
+    fetch("/api/v1/messages", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({content: text, user_name: ""})
+    }).then(function(r) { return r.json(); }).then(function(resp) {
+        if (resp.code === 0) {
+            loadMessages();
+        }
+    });
 }
 
 // ============================================================================
@@ -957,6 +1083,7 @@ function checkSpeechDone(interval) {
 window.initControls   = initControls;
 window.startAutowalk  = startAutowalk;
 window.stopAutowalk   = stopAutowalk;
+window.hideSpeedSelector = hideSpeedSelector;
 window.selectArmy     = selectArmy;
 window.toggleMessageBoard = toggleMessageBoard;
 window.sendMessage    = sendMessage;
@@ -991,9 +1118,22 @@ function jumpAutowalkToNode(nodeId) {
     }
     state.waiting = false;
 
-    var targetNode = state.nodes[newIdx];
-    if (state.marker) {
-        state.marker.setLatLng([targetNode.lat, targetNode.lng]);
+    // 取路线点平滑移动到目标节点
+    var segPts = getSegmentRoutePoints(state.routePts, state.nodeIdx, newIdx);
+    if (!segPts || segPts.length < 2) {
+        // 无路线点时直接跳
+        var targetNode = state.nodes[newIdx];
+        if (state.marker) {
+            state.marker.setLatLng([targetNode.lat, targetNode.lng]);
+            if (typeof map !== "undefined" && map.instance) {
+                map.instance.panTo([targetNode.lat, targetNode.lng], { animate: true, duration: 0.5 });
+            }
+        }
+        arriveAtNode(newIdx);
+        return;
     }
-    arriveAtNode(newIdx);
+
+    // 设置 nodeIdx 为 newIdx-1，这样 animateMovement 末尾的 arriveAtNode 会到 newIdx
+    state.nodeIdx = newIdx - 1;
+    animateMovement(segPts, 0);
 }

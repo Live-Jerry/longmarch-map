@@ -82,12 +82,12 @@ function initMap() {
             if (boundsAll.isValid()) {
                 // 加一点缓冲（10%），确保节点不贴边
                 map.instance.fitBounds(boundsAll, { padding: [100, 100] });
-                console.log("[Map] 缩放到全路线 +40% 缓冲");
+                console.log("[Map] ✅ 缩放到全路线 +40% 缓冲");
             }
         }
     });
     loadRoutes();
-    console.log("[Map] 地图初始化完成 (ArcGIS卫星)");
+    console.log("[Map] ✅ 地图初始化完成 (ArcGIS卫星)");
 }
 
 /**
@@ -103,7 +103,7 @@ async function loadNodes() {
         nodes.forEach(addNodeMarker);
         // 全局暴露，供其他模块（如星火拾遗）使用
         window.allNodes = nodes;
-        console.log(`[Map]  节点: ${nodes.length} 个`);
+        console.log(`[Map] ✅ 节点: ${nodes.length} 个`);
         return nodes;
     } catch (e) {
         console.error("[Map] 节点加载失败", e);
@@ -175,17 +175,6 @@ function addNodeMarker(node) {
     });
 
     var marker = L.marker([node.lat, node.lng], { icon: icon });
-    var title = node.title || "";
-    var loc = node.location || "";
-    var time = node.time || "";
-
-    marker.bindPopup(
-        '<div class="popup-mini">' +
-        '<div class="popup-mini-title">' + title + '</div>' +
-        '<div class="popup-mini-sub">' + time + ' · ' + loc + '</div>' +
-        '<div class="popup-mini-hint">点击查看详情 →</div></div>',
-        { maxWidth: 280, className: "node-popup" }
-    );
 
     marker.on("click", function() {
         // 如果漫游激活，跳转到该节点继续漫游
@@ -195,6 +184,8 @@ function addNodeMarker(node) {
                 return;
             }
         }
+        // 地图飞行到该节点位置
+        map.instance.flyTo(marker.getLatLng(), 10, { duration: 1.5 });
         if (typeof showNodePanel === "function") showNodePanel(node);
     });
 
@@ -202,9 +193,12 @@ function addNodeMarker(node) {
     nodeMarkers[node.node_id] = marker;
 
     // 按军队分组记录节点
+    // 按军队分组记录节点
     var army = node.army || "中央红军（红一方面军）";
     var armyMap = {"中央红军（红一方面军）":1,"中央红军":1,"红二方面军":2,"红四方面军":4,"红25军":25};
+
     var aNum = armyMap[army] || 1;
+
     if (!nodeArmies[aNum]) nodeArmies[aNum] = [];
     nodeArmies[aNum].push(node.node_id);
 }
@@ -261,21 +255,14 @@ async function loadRoutes() {
                 smoothFactor: 1.5,
             });
 
-            layer.addTo(map.routeGroup);
-            routeLayers[army] = layer;
-
-            // 起点/终点标记
-            var first = smoothCoords[0];
-            var last = smoothCoords[smoothCoords.length - 1];
-            L.circleMarker([first[1], first[0]], {
-                radius: 6, color: color, fillColor: "#fff", fillOpacity: 1, weight: 3
-            }).addTo(map.routeGroup);
-            L.circleMarker([last[1], last[0]], {
-                radius: 6, color: color, fillColor: color, fillOpacity: 1, weight: 3
-            }).addTo(map.routeGroup);
+            // 为每个军队创建独立的 LayerGroup，包含 polyline 和所有标记
+            if (!routeLayers[army]) {
+                routeLayers[army] = L.layerGroup().addTo(map.instance);
+            }
+            routeLayers[army].addLayer(layer);
         });
 
-        console.log("[Map]  路线绘制完成（平滑曲线）");
+        console.log("[Map] ✅ 路线绘制完成（平滑曲线）");
     } catch (e) {
         console.error("[Map] 路线加载失败", e);
     }
