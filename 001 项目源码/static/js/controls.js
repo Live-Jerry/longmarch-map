@@ -258,13 +258,18 @@ function showSpeedSelector() {
  * @param {number} seconds 每节点对移动时间
  */
 function selectAutowalkSpeed(seconds) {
+    // 漫游进行中不能修改速度，暂停后可改
+    if (autowalkState && autowalkState.active && !autowalkState.paused) return;
+
     autowalkSpeed = seconds;
     document.querySelectorAll(".speed-btn").forEach(btn => {
         btn.classList.toggle("active", parseInt(btn.dataset.speed) === seconds);
     });
-    // 启用"开始"按钮
+    // 漫游中不启用"开始"按钮（防止再次点击产生重复红点）
     var startBtn = document.getElementById("btn-autowalk-start");
-    if (startBtn) startBtn.disabled = false;
+    if (startBtn && !autowalkState.active) {
+        startBtn.disabled = false;
+    }
 }
 
 // ============================================================================
@@ -277,6 +282,19 @@ function selectAutowalkSpeed(seconds) {
  * @async
  */
 async function startAutowalk() {
+    // 清理已有漫游标记和动画，防止重复点击"开始"产生多个红点
+    if (autowalkState.marker) {
+        try { map.instance.removeLayer(autowalkState.marker); } catch(e) {}
+    }
+    if (autowalkState.animFrame) {
+        clearTimeout(autowalkState.animFrame);
+        autowalkState.animFrame = null;
+    }
+    if (autowalkState.waitTimer) {
+        clearTimeout(autowalkState.waitTimer);
+        autowalkState.waitTimer = null;
+    }
+
     // 速度选择弹窗与漫游控制弹窗行为保持一致，不提前关闭
     
     const army = autowalkState.army || 1;
@@ -371,6 +389,9 @@ async function startAutowalk() {
     }, 500);
 
     console.log(`[Autowalk] 启动，军队=${army}，${nodes.length}个节点，速度=${autowalkSpeed}s/段`);
+
+    // 启动后禁用"开始"按钮，防止再次点击（不隐藏速度选择器）
+    document.getElementById("btn-autowalk-start").disabled = true;
 }
 
 /**
