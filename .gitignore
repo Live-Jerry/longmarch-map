@@ -7,7 +7,6 @@ dist/
 build/
 
 # Flask
-*.db
 instance/
 
 # IDE
