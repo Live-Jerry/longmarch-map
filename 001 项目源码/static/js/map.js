@@ -260,6 +260,21 @@ async function loadRoutes() {
                 routeLayers[army] = L.layerGroup().addTo(map.instance);
             }
             routeLayers[army].addLayer(layer);
+
+            // 在路线点位置添加地名标注（LayerGroup 管理，随军队切换显示/隐藏）
+            var ptLabels = feature.properties?.points || [];
+            ptLabels.forEach(function(pt) {
+                if (!pt.title) return;
+                routeLayers[army].addLayer(L.marker([pt.lat, pt.lng], {
+                    icon: L.divIcon({
+                        html: '<div class="route-point-label">' + pt.title + '</div>',
+                        className: "",
+                        iconSize: [0, 0],
+                        iconAnchor: [0, 0],
+                    }),
+                    interactive: false,
+                }));
+            });
         });
 
         console.log("[Map] ✅ 路线绘制完成（平滑曲线）");

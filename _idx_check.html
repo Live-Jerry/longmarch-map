@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我走长征路 — 交互式长征文化数字平台</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="/static/css/style.css?v=20260725_6">
+</head>
+<body>
+    <!-- ===================================================================
+         加载封面
+         =================================================================== -->
+    <div id="loading-overlay">
+        <div class="loading-title">我 走 长 征 路</div>
+        <div class="loading-spinner"></div>
+        <div style="margin-top:16px;color:#95a5a6;font-size:12px">正在加载长征文化数字地图...</div>
+    </div>
+
+    <!-- ===================================================================
+         主应用容器
+         =================================================================== -->
+    <div id="app">
+        <!-- 地图容器 -->
+        <div id="map"></div>
+
+        <!-- 顶部标题栏 -->
+        <!-- 左上角：Logo + 标题（V003 §4.1） -->
+        <div id="title-bar">
+            <div class="title-bar-left">
+                <img src="/static/img/title-banner.png" alt="我走长征路" style="height:72px;display:block">
+                <div class="subtitle">交互式长征文化数字平台 · 2026</div>
+            </div>
+            <div class="version-badge {% if app_env == 'production' %}version-prod{% else %}version-dev{% endif %}">
+                {{ app_version_full }}
+                {% if app_env != 'production' %}<span class="version-env">{{ app_env }}</span>{% endif %}
+            </div>
+      <!-- 军队选择器 -->
+        <div id="army-selector">
+            <div class="army-list">
+                <div class="army-item active" data-army="0" onclick="selectArmy(0)">
+                    <span class="army-dot" style="background:linear-gradient(90deg,#e74c3c,#27ae60,#2980b9,#8e44ad)"></span>全部显示
+                </div>
+                <div class="army-item" data-army="1" onclick="selectArmy(1)">
+                    <span class="army-dot" style="background:#e74c3c"></span>中央红军（红一方面军）
+                </div>
+                <div class="army-item" data-army="2" onclick="selectArmy(2)">
+                    <span class="army-dot" style="background:#27ae60"></span>红二方面军
+                </div>
+                <div class="army-item" data-army="4" onclick="selectArmy(4)">
+                    <span class="army-dot" style="background:#2980b9"></span>红四方面军
+                </div>
+                <div class="army-item" data-army="25" onclick="selectArmy(25)">
+                    <span class="army-dot" style="background:#8e44ad"></span>红二十五军
+                </div>
+            </div>
+        </div>
+            </div>
+            <span class="segment-info">0 / 0</span>
+            <span class="current-title" style="margin-left:8px;color:#95a5a6;font-size:12px"></span>
+            <button class="btn-stop" onclick="stopAutowalk()">停止</button>
+        </div>
+
+        <!-- 右侧节点信息面板 -->
+        <div id="info-panel">
+            <div class="panel-header">
+                <div>
+                    <div class="node-title" id="panel-title">—</div>
+                    <div class="node-meta" id="panel-meta">—</div>
+                </div>
+                <button class="btn-close" id="btn-close-panel" onclick="closeNodePanel()">×</button>
+            </div>
+            <div class="panel-image" id="panel-image">
+                <!-- 节点图片 -->
+            </div>
+            <div class="panel-body" id="panel-body">
+                <!-- 动态内容 -->
+            </div>
+            <div class="panel-footer">
+                <button class="btn-read" id="btn-read" onclick="readCurrentContent()">🔊 朗读</button>
+                <button class="btn-spark" id="btn-spark" onclick="openNodeEditor('拾遗', window.activeNode?.node_id || null, sparkSubmitCallback)">✦ 星火投稿</button>
+            </div>
+
+        </div>
+
+        <!-- 留言板 -->
+        <div id="message-board">
+            <div class="msg-header">
+                <h3>📝 留言板</h3>
+                <button class="msg-close" onclick="closeMessageBoard()" title="关闭留言板">✕</button>
+            </div>
+            <div class="message-list">
+                <!-- 动态内容 -->
+            </div>
+            <div class="message-input-row">
+                <input type="text" placeholder="说点什么..." id="msg-input"
+                    onkeydown="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+
+        <!-- 右侧控制栏（V003 §4.1：右侧纵向排列，7个功能按钮） -->
+        <div id="controls">
+            <button class="ctrl-btn" id="btn-tts" title="打开/关闭语音播报">
+                <span class="icon">🔊</span>
+                <span class="label">语音</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-autowalk" title="自动漫游模式">
+                <span class="icon">🚶</span>
+                <span class="label" id="autowalk-label">漫游</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-army" title="选择军队路线">
+                <span class="icon">⚑</span>
+                <span class="label">军队</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-spark-main" title="星火拾遗 — 提交你的长征记忆"
+                onclick="openNodeEditor('拾遗', window.activeNode?.node_id || null, sparkSubmitCallback)">
+                <span class="icon">✦</span>
+                <span class="label">星火</span>
+            </button>
+            <button class="ctrl-btn" id="btn-basemap" title="切换卫星/普通地图">
+                <span class="icon">🗺</span>
+                <span class="label">卫星</span>
+            </button>
+            <div class="ctrl-divider"></div>
+            <button class="ctrl-btn" id="btn-message" title="用户留言评论">
+                <span class="icon">💬</span>
+                <span class="label">留言</span>
+            </button>
+            <button class="ctrl-btn" id="btn-login" title="用户登录/注册">
+                <span class="icon">👤</span>
+                <span class="label">登录</span>
+            </button>
+            <button class="ctrl-btn" id="btn-help" title="帮助 — 用户手册"
+                onclick="location.href='/manual'">
+                <span class="icon">💡</span>
+                <span class="label">帮助</span>
+            </button>
+            <button class="ctrl-btn" id="btn-admin" title="管理后台",
+                onclick="location.href='/admin'" style="display:none">
+                <span class="icon">⚙</span>
+                <span class="label">管理</span>
+            </button>
+        </div>
+
+        <!-- 速度选择弹出面板（向左弹出） -->
+        <div id="speed-selector" class="popout-panel">
+            <div class="popout-arrow-right"></div>
+            <div class="speed-label">节点间移动速度</div>
+            <button class="speed-btn active" data-speed="3" onclick="selectAutowalkSpeed(3)">慢速 3s</button>
+            <button class="speed-btn" data-speed="2" onclick="selectAutowalkSpeed(2)">中速 2s</button>
+            <button class="speed-btn" data-speed="1" onclick="selectAutowalkSpeed(1)">快速 1s</button>
+            <button class="speed-start-btn" id="btn-autowalk-start" onclick="startAutowalk()" disabled>开始</button>
+        </div>
+
+        <!-- 播放控制弹出面板（向左弹出） -->
+        <div id="play-controls" class="popout-panel">
+            <div class="popout-arrow-right"></div>
+            <button class="ctrl-btn" id="btn-play-pause" title="暂停/继续">
+                <span class="icon">⏸</span>
+                <span class="label">暂停</span>
+            </button>
+            <button class="ctrl-btn" id="btn-skip" title="跳至下一节点">
+                <span class="icon">⏭</span>
+                <span class="label">跳过</span>
+            </button>
+            <button class="ctrl-btn" id="btn-restart" title="重头开始">
+                <span class="icon">⟳</span>
+                <span class="label">重头</span>
+            </button>
+            <button class="ctrl-btn" id="btn-exit-autowalk" title="退出漫游">
+                <span class="icon">✕</span>
+                <span class="label">退出</span>
+            </button>
+        </div>
+    </div>
+
+    {% include "_spark_modal.html" %}
+
+    <!-- ===================================================================
+         认证弹窗（登录/注册/忘记密码）
+         =================================================================== -->
+    <div id="auth-modal" class="modal-overlay" style="display:none">
+        <div class="modal-dialog" onclick="event.stopPropagation()" style="width:400px">
+            <div class="modal-header">
+                <span class="modal-title">👤 用户认证</span>
+                <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- 登录表单 -->
+                <div id="auth-login" class="auth-form-panel">
+                    <form onsubmit="handleLoginForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="请输入用户名" required autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" name="password" placeholder="请输入密码" required autocomplete="current-password">
+                        </div>
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">登 录</button>
+                        </div>
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            还没有账号？<a href="#" onclick="switchAuthTab('register');return false">立即注册</a>
+                            &nbsp;|&nbsp;
+                            <a href="#" onclick="switchAuthTab('reset');return false">忘记密码？</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 注册表单 -->
+                <div id="auth-register" class="auth-form-panel" style="display:none">
+                    <form onsubmit="handleRegisterForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="至少 3 个字符" required minlength="3" autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" name="password" placeholder="至少 6 个字符" required minlength="6" autocomplete="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label>确认密码</label>
+                            <input type="password" name="password2" placeholder="再次输入密码" required autocomplete="new-password">
+                        </div>
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">注 册</button>
+                        </div>
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            已有账号？<a href="#" onclick="switchAuthTab('login');return false">立即登录</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 忘记密码表单 -->
+                <div id="auth-reset" class="auth-form-panel" style="display:none">
+                    <form onsubmit="handleResetForm(event)">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" placeholder="请输入你的用户名" required autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label>新密码</label>
+                            <input type="password" name="new_password" placeholder="至少 6 个字符" required minlength="6" autocomplete="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label>确认新密码</label>
+                            <input type="password" name="new_password2" placeholder="再次输入新密码" required autocomplete="new-password">
+                        </div>
+                        <div class="form-actions" style="border:none;padding:0;margin-top:16px">
+                            <button type="submit" class="btn btn-primary" style="width:100%">重置密码</button>
+                        </div>
+                        <div class="form-status" style="display:none"></div>
+                        <div class="auth-alt-link" style="margin-top:12px">
+                            <a href="#" onclick="switchAuthTab('login');return false">← 返回登录</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <!-- 应用 JS -->
+    <script src="/static/js/map.js?v=20260725_4"></script>
+    <script src="/static/js/nodes.js?v=20260725_3"></script>
+    <script src="/static/js/controls.js?v=20260725_3"></script>
+    <script src="/static/js/spark.js?v=20260725_3"></script>
+    <script src="/static/js/auth.js?v=20260725_3"></script>
+
+    <script>
+    /**
+     * 星火投稿的回调：将表单数据提交至 Spark API（含文件上传）
+     */
+    function sparkSubmitCallback(form, callType, mode, nodeId) {
+        var formData = new FormData(form);
+        var statusEl = document.getElementById("node-submit-status");
+        var submitBtn = document.getElementById("node-submit-btn");
+
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "提交中..."; }
+
+        // 补充既有节点模式：设置 target_node_id
+        var fdMode = mode === 'edit' ? 'update-node' : 'new-node';
+        formData.set('submission_type', fdMode);
+        if (mode === 'edit' && nodeId) {
+            formData.set('target_node_id', nodeId);
+        }
+
+        var fetchOpts = { method: "POST", body: formData };
+        if (window.authToken) {
+            fetchOpts.headers = { "Authorization": "Bearer " + window.authToken };
+        }
+
+        fetch("/api/v1/sparks/full", fetchOpts)
+            .then(function(r) { return r.json(); })
+            .then(function(json) {
+                if (json.code === 0) {
+                    statusEl.className = "form-status success";
+                    statusEl.textContent = "✅ 提交成功！等待管理员审核。";
+                    setTimeout(closeNodeEditor, 3000);
+                } else {
+                    statusEl.className = "form-status error";
+                    statusEl.textContent = "❌ " + (json.message || "提交失败");
+                }
+            })
+            .catch(function() {
+                statusEl.className = "form-status error";
+                statusEl.textContent = "❌ 网络错误，请重试";
+            })
+            .finally(function() {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "提交审核"; }
+            });
+    }
+
+    /**
+     * @brief 应用初始化入口
+     */
+    (function() {
+        "use strict";
+
+        // 初始化地图
+        initMap();
+
+        // 初始化控制栏
+        initControls();
+
+        // 初始化认证状态（updateAuthUI 会自动处理管理按钮显示）
+        initAuth();
+
+        // 隐藏加载封面
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const overlay = document.getElementById("loading-overlay");
+                if (overlay) {
+                    overlay.classList.add("fade-out");
+                    setTimeout(() => overlay.remove(), 700);
+                }
+            }, 800);
+        });
+
+        // 键盘快捷键
+        document.addEventListener("keydown", (e) => {
+            // ESC 关闭面板
+            if (e.key === "Escape") {
+                closeNodePanel();
+                document.getElementById("message-board")?.classList.remove("visible");
+                document.getElementById("army-selector")?.classList.remove("visible");
+            }
+            // 左右方向键切换步骤
+            if (document.getElementById("info-panel").classList.contains("visible")) {
+                if (e.key === "ArrowRight") nextStep();
+                if (e.key === "ArrowLeft")  prevStep();
+            }
+        });
+
+        console.log("[App] 长征文化数字地图初始化完成");
+    })();
+    </script>
+</body>
+</html>
+
+
+
+

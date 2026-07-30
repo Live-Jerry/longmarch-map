@@ -119,11 +119,22 @@ class RouteEngine:
         features = []
         for r in routes:
             if r["geojson"]:
+                # 收集路线点的标题（用于地图上的文字标注）
+                pt_labels = []
+                for p in r["points"]:
+                    title = p.get("node_title") or p.get("name") or p.get("location", "")
+                    pt_labels.append({
+                        "lat": p["lat"],
+                        "lng": p["lng"],
+                        "title": title,
+                    })
+
                 features.append({
                     "type": "Feature",
                     "properties": {
                         "army": r["army"],
                         "name": r["name"],
+                        "points": pt_labels,
                     },
                     "geometry": r["geojson"],
                 })
@@ -156,7 +167,7 @@ class RouteEngine:
                 seg = {
                     "index":      i,
                     "node_id":    point.get("node_id"),
-                    "title":      point.get("node_title") or point.get("location", ""),
+                    "title":      point.get("node_title") or point.get("name", point.get("location", "")),
                     "lat":        point["lat"],
                     "lng":        point["lng"],
                     "dist_km":    0,
@@ -174,7 +185,7 @@ class RouteEngine:
                 seg = {
                     "index":      i,
                     "node_id":    point.get("node_id"),
-                    "title":      point.get("node_title") or point.get("location", ""),
+                    "title":      point.get("node_title") or point.get("name", point.get("location", "")),
                     "lat":        point["lat"],
                     "lng":        point["lng"],
                     "dist_km":    round(dist, 2),

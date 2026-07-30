@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+{% block title %}留言管理{% endblock %}
+{% block content %}
+<h1>留言管理</h1>
+<p style="color:#95a5a6;margin-bottom:16px">用户留言列表</p>
+
+<div id="message-list">
+    <div class="loading" style="text-align:center;padding:40px;color:#999">加载中...</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+if (!localStorage.getItem("lm_token")) { location.href = "/login"; }
+
+async function loadMessages() {
+    var token = localStorage.getItem("lm_token");
+    var resp = await fetch("/api/v1/messages", {
+        headers: { "Authorization": "Bearer " + token }
+    });
+    var json = await resp.json();
+    var list = document.getElementById("message-list");
+    if (json.data && json.data.length) {
+        var html = '<table class="admin-table"><thead><tr><th>ID</th><th>内容</th><th>用户</th><th>节点</th><th>时间</th><th>操作</th></tr></thead><tbody>';
+        for (var i = 0; i < json.data.length; i++) {
+            var m = json.data[i];
+            html += "<tr><td>" + m.id + "</td><td>" + (m.content || "") + "</td><td>" + (m.username || "匿名") + "</td><td>" + (m.node_id || "-") +
+            '</td><td>' + (m.created_at || "-") +
+            '</td><td><button onclick="deleteMsg(' + m.id + ')" class="btn-danger" style="background:#e53935;color:white;border:none;padding:4px 12px;border-radius:3px;cursor:pointer">\u5220\u9664</button></td></tr>';
+        }
+        html += '</tbody></table>';
+        list.innerHTML = html;
+    } else {
+        list.innerHTML = '<p style="text-align:center;color:#95a5a6">暂无留言</p>';
+    }
+}
+
+async function deleteMsg(id) {
+    if (!confirm("确认删除留言 #" + id + "？")) return;
+    var token = localStorage.getItem("lm_token");
+    var resp = await fetch("/api/v1/messages/" + id, {
+        method: "DELETE",
+        headers: { "Authorization": "Bearer " + token }
+    });
+    var json = await resp.json();
+    if (json.code === 0) {
+        loadMessages();
+    } else {
+        alert("删除失败: " + (json.message || "未知错误"));
+    }
+}
+
+loadMessages();
+</script>
+{% endblock %}

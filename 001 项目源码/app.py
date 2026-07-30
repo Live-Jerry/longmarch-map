@@ -194,6 +194,16 @@ def _get_schema_sql():
     CREATE INDEX IF NOT EXISTS idx_media_node   ON media(node_id);
     CREATE INDEX IF NOT EXISTS idx_spark_status ON spark(status);
     CREATE INDEX IF NOT EXISTS idx_route_army   ON route_point(army);
+
+    -- 留言表
+    CREATE TABLE IF NOT EXISTS message (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        content     TEXT    NOT NULL,
+        user_name   TEXT    DEFAULT '',
+        user_id     TEXT    DEFAULT '',
+        node_id     TEXT    DEFAULT '',
+        created_at  TEXT    NOT NULL DEFAULT (datetime('now', 'localtime'))
+    );
     """
 
 
@@ -251,13 +261,15 @@ def _register_blueprints(app):
     from api.route_api  import route_bp
     from api.media_api  import media_bp
     from api.spark_api  import spark_bp
+    from api.message_api import message_bp
 
     # 所有 API 路由统一前缀 /api/v1
     app.register_blueprint(auth_bp,  url_prefix="/api/v1/auth")
     app.register_blueprint(node_bp,  url_prefix="/api/v1/nodes")
     app.register_blueprint(route_bp, url_prefix="/api/v1/routes")
     app.register_blueprint(media_bp, url_prefix="/api/v1/media")
-    app.register_blueprint(spark_bp, url_prefix="/api/v1/sparks")
+    app.register_blueprint(spark_bp,    url_prefix="/api/v1/sparks")
+    app.register_blueprint(message_bp, url_prefix="/api/v1/messages")
 
 
 # =============================================================================
@@ -307,6 +319,11 @@ def _register_page_routes(app):
     @app.route("/admin/sparks")
     def admin_sparks_page():
         return render_template("admin/sparks.html")
+
+    @app.route("/admin/messages")
+    def admin_messages_page():
+        return render_template("admin/messages.html")
+
 
     # 静态文件（生产环境由 Nginx 提供）
     @app.route("/static/<path:filename>")

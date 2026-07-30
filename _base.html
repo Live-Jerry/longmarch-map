@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}管理后台{% endblock %} -- 重走长征路</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="admin-layout">
+        <div class="admin-sidebar">
+            <h2>🚩 管理后台</h2>
+            <a href="/admin" class="admin-nav-item" data-page="index">📊 总览</a>
+            <a href="/admin/nodes" class="admin-nav-item" data-page="nodes">📍 节点管理</a>
+            <a href="/admin/users" class="admin-nav-item" data-page="users">👥 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item" data-page="sparks">✦ 星火审核</a>
+            <a href="/admin/messages" class="admin-nav-item" data-page="messages">💬 留言管理</a>
+            <a href="/" class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+        </div>
+
+        <div class="admin-main">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script>
+    // Active nav highlighting (from base.html)
+    var path = location.pathname;
+    document.querySelectorAll(".admin-nav-item").forEach(function(a) {
+        a.classList.toggle("active", a.getAttribute("href") === path);
+    });
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

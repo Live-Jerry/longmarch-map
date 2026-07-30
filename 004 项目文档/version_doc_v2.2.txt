@@ -1,0 +1,393 @@
+﻿閲嶈蛋闀垮緛璺?鈥?闀垮緛鏂囧寲鏁板瓧鍦板浘
+鐗堟湰绠＄悊鏂规
+鐗堟湰锛歏2.2
+鏃ユ湡锛?026骞?7鏈?2鏃?
+鐘舵€侊細姝ｅ紡鍙戝竷
+馃搵 V2.2 = V1.0楠ㄦ灦 + V2.0鍔″疄鏀瑰姩 + 鍘绘帀瓒呭墠鎵胯
+閲囩撼锛歮igrate.py銆侀獙鏀舵竻鍗曘€佹祴璇曡鐩栫巼璋冩暣銆佸啿绐佸鐞嗐€佸浜洪殧绂?
+绉婚櫎锛歅ostgreSQL杩佺Щ鎵胯銆丆I/CD YAML鍋囧疄鐜般€?3寮犺秺鐣岃〃鏍?
+鐩? 褰?
+涓€銆佹枃妗ｆ杩?
+浜屻€佺増鏈鐞嗘€诲垯
+涓夈€佸垎鏀瓥鐣ワ紙鍚啿绐佸鐞嗘祦绋嬶級
+鍥涖€佺幆澧冩灦鏋?
+浜斻€佺増鏈彿鍛藉悕瑙勮寖
+鍏€佹棩甯稿伐浣滄祦绋?
+涓冦€佹暟鎹簱鐗堟湰绠＄悊
+鍏€丆I/CD涓庤嚜鍔ㄥ寲閮ㄧ讲锛堟蹇甸樁娈碉級
+涔濄€佹祴璇曚笌璐ㄩ噺闂ㄧ
+鍗併€佸彂甯冩祦绋?
+鍗佷竴銆佸洖婊氱瓥鐣?
+鍗佷簩銆佽亴璐ｅ垎宸?
+鍗佷笁銆侀檮褰?
+涓€銆佹枃妗ｆ杩?
+鏈枃妗ｉ€傜敤浜庛€岄噸璧伴暱寰佽矾 鈥?闀垮緛鏂囧寲鏁板瓧鍦板浘銆峎eb 椤圭洰鐨勭増鏈鐞嗕笌閮ㄧ讲杩愮淮銆傞」鐩熀浜?Python Flask + Leaflet.js + SQLite 鏋舵瀯锛岄儴缃蹭簬浜戝钩鍙般€?
+鏍稿績鐩爣
+灏嗘祴璇曠増鏈笌鍙戝竷鐗堟湰瀹屽叏闅旂锛岄伩鍏嶅彉鏇寸洿鎺ュ奖鍝嶇嚎涓婄敤鎴枫€?
+鎵€鏈夊姛鑳藉紑鍙戙€丅ug 淇銆佹暟鎹洿鏂板繀椤诲厛缁忚繃娴嬭瘯鐜楠岃瘉锛岀‘璁ゆ棤璇悗鏂瑰彲鍚堝苟鑷冲彂甯冪増鏈€?
+寤虹珛鍙拷婧€佸彲鍥炴粴銆佸彲瀹¤鐨勭増鏈鐞嗘祦绋嬶紝淇濋殰椤圭洰闀挎湡杩唬鐨勭ǔ瀹氭€с€?
+鐗堟湰璇存槑
+V2.2 鐗堟湰鍦?V1.0 鍩虹涓婅繘琛屼簡鍔″疄浼樺寲锛屼富瑕佹敼杩涚偣锛?
+鏀硅繘椤?
+鏉ユ簮
+璇存槑
+migrate.py 杩佺Щ鑴氭湰瀹炵幇
+V2.0
+V1.0 鍙湁鐩綍缁撴瀯锛孷2.2 琛ヤ笂鍙墽琛屼唬鐮?
+娴嬭瘯瑕嗙洊鐜囪皟鏁?
+V2.0
+鍗曞厓 70%鈫?0%锛屾帴鍙?100%鈫?0%锛屾洿绗﹀悎椤圭洰瀹為檯
+鍒嗘敮鍛藉悕鍘绘棩鏈熷寲
+V2.0
+feature/鍔熻兘鍚?#issue鍙凤紝鍛藉悕鏇村共鍑€
+Hotfix/Release 鍐茬獊澶勭悊
+V2.0
+V1.0 鏈鐩栵紝V2.2 琛ュ叏 5 姝ユ祦绋?
+鍔熻兘楠屾敹妫€鏌ユ竻鍗?
+V2.0
+涓氬姟瑙嗚楠屾敹锛堝湴鍥惧姞杞?璇煶绛夛級锛孷1.0 缂哄け
+澶氬紑鍙戣€呮暟鎹簱闅旂
+V2.0
+dev_濮撳悕.db 绛栫暐锛孷1.0 鏈€冭檻
+PostgreSQL 杩佺Щ
+绉婚櫎
+瓒呭墠鎵胯锛屼唬鐮侀浂瀹炵幇锛岀Щ鑷抽檮褰?鏈潵瑙勫垝"
+CI/CD YAML 瀹屾暣鑴氭湰
+绉婚櫎
+铏氬亣绻佽崳锛屼粨搴撳皻鏈垱寤猴紝淇濈暀姒傚康娴佺▼
+13 寮犺秺鐣岃〃鏍?
+绉婚櫎
+璁捐鏂囨。鍐呭涓嶅簲鍑虹幇鍦ㄧ増鏈鐞嗘柟妗堜腑
+浜屻€佺増鏈鐞嗘€诲垯
+鐗堟湰绠＄悊閬靛惊浠ヤ笅鍩烘湰鍘熷垯锛?
+鍘熷垯
+璇存槑
+鐜闅旂鍘熷垯
+娴嬭瘯鐜涓庣敓浜х幆澧冧娇鐢ㄧ嫭绔嬬殑鏈嶅姟鍣ㄥ疄渚嬶紙鎴栧鍣級銆佺嫭绔嬬殑鏁版嵁搴撴枃浠跺強鐙珛鐨勫煙鍚?绔彛锛屼簰涓嶅共鎵般€?
+鍒嗘敮椹卞姩鍘熷垯
+鎵€鏈変唬鐮佸彉鏇村潎閫氳繃 Git 鍒嗘敮绠＄悊锛屼笉寰楃洿鎺ュ湪涓诲共鍒嗘敮涓婁慨鏀广€?
+娴嬭瘯鍓嶇疆鍘熷垯
+浠讳綍鍙樻洿蹇呴』閫氳繃娴嬭瘯鐜鐨勮嚜鍔ㄥ寲娴嬭瘯鍜屼汉宸ラ獙璇佸悗锛屾柟鍙繘鍏ュ彂甯冩祦绋嬨€?
+鍙樻洿鍙函鍘熷垯
+姣忎釜鐗堟湰鍧囨湁瀵瑰簲鐨勬爣绛撅紙Tag锛夊拰鍙戝竷璇存槑锛圧elease Notes锛夛紝鏀寔蹇€熷洖婧巻鍙茬姸鎬併€?
+鏁版嵁瀹夊叏鍘熷垯
+鏁版嵁搴撳彉鏇撮€氳繃杩佺Щ鑴氭湰鏉ユ墽琛岋紝鐢熶骇鏁版嵁搴撲笉鍏佽鐩存帴鎵嬪姩淇敼銆?
+涓夈€佸垎鏀瓥鐣ワ紙鍚啿绐佸鐞嗘祦绋嬶級
+鍩轰簬 Git Flow 妯″瀷锛岄€傞厤鏈」鐩崟鍥㈤槦銆佸崟涓诲共鐨勫疄闄呮儏鍐碉紝閲囩敤浠ヤ笅鍒嗘敮浣撶郴锛?
+鍒嗘敮鍚?
+鐢ㄩ€?
+鍛藉悕瑙勮寖
+main
+鍙戝竷鍒嗘敮锛堢敓浜э級
+浠呯敤浜庨儴缃插埌鐢熶骇鐜銆傜姝㈢洿鎺ユ彁浜や唬鐮佸埌姝ゅ垎鏀€?
+develop
+涓诲紑鍙戝垎鏀?
+鏃ュ父闆嗘垚鍒嗘敮銆傛祴璇曠幆澧冮儴缃叉鍒嗘敮浠ｇ爜銆?
+feature/*
+鍔熻兘寮€鍙戝垎鏀?
+feature/鍔熻兘鍚?#issue鍙凤紝浠?develop 鎷夊嚭
+fix/*
+Bug 淇鍒嗘敮
+fix/闂绠€杩?#issue鍙凤紝浠?develop 鎷夊嚭
+hotfix/*
+绱ф€ヤ慨澶嶅垎鏀?
+hotfix/闂绠€杩?#issue鍙凤紝浠?main 鎷夊嚭
+release/*
+鍙戝竷鍊欓€夊垎鏀?
+release/v鐗堟湰鍙凤紝浠?develop 鎷夊嚭
+Hotfix 鍚堝苟鍐茬獊澶勭悊娴佺▼锛圴2.2 鏂板锛?
+Step 1: hotfix 鍚堝苟鍒?main 鏃讹紝浣跨敤 --no-ff 淇濈暀鍚堝苟鍘嗗彶
+Step 2: 绔嬪嵆鍚堝苟 hotfix 鍒?develop锛屼娇鐢?git merge --no-commit 棰勫悎骞?
+Step 3: 鑻ユ湁鍐茬獊锛屽湪 develop 鍒嗘敮瑙ｅ喅锛岀‘淇濇祴璇曠幆澧冨彲楠岃瘉
+Step 4: 鎻愪氦鍚堝苟缁撴灉锛岃Е鍙?CI 鑷姩閮ㄧ讲娴嬭瘯鐜
+Step 5: 娴嬭瘯鐜楠岃瘉閫氳繃鍚庯紝鏍囪 hotfix 娴佺▼瀹屾垚
+Release 鍚堝苟鍐茬獊澶勭悊娴佺▼锛圴2.2 鏂板锛?
+Step 1: release 鍒嗘敮蹇呴』鏃犲啿绐佹墠鑳藉悎骞跺埌 main
+Step 2: 鑻ユ湁鍐茬獊锛屽湪 release 鍒嗘敮瑙ｅ喅锛堜笉鍦?main 瑙ｅ喅锛?
+Step 3: 鍐茬獊瑙ｅ喅鍚庯紝鏇存柊鐗堟湰鍙凤紝閲嶆柊杩涜鍏ㄩ潰鍥炲綊娴嬭瘯
+Step 4: 娴嬭瘯閫氳繃鍚庢墠鍏佽鍚堝苟鍒?main 骞舵墦 Tag
+鍥涖€佺幆澧冩灦鏋?
+椤圭洰缁存姢涓夊鐙珛鐜锛岄€氳繃鏈嶅姟鍣ㄥ疄渚嬨€佸煙鍚嶃€佹暟鎹簱鏂囦欢涓夋柟闈㈠畬鍏ㄩ殧绂伙細
+鐜
+璁块棶鍦板潃
+鏁版嵁搴?
+鐢ㄩ€?
+寮€鍙戠幆澧?(Development)
+localhost:5000
+鏈湴 SQLite(data/dev_濮撳悕.db)
+寮€鍙戣€呰嚜寤鸿嚜鐢紝浠ｇ爜缂栧啓涓庡崟鍏冩祴璇?
+娴嬭瘯鐜 (Staging)
+staging.czwh.cn
+浜戝钩鍙版祴璇?SQLite(data/staging.db)
+闆嗘垚娴嬭瘯銆侀獙鏀舵祴璇曘€佹€ц兘娴嬭瘯
+鐢熶骇鐜 (Production)
+www.czwh.cn
+浜戝钩鍙扮敓浜?SQLite(data/prod.db)
+姝ｅ紡瀵瑰鏈嶅姟锛屾渶缁堢敤鎴疯闂?
+鍏抽敭闅旂绛栫暐
+鏈嶅姟鍣ㄥ疄渚嬮殧绂伙細鐢熶骇鐜鍜屾祴璇曠幆澧冭繍琛屽湪鐙珛鐨勪簯鏈嶅姟鍣?瀹瑰櫒涓紝涓嶅叡鐢ㄨ繘绋嬨€?
+鏁版嵁搴撻殧绂伙細涓夊鐜鍚勮嚜浣跨敤鐙珛鐨?SQLite 鏁版嵁搴撴枃浠讹紝鐗╃悊涓婁簰涓嶅共鎵般€?
+鍩熷悕/绔彛闅旂锛氱敓浜у煙鍚嶇粦瀹氳瘉涔﹀拰 CDN锛屾祴璇曞煙鍚嶅彲鍔?HTTP Basic Auth 闄愬埗璁块棶銆?
+閰嶇疆闅旂锛氶€氳繃鐜鍙橀噺鎴栫嫭绔嬬殑 config 鏂囦欢鍖哄垎涓夊鐜鐨?FLASK_ENV銆丼ECRET_KEY銆佹暟鎹簱璺緞绛夊弬鏁般€?
+濯掍綋鏂囦欢闅旂锛氫笂浼犵殑鍥剧墖/闊抽鏂囦欢鍒嗗埆瀛樺偍鍦ㄤ笁涓嫭绔嬬殑鏂囦欢鐩綍涓嬨€?
+澶氬紑鍙戣€呮暟鎹簱闅旂绛栫暐锛圴2.2 鏂板锛?
+褰撳浜哄悓鏃跺紑鍙戞椂锛屼娇鐢ㄧ嫭绔嬬殑鏁版嵁搴撴枃浠堕伩鍏嶅啿绐侊細
+鍛藉悕瑙勮寖锛歞ata/dev/dev_寮犱笁.db銆乨ata/dev/dev_鏉庡洓.db
+鍚堝苟鍓嶅鍑猴細姣忔 PR 鍓嶏紝灏嗕釜浜烘祴璇曟暟鎹鍑轰负 SQL 鑴氭湰锛坉ata/seeds/寮犱笁_鍔熻兘娴嬭瘯.sql锛?
+寮€鍙戞暟鎹簱涓嶇撼鍏ョ増鏈帶鍒讹紙data/dev/*.db 鍔犲叆 .gitignore锛?
+seed 鏁版嵁鑴氭湰绾冲叆鐗堟湰鎺у埗锛屽叾浠栧紑鍙戣€呭彲澶嶇敤
+浜斻€佺増鏈彿鍛藉悕瑙勮寖
+閲囩敤璇箟鍖栫増鏈彿锛圫emVer锛夛細
+{涓荤増鏈瑌.{娆＄増鏈瑌.{淇鍙穧     渚嬪锛歷1.3.2
+鐗堟湰绫诲瀷
+鍙樻洿鏉′欢
+绀轰緥
+涓荤増鏈?
+閲嶅ぇ鏋舵瀯鍙樻洿銆佷笉鍏煎鐨?API 鏀瑰姩鎴栭噷绋嬬寮忓彂甯?
+v2.0.0
+娆＄増鏈?
+鏂板鍔熻兘銆佹柊澧炶妭鐐广€佹柊澧炶矾绾跨瓑鍚戜笅鍏煎鐨勬洿鏂?
+v1.3.0
+淇鍙?
+Bug 淇銆佺礌鏉愭浛鎹€佹枃妗堜慨姝ｇ瓑缁嗗井鍙樻洿
+v1.3.2
+Tag 鏍煎紡锛?
+v{涓荤増鏈瑌.{娆＄増鏈瑌.{淇鍙穧    渚嬪锛歡it tag v1.3.2
+鍏€佹棩甯稿伐浣滄祦绋?
+6.1 鍔熻兘寮€鍙戞祦绋?
+浠?develop 鍒嗘敮鎷夊彇鏈€鏂颁唬鐮侊紝鍒涘缓 feature 鍒嗘敮锛堝懡鍚嶏細feature/鍔熻兘鍚?#issue鍙凤級
+鍦?feature 鍒嗘敮涓婅繘琛屽紑鍙戯紝鏈湴娴嬭瘯
+鎺ㄩ€?feature 鍒嗘敮鍒拌繙绋嬩粨搴擄紝鍙戣捣 Pull Request锛圥R锛夊悎骞跺埌 develop
+PR 閫氳繃 Code Review 鍚庡悎骞跺埌 develop
+CI/CD 鑷姩閮ㄧ讲娴嬭瘯鐜锛坉evelop 鍒嗘敮锛?
+鍦ㄦ祴璇曠幆澧冧笂楠岃瘉鏂板姛鑳斤紝閫氱煡浜у搧/杩愯惀杩涜楠屾敹
+6.2 Bug 淇娴佺▼
+鍒涘缓 issue 骞惰幏鍙栫紪鍙凤紝浠?develop 鎷夊彇 fix 鍒嗘敮锛堝懡鍚嶏細fix/闂绠€杩?#issue鍙凤級
+淇 Bug锛屾湰鍦版祴璇?
+鎻愪氦 PR 鍚堝苟鍒?develop
+娴嬭瘯鐜楠岃瘉淇鏈夋晥
+鑻ユ棤闂锛屽悎骞跺埌 main 骞跺垱寤轰慨璁㈢増鏈彿 Tag
+6.3 鍙戝竷娴佺▼
+浠?develop 鍒嗘敮鎷夊嚭 release/vX.Y.Z 鍒嗘敮
+鍦?release 鍒嗘敮涓婁粎鍋氱増鏈彿淇敼銆佹枃妗ｆ洿鏂般€佹渶缁堟祴璇?
+纭繚鏃犲悎骞跺啿绐侊紝鑻ユ湁鍐茬獊鍦?release 鍒嗘敮瑙ｅ喅
+娴嬭瘯鐜閮ㄧ讲 release 鍒嗘敮杩涜鍏ㄩ潰鍥炲綊娴嬭瘯
+娴嬭瘯閫氳繃鍚庯紝鍚堝苟鍒?main 鍒嗘敮锛屾墦 Tag vX.Y.Z
+鍚堝苟 main 鍙樻洿鍥?develop锛屼繚鎸佸悓姝?
+鐢熶骇鐜閮ㄧ讲 main 鍒嗘敮 Tag vX.Y.Z
+6.4 绱ф€ヤ慨澶嶆祦绋嬶紙Hotfix锛?
+浠?main 鍒嗘敮鎷夊嚭 hotfix/闂绠€杩?#issue鍙?
+淇闂锛屾湰鍦伴獙璇?
+鍚堝苟鍒?main 骞舵墦閫掑鐨勪慨璁㈢増鏈彿 Tag
+鐢熶骇鐜閮ㄧ讲 hotfix Tag
+鍚屾椂灏?hotfix 鍙樻洿鍚堝苟鍥?develop锛堥鍚堝苟锛屾鏌ュ啿绐侊級
+鑻ユ湁鍐茬獊锛屽湪 develop 鍒嗘敮瑙ｅ喅骞堕獙璇?
+涓冦€佹暟鎹簱鐗堟湰绠＄悊
+7.1 杩佺Щ鑴氭湰浣撶郴锛圴2.2 鏍稿績鏀硅繘锛?
+鎵€鏈夋暟鎹簱缁撴瀯鍙樻洿锛堝缓琛ㄣ€佸姞瀛楁銆佹敼绱㈠紩绛夛級蹇呴』閫氳繃杩佺Щ鑴氭湰鎵ц锛?
+鐩綍/鏂囦欢
+璇存槑
+data/migrations/001_create_*.sql
+寤鸿〃璇彞锛屾寜搴忓彿閫掑
+data/migrations/002_add_*_field.sql
+瀛楁鍙樻洿鑴氭湰
+data/migrations/migrate.py
+杩佺Щ鎵ц鍏ュ彛锛圴2.2 瀹炵幇鐗堟湰锛?
+data/seeds/*.sql
+娴嬭瘯鏁版嵁 seed 鑴氭湰锛屽彲澶嶇敤鐨勬祴璇曟暟鎹?
+migrate.py 鏍稿績瀹炵幇锛圴2.2 鏂板锛?
+#!/usr/bin/env python3# -*- coding: utf-8 -*-"""鏁版嵁搴撹縼绉绘墽琛屽櫒 - V2.2"""import osimport sqlite3import refrom datetime import datetimeclass MigrationManager:    def __init__(self, db_path, migrations_dir):        self.db_path = db_path        self.migrations_dir = migrations_dir        self._init_version_table()        def _init_version_table(self):        """鍒濆鍖栫増鏈褰曡〃"""        conn = sqlite3.connect(self.db_path)        conn.execute("""            CREATE TABLE IF NOT EXISTS schema_version (                version INTEGER PRIMARY KEY,                applied_at TEXT,                description TEXT            )        """)        conn.commit()        conn.close()        def get_current_version(self):        """鑾峰彇褰撳墠鏁版嵁搴撶増鏈?""        conn = sqlite3.connect(self.db_path)        cursor = conn.execute("SELECT MAX(version) FROM schema_version")        result = cursor.fetchone()[0]        conn.close()        return result or 0        def run_pending(self):        """鎵ц鎵€鏈夋湭搴旂敤鐨勮縼绉?""        current = self.get_current_version()        migrations = sorted([            f for f in os.listdir(self.migrations_dir)            if f.endswith('.sql')        ])                for migration in migrations:            version_match = re.match(r'^(\d+)', migration)            if not version_match:                continue            version = int(version_match.group(1))            if version > current:                self._apply_migration(migration, version)        def _apply_migration(self, filename, version):        """搴旂敤鍗曚釜杩佺Щ"""        filepath = os.path.join(self.migrations_dir, filename)        with open(filepath, 'r', encoding='utf-8') as f:            sql = f.read()                conn = sqlite3.connect(self.db_path)        try:            conn.executescript(sql)            conn.execute(                "INSERT INTO schema_version (version, applied_at, description) VALUES (?, ?, ?)",                (version, datetime.now().isoformat(), filename)            )            conn.commit()            print(f"鉁?Applied: {filename}")        except Exception as e:            conn.rollback()            print(f"鉂?Failed: {filename} - {e}")            raise        finally:            conn.close()if __name__ == '__main__':    import sys    db_path = sys.argv[1] if len(sys.argv) > 1 else 'data/app.db'    migrations_dir = 'data/migrations'    manager = MigrationManager(db_path, migrations_dir)    print(f"Current version: {manager.get_current_version()}")    manager.run_pending()    print(f"New version: {manager.get_current_version()}")
+7.2 鏁版嵁鍐呭绠＄悊
+灏忚寖鍥翠慨姝ｏ紙濡傛洿鏂拌妭鐐规弿杩般€佽皟鏁村潗鏍囷級锛氶€氳繃绠＄悊鍚庡彴鐣岄潰鎴?API 鐩存帴鎿嶄綔銆傛搷浣滃悗闇€鍦ㄦ祴璇曠幆澧冮獙璇佸啀鍚屾鍒扮敓浜с€?
+鎵归噺鏁版嵁瀵煎叆锛氶€氳繃 JSON/CSV 瀵煎叆鑴氭湰锛岃剼鏈湰韬撼鍏ョ増鏈鐞嗐€傚鍏ュ墠鍦ㄦ祴璇曠幆澧冩墽琛屽苟楠岃瘉銆?
+鏁版嵁瀵煎嚭锛氭瘡娆￠噸澶ф暟鎹洿鏂板墠锛屽鐢熶骇鐜鏁版嵁搴撴墽琛屽浠藉鍑猴紙.db 鏂囦欢鎷疯礉锛夈€?
+7.3 鏁版嵁搴撳浠界瓥鐣?
+澶囦唤绫诲瀷
+鍐呭
+棰戠巼
+瀛樺偍
+鍏ㄩ噺澶囦唤
+鐢熶骇鏁版嵁搴?.db 鏂囦欢
+姣忔鍙戝竷鍓?
+鏈湴 + 浜戝瓨鍌ㄥ弻浠?
+澧為噺澶囦唤
+杩佺Щ鑴氭湰
+闅忎唬鐮佹彁浜?
+Git 浠撳簱
+褰掓。澶囦唤
+姣忓懆瀹屾暣 .db + 濯掍綋鏂囦欢
+姣忓懆鏃?03:00
+浜戝瓨鍌紝淇濈暀 4 鍛?
+鍏€丆I/CD 涓庤嚜鍔ㄥ寲閮ㄧ讲锛堟蹇甸樁娈碉級
+鈿狅笍 娉ㄦ剰锛氭湰绔犺妭鎻忚堪 CI/CD 姒傚康娴佺▼锛孏itHub Actions YAML 鑴氭湰寰呬粨搴撳垱寤哄悗琛ュ厖瀹炵幇銆?
+8.1 娴佹按绾块樁娈垫蹇?
+闃舵
+瑙﹀彂鏉′欢
+鎵ц鍐呭
+鎻愪氦妫€鏌?
+Push / PR
+浠ｇ爜椋庢牸妫€鏌ワ紙Flake8锛夈€佸畨鍏ㄦ鏌ワ紙Bandit锛夈€佸崟鍏冩祴璇曪紙pytest锛?
+鏋勫缓
+Push to develop
+瀹夎渚濊禆銆佹暟鎹簱杩佺Щ銆侀潤鎬佽祫婧愭瀯寤?
+娴嬭瘯閮ㄧ讲
+Push to develop
+鑷姩閮ㄧ讲鍒版祴璇曠幆澧冿紝杩愯鍐掔儫娴嬭瘯
+鍙戝竷鏋勫缓
+Create Tag v*
+鏋勫缓鏈€缁堜骇鐗╋紝鐢熸垚 Release Notes
+鐢熶骇閮ㄧ讲
+Manual Trigger
+鎵嬪姩瑙﹀彂锛屽皢 Tag 瀵瑰簲鐗堟湰閮ㄧ讲鍒扮敓浜х幆澧?
+8.2 閮ㄧ讲鑴氭湰缁撴瀯锛堝緟瀹炵幇锛?
+鐩綍/鏂囦欢
+璇存槑
+鐘舵€?
+deploy/deploy_staging.sh
+娴嬭瘯鐜閮ㄧ讲鑴氭湰
+寰呭垱寤?
+deploy/deploy_production.sh
+鐢熶骇鐜閮ㄧ讲鑴氭湰
+寰呭垱寤?
+deploy/rollback.sh
+鍥炴粴鑴氭湰
+寰呭垱寤?
+deploy/config/staging.env
+娴嬭瘯鐜閰嶇疆
+寰呭垱寤?
+deploy/config/production.env
+鐢熶骇鐜閰嶇疆
+寰呭垱寤?
+璇存槑锛氶儴缃茶剼鏈皢鍦ㄤ粨搴撳垱寤哄悗琛ュ叏锛屽綋鍓嶉樁娈典繚鎸佹墜鍔ㄩ儴缃叉祦绋嬨€?
+涔濄€佹祴璇曚笌璐ㄩ噺闂ㄧ
+9.1 娴嬭瘯灞傜骇涓庤鐩栫巼瑕佹眰锛圴2.2 璋冩暣锛?
+娴嬭瘯灞傜骇
+瑕嗙洊鐜囪姹?
+璇存槑
+鍗曞厓娴嬭瘯 (pytest)
+鈮?50%
+V2.2 璋冩暣锛氳妭鐐瑰睍绀虹被椤圭洰浠?UI 涓轰富锛岄檷浣庤鐩栫巼瑕佹眰
+鎺ュ彛娴嬭瘯 (API)
+鈮?80%
+V2.2 璋冩暣锛氭牳蹇?API 蹇呴』瑕嗙洊锛屼絾 100% 瀵瑰崟浜哄洟闃熶笉鐜板疄
+鍔熻兘楠屾敹娴嬭瘯锛堜汉宸ワ級
+涓嶉€傜敤
+涓氬姟鍔熻兘灞傞潰楠屾敹锛岃涓嬫柟妫€鏌ユ竻鍗?
+鍥炲綊娴嬭瘯锛堜汉宸?鑷姩鍖栵級
+涓嶉€傜敤
+鍙戝竷鍓嶅叏闈㈤獙璇?
+9.2 鍔熻兘楠屾敹妫€鏌ユ竻鍗曪紙V2.2 鏂板锛?
+浠ヤ笅娓呭崟鐢变骇鍝?杩愯惀浜哄憳鍦ㄦ祴璇曠幆澧冨畬鎴愰獙鏀讹細
+鈽?棣栭〉鍦板浘姝ｅ父鍔犺浇锛屾棤 JS 鎶ラ敊
+鈽?鎵€鏈夎妭鐐规爣璁版樉绀猴紙29涓妭鐐癸級锛屼綅缃噯纭?
+鈽?鐐瑰嚮鑺傜偣鏄剧ず璇︽儏闈㈡澘锛屽唴瀹瑰畬鏁?
+鈽?璇煶鎾姤鍔熻兘姝ｅ父锛堟祻瑙堝櫒 TTS锛?
+鈽?鑷姩婕父鍔熻兘姝ｅ父锛堝凡瀹炵幇鍔熻兘锛?
+鈽?鐣欒█鏉垮姛鑳芥甯革紝鏁版嵁鍙繚瀛?
+鈽?绉诲姩绔€傞厤姝ｅ父
+鈽?搴曞浘鍒囨崲鍔熻兘姝ｅ父
+鈽?鎼滅储鍔熻兘姝ｅ父
+鈽?鏁版嵁鏇存柊鍚庨〉闈㈠埛鏂版甯?
+9.3 璐ㄩ噺闂ㄧ锛圦uality Gates锛?
+浠ヤ笅鏉′欢蹇呴』鍏ㄩ儴婊¤冻锛屾柟鍙繘琛岀敓浜у彂甯冿細
+鈻?鎵€鏈夊崟鍏冩祴璇曢€氳繃锛屼笖 pytest 瑕嗙洊鐜囦笉浣庝簬 50%銆?
+鈻?娴嬭瘯鐜宸查儴缃插綋鍓嶅€欓€夌増鏈紝涓斾汉宸ラ獙鏀朵汉鍛樺凡鍦ㄦ祴璇曠幆澧冨畬鎴愬叏鍔熻兘楠屾敹銆?
+鈻?鑷笂涓€涓彂甯冪増鏈互鏉ワ紝涓嶅瓨鍦ㄦ湭鍏抽棴鐨勪弗閲嶏紙Severity 鈮?1锛塀ug銆?
+鈻?鏁版嵁搴撹縼绉昏剼鏈湪娴嬭瘯鐜宸查獙璇佹墽琛屾垚鍔熴€?
+鈻?宸茬敓鎴?Release Notes 骞朵笌鐗堟湰 Tag 瀵瑰簲銆?
+鍗併€佸彂甯冩祦绋?
+姣忔鐢熶骇鍙戝竷蹇呴』鎸変互涓嬫竻鍗曢€愰」鎵ц锛?
+鈻?纭 main 鍒嗘敮宸插寘鍚湰娆″彂甯冪殑鎵€鏈夊彉鏇达紙妫€鏌?git log锛?
+鈻?鍦ㄦ祴璇曠幆澧冨畬鎴愬叏鍔熻兘鍥炲綊娴嬭瘯骞舵埅鍥剧暀璇?
+鈻?鑾峰彇鐢熶骇鏁版嵁搴撳叏閲忓浠斤紙cp prod.db prod.db.bak.vX.Y.Z锛?
+鈻?鎵ц鐢熶骇鐜閮ㄧ讲锛氫粠 main 鍒嗘敮鎷夊彇浠ｇ爜锛屽畨瑁呬緷璧栵紝杩愯鏁版嵁搴撹縼绉?
+鈻?鎵ц鍐掔儫娴嬭瘯锛氳闂椤点€佸姞杞借妭鐐广€佸垏鎹㈠簳鍥俱€佸皾璇曟悳绱?
+鈻?瑙傚療鐢熶骇鏃ュ織 10-15 鍒嗛挓锛岀‘璁ゆ棤寮傚父閿欒
+鈻?鍦?Release 椤甸潰鍙戝竷 Release Notes
+鈻?閫氱煡鐩稿叧鏂瑰彂甯冨畬鎴?
+鍗佷竴銆佸洖婊氱瓥鐣?
+11.1 浠ｇ爜鍥炴粴
+Git 鍥炴粴浼樺厛閫?Tag锛岀‘淇濈簿纭仮澶嶏細git checkout v1.2.1
+鑻ユ棤 Tag锛屽洖婊氬埌涓婁竴娆″凡鐭ョǔ瀹氱殑 commit
+鐢熶骇鍥炴粴鍚庡繀椤荤珛鍗宠Е鍙戞祴璇曠幆澧冮獙璇?
+11.2 鏁版嵁搴撳洖婊?
+缁撴瀯鍙樻洿锛堣〃/瀛楁锛夛細鎵ц杩佺Щ鑴氭湰鐨?down 鎿嶄綔
+鏁版嵁鍐呭锛氭仮澶嶉儴缃插墠鐨勫浠芥枃浠讹紙prod.db.bak锛?
+濯掍綋鏂囦欢锛氫粠澶囦唤鐩綍澶嶅埗鎭㈠
+11.3 绱ф€ヨ仈绯讳汉 & 澶勭疆鏃堕檺
+绾у埆
+鎻忚堪
+澶勭疆鏃堕檺
+澶勭悊鏂瑰紡
+Severity 1
+鏈嶅姟涓嶅彲鐢?
+30 鍒嗛挓鍐?
+绔嬪嵆閫氱煡鎶€鏈礋璐ｄ汉锛屽惎鍔ㄥ洖婊?
+Severity 2
+鏍稿績鍔熻兘鍙楁崯
+1 灏忔椂鍐?
+鍚姩鍥炴粴鎴栧彂甯?Hotfix
+Severity 3
+闈炴牳蹇冮棶棰?
+涓嶈闄?
+璁板綍 Issue锛屼笅娆¤凯浠ｄ慨澶?
+鍗佷簩銆佽亴璐ｅ垎宸?
+瑙掕壊
+鑱岃矗
+鎶€鏈礋璐ｄ汉
+瀹℃壒鍙戝竷銆佺鐞嗗悎骞舵潈闄愩€佸埗瀹氱増鏈鍒掋€佸鐞嗙揣鎬ヤ簨鏁?
+寮€鍙戣€?
+鍔熻兘寮€鍙戙€丅ug 淇銆佺紪鍐欐祴璇曘€丆ode Review銆佺淮鎶よ縼绉昏剼鏈?
+娴嬭瘯浜哄憳
+娴嬭瘯鐜鍔熻兘楠屾敹銆佸洖褰掓祴璇曘€丅ug 鎻愪氦涓庡洖褰掗獙璇?
+杩愮淮浜哄憳
+鐜鎼缓銆丆I/CD 閰嶇疆銆侀儴缃叉墽琛屻€佸浠界鐞嗐€佺洃鎺у憡璀?
+浜у搧/杩愯惀
+纭鍙戝竷鍐呭銆佹彁渚涙祴璇曢獙璇佸弽棣堛€佹墽琛屽姛鑳介獙鏀舵鏌ユ竻鍗?
+鍗佷笁銆侀檮褰?
+A. 甯哥敤鍛戒护蹇€熷弬鑰?
+# 鍒涘缓鍔熻兘鍒嗘敮git checkout developgit pullgit checkout -b feature/璺嚎涓婅壊鍔熻兘-#123# 鍒涘缓 Bug 淇鍒嗘敮git checkout -b fix/淇鍦板浘鍔犺浇bug-#124# 鍒涘缓 Hotfixgit checkout maingit pullgit checkout -b hotfix/绱ф€ョ櫥褰昩ug淇-#125# 鍒涘缓鍙戝竷鍊欓€夊垎鏀痝it checkout developgit checkout -b release/v1.1.0# 鎵?Taggit tag -a v1.1.0 -m "鍙戝竷 v1.1.0锛氭柊澧炲洓娓¤丹姘村姩鐢?git push origin v1.1.0# 娴嬭瘯鐜閮ㄧ讲bash deploy/deploy_staging.sh# 鐢熶骇鐜閮ㄧ讲bash deploy/deploy_production.sh# 鏁版嵁搴撳浠絚p data/prod.db data/backups/prod.db.bak.$(date +%Y%m%d)# 杩愯鏁版嵁搴撹縼绉籶ython data/migrations/migrate.py data/prod.db# 瀵煎嚭涓汉娴嬭瘯鏁版嵁锛堝悎骞?PR 鍓嶏級sqlite3 data/dev/dev_寮犱笁.db .dump > data/seeds/寮犱笁_鍔熻兘娴嬭瘯.sql
+B. 椤圭洰鎶€鏈爤
+缁勪欢
+鎶€鏈€夊瀷
+鍚庣妗嗘灦
+Python Flask
+鍓嶇鍦板浘
+Leaflet.js + ArcGIS/OSM 搴曞浘
+鏁版嵁搴?
+SQLite锛堝紑鍙戯細澶氭枃浠讹紝鐢熶骇锛氬崟鏂囦欢锛?
+TTS
+Web Speech API锛堟祻瑙堝櫒鍘熺敓锛?
+閮ㄧ讲骞冲彴
+闃块噷浜?ECS锛堝緟纭锛?
+Web 鏈嶅姟鍣?
+gunicorn + Nginx 鍙嶅悜浠ｇ悊
+CI/CD
+GitHub Actions锛堜粨搴撳垱寤哄悗瀹炵幇锛?
+浠ｇ爜鎵樼
+GitHub锛堝緟纭锛?
+C. 鏈潵瑙勫垝锛堝緟瀹炵幇锛?
+鈥?PostgreSQL 鏁版嵁搴撳崌绾э細褰撻」鐩苟鍙戠敤鎴烽噺瓒呰繃 SQLite 鎵胯浇鑳藉姏鏃讹紝杩佺Щ鍒?PostgreSQL銆傞渶瑕侊細SQLAlchemy ORM 閲嶆瀯銆乸sycopg2 椹卞姩銆佽繛鎺ユ睜閰嶇疆銆丳ostGIS 鎵╁睍銆傚綋鍓?SQLite 瀹屽叏婊¤冻闇€姹傘€?
+鈥?GitHub Actions CI/CD锛氫粨搴撳垱寤哄悗琛ュ厖 ci.yml銆乨eploy.yml銆乺ollback.yml銆傚綋鍓嶄繚鎸佹墜鍔ㄩ儴缃叉祦绋嬨€?
+鈥?Issue 绠＄悊宸ュ叿锛欽IRA/TAPD/Plane 绛夐」鐩鐞嗗伐鍏凤紝涓哄垎鏀懡鍚嶆彁渚涚湡瀹?issue 鍙锋敮鎾戙€?
+D. 鐗堟湰鍘嗗彶璁板綍
+鐗堟湰鍙?
+鍙戝竷鏃ユ湡
+鍙樻洿璇存槑
+璐熻矗浜?
+v1.0.0
+2026-07-01
+鍒濆鐗堟湰閮ㄧ讲
+鎶€鏈礋璐ｄ汉
+v1.1.0
+2026-07-15
+鏂板鑷姩婕父鍔熻兘
+寮€鍙戝洟闃?
+v2.0
+2026-07-22
+鐗堟湰绠＄悊鏂规鍒濈锛堣繃搴︽壙璇猴級
+鎶€鏈礋璐ｄ汉
+v2.2
+2026-07-22
+鐗堟湰绠＄悊鏂规 V2.2锛堝姟瀹炰紭鍖栫増锛?
+鎶€鏈礋璐ｄ汉

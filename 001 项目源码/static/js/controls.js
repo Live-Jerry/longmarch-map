@@ -337,8 +337,8 @@ async function startAutowalk() {
         return;
     }
 
-    // 提取全部路线点（用于平滑移动）
-    const routePts = pathData.segments.map(s => ({ lat: s.lat, lng: s.lng }));
+    // 提取全部路线点（用于平滑移动），保留标题用于状态栏显示
+    const routePts = pathData.segments.map(s => ({ lat: s.lat, lng: s.lng, title: s.title || "" }));
 
     // 初始化状态
     autowalkState = {
@@ -422,7 +422,7 @@ function animateMovement(segPts, ptIdx) {
     // 更新进度
     const totalPts = segPts.length;
     const progress = ((ptIdx + 1) / totalPts);
-    updateAutowalkProgress(state.nodeIdx, state.nodes.length, progress);
+    updateAutowalkProgress(state.nodeIdx, state.nodes.length, progress, target.title);
 
     // 跟随地图
     map.instance.panTo([target.lat, target.lng], { animate: false });
@@ -825,19 +825,25 @@ function showAutowalkStatus(totalNodes) {
 /**
  * @function updateAutowalkProgress
  * @brief 更新自动漫游进度
- * @param {number} nodeIdx  当前到达的节点索引
- * @param {number} total    总节点数
- * @param {number} progress 段内进度 0~1
+ * @param {number} nodeIdx     当前到达的节点索引
+ * @param {number} total       总节点数
+ * @param {number} progress    段内进度 0~1
+ * @param {string} pointTitle  当前路线点名称（如中间点名或节点名）
  */
-function updateAutowalkProgress(nodeIdx, total, progress) {
+function updateAutowalkProgress(nodeIdx, total, progress, pointTitle) {
     const el = document.getElementById("autowalk-status");
     if (!el) return;
     // 整体进度 = (当前节点索引 + 段内进度) / 总节点数
     const pct = ((nodeIdx + progress) / Math.max(total - 1, 1)) * 100;
     el.querySelector(".progress-bar").style.width = `${Math.min(pct, 100)}%`;
     el.querySelector(".segment-info").textContent = `${nodeIdx + 1} / ${total}`;
-    const node = autowalkState.nodes[nodeIdx];
-    el.querySelector(".current-title").textContent = node ? node.title : "";
+    // 优先显示传入的路线点名称，否则回退到节点标题
+    if (pointTitle) {
+        el.querySelector(".current-title").textContent = pointTitle;
+    } else {
+        const node = autowalkState.nodes[nodeIdx];
+        el.querySelector(".current-title").textContent = node ? node.title : "";
+    }
 }
 
 /**

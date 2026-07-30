@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %}
+{% block title %}管理后台{% endblock %}
+{% block content %}
+<h1>数据总览</h1>
+
+            <div class="admin-stats" id="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-nodes">—</div>
+                    <div class="stat-label">长征节点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-users">—</div>
+                    <div class="stat-label">注册用户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-sparks-pending">—</div>
+                    <div class="stat-label">待审核星火</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-sparks-total">—</div>
+                    <div class="stat-label">星火总数</div>
+                </div>
+            </div>
+
+            <h1 style="margin-top:32px">最近提交的星火</h1>
+            <table class="admin-table" id="recent-sparks">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>标题</th>
+                        <th>节点</th>
+                        <th>提交人</th>
+                        <th>状态</th>
+                        <th>时间</th>
+                    </tr>
+                </thead>
+                <tbody id="sparks-tbody">
+                    <tr><td colspan="6" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+<script>
+{% endblock %}

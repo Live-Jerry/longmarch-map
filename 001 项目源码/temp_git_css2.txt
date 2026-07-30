@@ -1,0 +1,8 @@
+﻿git : fatal: path '001 椤圭洰婧愮爜/static/css/style.css' exists, but not 'static/css/style.css'
+所在位置 行:2 字符: 1
++ git show HEAD:static/css/style.css 2>&1 | out-file -encoding utf8 tem ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: path '00.../css/style.css':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+hint: Did you mean 'HEAD:001 椤圭洰婧愮爜/static/css/style.css' aka 'HEAD:./static/css/style.css'?

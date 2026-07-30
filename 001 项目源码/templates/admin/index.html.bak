@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 — 重走长征路</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- 侧边栏 -->
+        <div class="admin-sidebar">
+            <h2>🚩 管理后台</h2>
+            <a href="/admin" class="admin-nav-item active">📊 总览</a>
+            <a href="/admin/nodes" class="admin-nav-item">📍 节点管理</a>
+            <a href="/admin/users" class="admin-nav-item">👥 用户管理</a>
+            <a href="/admin/sparks" class="admin-nav-item">✦ 星火审核</a>
+            <a href="/" class="admin-nav-item" style="margin-top:20px">← 返回地图</a>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="admin-main">
+            <h1>数据总览</h1>
+
+            <div class="admin-stats" id="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-nodes">—</div>
+                    <div class="stat-label">长征节点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-users">—</div>
+                    <div class="stat-label">注册用户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-sparks-pending">—</div>
+                    <div class="stat-label">待审核星火</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-sparks-total">—</div>
+                    <div class="stat-label">星火总数</div>
+                </div>
+            </div>
+
+            <h1 style="margin-top:32px">最近提交的星火</h1>
+            <table class="admin-table" id="recent-sparks">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>标题</th>
+                        <th>节点</th>
+                        <th>提交人</th>
+                        <th>状态</th>
+                        <th>时间</th>
+                    </tr>
+                </thead>
+                <tbody id="sparks-tbody">
+                    <tr><td colspan="6" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    async function loadStats() {
+        const token = localStorage.getItem("lm_token");
+        if (!token) { location.href = "/login"; return; }
+
+        const headers = { "Authorization": `Bearer ${token}` };
+
+        // 获取节点数
+        try {
+            const r = await fetch("/api/v1/nodes?per_page=1", { headers });
+            const j = await r.json();
+            document.getElementById("stat-nodes").textContent = j.data?.total || 0;
+        } catch(e) {}
+
+        // 获取星火统计
+        try {
+            const r = await fetch("/api/v1/sparks/stats", { headers });
+            const j = await r.json();
+            if (j.data) {
+                document.getElementById("stat-sparks-pending").textContent = j.data.pending || 0;
+                document.getElementById("stat-sparks-total").textContent = j.data.total || 0;
+            }
+        } catch(e) {}
+
+        // 获取待审核星火列表
+        try {
+            const r = await fetch("/api/v1/sparks/pending", { headers });
+            const j = await r.json();
+            const tbody = document.getElementById("sparks-tbody");
+            if (j.data && j.data.length) {
+                tbody.innerHTML = j.data.slice(0, 5).map(s => `
+                    <tr>
+                        <td>${s.id}</td>
+                        <td>${s.title}</td>
+                        <td>${s.node_id || "—"}</td>
+                        <td>${s.username || "—"}</td>
+                        <td><span class="badge badge-${s.status}">${s.status}</span></td>
+                        <td>${s.created_at ? s.created_at.slice(0, 10) : "—"}</td>
+                    </tr>
+                `).join("");
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#95a5a6">暂无待审核内容</td></tr>';
+            }
+        } catch(e) {}
+    }
+
+    // 导航高亮
+    const path = location.pathname;
+    document.querySelectorAll(".admin-nav-item").forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === path);
+    });
+
+    loadStats();
+    </script>
+</body>
+</html>

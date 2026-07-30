@@ -215,6 +215,73 @@ function readCurrentContent() {
 /** @type {SpeechSynthesisUtterance|null} 当前朗读实例 */
 let currentUtterance = null;
 
+/** @type {SpeechSynthesisVoice[]} 缓存的语音列表 */
+let cachedVoices = [];
+
+/** @type {boolean} 语音列表是否已加载完成 */
+let voicesReady = false;
+
+/** @type {boolean} 是否已对 Chrome 语音引擎做初始化 */
+let speechEnginePrimed = false;
+
+/**
+ * @function initVoices
+ * @brief 预加载语音列表（解决 Chrome 首次 getVoices() 返回空的问题）
+ * @details 在页面加载时调用，触发语音异步加载并监听 voiceschanged 事件。
+ *          首次调用 getVoices() 触发后台加载，加载完成后通过 voiceschanged
+ *          拿到完整列表。同时做 Chrome 语音引擎初始化。
+ */
+function initVoices() {
+    if (!("speechSynthesis" in window)) return;
+
+    // 触发异步加载
+    cachedVoices = window.speechSynthesis.getVoices();
+    if (cachedVoices.length > 0) {
+        voicesReady = true;
+        primeSpeechEngine();
+    }
+
+    // 监听语音加载完成事件
+    window.speechSynthesis.onvoiceschanged = function() {
+        cachedVoices = window.speechSynthesis.getVoices();
+        voicesReady = true;
+        primeSpeechEngine();
+    };
+}
+
+/**
+ * @function primeSpeechEngine
+ * @brief Chrome 语音引擎初始化
+ * @details Chrome 有一个已知 bug（crbug.com/435233）：首次 speak()
+ *          调用有时不发音。在页面加载后先生成一个极低音量的哑发言
+ *          来初始化语音引擎。
+ */
+function primeSpeechEngine() {
+    if (speechEnginePrimed) return;
+    if (!("speechSynthesis" in window)) return;
+    try {
+        const dummy = new SpeechSynthesisUtterance("");
+        dummy.volume = 0.01;
+        dummy.rate = 1.0;
+        dummy.lang = "zh-CN";
+        window.speechSynthesis.speak(dummy);
+        speechEnginePrimed = true;
+    } catch (e) {
+        // 静默失败
+    }
+}
+
+/**
+ * @function getChineseVoice
+ * @brief 获取第一个可用的中文语音
+ * @returns {SpeechSynthesisVoice|null} 找到的中文语音，未找到返回 null
+ */
+function getChineseVoice() {
+    const list = voicesReady ? cachedVoices : window.speechSynthesis.getVoices();
+    return list.find(function(v) { return v.lang.startsWith("zh-CN"); })
+        || list.find(function(v) { return v.lang.startsWith("zh"); });
+}
+
 /**
  * @function speakText
  * @brief 使用 Web Speech API 朗读文本
@@ -226,15 +293,38 @@ function speakText(text) {
         return;
     }
     stopSpeech();
-    const utter      = new SpeechSynthesisUtterance(text);
-    utter.lang       = "zh-CN";
-    utter.rate       = 0.9;
-    utter.pitch      = 1.0;
-    utter.volume     = 1.0;
-    const voices = window.speechSynthesis.getVoices();
-    const zhVoice = voices.find(v => v.lang.includes("zh") && v.lang.includes("CN"))
-                 || voices.find(v => v.lang.includes("zh"));
+
+    // 如果语音还没加载好，尝试触发一次并立即返回
+    // 即使没有特定语音，设置 lang=zh-CN 浏览器也会用默认中文语音
+    if (!voicesReady) {
+        // 再试一次直接获取
+        const immediate = window.speechSynthesis.getVoices();
+        if (immediate.length > 0) {
+            cachedVoices = immediate;
+            voicesReady = true;
+            primeSpeechEngine();
+        } else {
+            // 语音尚未加载，但先让浏览器用默认语音开始朗读
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = "zh-CN";
+            utter.rate = 0.9;
+            utter.pitch = 1.0;
+            utter.volume = 1.0;
+            currentUtterance = utter;
+            window.speechSynthesis.speak(utter);
+            return;
+        }
+    }
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "zh-CN";
+    utter.rate = 0.9;
+    utter.pitch = 1.0;
+    utter.volume = 1.0;
+
+    const zhVoice = getChineseVoice();
     if (zhVoice) utter.voice = zhVoice;
+
     currentUtterance = utter;
     window.speechSynthesis.speak(utter);
 }
@@ -347,10 +437,18 @@ function hideMessageBoard() {
     if (mb) mb.classList.remove("visible");
 }
 
+// 在页面加载时初始化语音系统
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initVoices);
+} else {
+    initVoices();
+}
+
 // 导出
 window.showNodePanel   = showNodePanel;
 window.closeNodePanel  = closeNodePanel;
 window.readCurrentContent = readCurrentContent;
+window.speakText       = speakText;
 window.stopSpeech      = stopSpeech;
 window.openSparkForm   = openSparkForm;
 window.submitSpark     = submitSpark;

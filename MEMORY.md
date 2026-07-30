@@ -141,16 +141,41 @@ D:\长征文化\
 
 ## 部署详情
 
-- 服务器: root@8.133.203.255（主机名 iZuf61gpktwo4kt3xf09pzZ 仅内网可用，公网连接用 IP）
+### 服务器
+- 地址: root@8.133.203.255
 - SSH 密钥: longmarch_ecs
-- 项目路径: /opt/longmarch-map/
-- Python 虚拟环境: /opt/longmarch-map/venv/
-- WSGI 服务: gunicorn (wsgi:app) via deploy.sh
-- 端口: 5000（直接访问，尚未配置 nginx 反代）
-- 日志: /opt/longmarch-map/logs/{error,access}.log
-- 数据库: /opt/longmarch-map/001 项目源码/data/longmarch.db（从旧部署 /root/longmarch/ 迁移）
-- 旧部署路径: /root/longmarch/longmarch_app/（已停止，数据迁移完成）
-- 部署命令: cd /opt/longmarch-map && SECRET_KEY=<key> bash ./006\ build/deploy.sh
+- 主机名: iZuf61gpktwo4kt3xf09pzZ（仅内网可用，公网用 IP）
+
+### 生产环境 (zhichangxuan.com)
+- 域名: `https://zhichangxuan.com` / `https://www.zhichangxuan.com` / `https://cz.zhichangxuan.com`
+- 项目路径: `/opt/longmarch-map/`
+- Python 虚拟环境: `/opt/longmarch-map/venv/`
+- WSGI: gunicorn (配置: `./006 build/gunicorn_config.py wsgi:app --daemon`)
+- 后端端口: 5000
+- Nginx 反代: 443 HTTPS -> 127.0.0.1:5000（HTTP 80 自动跳转 HTTPS）
+- SSL: Let's Encrypt（证书路径: /etc/letsencrypt/live/zhichangxuan.com/）
+- 静态文件: 7d 缓存，路径 `/opt/longmarch-map/001 项目源码/static/`
+- 日志: `/opt/longmarch-map/logs/{error,access}.log`
+- 数据库: `/opt/longmarch-map/001 项目源码/data/longmarch.db`
+
+### 开发/测试环境 (dev.zhichangxuan.com)
+- 域名: `https://dev.zhichangxuan.com`
+- 项目路径: `/opt/longmarch-dev/`
+- Python 虚拟环境: `/opt/longmarch-dev/venv/`
+- WSGI: gunicorn --workers=3 --bind=0.0.0.0:5001 --timeout=60 wsgi:app --daemon
+- 后端端口: 5001
+- Nginx 反代: 443 HTTPS -> 127.0.0.1:5001（HTTP 80 自动跳转 HTTPS）
+- SSL: Let's Encrypt（共用生产证书）
+- 静态文件: 无缓存（expires 0），路径 `/opt/longmarch-dev/001 项目源码/static/`
+- 日志: `/opt/longmarch-dev/logs/{error,access}.log`
+- 数据库: `/opt/longmarch-dev/001 项目源码/data/longmarch.db`
+
+### 旧部署（已停用）
+- 路径: `/root/longmarch/longmarch_app/`
+- 说明: 数据已迁移至新环境，进程已停止
+
+### 部署命令（生产）
+cd /opt/longmarch-map && SECRET_KEY=<key> bash ./006\ build/deploy.sh
 
 ## 待办事项
 

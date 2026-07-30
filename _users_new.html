@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% block title %}用户管理{% endblock %}
+{% block content %}
+<h1>用户管理</h1>
+            <table class="admin-table">
+                <thead>
+                    <tr><th>ID</th><th>用户名</th><th>角色</th><th>注册时间</th><th>操作</th></tr>
+                </thead>
+                <tbody id="users-tbody">
+                    <tr><td colspan="5" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+            <div id="pagination" style="margin-top:16px;display:flex;gap:8px;justify-content:center"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+<script>
+{% endblock %}

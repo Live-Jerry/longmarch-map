@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+{% block title %}节点管理{% endblock %}
+{% block content %}
+<h1>节点管理</h1>
+
+            <div style="margin-bottom:16px;display:flex;gap:10px">
+                <input type="text" id="search-input" placeholder="搜索节点标题或地点..."
+                    style="flex:1;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#ecf0f1;font-size:13px;outline:none"
+                    onkeydown="if(event.key==='Enter')loadNodes(1)">
+                <button onclick="loadNodes(1)" style="padding:10px 20px;background:#c0392b;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">搜索</button>
+                <button onclick="openNodeEditor('新增', '1.1', adminAddCallback)" style="padding:10px 20px;background:#27ae60;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">+ 新增节点</button>
+                <button onclick="importNodes()" style="padding:10px 20px;background:#2980b9;color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px">导入 JSON</button>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>编号</th><th>标题</th><th>地点</th><th>时间</th>
+                        <th>坐标</th><th>状态</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="nodes-tbody">
+                    <tr><td colspan="7" style="text-align:center;color:#95a5a6">加载中...</td></tr>
+                </tbody>
+            </table>
+
+            <div id="pagination" style="margin-top:16px;display:flex;gap:8px;justify-content:center"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="/static/js/spark.js?v=20260716"></script>
+    {% include "_spark_modal.html" %}
+    <script>
+{% endblock %}
