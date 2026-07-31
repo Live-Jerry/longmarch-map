@@ -1,0 +1,18 @@
+[Unit]
+Description=Long March Map - Dev Environment (Gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/longmarch-dev/001 项目源码
+Environment=FLASK_ENV=development
+ExecStart=/opt/longmarch-dev/venv/bin/gunicorn --workers=3 --bind=0.0.0.0:5001 --timeout=60 --error-logfile /opt/longmarch-dev/logs/gunicorn_error.log --access-logfile /opt/longmarch-dev/logs/gunicorn_access.log wsgi:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -61,6 +61,15 @@ do_init() {
         log "数据库迁移完成"
     fi
 
+    # 安装 systemd 服务（开机自启 + 崩溃自动恢复）
+    log "安装 systemd 服务..."
+    cp "${PROJECT_DIR}/006 build/longmarch.service" /etc/systemd/system/
+    cp "${PROJECT_DIR}/006 build/longmarch-dev.service" /etc/systemd/system/
+    systemctl daemon-reload
+    systemctl enable longmarch-map
+    systemctl enable longmarch-dev
+    log "systemd 服务已安装并启用"
+
     log "初始化完成。请设置 SECRET_KEY 环境变量，然后重新运行 deploy.sh"
 }
 
