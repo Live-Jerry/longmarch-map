@@ -91,31 +91,25 @@ do_deploy() {
     mkdir -p "${PROJECT_DIR}/001 项目源码/static/uploads"
     mkdir -p "${LOG_DIR}"
 
-    # 停止旧进程
+    # 停止旧进程（仅生产环境！不碰 dev）
     log "停止旧服务..."
     systemctl stop "${APP_NAME}" 2>/dev/null || true
-    pkill -f "gunicorn.*longmarch" 2>/dev/null || true
     sleep 1
 
-    # 启动新服务
+    # 启动新服务（通过 systemd，自动守护）
     log "启动新服务..."
-    cd "${PROJECT_DIR}/001 项目源码"
-    export FLASK_ENV=production
     export SECRET_KEY="${SECRET_KEY}"
+    systemctl restart "${APP_NAME}"
 
-    "${VENV_DIR}/bin/gunicorn" \
-        -c "${PROJECT_DIR}/006 build/gunicorn_config.py" \
-        wsgi:app \
-        --daemon
-
-    sleep 2
+    sleep 3
 
     # 检查是否启动成功
-    if pgrep -f "gunicorn.*longmarch" > /dev/null; then
+    if systemctl is-active --quiet "${APP_NAME}"; then
         log "部署成功！应用已在端口 5000 启动"
-        log "查看日志: tail -f ${LOG_DIR}/error.log"
+        log "查看日志: journalctl -u ${APP_NAME} -n 50 --no-pager"
+        log "或: tail -f ${LOG_DIR}/error.log"
     else
-        err "启动失败，请检查日志: ${LOG_DIR}/error.log"
+        err "启动失败，请检查: systemctl status ${APP_NAME}"
     fi
 }
 
@@ -124,9 +118,9 @@ do_deploy() {
 #=======================================
 do_status() {
     echo "=== 应用状态 ==="
-    if pgrep -f "gunicorn.*longmarch" > /dev/null; then
+    if systemctl is-active --quiet "${APP_NAME}"; then
         echo "状态: 运行中"
-        ps aux | grep "gunicorn" | grep -v grep
+        systemctl status "${APP_NAME}" --no-pager | head -10
     else
         echo "状态: 未运行"
     fi
