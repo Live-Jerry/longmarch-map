@@ -1,9 +1,9 @@
 /* -*- coding: utf-8 -*- */
 /**
  * @file    style.css
- * @brief   长征文化数字地图 — 主样式表
+ * @brief   长征文化数字地图 - 主样式表
  * @details 定义全屏地图布局、控制栏、弹出面板、管理后台的样式。
- *          使用 CSS 变量管理主题色，支持深色模式。
+ *          使用 CSS 变量管理主题色,支持深色模式。
  * @author  长征文化数字地图项目组
  * @date    2026-07-15
  */
@@ -137,7 +137,7 @@ a:hover {
 }
 
 /* ============================================================================
-   控制栏（右侧纵向 — V003 §4.1）
+   控制栏(右侧纵向 - V003 §4.1)
    ============================================================================ */
 #controls {
     position: fixed;
@@ -215,7 +215,7 @@ a:hover {
     margin: 2px 0;
 }
 
-/* 播放控制子按钮（更紧凑）*/
+/* 播放控制子按钮(更紧凑)*/
 #play-controls {
     display: flex;
     flex-direction: column;
@@ -236,7 +236,7 @@ a:hover {
 }
 
 /* 速度选择器 */
-/* 向左弹出的面板（速度选择、播放控制、军队选择共用） */
+/* 向左弹出的面板(速度选择、播放控制、军队选择共用) */
 .popout-panel {
     position: fixed;
     z-index: 9999;
@@ -338,7 +338,7 @@ a:hover {
 }
 
 
-/* 播放控制弹出面板内按钮（横向排列） */
+/* 播放控制弹出面板内按钮(横向排列) */
 #play-controls.popout-panel {
     flex-direction: row;
     gap: 4px;
@@ -463,7 +463,7 @@ a:hover {
     border-bottom-color: var(--color-primary);
 }
 
-/* ===== 节点编辑器 Tab（共享弹窗）===== */
+/* ===== 节点编辑器 Tab(共享弹窗)===== */
 .editor-tabs {
     display: flex;
     gap: 0;
@@ -506,7 +506,7 @@ a:hover {
     margin-bottom: 12px;
 }
 
-/* 星火拾遗专用字段（多媒体等，管理员模式隐藏）*/
+/* 星火拾遗专用字段(多媒体等,管理员模式隐藏)*/
 .spark-only-fields {
     display: none;
 }
@@ -657,7 +657,7 @@ a:hover {
 }
 
 /* ============================================================================
-   右侧信息面板（节点弹出面板）
+   右侧信息面板(节点弹出面板)
    ============================================================================ */
 #info-panel {
     position: fixed;
@@ -1398,7 +1398,7 @@ a:hover {
 }
 
 /* ============================================================================
-   节点图片区域（固定在面板顶部，不随内容滚动）
+   节点图片区域(固定在面板顶部,不随内容滚动)
    ============================================================================ */
 #info-panel .panel-image {
     width: 100%;
@@ -1454,7 +1454,7 @@ a:hover {
 }
 
 /* ============================================================================
-   节点标记样式 — 红一方面军军旗标记
+   节点标记样式 - 红一方面军军旗标记
    ============================================================================ */
 .flag-marker-wrapper {
     display: flex;
@@ -1524,7 +1524,43 @@ a:hover {
     max-height: 400px;
     overflow-y: auto;
 }
-#node-select-existing {
-    max-height: 300px;
-    overflow-y: auto;
+#node-select-existing { 
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+/* ============================================================================
+   备案号页脚（右下角固定，不遮挡交互）
+   ============================================================================ */
+#icp-footer {
+    position: fixed;
+    bottom: 8px;
+    right: 60px;
+    z-index: 500;
+    padding: 3px 10px;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: nowrap;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+#icp-footer a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    pointer-events: auto;
+}
+#icp-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    #icp-footer {
+        bottom: 6px;
+        right: 50px;
+        font-size: 11px;
+        padding: 2px 8px;
+    }
 }
