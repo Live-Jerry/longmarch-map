@@ -1352,17 +1352,6 @@ a:hover {
     gap: 0;
 }
 
-#title-bar .title-bar-left .brand-name {
-    margin-left: 14px;
-    padding-left: 14px;
-    border-left: 1px solid var(--color-border);
-    font-family: "STKaiti", "KaiTi", "楷体", "FangSong", "仿宋", serif;
-    font-size: 22px;
-    color: var(--color-muted);
-    letter-spacing: 4px;
-    white-space: nowrap;
-}
-
 
 
 @media (max-width: 768px) {
@@ -1405,13 +1394,6 @@ a:hover {
     #title-bar {
         top: 6px;
         padding: 4px 12px;
-    }
-
-    #title-bar .title-bar-left .brand-name {
-        font-size: 14px;
-        letter-spacing: 2px;
-        margin-left: 8px;
-        padding-left: 8px;
     }
 }
 
