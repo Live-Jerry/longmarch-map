@@ -27,7 +27,15 @@ def create_app():
     }
     SUBAPPS = {'changzheng': 'https://cz.zhichangxuan.com'}
     MODULES = db.get_modules()
+    MODULE_EN = {
+        'zhexue': 'Chinese Philosophy', 'guiji': 'Classical Texts',
+        'rudao': 'Confucianism & Taoism', 'shufa': 'Calligraphy',
+        'shige': 'Poetry', 'jindaishi': 'Modern History',
+        'changzheng': 'Long March Spirit', 'kexue': 'Modern Science',
+    }
     for m in MODULES:
+        m['en'] = MODULE_EN.get(m['slug'], '')
+        m['desc'] = m.get('description', '')
         m['columns'] = COLUMNS.get(m['slug'], [])
         if m['slug'] in SUBAPPS:
             m['subapp'] = SUBAPPS[m['slug']]
