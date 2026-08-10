@@ -8,7 +8,6 @@ User=root
 Group=root
 WorkingDirectory=/opt/zhichangxuan-dev/001 项目源码
 Environment=FLASK_ENV=development
-Environment=ZCX_PREFIX=/zcx
 ExecStart=/opt/zhichangxuan-dev/venv/bin/gunicorn -c '/opt/zhichangxuan-dev/006 build/gunicorn_config.py' wsgi:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
