@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}知常轩 - 探求恒常之理的学习家园{% endblock %}</title>
 <meta name="description" content="{% block description %}知常轩：面向中小学生及家长的公益性文化传播平台，用底层逻辑和科学精神重新解读传统文化。{% endblock %}">
-<link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" type="image/png">
+<link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -14,7 +14,6 @@
   <div class="header-inner">
     <a class="logo" href="{{ url_for('index') }}">
       <img src="{{ url_for('static', filename='img/logo.png') }}" alt="知常轩" class="logo-img">
-      <span class="logo-seal" role="presentation">知常</span>
     </a>
     <nav class="main-nav" aria-label="主导航">
       <a href="{{ url_for('index') }}">首页</a>

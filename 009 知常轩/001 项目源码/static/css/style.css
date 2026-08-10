@@ -103,7 +103,7 @@ a:hover { text-decoration: underline; }
 
 /* ---------- 首页 Hero ---------- */
 .hero {
-  background: linear-gradient(rgba(13, 13, 26, .72), rgba(28, 28, 46, .78)), url('../img/banner.png') center/cover no-repeat, linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
+  background: linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   color: var(--shuang-bai);
   text-align: center;
   padding: 88px 20px 76px;
