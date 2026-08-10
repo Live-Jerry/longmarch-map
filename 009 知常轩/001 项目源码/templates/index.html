@@ -25,7 +25,7 @@
       <p class="daily-original">{{ saying.original_text }}</p>
       <p class="daily-trans">{{ saying.translation }}</p>
       <p class="daily-scene">适用场景：{{ saying.scene }}</p>
-      <p class="daily-source">——《{{ saying.source }}</p>
+      <p class="daily-source">——{{ saying.source }}</p>
     </blockquote>
     <a class="daily-more" href="{{ url_for('daily') }}">更多每日一句 →</a>
   </div>

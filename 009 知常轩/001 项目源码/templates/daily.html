@@ -11,7 +11,7 @@
     {% for s in sayings %}
     <div class="daily-card">
       <p class="daily-original">{{ s.original_text }}</p>
-      <p class="daily-source">——《{{ s.source }}</p>
+      <p class="daily-source">——{{ s.source }}</p>
       <p class="daily-trans">{{ s.translation }}</p>
       {% if s.scene %}<p class="daily-scene">适用场景：{{ s.scene }}</p>{% endif %}
     </div>
