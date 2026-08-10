@@ -8,42 +8,19 @@
 </section>
 <section class="page-body">
   <div class="resource-grid">
+    {% for r in resources %}
     <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>道德经</h3>
-      <p>80 章原文+译文结构化 JSON · 全文朗读音频（已切分验证）</p>
-      <span class="resource-status">已就绪</span>
+      <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}</span>
+      <h3>{{ r.title }}</h3>
+      <p>{{ r.source }}</p>
+      <p>{{ r.description }}</p>
+      {% if r.share_url %}
+      <a class="resource-link" href="{{ r.share_url }}" target="_blank" rel="noopener">前往资源 →</a>
+      {% else %}
+      <span class="resource-status">{{ r.file_size }}</span>
+      {% endif %}
     </div>
-    <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>论语</h3>
-      <p>20 篇朗读音频</p>
-      <span class="resource-status">已下载</span>
-    </div>
-    <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>荀子</h3>
-      <p>txt + 集解 + 32 篇音频</p>
-      <span class="resource-status">已下载</span>
-    </div>
-    <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>小学生必背古诗 75+70</h3>
-      <p>音频 + PDF</p>
-      <span class="resource-status">已下载</span>
-    </div>
-    <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>中华书局二十四史</h3>
-      <p>24 册 PDF（古籍影印）</p>
-      <span class="resource-status">已下载</span>
-    </div>
-    <div class="resource-card">
-      <span class="resource-grade grade-a">A</span>
-      <h3>初学套餐碑帖</h3>
-      <p>礼器碑 / 曹全碑 / 多宝塔 / 九成宫 / 小楷集 高清图</p>
-      <span class="resource-status">已下载</span>
-    </div>
+    {% endfor %}
   </div>
   <p class="note">分享链接与提取码整理中，将按批次上线 · 资源仅做公益导航，不提供受版权保护内容</p>
 </section>

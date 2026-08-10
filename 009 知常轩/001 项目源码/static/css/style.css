@@ -62,6 +62,12 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
 .logo-mark {
   font-family: var(--kai);
   font-size: 24px;
@@ -97,10 +103,10 @@ a:hover { text-decoration: underline; }
 
 /* ---------- 首页 Hero ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
+  background: linear-gradient(rgba(13, 13, 26, .72), rgba(28, 28, 46, .78)), url('../img/banner.png') center/cover no-repeat, linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   color: var(--shuang-bai);
   text-align: center;
-  padding: 72px 20px 64px;
+  padding: 88px 20px 76px;
   position: relative;
   overflow: hidden;
 }
@@ -345,6 +351,18 @@ a:hover { text-decoration: underline; }
 .column-item h3 { font-size: 17px; letter-spacing: 2px; margin-bottom: 6px; }
 .coming-soon { font-size: 13px; color: var(--qing-ci); }
 
+.column-article {
+  display: block;
+  font-size: 13px;
+  color: var(--cui-qing);
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 10px;
+  border-left: 2px solid var(--xiang-huang);
+}
+
+.column-article:hover { color: var(--jiang-chi); }
+
 .module-preview { background: var(--yue-bai); padding: 48px 20px; }
 .preview-card {
   max-width: 860px;
@@ -427,6 +445,12 @@ a:hover { text-decoration: underline; }
   border-radius: 10px;
 }
 
+.resource-link {
+  font-size: 13px;
+  color: var(--jiang-chi);
+  font-weight: 700;
+}
+
 /* ---------- 家长学堂 ---------- */
 .parent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 
@@ -455,6 +479,66 @@ a:hover { text-decoration: underline; }
 
 .about-block p { color: #444; margin-bottom: 10px; }
 
+/* ---------- 文章页 ---------- */
+.article-body { max-width: 860px; }
+.article-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 36px 40px;
+  border: 1px solid #e5ddd0;
+  box-shadow: 0 2px 12px rgba(28, 28, 46, .06);
+}
+
+.article-sec { margin-bottom: 28px; }
+
+.sec-label {
+  font-size: 14px;
+  color: var(--jiang-chi);
+  letter-spacing: 4px;
+  padding-left: 10px;
+  border-left: 3px solid var(--jiang-chi);
+  margin-bottom: 12px;
+}
+
+.article-original {
+  font-size: 20px;
+  line-height: 2.2;
+  letter-spacing: 2px;
+  color: #222;
+  background: var(--shuang-bai);
+  border-radius: 6px;
+  padding: 18px 22px;
+}
+
+.article-annotation { font-size: 15px; color: #666; line-height: 2; }
+.article-translation {
+  font-size: 15px;
+  color: #444;
+  background: var(--yue-bai);
+  border-radius: 6px;
+  padding: 16px 20px;
+  line-height: 2;
+}
+
+.article-content { font-size: 16px; color: #333; line-height: 2.1; }
+.article-content br + br { display: none; }
+
+.article-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 12px;
+  color: var(--cui-qing);
+  border: 1px solid var(--cui-qing);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 12px;
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   background: var(--xuan-qing-deep);
@@ -470,6 +554,12 @@ a:hover { text-decoration: underline; }
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr;
   gap: 30px;
+}
+
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  margin-bottom: 6px;
 }
 
 .footer-logo { font-family: var(--kai); font-size: 22px; letter-spacing: 6px; color: var(--xiang-huang); }

@@ -6,7 +6,7 @@
   <div class="module-hero-inner">
     <span class="module-kicker">{{ mod.en }}</span>
     <h1>{{ mod.name }}</h1>
-    <p>{{ mod.desc }}</p>
+    <p>{{ mod.description }}</p>
     {% if mod.subapp %}
     <a class="btn btn-primary" href="{{ mod.subapp }}" target="_blank" rel="noopener">进入「重走长征路」→</a>
     {% endif %}
@@ -14,14 +14,29 @@
 </section>
 
 <section class="module-columns">
-  <div class="section-head">
-    <h2>栏目</h2>
-  </div>
   <div class="column-list">
     {% for c in mod.columns %}
     <div class="column-item">
       <h3>{{ c }}</h3>
+      {% if c == '道家' and articles %}
+      {% for a in articles if a.column_name == '道家' %}
+      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
+      {% endfor %}
+      {% elif c == '儒家' and articles %}
+      {% for a in articles if a.column_name == '儒家' %}
+      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
+      {% endfor %}
+      {% elif c == '儒道对比专题' and articles %}
+      {% for a in articles if a.column_name == '儒道对比专题' %}
+      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
+      {% endfor %}
+      {% elif c == '家长课堂' and articles %}
+      {% for a in articles if a.column_name == '家长课堂' %}
+      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
+      {% endfor %}
+      {% else %}
       <p class="coming-soon">内容筹备中 · 敬请期待</p>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

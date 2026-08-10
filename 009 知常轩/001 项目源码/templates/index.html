@@ -22,9 +22,10 @@
   <div class="daily-inner">
     <span class="daily-label">每日一句</span>
     <blockquote>
-      <p class="daily-original">知人者智，自知者明。胜人者有力，自胜者强。</p>
-      <p class="daily-trans">能了解别人是智慧，能认识自己才是真正的明智；能战胜别人是有力，能战胜自己才是真正的强大。</p>
-      <p class="daily-scene">适用场景：考试失利时，问问自己——我要战胜的，其实是昨天的我。</p>
+      <p class="daily-original">{{ saying.original_text }}</p>
+      <p class="daily-trans">{{ saying.translation }}</p>
+      <p class="daily-scene">适用场景：{{ saying.scene }}</p>
+      <p class="daily-source">——《{{ saying.source }}</p>
     </blockquote>
     <a class="daily-more" href="{{ url_for('daily') }}">更多每日一句 →</a>
   </div>

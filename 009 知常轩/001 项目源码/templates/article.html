@@ -1,15 +1,57 @@
 {% extends "base.html" %}
-{% block title %}文章 - 知常轩{% endblock %}
+{% block title %}{{ article.title }} - 知常轩{% endblock %}
 
 {% block content %}
-<section class="page-head">
-  <h1>文章阅读</h1>
-  <p>内容生产流水线建设中 · 首批文章即将上线</p>
+<section class="page-head article-head">
+  <h1>{{ article.title }}</h1>
+  <p>
+    {% for m in modules %}{% if m.id == article.module_id %}{{ m.name }}{% endif %}{% endfor %}
+    · {{ article.column_name }} · 适龄：{{ article.age_level }}
+  </p>
 </section>
-<section class="page-body">
-  <div class="empty-state">
-    <p>文章系统 V1.0 建设中。当前可直接浏览已上线的《道德经》81 章精读。</p>
-    <a class="btn btn-primary" href="/static/ddj/index.html" target="_blank">前往道德经 →</a>
+
+<section class="page-body article-body">
+  <article class="article-card">
+    {% if article.original_text %}
+    <div class="article-sec">
+      <h2 class="sec-label">原文</h2>
+      <div class="article-original">{{ article.original_text }}</div>
+    </div>
+    {% endif %}
+
+    {% if article.annotation %}
+    <div class="article-sec">
+      <h2 class="sec-label">注释</h2>
+      <p class="article-annotation">{{ article.annotation }}</p>
+    </div>
+    {% endif %}
+
+    {% if article.translation %}
+    <div class="article-sec">
+      <h2 class="sec-label">译文</h2>
+      <p class="article-translation">{{ article.translation }}</p>
+    </div>
+    {% endif %}
+
+    {% if article.content %}
+    <div class="article-sec">
+      <h2 class="sec-label">精读</h2>
+      <div class="article-content">{{ article.content | replace('\n', '<br>') | safe }}</div>
+    </div>
+    {% endif %}
+
+    {% if article.tags %}
+    <div class="article-tags">
+      {% for t in article.tags.split(',') %}
+      <span class="tag">{{ t }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </article>
+
+  <div class="article-nav">
+    <a class="btn btn-ghost" href="{{ url_for('module_page', slug=current_slug) }}">← 返回模块</a>
+    <a class="btn btn-primary" href="{{ url_for('index') }}">返回首页</a>
   </div>
 </section>
 {% endblock %}
