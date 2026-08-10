@@ -216,7 +216,7 @@ TEMPLATE = """<!DOCTYPE html>
       <div class="section-label">听一听</div>
       <div class="audio-row">
         <span class="audio-label">原文朗读</span>
-        <audio controls src="../音频_81章/{audio_file}"></audio>
+        <audio controls src="音频_81章/{audio_file}"></audio>
       </div>
 
     </div>
