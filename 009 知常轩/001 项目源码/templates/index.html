@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}知常轩 - 探求恒常之理的学习家园{% endblock %}
+
+{% block content %}
+
+<!-- 理念 Banner -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>知常曰明，格物致知</h1>
+    <p class="hero-lead">用底层逻辑和科学精神，重新解读传统文化。<br>
+    不讲空洞口号，讲道理、讲逻辑、讲证据。</p>
+    <p class="hero-sub">面向中小学生及家长的公益性文化传播平台 · 零广告 · 零付费</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="{{ url_for('module_page', slug='rudao') }}">开始探索</a>
+      <a class="btn btn-ghost" href="{{ url_for('about') }}">了解知常轩</a>
+    </div>
+  </div>
+</section>
+
+<!-- 每日一句 -->
+<section class="daily-strip">
+  <div class="daily-inner">
+    <span class="daily-label">每日一句</span>
+    <blockquote>
+      <p class="daily-original">知人者智，自知者明。胜人者有力，自胜者强。</p>
+      <p class="daily-trans">能了解别人是智慧，能认识自己才是真正的明智；能战胜别人是有力，能战胜自己才是真正的强大。</p>
+      <p class="daily-scene">适用场景：考试失利时，问问自己——我要战胜的，其实是昨天的我。</p>
+    </blockquote>
+    <a class="daily-more" href="{{ url_for('daily') }}">更多每日一句 →</a>
+  </div>
+</section>
+
+<!-- 八大模块 -->
+<section class="modules-grid">
+  <div class="section-head">
+    <h2>八大内容模块</h2>
+    <p>传统文化与现代科学并重，贯通古今</p>
+  </div>
+  <div class="grid">
+    {% for m in modules %}
+    <a class="module-card" href="{{ url_for('module_page', slug=m.slug) }}" style="--card-color: {{ m.color }}; --card-accent: {{ m.accent }};">
+      <span class="module-icon" aria-hidden="true">{{ m.name[0] }}</span>
+      <h3>{{ m.name }}</h3>
+      <p class="module-en">{{ m.en }}</p>
+      <p class="module-desc">{{ m.desc }}</p>
+      <span class="module-link">进入模块 →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- 今日推荐 -->
+<section class="today-pick">
+  <div class="section-head">
+    <h2>今日推荐</h2>
+    <p>每日一篇精选内容</p>
+  </div>
+  <div class="pick-card">
+    <span class="pick-tag">儒与道</span>
+    <h3>道德经第八十一章：信言不美 —— 真话为什么不好听？</h3>
+    <p>老子说「信言不美，美言不信」。好听的话未必真实，真实的话未必好听。这篇带孩子读懂：为什么诚实的人往往不说漂亮话？</p>
+    <a class="btn btn-primary" href="/static/ddj/index.html" target="_blank">阅读道德经 81 章 →</a>
+  </div>
+</section>
+
+{% endblock %}

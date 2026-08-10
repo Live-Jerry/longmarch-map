@@ -57,3 +57,6 @@ Doxyfile
 # Office temp files
 ~$*
 
+# DDJ audio (42MB, sync separately on deploy)
+009 知常轩/001 项目源码/static/ddj/音频_81章/*.mp3
+009 知常轩/001 项目源码/static/ddj/音频_81章

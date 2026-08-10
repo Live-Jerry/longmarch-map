@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}知常轩 - 探求恒常之理的学习家园{% endblock %}</title>
+<meta name="description" content="{% block description %}知常轩：面向中小学生及家长的公益性文化传播平台，用底层逻辑和科学精神重新解读传统文化。{% endblock %}">
+<link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="{{ url_for('index') }}">
+      <span class="logo-mark">知常轩</span>
+      <span class="logo-seal" role="presentation">知常</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="{{ url_for('index') }}">首页</a>
+      <a href="{{ url_for('module_page', slug='rudao') }}">儒与道</a>
+      <a href="{{ url_for('module_page', slug='zhexue') }}">中国哲学</a>
+      <a href="{{ url_for('module_page', slug='shige') }}">诗歌国度</a>
+      <a href="{{ url_for('module_page', slug='kexue') }}">当代科学</a>
+      <a href="{{ url_for('module_page', slug='changzheng') }}">长征精神</a>
+      <a href="{{ url_for('resources') }}">资源中心</a>
+      <a href="{{ url_for('parents') }}">家长学堂</a>
+    </nav>
+    <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">知常轩</span>
+      <p>探求恒常之理的所在 · 公益文化传播平台</p>
+    </div>
+    <div class="footer-links">
+      <a href="{{ url_for('about') }}">关于知常轩</a>
+      <a href="{{ url_for('about') }}#contact">联系我们</a>
+      <a href="{{ url_for('about') }}#privacy">隐私政策</a>
+      <a href="{{ url_for('about') }}#volunteer">志愿者招募</a>
+    </div>
+    <div class="footer-icp">
+      <p>知常轩 · 公益教育平台</p>
+      <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">陕ICP备2026020519号</a></p>
+      <p><a href="https://beian.mps.gov.cn/#/query/webSearch?code=61019002004143" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='img/gongan_badge.png') }}" alt="公安备案" class="gongan-badge">
+        陕公网安备61019002004143号
+      </a></p>
+      <p class="footer-note">内容遵循「有据可查、有理可证、有用能行」原则 · 零广告 · 零付费</p>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
