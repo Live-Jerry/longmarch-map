@@ -479,6 +479,34 @@ a:hover { text-decoration: underline; }
 
 .about-block p { color: #444; margin-bottom: 10px; }
 
+.contact-team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.contact-person {
+  background: #fff;
+  border: 1px solid #e5ddd0;
+  border-radius: 8px;
+  padding: 18px 20px;
+  text-align: center;
+}
+.contact-role {
+  font-size: 12px;
+  color: var(--jiang-chi);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+.contact-name {
+  font-size: 20px;
+  color: var(--xuan-qing);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.contact-desc { font-size: 13px; color: #888; margin: 0; }
+
 /* ---------- 文章页 ---------- */
 .article-body { max-width: 860px; }
 .article-card {
