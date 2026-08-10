@@ -133,6 +133,8 @@ TEMPLATE = """<!DOCTYPE html>
   .top-band::before {{ top: 8px; }} .top-band::after {{ bottom: 8px; }}
   .top-band h1 {{ font-size: 26px; letter-spacing: 12px; }}
   .top-band p {{ font-size: 13px; letter-spacing: 4px; margin-top: 6px; color: var(--yue-bai); opacity: .8; }}
+  .back-home {{ display: inline-block; margin-top: 10px; font-size: 12px; letter-spacing: 2px; color: var(--xiang-huang); border: 1px solid rgba(232,197,71,.5); border-radius: 14px; padding: 3px 14px; text-decoration: none; }}
+  .back-home:hover {{ background: var(--xiang-huang); color: var(--xuan-qing); }}
   .container {{ max-width: 860px; margin: 0 auto; padding: 30px 20px 50px; }}
   .chapter {{ background: #fff; border: 1px solid #e5ddd0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(28,28,46,.06); }}
   .chapter-head {{ background: linear-gradient(135deg, var(--xuan-qing), #2c2c44); color: var(--shuang-bai); padding: 18px 24px; display: flex; align-items: baseline; gap: 16px; }}
@@ -166,6 +168,7 @@ TEMPLATE = """<!DOCTYPE html>
 <div class="top-band">
   <h1>道德经</h1>
   <p>知常轩 · 儒与道 · 儿童精读系列</p>
+  <a class="back-home" href="../../" target="_top">← 返回知常轩主站</a>
 </div>
 
 <div class="container">

@@ -56,12 +56,21 @@
     <h2>今日推荐</h2>
     <p>每日一篇精选内容</p>
   </div>
+  {% if pick %}
+  <div class="pick-card">
+    <span class="pick-tag">{{ pick.module_name }}</span>
+    <h3>{{ pick.title }}</h3>
+    <p>{{ pick.content[:80] }}……</p>
+    <a class="btn btn-primary" href="{{ url_for('article_page', aid=pick.id) }}">阅读全文 →</a>
+  </div>
+  {% else %}
   <div class="pick-card">
     <span class="pick-tag">儒与道</span>
     <h3>道德经第八十一章：信言不美 —— 真话为什么不好听？</h3>
     <p>老子说「信言不美，美言不信」。好听的话未必真实，真实的话未必好听。这篇带孩子读懂：为什么诚实的人往往不说漂亮话？</p>
     <a class="btn btn-primary" href="/static/ddj/index.html" target="_blank">阅读道德经 81 章 →</a>
   </div>
+  {% endif %}
 </section>
 
 {% endblock %}

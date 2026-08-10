@@ -18,20 +18,9 @@
     {% for c in mod.columns %}
     <div class="column-item">
       <h3>{{ c }}</h3>
-      {% if c == '道家' and articles %}
-      {% for a in articles if a.column_name == '道家' %}
-      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
-      {% endfor %}
-      {% elif c == '儒家' and articles %}
-      {% for a in articles if a.column_name == '儒家' %}
-      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
-      {% endfor %}
-      {% elif c == '儒道对比专题' and articles %}
-      {% for a in articles if a.column_name == '儒道对比专题' %}
-      <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
-      {% endfor %}
-      {% elif c == '家长课堂' and articles %}
-      {% for a in articles if a.column_name == '家长课堂' %}
+      {% set col_arts = articles | selectattr('column_name', 'equalto', c) | list %}
+      {% if col_arts %}
+      {% for a in col_arts %}
       <a class="column-article" href="{{ url_for('article_page', aid=a.id) }}">{{ a.title }}</a>
       {% endfor %}
       {% else %}

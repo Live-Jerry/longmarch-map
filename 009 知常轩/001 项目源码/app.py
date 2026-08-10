@@ -34,7 +34,8 @@ def create_app():
     # ---------------- 路由 ----------------
     @app.route('/')
     def index():
-        return render_template('index.html', modules=MODULES, saying=db.get_today_saying())
+        pick = db.get_random_article()
+        return render_template('index.html', modules=MODULES, saying=db.get_today_saying(), pick=pick)
 
     @app.route('/modules/<slug>')
     def module_page(slug):

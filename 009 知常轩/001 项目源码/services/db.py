@@ -68,3 +68,14 @@ def get_articles_by_module(module_id, limit=20):
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
+
+
+def get_random_article():
+    """随机取一篇已发布文章（首页今日推荐用），带模块名"""
+    conn = get_db()
+    row = conn.execute(
+        'SELECT a.*, m.name AS module_name, m.slug AS module_slug FROM article a '
+        'JOIN module m ON a.module_id = m.id WHERE a.status=1 ORDER BY RANDOM() LIMIT 1'
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
