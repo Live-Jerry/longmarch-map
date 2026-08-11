@@ -31,12 +31,8 @@
   </div>
 </section>
 
-<!-- 八大模块 -->
+<!-- 内容模块（数量动态，随模块数据增减，不写死标题） -->
 <section class="modules-grid">
-  <div class="section-head">
-    <h2>八大内容模块</h2>
-    <p>传统文化与现代科学并重，贯通古今</p>
-  </div>
   <div class="grid">
     {% for m in modules %}
     <a class="module-card" href="{{ url_for('module_page', slug=m.slug) }}" style="--card-color: {{ m.color }}; --card-accent: {{ m.accent }};">

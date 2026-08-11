@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 知常轩主站 · Flask 应用入口
-V1.0 结构上线：首页 + 8 模块页 + 文章系统 + 每日一句 + 资源中心 + 我走长征路接入
+V1.0 结构上线：首页 + 模块页 + 文章系统 + 每日一句 + 资源中心 + 我走长征路接入
+模块数量不写死，由 module 表数据驱动，后续可动态增删
 """
 import os
 from flask import Flask, render_template, abort

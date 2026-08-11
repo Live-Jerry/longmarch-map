@@ -2,6 +2,7 @@
 {% block title %}{{ mod.name }} - 知常轩{% endblock %}
 
 {% block content %}
+<!-- 模块页公共头部 Banner -->
 <section class="module-hero" style="--mod-color: {{ mod.color }}; --mod-accent: {{ mod.accent }};">
   <div class="module-hero-inner">
     <span class="module-kicker">{{ mod.en }}</span>
@@ -13,7 +14,12 @@
   </div>
 </section>
 
+<!-- 板块 1：文章 -->
 <section class="module-columns">
+  <div class="section-head">
+    <h2>文章</h2>
+    <p>栏目文章 · 时间倒序</p>
+  </div>
   <div class="column-list">
     {% for c in mod.columns %}
     <div class="column-item">
@@ -29,6 +35,69 @@
     </div>
     {% endfor %}
   </div>
+</section>
+
+<!-- 板块 2：电子书籍 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>电子书籍</h2>
+    <p>EPUB / PDF / 在线阅读</p>
+  </div>
+  <p class="coming-soon">内容筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 3：图片资源 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>图片资源</h2>
+    <p>图库 · 缩略图画廊（标注来源与授权）</p>
+  </div>
+  <p class="coming-soon">内容筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 4：视频资源 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>视频资源</h2>
+    <p>原创 / 公有领域视频（不提供影视片段）</p>
+  </div>
+  <p class="coming-soon">内容筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 5：音频资源 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>音频资源</h2>
+    <p>经典原文朗读 / 原创音频</p>
+  </div>
+  <p class="coming-soon">内容筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 6：上传贡献 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>上传贡献</h2>
+    <p>读后感 / 作品 / 资料投稿（先审后发）</p>
+  </div>
+  <p class="coming-soon">投稿功能筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 7：评论及建议 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>评论及建议</h2>
+    <p>欢迎留下您的评论与建议（昵称或匿名，不收集个人信息）</p>
+  </div>
+  <p class="coming-soon">评论功能筹备中 · 敬请期待</p>
+</section>
+
+<!-- 板块 8：留言显示区 -->
+<section class="module-columns">
+  <div class="section-head">
+    <h2>留言</h2>
+    <p>已审核通过的留言与评论展示</p>
+  </div>
+  <p class="coming-soon">暂无留言</p>
 </section>
 
 {% if mod.slug == 'rudao' %}
