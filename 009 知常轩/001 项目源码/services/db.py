@@ -52,6 +52,14 @@ def get_resources(category=None):
     return [dict(r) for r in rows]
 
 
+def get_module_files(module_id):
+    """按模块取文件资源（书法碑帖等，category=shufa_pdf）"""
+    conn = get_db()
+    rows = conn.execute('SELECT * FROM resource_link WHERE status=1 AND module_id=? ORDER BY id', (module_id,)).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 # ---------------- 文章 ----------------
 def get_article(aid):
     conn = get_db()

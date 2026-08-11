@@ -630,3 +630,25 @@ a:hover { text-decoration: underline; }
   .grid { grid-template-columns: 1fr; }
   body { font-size: 16px; }
 }
+
+/* 文件资源列表（书法碑帖 PDF 等） */
+.file-list { display: flex; flex-direction: column; gap: 12px; }
+.file-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 16px; border: 1px solid rgba(0,0,0,.08); border-radius: 10px;
+  background: #fff;
+}
+.file-info { min-width: 0; }
+.file-info h3 { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: #222; word-break: break-all; }
+.file-meta { font-size: 12px; color: #888; }
+.file-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.file-actions .btn { padding: 7px 14px; font-size: 13px; text-decoration: none; border-radius: 6px; }
+.btn-download { background: #f2f2f2; color: #333; border: 1px solid #ddd; }
+.btn-download:hover { background: #e8e8e8; }
+
+/* 移动端竖屏：卡片单列，按钮换行 */
+@media (max-width: 480px) {
+  .file-item { flex-direction: column; align-items: flex-start; }
+  .file-actions { width: 100%; }
+  .file-actions .btn { flex: 1; text-align: center; }
+}

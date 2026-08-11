@@ -51,7 +51,8 @@ def create_app():
         for m in MODULES:
             if m['slug'] == slug:
                 articles = db.get_articles_by_module(m['id'])
-                return render_template('module.html', mod=m, modules=MODULES, articles=articles)
+                files = db.get_module_files(m['id'])
+                return render_template('module.html', mod=m, modules=MODULES, articles=articles, files=files)
         abort(404)
 
     @app.route('/article/<int:aid>')

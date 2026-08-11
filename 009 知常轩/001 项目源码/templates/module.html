@@ -37,13 +37,30 @@
   </div>
 </section>
 
-<!-- 板块 2：电子书籍 -->
+<!-- 板块 2：电子书籍（文件资源，如书法碑帖 PDF） -->
 <section class="module-columns">
   <div class="section-head">
     <h2>电子书籍</h2>
-    <p>EPUB / PDF / 在线阅读</p>
+    <p>PDF 文件 · 在线预览 / 下载</p>
   </div>
+  {% if files %}
+  <div class="file-list">
+    {% for f in files %}
+    <div class="file-item">
+      <div class="file-info">
+        <h3>{{ f.title }}</h3>
+        <span class="file-meta">{{ f.file_size }}</span>
+      </div>
+      <div class="file-actions">
+        <a class="btn btn-primary" href="{{ f.share_url }}" target="_blank" rel="noopener">预览</a>
+        <a class="btn btn-download" href="{{ f.share_url }}" download>下载</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
   <p class="coming-soon">内容筹备中 · 敬请期待</p>
+  {% endif %}
 </section>
 
 <!-- 板块 3：图片资源 -->
