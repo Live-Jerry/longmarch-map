@@ -42,3 +42,11 @@ Add whatever helps you do your job. This is your cheat sheet.
 ## Related
 
 - [Agent workspace](/concepts/agent-workspace)
+
+## GitHub 推送（本地网络无法直连 GitHub 时）
+
+- 本地 commit 后运行：powershell -ExecutionPolicy Bypass -File "007 项目工具\push_via_server.ps1"
+- 原理：本地生成 patch -> scp 直传云服务器 -> 服务器 git am + push GitHub（服务器访问 GitHub 正常，凭据在 /root/.git-credentials）
+- 基准文件：.git/zcx_last_pushed（记录上次已推送的本地 SHA，git am 会改变 SHA 所以不能用远程 SHA）
+- 网络正常时仍直接 git push origin develop
+
