@@ -50,3 +50,6 @@ Add whatever helps you do your job. This is your cheat sheet.
 - 基准文件：.git/zcx_last_pushed（记录上次已推送的本地 SHA，git am 会改变 SHA 所以不能用远程 SHA）
 - 网络正常时仍直接 git push origin develop
 
+
+- 2026-08-11 已修复本地直连：git config --global http.https://github.com/.curloptResolve github.com:443:140.82.112.3（美国段稳定 IP，绕过亚洲段 QoS 限速），中转脚本仅作兑底
+
