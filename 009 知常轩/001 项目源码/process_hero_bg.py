@@ -6,8 +6,8 @@ import os
 SRC = r"D:\长征文化\002 项目资源\知常轩\知常轩首页背景.png"
 OUT = r"D:\长征文化\009 知常轩\001 项目源码\static\img\hero_bg.png"
 
-GOLD = (235, 205, 94)      # 湘黄提亮 #EBCD5E：深蓝底上更亮
-ZHU = (209, 74, 66)        # 朱红提亮 #D14A42：印章点睛
+GOLD = (212, 175, 95)      # 柔和暗金 #D4AF5F：比标题湘黄低一档，不抢标题
+ZHU = (200, 90, 70)        # 朱红（降饱和）
 
 img = Image.open(SRC).convert("RGBA")
 w, h = img.size
@@ -20,9 +20,9 @@ print("处理后尺寸:", (w, h))
 r, g, b, a = img.split()
 gray = img.convert("L")
 
-# 1) 线条 alpha：反相灰度，黑线 -> 高 alpha，白底 -> 0；整体乘 0.88 让线条清晰
+# 1) 线条 alpha：反相灰度；乘 0.38 做成淡雅水印，只留氛围不抢内容
 inv = ImageChops.invert(gray)
-alpha_ink = inv.point(lambda v: int(v * 0.88))
+alpha_ink = inv.point(lambda v: int(v * 0.38))
 
 # 2) 红色 mask：R 显著高于 G/B 的像素（朱红印章文字）
 red_diff = ImageChops.subtract(r, ImageChops.lighter(g, b))
@@ -33,8 +33,8 @@ transparent = Image.new("RGBA", (w, h), (0, 0, 0, 0))
 gold_layer = Image.new("RGBA", (w, h), GOLD + (255,))
 out = Image.composite(gold_layer, transparent, alpha_ink)
 
-# 4) 红色区域覆盖朱红
-red_layer = Image.new("RGBA", (w, h), ZHU + (255,))
+# 4) 红色区域覆盖朱红（印章也降 alpha，不抢戏）
+red_layer = Image.new("RGBA", (w, h), ZHU + (150,))
 out = Image.composite(red_layer, out, red_mask)
 
 out.save(OUT)
