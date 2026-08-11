@@ -114,6 +114,15 @@ D:\长征文化\
 
 ##  技术架构
 
+### 备案信息
+- ICP 备案号：陕ICP备2026020519号（主体：刘福财）
+- ICP 备案查询：https://beian.miit.gov.cn/
+- 公安网安备案：已通过（2026-08-06 高新分局网安大队，新增主体/新办网站/安全评估三项全过；8-04 雁塔分局 4 条被拒或撤销）
+- 公安备案号：陕公网安备61019002004143号（网站：知常轩 / zhichangxuan.com）
+- 公安备案查询：https://beian.mps.gov.cn/#/query/webSearch?code=61019002004143
+- 公安备案图标：`001 项目源码/static/img/gongan_badge.png`（36x40，平台下载）
+- 页脚位置：index.html 右下角固定小字（#icp-footer），不遮挡 Leaflet 缩放和右侧控制栏
+
 ### 后端 (Flask)
 - 认证系统： JWT（HMAC-SHA256），注册/登录/令牌验证；角色: guest/user/admin/super
 - 节点管理： 完整 CRUD，分页搜索、附近查询、JSON 导入导出、时间线
@@ -134,6 +143,8 @@ D:\长征文化\
 - 6 张表：user, node, media, spark, comment, route_point
 
 ## 开发分支工作流
+
+以《004 项目文档/长征文化数字地图_版本管理方案_V3.1.docx》为准（严禁 AI 全面更改该文档，只做局部修订），升级前读版本管理文档。
 
 - develop 分支：日常开发集成，所有功能分支合并到此测试
 - main 分支：稳定发布
@@ -170,12 +181,31 @@ D:\长征文化\
 - 日志: `/opt/longmarch-dev/logs/{error,access}.log`
 - 数据库: `/opt/longmarch-dev/001 项目源码/data/longmarch.db`
 
+### 知常轩（2026-08-10 域名重新划分）
+- 测试域名：`https://zcxdev.zhichangxuan.com`（知常轩测试环境！注意：dev.zhichangxuan.com 是长征测试，勿混淆）
+- 主域名: `https://zhichangxuan.com` / `https://www.zhichangxuan.com` → 知常轩主站
+- 长征域名: 只用 `https://cz.zhichangxuan.com`（生产）+ `https://dev.zhichangxuan.com`（测试）
+- 测试版路径: `/opt/zhichangxuan-dev/`，venv: `/opt/zhichangxuan-dev/venv/`，端口 5003
+- systemd 服务: zhichangxuan-dev.service（gunicorn，wsgi:app）
+- 静态文件: `/opt/zhichangxuan-dev/001 项目源码/static/`，道德经子页 static/ddj/
+- 数据库: `/opt/zhichangxuan-dev/001 项目源码/data/zhichangxuan.db`（init_db.py 可重建）
+- Nginx 配置: `/etc/nginx/sites-enabled/zhichangxuan`（三个 server 块），旧配置备份 `/etc/nginx/zhichangxuan.bak.*`
+
 ### 旧部署（已停用）
 - 路径: `/root/longmarch/longmarch_app/`
 - 说明: 数据已迁移至新环境，进程已停止
 
 ### 部署命令（生产）
-cd /opt/longmarch-map && SECRET_KEY=<key> bash ./006\ build/deploy.sh
+cd /opt/longmarch-map && SECRET_KEY=<key> bash ./006\ build/deploy.sh（升级流程按版本管理文档，升级前读文档）
+
+### 部署备选路径（GitHub 不可达时）
+2026-08-04 发现本机网络无法连接 github.com:443，但服务器本身可以走通。备选流程：
+1. 本地提交后 `git format-patch -1 HEAD -o .` 生成 patch 文件
+2. `scp patch root@8.133.203.255:/tmp/` 传上去
+3. SSH 上服务器：`cd /opt/longmarch-map && git checkout develop && git am /tmp/patch`
+4. `systemctl restart longmarch-map` 重启服务
+注意：服务器可能无 git 身份，需要先 `git config user.email/name`。
+注：服务器上 github push 可能会报 “Invalid username or token”，表明远程仓库 token 失效，这个是另一个待解问题（不影响本路径）。
 
 ## 待办事项
 
