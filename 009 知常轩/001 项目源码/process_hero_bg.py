@@ -20,9 +20,9 @@ print("处理后尺寸:", (w, h))
 r, g, b, a = img.split()
 gray = img.convert("L")
 
-# 1) 线条 alpha：反相灰度；乘 0.38 做成淡雅水印，只留氛围不抢内容
+# 1) 线条 alpha：反相灰度；乘 0.58——建筑清晰可见但不过分抢眼
 inv = ImageChops.invert(gray)
-alpha_ink = inv.point(lambda v: int(v * 0.38))
+alpha_ink = inv.point(lambda v: int(v * 0.58))
 
 # 2) 红色 mask：R 显著高于 G/B 的像素（朱红印章文字）
 red_diff = ImageChops.subtract(r, ImageChops.lighter(g, b))

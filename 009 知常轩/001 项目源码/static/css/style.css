@@ -104,8 +104,8 @@ a:hover { text-decoration: underline; }
 /* ---------- 首页 Hero ---------- */
 .hero {
   background:
-    radial-gradient(ellipse 100% 80% at 50% 42%, rgba(8, 8, 20, .58), rgba(8, 8, 20, .3) 55%, transparent 78%),
-    url("../img/hero_bg.webp") center 42% / cover no-repeat,
+    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(8, 8, 20, .28), transparent 70%),
+    url("../img/hero_bg.webp") center 45% / cover no-repeat,
     linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   color: var(--shuang-bai);
   text-align: center;
@@ -632,8 +632,8 @@ a:hover { text-decoration: underline; }
   .hero h1 { font-size: 30px; letter-spacing: 8px; }
   .hero {
     background:
-      radial-gradient(ellipse 110% 85% at 50% 28%, rgba(8, 8, 20, .62), rgba(8, 8, 20, .3) 55%, transparent 80%),
-      url("../img/hero_bg.webp") center 20% / cover no-repeat,
+      radial-gradient(ellipse 85% 65% at 50% 30%, rgba(8, 8, 20, .3), transparent 72%),
+      url("../img/hero_bg.webp") center 22% / cover no-repeat,
       linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   }
   .daily-inner { flex-direction: column; gap: 10px; }
