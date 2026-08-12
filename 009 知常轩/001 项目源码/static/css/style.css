@@ -105,7 +105,7 @@ a:hover { text-decoration: underline; }
 .hero {
   background:
     radial-gradient(ellipse 70% 55% at 50% 45%, rgba(8, 8, 20, .28), transparent 70%),
-    url("../img/hero_bg.webp") center / contain no-repeat,
+    url("../img/hero_bg.webp?v=235") center / contain no-repeat,
     linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   color: var(--shuang-bai);
   text-align: center;
@@ -631,7 +631,7 @@ a:hover { text-decoration: underline; }
   .hero {
     background:
       radial-gradient(ellipse 85% 65% at 50% 30%, rgba(8, 8, 20, .3), transparent 72%),
-      url("../img/hero_bg.webp") center / contain no-repeat,
+      url("../img/hero_bg.webp?v=235") center / contain no-repeat,
       linear-gradient(135deg, var(--xuan-qing-deep), var(--xuan-qing) 60%, #2c2c44);
   }
   .daily-inner { flex-direction: column; gap: 10px; }
