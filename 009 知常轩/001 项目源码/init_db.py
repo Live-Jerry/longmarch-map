@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS daily_saying (
 CREATE TABLE IF NOT EXISTS resource_link (
     id INTEGER PRIMARY KEY,
     title VARCHAR(200),
+    module_id INTEGER REFERENCES module(id),
+    column_name VARCHAR(50),
     category VARCHAR(50),
     source VARCHAR(200),
     file_size VARCHAR(50),
@@ -69,12 +71,16 @@ CREATE TABLE IF NOT EXISTS resource_link (
 MODULES = [
     ('中国哲学', 'zhexue', '#1C1C2E', '#E8C547', '哲学是全部科学之母——建立思维框架，理解世界本质。', 1, '中'),
     ('经典古籍', 'guiji', '#C73E3A', '#F5F0E8', '不求背诵，只求理解——让孩子读懂古人的智慧。', 2, '经'),
-    ('儒与道', 'rudao', '#2D6A4F', '#E8C547', '儒道互补，才是完整的中国精神。', 3, '儒'),
+    ('儒道和一', 'rudao', '#2D6A4F', '#E8C547', '儒道互补，才是完整的中国精神。', 3, '儒'),
     ('书法文化', 'shufa', '#2B2B2B', '#E8EEF2', '书法是中华文化的基因工程。', 4, '书'),
     ('诗歌国度', 'shige', '#7BA3A8', '#F5F0E8', '诗不是用来背的，是用来感受的。', 5, '诗'),
     ('中国历史', 'jindaishi', '#8B5E3C', '#F5F0E8', '以史为鉴，培养历史理性与民族自信。', 6, '史'),
     ('长征精神', 'changzheng', '#D4A017', '#C73E3A', '理解长征，才能理解中国共产党为什么能。', 7, '征'),
     ('科学前沿', 'kexue', '#35658A', '#E8EEF2', '科技强国，培养科学精神与探索欲。', 8, '科'),
+    ('西学中用', 'xixue', '#4A6FA5', '#F5F0E8', '贯通中西，以他山之石攻玉——关注欧美各学科经典理论及书籍。', 9, '西'),
+    ('编程世界', 'biancheng', '#1A1A1A', '#E8C547', '关注编程学习和当前编程领域资讯，让编程思维成为新读写能力。', 10, '编'),
+    ('英语学习', 'yingyu', '#2D6A4F', '#F5F0E8', '语言是打开世界的钥匙，循序渐进学英语。', 11, '英'),
+    ('我的世界', 'wodeshijie', '#C96F3E', '#F5F0E8', '开放话题广场，提供各年龄段孩子感兴趣的话题。', 12, '我'),
 ]
 
 DAILY_SAYINGS = [

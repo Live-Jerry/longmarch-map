@@ -60,6 +60,17 @@ def get_module_files(module_id):
     return [dict(r) for r in rows]
 
 
+def add_resource(title, module_id, column_name='', category='A', description='', share_url=''):
+    """资料上传：登记入库，status=0 待审核（先审后发）"""
+    conn = get_db()
+    conn.execute(
+        'INSERT INTO resource_link (title, module_id, column_name, category, source, description, share_url, status) '
+        'VALUES (?,?,?,?,?,?,?,0)',
+        (title, module_id, column_name, category, '用户上传', description, share_url))
+    conn.commit()
+    conn.close()
+
+
 # ---------------- 文章 ----------------
 def get_article(aid):
     conn = get_db()

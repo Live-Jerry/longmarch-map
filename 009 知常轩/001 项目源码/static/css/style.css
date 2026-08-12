@@ -423,12 +423,30 @@ a:hover { text-decoration: underline; }
 .resource-group { margin: 34px 0 10px; }
 .resource-group h2 { font-size: 21px; color: var(--xuan-qing, #1C1C2E); border-left: 4px solid var(--jiang-chi, #C73E3A); padding-left: 10px; letter-spacing: 2px; }
 
-/* 首页 资源中心/家长学堂 入口条 */
-.entry-strip { max-width: 1200px; margin: 26px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.entry-card { display: block; background: var(--yue-bai, #E8EEF2); border-radius: 10px; padding: 18px 22px; transition: all .2s; }
-.entry-card:hover { background: #dde7ec; text-decoration: none; transform: translateY(-2px); }
-.entry-card h3 { font-size: 18px; color: var(--xuan-qing, #1C1C2E); margin-bottom: 6px; letter-spacing: 2px; }
-.entry-card p { font-size: 13px; color: #666; line-height: 1.7; }
+/* 首页 互动模块条（资源中心/家长学堂：深色底，与今日推荐区隔） */
+.interactive-strip { background: var(--xuan-qing, #1C1C2E); padding: 44px 20px; }
+.interactive-inner { max-width: 1200px; margin: 0 auto; }
+.interactive-label { color: var(--jiang-chi, #C73E3A); font-size: 13px; letter-spacing: 6px; margin-bottom: 16px; font-weight: 700; }
+.interactive-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.interactive-card { display: block; background: rgba(245, 240, 232, 0.08); border: 1px solid rgba(245, 240, 232, 0.22); border-radius: 10px; padding: 22px 24px; transition: all .2s; }
+.interactive-card:hover { background: rgba(245, 240, 232, 0.16); border-color: rgba(232, 197, 71, 0.6); text-decoration: none; transform: translateY(-2px); }
+.interactive-card h3 { font-size: 20px; color: var(--shuang-bai, #F5F0E8); margin-bottom: 8px; letter-spacing: 3px; }
+.interactive-card p { font-size: 13px; color: #b9c0c6; line-height: 1.8; margin: 0; }
+
+/* 资源分组头部（标题 + 上传按钮） */
+.resource-group-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.resource-group-head h2 { margin: 0; }
+.btn-upload { font-size: 13px; padding: 7px 18px; }
+
+/* 上传表单 */
+.upload-form p { margin-bottom: 14px; }
+.upload-form label { display: block; font-size: 14px; color: var(--xuan-qing, #1C1C2E); margin-bottom: 6px; font-weight: 700; }
+.upload-form input[type=text], .upload-form input[type=url], .upload-form select, .upload-form textarea {
+  width: 100%; max-width: 560px; padding: 9px 12px; border: 1px solid #ddd2c0; border-radius: 6px;
+  font-size: 14px; background: #fff; color: #333;
+}
+.upload-form textarea { resize: vertical; }
+.upload-actions { display: flex; gap: 12px; align-items: center; }
 
 .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 

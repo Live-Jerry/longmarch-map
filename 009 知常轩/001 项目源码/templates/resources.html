@@ -10,11 +10,14 @@
   {% for g in group_list %}
   {% if g.resources %}
   <section class="resource-group">
-    <h2>{{ g.module.name }} · 资源</h2>
+    <div class="resource-group-head">
+      <h2>{{ g.module.name }} · 资源</h2>
+      <a class="btn btn-upload" href="{{ url_for('resource_upload', module=g.module.slug) }}">上传资料</a>
+    </div>
     <div class="resource-grid">
       {% for r in g.resources %}
       <div class="resource-card">
-        <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}</span>
+        <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}{% if r.column_name %} · {{ r.column_name }}{% endif %}</span>
         <h3>{{ r.title }}</h3>
         <p>{{ r.source }}</p>
         <p>{{ r.description }}</p>
@@ -26,6 +29,14 @@
       </div>
       {% endfor %}
     </div>
+  </section>
+  {% else %}
+  <section class="resource-group">
+    <div class="resource-group-head">
+      <h2>{{ g.module.name }} · 资源</h2>
+      <a class="btn btn-upload" href="{{ url_for('resource_upload', module=g.module.slug) }}">上传资料</a>
+    </div>
+    <p class="note">该模块资源整理中，欢迎上传资料。</p>
   </section>
   {% endif %}
   {% endfor %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}资料上传 - 知常轩{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>资料上传</h1>
+  <p>按模块提交资料登记，经管理员审核后上线展示（先审后发）</p>
+</section>
+<section class="page-body">
+  <div class="about-block">
+    <h2>上传资料</h2>
+    <p>请选择资料所属模块与栏目（栏目对应各模块内容模板），填写标题与简介。资料文件可暂存自己的网盘后附分享链接，或后续由管理员整理入库。</p>
+    <form method="post" action="{{ url_for('resource_upload') }}" class="upload-form">
+      <p>
+        <label for="module_id">所属模块</label>
+        <select name="module_id" id="module_id" required>
+          {% for m in modules %}
+          <option value="{{ m.id }}" data-slug="{{ m.slug }}" {% if preselect == m.slug %}selected{% endif %}>{{ m.name }}</option>
+          {% endfor %}
+        </select>
+      </p>
+      <p>
+        <label for="column_name">所属栏目</label>
+        <select name="column_name" id="column_name" required>
+          <option value="">请先选择所属模块</option>
+        </select>
+      </p>
+      <p>
+        <label for="title">资料标题</label>
+        <input type="text" name="title" id="title" required maxlength="200" placeholder="例如：XX 经典电子书 / XX 碑帖高清图">
+      </p>
+      <p>
+        <label for="category">分级</label>
+        <select name="category" id="category">
+          <option value="A">A（原文/公有领域全文）</option>
+          <option value="B">B（整理汇编）</option>
+          <option value="C">C（仅书目导航）</option>
+        </select>
+      </p>
+      <p>
+        <label for="description">简介</label>
+        <textarea name="description" id="description" rows="4" placeholder="资料内容说明（可选）"></textarea>
+      </p>
+      <p>
+        <label for="share_url">资源链接（选填）</label>
+        <input type="url" name="share_url" id="share_url" maxlength="500" placeholder="网盘分享链接 / 在线阅读地址">
+      </p>
+      <p class="upload-actions">
+        <button type="submit" class="btn btn-primary">提交审核</button>
+        <a class="btn" href="{{ url_for('resources') }}">返回资源中心</a>
+      </p>
+    </form>
+  </div>
+  <p class="note">说明：提交即表示资料来源合法、不侵犯版权。本站资源仅做公益导航，不提供受版权保护内容。</p>
+</section>
+
+<script>
+(function () {
+  var COLUMNS = {{ columns_json | tojson }};
+  var selMod = document.getElementById('module_id');
+  var selCol = document.getElementById('column_name');
+  function fillColumns() {
+    var slug = selMod.options[selMod.selectedIndex].getAttribute('data-slug');
+    var cols = COLUMNS[slug] || [];
+    selCol.innerHTML = '';
+    cols.forEach(function (c) {
+      var opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      selCol.appendChild(opt);
+    });
+    if (cols.length === 0) {
+      var opt = document.createElement('option');
+      opt.value = '其他';
+      opt.textContent = '其他';
+      selCol.appendChild(opt);
+    }
+  }
+  selMod.addEventListener('change', fillColumns);
+  fillColumns();
+})();
+</script>
+{% endblock %}
