@@ -41,6 +41,11 @@ def create_app():
         if m['slug'] in SUBAPPS:
             m['subapp'] = SUBAPPS[m['slug']]
     # ---------------- 路由 ----------------
+    @app.context_processor
+    def inject_modules():
+        """全站注入模块列表：主导航与首页模块网格共用同一数据源，保证二者一致"""
+        return dict(modules=MODULES)
+
     @app.route('/')
     def index():
         pick = db.get_random_article()
@@ -72,7 +77,17 @@ def create_app():
 
     @app.route('/resources')
     def resources():
-        return render_template('resources.html', modules=MODULES, resources=db.get_resources())
+        # 资源按所属模块分组（module_id），未归属资源归入「其他资源」
+        res = db.get_resources()
+        group_list = [{'module': m, 'resources': []} for m in MODULES]
+        others = []
+        for r in res:
+            g = next((g for g in group_list if g['module']['id'] == r['module_id']), None)
+            if g:
+                g['resources'].append(r)
+            else:
+                others.append(r)
+        return render_template('resources.html', modules=MODULES, group_list=group_list, others=others)
 
     @app.route('/parents')
     def parents():

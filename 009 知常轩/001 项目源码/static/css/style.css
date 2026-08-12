@@ -419,6 +419,17 @@ a:hover { text-decoration: underline; }
 .daily-card .daily-source { font-size: 13px; color: var(--qing-ci); margin: 2px 0 10px; }
 
 /* ---------- 资源中心 ---------- */
+/* 资源按模块分组 */
+.resource-group { margin: 34px 0 10px; }
+.resource-group h2 { font-size: 21px; color: var(--xuan-qing, #1C1C2E); border-left: 4px solid var(--jiang-chi, #C73E3A); padding-left: 10px; letter-spacing: 2px; }
+
+/* 首页 资源中心/家长学堂 入口条 */
+.entry-strip { max-width: 1200px; margin: 26px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.entry-card { display: block; background: var(--yue-bai, #E8EEF2); border-radius: 10px; padding: 18px 22px; transition: all .2s; }
+.entry-card:hover { background: #dde7ec; text-decoration: none; transform: translateY(-2px); }
+.entry-card h3 { font-size: 18px; color: var(--xuan-qing, #1C1C2E); margin-bottom: 6px; letter-spacing: 2px; }
+.entry-card p { font-size: 13px; color: #666; line-height: 1.7; }
+
 .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 
 .resource-card {

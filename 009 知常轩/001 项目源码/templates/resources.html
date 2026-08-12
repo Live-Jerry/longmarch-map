@@ -4,24 +4,51 @@
 {% block content %}
 <section class="page-head">
   <h1>资源中心</h1>
-  <p>经典原文、音频、碑帖高清图 · A/B/C 三级资源导航</p>
+  <p>经典原文、音频、碑帖高清图 · 按模块分类导航</p>
 </section>
 <section class="page-body">
-  <div class="resource-grid">
-    {% for r in resources %}
-    <div class="resource-card">
-      <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}</span>
-      <h3>{{ r.title }}</h3>
-      <p>{{ r.source }}</p>
-      <p>{{ r.description }}</p>
-      {% if r.share_url %}
-      <a class="resource-link" href="{{ r.share_url }}" target="_blank" rel="noopener">前往资源 →</a>
-      {% else %}
-      <span class="resource-status">{{ r.file_size }}</span>
-      {% endif %}
+  {% for g in group_list %}
+  {% if g.resources %}
+  <section class="resource-group">
+    <h2>{{ g.module.name }} · 资源</h2>
+    <div class="resource-grid">
+      {% for r in g.resources %}
+      <div class="resource-card">
+        <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}</span>
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.source }}</p>
+        <p>{{ r.description }}</p>
+        {% if r.share_url %}
+        <a class="resource-link" href="{{ r.share_url }}" target="_blank" rel="noopener">前往资源 →</a>
+        {% else %}
+        <span class="resource-status">{{ r.file_size }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+  {% if others %}
+  <section class="resource-group">
+    <h2>其他资源</h2>
+    <div class="resource-grid">
+      {% for r in others %}
+      <div class="resource-card">
+        <span class="resource-grade grade-{{ r.category|lower }}">{{ r.category }}</span>
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.source }}</p>
+        <p>{{ r.description }}</p>
+        {% if r.share_url %}
+        <a class="resource-link" href="{{ r.share_url }}" target="_blank" rel="noopener">前往资源 →</a>
+        {% else %}
+        <span class="resource-status">{{ r.file_size }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
   <p class="note">分享链接与提取码整理中，将按批次上线 · 资源仅做公益导航，不提供受版权保护内容</p>
 </section>
 {% endblock %}
