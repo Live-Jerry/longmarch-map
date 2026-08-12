@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}知常轩 - 探求恒常之理的学习家园{% endblock %}</title>
-<meta name="description" content="{% block description %}知常轩：面向中小学生及家长的公益性文化传播平台，用底层逻辑和科学精神重新解读传统文化。{% endblock %}">
+<meta name="description" content="{% block description %}知常轩：帮助青少年悟传统文化智慧、立当下科学三观，与现代科学并重、贯通古今的传统文化学习交流平台。{% endblock %}">
 <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -37,7 +37,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="{{ url_for('static', filename='img/logo.png') }}" alt="知常轩" class="footer-logo-img">
-      <p>探求恒常之理的所在 · 公益文化传播平台</p>
+      <p>探求恒常之理的所在 · 传统文化学习交流平台</p>
     </div>
     <div class="footer-links">
       <a href="{{ url_for('about') }}">关于知常轩</a>
@@ -46,13 +46,13 @@
       <a href="{{ url_for('about') }}#volunteer">志愿者招募</a>
     </div>
     <div class="footer-icp">
-      <p>知常轩 · 公益教育平台</p>
+      <p>知常轩 · 传统文化学习交流平台</p>
       <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">陕ICP备2026020519号</a></p>
       <p><a href="https://beian.mps.gov.cn/#/query/webSearch?code=61019002004143" target="_blank" rel="noopener">
         <img src="{{ url_for('static', filename='img/gongan_badge.png') }}" alt="公安备案" class="gongan-badge">
         陕公网安备61019002004143号
       </a></p>
-      <p class="footer-note">内容遵循「有据可查、有理可证、有用能行」原则 · 零广告 · 零付费</p>
+      <p class="footer-note">内容遵循「追根溯源 · 辨伪求真」原则 · 零广告 · 零付费</p>
       <p class="footer-copyright">本网站为非盈利公益网站，所有资料来自网络与网友贡献，如有侵犯您的版权，请与我们联系，我们将及时删除。<a href="{{ url_for('about') }}#contact">联系我们</a></p>
     </div>
   </div>
