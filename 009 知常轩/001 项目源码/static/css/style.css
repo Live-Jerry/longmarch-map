@@ -423,15 +423,12 @@ a:hover { text-decoration: underline; }
 .resource-group { margin: 34px 0 10px; }
 .resource-group h2 { font-size: 21px; color: var(--xuan-qing, #1C1C2E); border-left: 4px solid var(--jiang-chi, #C73E3A); padding-left: 10px; letter-spacing: 2px; }
 
-/* 首页 互动模块条（资源中心/家长学堂：深色底，与今日推荐区隔） */
-.interactive-strip { background: var(--xuan-qing, #1C1C2E); padding: 44px 20px; }
-.interactive-inner { max-width: 1200px; margin: 0 auto; }
-.interactive-label { color: var(--jiang-chi, #C73E3A); font-size: 13px; letter-spacing: 6px; margin-bottom: 16px; font-weight: 700; }
-.interactive-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-.interactive-card { display: block; background: rgba(245, 240, 232, 0.08); border: 1px solid rgba(245, 240, 232, 0.22); border-radius: 10px; padding: 22px 24px; transition: all .2s; }
-.interactive-card:hover { background: rgba(245, 240, 232, 0.16); border-color: rgba(232, 197, 71, 0.6); text-decoration: none; transform: translateY(-2px); }
-.interactive-card h3 { font-size: 20px; color: var(--shuang-bai, #F5F0E8); margin-bottom: 8px; letter-spacing: 3px; }
-.interactive-card p { font-size: 13px; color: #b9c0c6; line-height: 1.8; margin: 0; }
+/* 首页 互动模块条（资源中心/家长学堂：形状位置固定，只调色——卡片白底与主模块卡片主体色一致，不做深色底） */
+.entry-strip { max-width: 1200px; margin: 0 auto; padding: 0 20px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.entry-card { display: block; background: #fff; border: 1px solid #e5ddd0; border-radius: 10px; padding: 18px 22px; transition: all .2s; }
+.entry-card:hover { box-shadow: 0 4px 14px rgba(28, 28, 46, .08); text-decoration: none; transform: translateY(-2px); }
+.entry-card h3 { font-size: 18px; color: var(--xuan-qing, #1C1C2E); margin-bottom: 6px; letter-spacing: 2px; }
+.entry-card p { font-size: 13px; color: #666; line-height: 1.7; }
 
 /* 资源分组头部（标题 + 上传按钮） */
 .resource-group-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }

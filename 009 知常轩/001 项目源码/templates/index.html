@@ -46,21 +46,16 @@
   </div>
 </section>
 
-<!-- 互动模块条：资源中心 / 家长学堂（深色底，与今日推荐区隔） -->
-<section class="interactive-strip">
-  <div class="interactive-inner">
-    <p class="interactive-label">互动模块</p>
-    <div class="interactive-cards">
-      <a class="interactive-card" href="{{ url_for('resources') }}">
-        <h3>资源中心</h3>
-        <p>经典原文、音频、碑帖高清图 · 按模块分类导航，支持上传资料</p>
-      </a>
-      <a class="interactive-card" href="{{ url_for('parents') }}">
-        <h3>家长学堂</h3>
-        <p>带动全家一起学 · 亲子共读指南与家长课</p>
-      </a>
-    </div>
-  </div>
+<!-- 互动模块条：资源中心 / 家长学堂（形状位置固定，卡片颜色与主模块卡片主体一致） -->
+<section class="entry-strip">
+  <a class="entry-card" href="{{ url_for('resources') }}">
+    <h3>资源中心</h3>
+    <p>经典原文、音频、碑帖高清图 · 按模块分类导航，支持上传资料</p>
+  </a>
+  <a class="entry-card" href="{{ url_for('parents') }}">
+    <h3>家长学堂</h3>
+    <p>带动全家一起学 · 亲子共读指南与家长课</p>
+  </a>
 </section>
 
 <!-- 今日推荐 -->
