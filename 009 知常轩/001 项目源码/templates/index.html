@@ -36,7 +36,7 @@
   <div class="grid">
     {% for m in modules %}
     <a class="module-card" href="{{ url_for('module_page', slug=m.slug) }}" style="--card-color: {{ m.color }}; --card-accent: {{ m.accent }};">
-      <span class="module-icon" aria-hidden="true">{{ m.name[0] }}</span>
+      <span class="module-icon" aria-hidden="true">{{ m.badge or m.name[0] }}</span>
       <h3>{{ m.name }}</h3>
       <p class="module-en">{{ m.en }}</p>
       <p class="module-desc">{{ m.desc }}</p>

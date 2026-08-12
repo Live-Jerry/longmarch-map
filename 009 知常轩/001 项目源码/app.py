@@ -31,8 +31,8 @@ def create_app():
     MODULE_EN = {
         'zhexue': 'Chinese Philosophy', 'guiji': 'Classical Texts',
         'rudao': 'Confucianism & Taoism', 'shufa': 'Calligraphy',
-        'shige': 'Poetry', 'jindaishi': 'Modern History',
-        'changzheng': 'Long March Spirit', 'kexue': 'Modern Science',
+        'shige': 'Poetry', 'jindaishi': 'Chinese History',
+        'changzheng': 'Long March Spirit', 'kexue': 'Science Frontiers',
     }
     for m in MODULES:
         m['en'] = MODULE_EN.get(m['slug'], '')
