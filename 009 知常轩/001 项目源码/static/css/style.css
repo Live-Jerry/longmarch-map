@@ -88,8 +88,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 0px;
-  flex: 1;
-  min-width: 0;
+  margin-left: auto;
+  align-items: flex-end;
 }
 
 .nav-row {
@@ -97,11 +97,12 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
   gap: 4px 16px;
   align-items: center;
+  justify-content: flex-end;
 }
 
-/* 第二行：其余模块 + 资源中心/家长学堂，与第一行「中国哲学」对齐（缩进首页+间距宽） */
+/* 第二行：其余模块 + 资源中心/家长学堂（右对齐，两行右缘齐平） */
 .nav-row-bottom {
-  padding-left: 60px;
+  padding-left: 0;
 }
 
 .main-nav a {
