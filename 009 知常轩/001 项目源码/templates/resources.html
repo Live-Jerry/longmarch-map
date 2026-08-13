@@ -17,7 +17,6 @@
     <div class="resource-grid">
       {% for r in g.resources %}
       <div class="resource-card">
-        {% if r.column_name %}<span class="resource-grade">{{ r.column_name }}</span>{% endif %}
         <h3>{{ r.title }}</h3>
         <p>{{ r.source }}</p>
         <p>{{ r.description }}</p>
@@ -46,7 +45,6 @@
     <div class="resource-grid">
       {% for r in others %}
       <div class="resource-card">
-        {% if r.column_name %}<span class="resource-grade">{{ r.column_name }}</span>{% endif %}
         <h3>{{ r.title }}</h3>
         <p>{{ r.source }}</p>
         <p>{{ r.description }}</p>

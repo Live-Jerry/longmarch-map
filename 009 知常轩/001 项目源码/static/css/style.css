@@ -455,24 +455,6 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 
-.resource-grade {
-  position: absolute;
-  top: 14px; right: 14px;
-  max-width: 60%;
-  padding: 3px 10px;
-  border-radius: 999px;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--cui-qing);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.grade-a { background: var(--cui-qing); }
-
 .resource-card h3 { font-size: 18px; margin-bottom: 8px; }
 .resource-card p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 10px; }
 
