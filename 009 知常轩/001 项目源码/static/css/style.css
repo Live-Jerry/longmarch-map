@@ -458,14 +458,17 @@ a:hover { text-decoration: underline; }
 .resource-grade {
   position: absolute;
   top: 14px; right: 14px;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+  max-width: 60%;
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 12px;
   font-weight: 700;
   color: #fff;
+  background: var(--cui-qing);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .grade-a { background: var(--cui-qing); }
