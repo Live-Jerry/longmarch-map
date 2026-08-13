@@ -95,6 +95,27 @@ def create_app():
                 others.append(r)
         return render_template('resources.html', modules=MODULES, group_list=group_list, others=others)
 
+    @app.route('/resources/browse/<path:subpath>')
+    def resource_browse(subpath):
+        # 本地资源目录浏览：/static/res/<subpath>/ 下的文件列表
+        # 安全校验：只允许 res 目录内的相对路径，禁止 .. 穿越
+        if '..' in subpath or subpath.startswith('/') or os.path.isabs(subpath):
+            abort(404)
+        res_dir = os.path.join(app.static_folder, 'res')
+        target_dir = os.path.normpath(os.path.join(res_dir, subpath))
+        if not target_dir.startswith(os.path.normpath(res_dir)) or not os.path.isdir(target_dir):
+            abort(404)
+        files = []
+        for name in sorted(os.listdir(target_dir)):
+            full = os.path.join(target_dir, name)
+            if os.path.isfile(full):
+                files.append({
+                    'name': name,
+                    'url': url_for('static', filename='res/' + subpath + '/' + name),
+                    'size': os.path.getsize(full),
+                })
+        return render_template('resource_files.html', modules=MODULES, subpath=subpath, files=files)
+
     @app.route('/resources/upload', methods=['GET', 'POST'])
     def resource_upload():
         if request.method == 'POST':

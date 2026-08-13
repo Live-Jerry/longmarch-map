@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}资源文件 - 知常轩{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>资源文件</h1>
+  <p><a href="{{ url_for('resources') }}">← 返回资源中心</a></p>
+</section>
+<section class="page-body">
+  <div class="file-list">
+    {% for f in files %}
+    <div class="file-item">
+      <div class="file-info">
+        <h3>{{ f.name }}</h3>
+        <div class="file-meta">{{ (f.size / 1048576)|round(1) }} MB</div>
+      </div>
+      <div class="file-actions">
+        <a class="btn btn-download" href="{{ f.url }}" target="_blank" rel="noopener">打开 / 下载</a>
+      </div>
+    </div>
+    {% else %}
+    <p class="note">该目录暂无文件。</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
