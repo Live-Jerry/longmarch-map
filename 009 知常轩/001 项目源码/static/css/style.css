@@ -86,18 +86,49 @@ a:hover { text-decoration: underline; }
 
 .main-nav {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-row {
+  display: flex;
   flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+}
+
+/* 第二行：其余模块 + 资源中心/家长学堂，上边框区隔 */
+.nav-row-bottom {
+  border-top: 1px solid rgba(232, 197, 71, .25);
+  padding-top: 6px;
+}
+
+/* 模块与功能入口之间的竖分隔线 */
+.nav-sep {
+  width: 1px;
+  height: 14px;
+  background: rgba(232, 197, 71, .35);
+  margin: 0 6px;
 }
 
 .main-nav a {
   color: var(--yue-bai);
-  font-size: 15px;
+  font-size: 14px;
   opacity: .85;
-  transition: opacity .2s;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: opacity .2s, background-color .2s, color .2s;
+  white-space: nowrap;
 }
 
-.main-nav a:hover { opacity: 1; text-decoration: none; }
+.main-nav a:hover {
+  opacity: 1;
+  background: rgba(232, 197, 71, .18);
+  color: var(--xiang-huang);
+  text-decoration: none;
+}
 
 .nav-toggle { display: none; background: none; border: none; color: var(--xiang-huang); font-size: 24px; cursor: pointer; }
 
@@ -607,10 +638,14 @@ a:hover { text-decoration: underline; }
     background: var(--xuan-qing);
     flex-direction: column;
     padding: 16px 20px;
-    gap: 14px;
+    gap: 10px;
     border-bottom: 3px solid var(--xiang-huang);
+    max-width: none;
   }
   .main-nav.open { display: flex; }
+  .nav-row { flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; }
+  .nav-row-bottom { border-top: 1px solid rgba(232, 197, 71, .25); padding-top: 10px; margin-top: 4px; }
+  .nav-sep { display: none; }
   .nav-toggle { display: block; }
   .hero h1 { font-size: 30px; letter-spacing: 8px; }
   .hero {

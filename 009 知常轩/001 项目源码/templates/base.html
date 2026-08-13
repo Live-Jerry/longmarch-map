@@ -6,7 +6,7 @@
 <title>{% block title %}知常轩 - 探求恒常之理的学习家园{% endblock %}</title>
 <meta name="description" content="{% block description %}知常轩：帮助青少年悟传统文化智慧、立当下科学三观，与现代科学并重、贯通古今的传统文化学习交流平台。{% endblock %}">
 <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=235) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=236) }}">
 </head>
 <body>
 
@@ -16,10 +16,20 @@
       <img src="{{ url_for('static', filename='img/logo.png') }}" alt="知常轩" class="logo-img">
     </a>
     <nav class="main-nav" aria-label="主导航">
-      <a href="{{ url_for('index') }}">首页</a>
-      {% for m in modules %}
-      <a href="{{ url_for('module_page', slug=m.slug) }}">{{ m.name }}</a>
-      {% endfor %}
+      <div class="nav-row">
+        <a href="{{ url_for('index') }}">首页</a>
+        {% for m in modules[:7] %}
+        <a href="{{ url_for('module_page', slug=m.slug) }}">{{ m.name }}</a>
+        {% endfor %}
+      </div>
+      <div class="nav-row nav-row-bottom">
+        {% for m in modules[7:] %}
+        <a href="{{ url_for('module_page', slug=m.slug) }}">{{ m.name }}</a>
+        {% endfor %}
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="{{ url_for('resources') }}">资源中心</a>
+        <a href="{{ url_for('parents') }}">家长学堂</a>
+      </div>
     </nav>
     <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
   </div>
