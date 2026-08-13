@@ -87,7 +87,7 @@ a:hover { text-decoration: underline; }
 .main-nav {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0px;
   flex: 1;
   min-width: 0;
 }
@@ -102,14 +102,6 @@ a:hover { text-decoration: underline; }
 /* 第二行：其余模块 + 资源中心/家长学堂，与第一行「中国哲学」对齐（缩进首页+间距宽） */
 .nav-row-bottom {
   padding-left: 60px;
-}
-
-/* 模块与功能入口之间的竖分隔线 */
-.nav-sep {
-  width: 1px;
-  height: 14px;
-  background: rgba(232, 197, 71, .35);
-  margin: 0 6px;
 }
 
 .main-nav a {
@@ -644,8 +636,7 @@ a:hover { text-decoration: underline; }
   .main-nav.open { display: flex; }
   .nav-row { flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; }
   .nav-row-bottom { padding-left: 0; }
-  .nav-sep { display: none; }
-  .nav-toggle { display: block; }
+    .nav-toggle { display: block; }
   .hero h1 { font-size: 30px; letter-spacing: 8px; }
   .hero {
     background:

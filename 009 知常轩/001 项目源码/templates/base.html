@@ -26,7 +26,6 @@
         {% for m in modules[7:] %}
         <a href="{{ url_for('module_page', slug=m.slug) }}">{{ m.name }}</a>
         {% endfor %}
-        <span class="nav-sep" aria-hidden="true"></span>
         <a href="{{ url_for('resources') }}">资源中心</a>
         <a href="{{ url_for('parents') }}">家长学堂</a>
       </div>
