@@ -655,7 +655,7 @@ a:hover { text-decoration: underline; }
     padding: 11px 6px;
     box-sizing: border-box;
     border-radius: 8px;
-    background: rgba(0, 0, 0, .35);
+    background: rgba(0, 0, 0, .15);
     border: 1px solid rgba(232, 197, 71, .35);
     margin: 2px 0;
     text-align: center;
