@@ -619,24 +619,26 @@ a:hover { text-decoration: underline; }
 .gongan-badge { width: 20px; height: 22px; vertical-align: middle; margin-right: 4px; }
 .footer-note { color: #6a6a7a; font-size: 12px; margin-top: 6px; }
 
-/* ---------- 导航折叠：两排放不下直接三横线；展开为右侧抽屉（菜单过长可滚动） ---------- */
+/* ---------- 导航折叠：两排放不下直接三横线；展开为右侧悬浮卡片式菜单（可滚动） ---------- */
 @media (max-width: 920px) {
   .main-nav {
     position: fixed;
-    top: 0; right: 0; bottom: 0;
-    width: 82%;
-    max-width: 340px;
-    background: var(--xuan-qing);
+    top: 10px;
+    right: 10px;
+    width: min(300px, 82vw);
+    max-height: calc(100vh - 20px);
+    background: linear-gradient(180deg, #232338, #0d0d1a);
     flex-direction: column;
     align-items: stretch;
-    padding: 24px 20px 40px;
+    padding: 12px 10px 14px;
     gap: 2px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    transform: translateX(100%);
-    transition: transform .25s ease;
-    border-left: 3px solid var(--xiang-huang);
-    box-shadow: -8px 0 24px rgba(0,0,0,.35);
+    transform: translateX(calc(100% + 24px));
+    transition: transform .28s ease;
+    border-top: 2px solid var(--xiang-huang);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.45);
     z-index: 200;
   }
   .main-nav.open { transform: translateX(0); }
@@ -645,13 +647,17 @@ a:hover { text-decoration: underline; }
   .main-nav a {
     width: 100%;
     font-size: 16px;
-    padding: 12px 8px;
+    padding: 11px 10px;
     box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .28);
+    border: 1px solid rgba(232, 197, 71, .38);
+    margin: 2px 0;
   }
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.55);
+    background: rgba(0,0,0,.45);
     z-index: 190;
     opacity: 0;
     visibility: hidden;
