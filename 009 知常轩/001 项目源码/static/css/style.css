@@ -117,7 +117,6 @@ a:hover { text-decoration: underline; }
 
 .main-nav a:hover {
   opacity: 1;
-  background: rgba(232, 197, 71, .18);
   color: var(--xiang-huang);
   text-decoration: none;
 }
