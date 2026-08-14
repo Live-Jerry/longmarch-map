@@ -625,12 +625,12 @@ a:hover { text-decoration: underline; }
     position: fixed;
     top: 71px;
     right: 10px;
-    width: min(300px, 82vw);
+    width: min(150px, 41vw);
     max-height: calc(100vh - 81px);
-    background: rgba(0, 0, 0, .22);
+    background: var(--xuan-qing);
     flex-direction: column;
     align-items: stretch;
-    padding: 12px 10px 14px;
+    padding: 12px 8px 14px;
     gap: 2px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -641,19 +641,25 @@ a:hover { text-decoration: underline; }
     border-radius: 14px;
     box-shadow: 0 12px 40px rgba(0,0,0,.45);
     z-index: 200;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 197, 71, .55) transparent;
   }
+  .main-nav::-webkit-scrollbar { width: 6px; }
+  .main-nav::-webkit-scrollbar-track { background: transparent; }
+  .main-nav::-webkit-scrollbar-thumb { background: rgba(232, 197, 71, .55); border-radius: 3px; }
   .main-nav.open { transform: translateX(0); }
   .nav-row { flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; }
   .nav-row-bottom { padding-left: 0; }
   .main-nav a {
     width: 100%;
     font-size: 16px;
-    padding: 11px 10px;
+    padding: 11px 6px;
     box-sizing: border-box;
     border-radius: 8px;
-    background: rgba(0, 0, 0, .45);
+    background: rgba(0, 0, 0, .35);
     border: 1px solid rgba(232, 197, 71, .35);
     margin: 2px 0;
+    text-align: center;
   }
   .nav-overlay {
     position: fixed;
