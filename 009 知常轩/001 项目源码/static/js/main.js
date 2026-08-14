@@ -2,14 +2,31 @@
 (function () {
   'use strict';
 
-  // 移动端导航切换
+  // 移动端导航切换（右侧抽屉：滑入+遮罩，点遮罩/菜单项/Esc 收起，打开时锁定背景滚动）
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
+  var overlay = document.querySelector('.nav-overlay');
+
+  function setNav(open) {
+    if (!toggle || !nav) return;
+    nav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    if (overlay) overlay.classList.toggle('show', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
 
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setNav(!nav.classList.contains('open'));
+    });
+    if (overlay) {
+      overlay.addEventListener('click', function () { setNav(false); });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setNav(false);
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setNav(false); });
     });
   }
 
