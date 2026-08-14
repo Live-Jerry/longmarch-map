@@ -8,6 +8,7 @@
 - 页脚 ICP 备案号补全序号：陕ICP备2026020519号 → 陕ICP备2026020519号-1（长征 index.html + 知常轩 base.html）
 - 知常轩页脚备案号按域名自适应：zeru.live 系列显示 -2，zhichangxuan.com 系列显示 -1
 - zeru.live 上线：Nginx 新增 server 块反代知常轩主站（5004），单独签发 Let's Encrypt 证书（7 域名）
+- 修复生产 style.css 未同步（导航两行对齐 CSS 缺失致右缘不齐）：补发新版 style.css，版本参数 v=236→v=237
 
 ## 知常轩主站更新 (2026-08-13)
 
