@@ -94,7 +94,7 @@ a:hover { text-decoration: underline; }
 
 .nav-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 4px 16px;
   align-items: center;
   justify-content: flex-end;
@@ -619,9 +619,8 @@ a:hover { text-decoration: underline; }
 .gongan-badge { width: 20px; height: 22px; vertical-align: middle; margin-right: 4px; }
 .footer-note { color: #6a6a7a; font-size: 12px; margin-top: 6px; }
 
-/* ---------- 移动端 ---------- */
-@media (max-width: 768px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+/* ---------- 导航折叠：两排放不下直接三横线（禁止行内换行中间态） ---------- */
+@media (max-width: 920px) {
   .main-nav {
     display: none;
     position: absolute;
@@ -637,7 +636,12 @@ a:hover { text-decoration: underline; }
   .main-nav.open { display: flex; }
   .nav-row { flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; }
   .nav-row-bottom { padding-left: 0; }
-    .nav-toggle { display: block; }
+  .nav-toggle { display: block; }
+}
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
   .hero h1 { font-size: 30px; letter-spacing: 8px; }
   .hero {
     background:
