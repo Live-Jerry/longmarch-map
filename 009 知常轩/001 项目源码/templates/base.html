@@ -53,11 +53,13 @@
     </div>
     <div class="footer-icp">
       {% set icp_no = '陕ICP备2026020519号-2' if request.host.endswith('zeru.live') else '陕ICP备2026020519号-1' %}
+      {% set gongan_no = '陕公网安备61019002004168号' if request.host.endswith('zeru.live') else '陕公网安备61019002004143号' %}
+      {% set gongan_code = '61019002004168' if request.host.endswith('zeru.live') else '61019002004143' %}
       <p>知常轩 · 传统文化学习交流平台</p>
       <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">{{ icp_no }}</a></p>
-      <p><a href="https://beian.mps.gov.cn/#/query/webSearch?code=61019002004143" target="_blank" rel="noopener">
+      <p><a href="https://beian.mps.gov.cn/#/query/webSearch?code={{ gongan_code }}" target="_blank" rel="noopener">
         <img src="{{ url_for('static', filename='img/gongan_badge.png') }}" alt="公安备案" class="gongan-badge">
-        陕公网安备61019002004143号
+        {{ gongan_no }}
       </a></p>
       <p class="footer-note">内容遵循「追根溯源 · 辨伪求真」原则 · 零广告 · 零付费</p>
       <p class="footer-copyright">本网站为非盈利公益网站，所有资料来自网络与网友贡献，如有侵犯您的版权，请与我们联系，我们将及时删除。<a href="{{ url_for('about') }}#contact">联系我们</a></p>
