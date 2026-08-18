@@ -141,7 +141,9 @@ D:\长征文化\
 ##  技术架构
 
 ### 备案信息
-- ICP 备案号：陕ICP备2026020519号（主体：刘福财）
+- ICP 备案主体号：陕ICP备2026020519号（主体：刘福财）
+- 网站备案号：zhichangxuan.com = 陕ICP备2026020519号-1（审核 2026-08-04）；zeru.live = 陕ICP备2026020519号-2（审核 2026-08-14）
+- 页脚展示：2026-08-14 起用带序号完整号（-1）；zeru.live 页脚暂显示 -1，待定是否按域名自适应 -2
 - ICP 备案查询：https://beian.miit.gov.cn/
 - 公安网安备案：已通过（2026-08-06 高新分局网安大队，新增主体/新办网站/安全评估三项全过；8-04 雁塔分局 4 条被拒或撤销）
 - 公安备案号：陕公网安备61019002004143号（网站：知常轩 / zhichangxuan.com）
@@ -212,6 +214,8 @@ D:\长征文化\
 ### 知常轩（2026-08-10 域名重新划分）
 - 测试域名：`https://zcxdev.zhichangxuan.com`（知常轩测试环境！注意：dev.zhichangxuan.com 是长征测试，勿混淆）
 - 主域名: `https://zhichangxuan.com` / `https://www.zhichangxuan.com` → 知常轩主站
+- 知常轩主站: `/opt/zhichangxuan/`，端口 5004（zhichangxuan.service，2026-08-14 确认）
+- zeru.live（2026-08-14 上线，刘泽儒个人域名，公安备案含 5 子域）：Nginx `sites-enabled/zeru_live`，80→443 跳转，443 反代 127.0.0.1:5004（知常轩主站），server_name 通配 `zeru.live www.zeru.live *.zeru.live`；独立 SSL 证书 `/etc/letsencrypt/live/zeru.live/` 覆盖 7 域名（zeru.live + www + life/study/work/career/footprint，2026-08-14 扩签，到期 2026-11-12，90 天自动续期）；DNS：7 条 A 记录（@ www life study work career footprint）→ 8.133.203.255；与 zhichangxuan 证书独立，互不影响
 - 长征域名: 只用 `https://cz.zhichangxuan.com`（生产）+ `https://dev.zhichangxuan.com`（测试）
 - 测试版路径: `/opt/zhichangxuan-dev/`，venv: `/opt/zhichangxuan-dev/venv/`，端口 5003
 - systemd 服务: zhichangxuan-dev.service（gunicorn，wsgi:app）
