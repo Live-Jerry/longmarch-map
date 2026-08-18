@@ -36,7 +36,7 @@
     {% if article.content %}
     <div class="article-sec">
       <h2 class="sec-label">精读</h2>
-      <div class="article-content">{{ article.content | replace('\n', '<br>') | safe }}</div>
+      <div class="article-content">{{ article.content }}</div>
     </div>
     {% endif %}
 
