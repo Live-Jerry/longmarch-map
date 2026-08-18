@@ -46,3 +46,32 @@
     imgs.forEach(function (img) { observer.observe(img); });
   }
 })();
+
+/* 破折号渲染加固：把 "——" 包进 .dash-join，强制黑体连续渲染，避免不同设备/字体下断开 */
+(function () {
+  var SKIP = /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|PRE|CODE)$/;
+  function wrapDashes(node) {
+    if (node.nodeType === 3) {
+      var t = node.nodeValue;
+      if (t.indexOf('\u2014') === -1) return;
+      var frag = document.createDocumentFragment();
+      var parts = t.split(/(\u2014+)/);
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        if (/^\u2014+$/.test(p)) {
+          var span = document.createElement('span');
+          span.className = 'dash-join';
+          span.textContent = p;
+          frag.appendChild(span);
+        } else if (p) {
+          frag.appendChild(document.createTextNode(p));
+        }
+      }
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === 1 && !SKIP.test(node.tagName)) {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var j = 0; j < kids.length; j++) wrapDashes(kids[j]);
+    }
+  }
+  if (document.body) wrapDashes(document.body);
+})();

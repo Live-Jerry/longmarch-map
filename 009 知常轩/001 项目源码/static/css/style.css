@@ -308,6 +308,12 @@ a:hover { text-decoration: underline; }
 /* ---------- 今日推荐 ---------- */
 .today-pick { background: var(--yue-bai); padding: 56px 20px; }
 
+/* 破折号渲染加固：强制黑体族渲染，任何设备/字体下都显示为连续长横线，不被 letter-spacing 拉开 */
+.dash-join {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+  letter-spacing: 0 !important;
+}
+
 /* 正文容器统一保留换行（文章原文/精读/译文/每日一句/推荐摘要） */
 .article-original, .article-translation, .article-content,
 .daily-original, .daily-trans,
