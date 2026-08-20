@@ -43,13 +43,14 @@
     <h2>电子书籍</h2>
     <p>PDF 文件 · 在线预览 / 下载</p>
   </div>
-  {% if files %}
+  {% set books = files | selectattr('category', 'equalto', 'A') | list + files | selectattr('category', 'equalto', 'shufa_pdf') | list + files | selectattr('category', 'equalto', 'book') | list %}
+  {% if books %}
   <div class="file-list">
-    {% for f in files %}
+    {% for f in books %}
     <div class="file-item">
       <div class="file-info">
         <h3>{{ f.title }}</h3>
-        <span class="file-meta">{{ f.file_size }}</span>
+        <span class="file-meta">{{ f.file_size or f.source or '' }}</span>
       </div>
       <div class="file-actions">
         <a class="btn btn-primary" href="{{ f.share_url }}" target="_blank" rel="noopener">预览</a>
@@ -67,27 +68,78 @@
 <section class="module-columns">
   <div class="section-head">
     <h2>图片资源</h2>
-    <p>图库 · 缩略图画廊（标注来源与授权）</p>
+    <p>公有领域图库 · 标注来源与授权</p>
   </div>
+  {% set imgs = files | selectattr('category', 'equalto', 'image') | list %}
+  {% if imgs %}
+  <div class="file-list">
+    {% for f in imgs %}
+    <div class="file-item">
+      <div class="file-info">
+        <h3>{{ f.title }}</h3>
+        <span class="file-meta">{{ f.source or '' }}</span>
+      </div>
+      <div class="file-actions">
+        <a class="btn btn-primary" href="{{ f.share_url }}" target="_blank" rel="noopener">查看</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
   <p class="coming-soon">内容筹备中 · 敬请期待</p>
+  {% endif %}
 </section>
 
 <!-- 板块 4：视频资源 -->
 <section class="module-columns">
   <div class="section-head">
     <h2>视频资源</h2>
-    <p>原创 / 公有领域视频（不提供影视片段）</p>
+    <p>公开教育视频（官方平台外链）</p>
   </div>
+  {% set vids = files | selectattr('category', 'equalto', 'video') | list %}
+  {% if vids %}
+  <div class="file-list">
+    {% for f in vids %}
+    <div class="file-item">
+      <div class="file-info">
+        <h3>{{ f.title }}</h3>
+        <span class="file-meta">{{ f.source or '' }}</span>
+      </div>
+      <div class="file-actions">
+        <a class="btn btn-primary" href="{{ f.share_url }}" target="_blank" rel="noopener">观看</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
   <p class="coming-soon">内容筹备中 · 敬请期待</p>
+  {% endif %}
 </section>
 
 <!-- 板块 5：音频资源 -->
 <section class="module-columns">
   <div class="section-head">
     <h2>音频资源</h2>
-    <p>经典原文朗读 / 原创音频</p>
+    <p>公有领域朗读（LibriVox 等）</p>
   </div>
+  {% set auds = files | selectattr('category', 'equalto', 'audio') | list %}
+  {% if auds %}
+  <div class="file-list">
+    {% for f in auds %}
+    <div class="file-item">
+      <div class="file-info">
+        <h3>{{ f.title }}</h3>
+        <span class="file-meta">{{ f.source or '' }}</span>
+      </div>
+      <div class="file-actions">
+        <a class="btn btn-primary" href="{{ f.share_url }}" target="_blank" rel="noopener">收听</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
   <p class="coming-soon">内容筹备中 · 敬请期待</p>
+  {% endif %}
 </section>
 
 <!-- 板块 6：上传贡献 -->
