@@ -57,27 +57,16 @@
   </a>
 </section>
 
-<!-- 今日推荐 -->
-<section class="today-pick">
+<!-- 友情链接（纯文字链接，V2.3.6 新增，替代原「今日推荐」，位于首页内容区最底部） -->
+<section class="friend-links">
   <div class="section-head">
-    <h2>今日推荐</h2>
-    <p>每日一篇精选内容</p>
+    <h2>友情链接</h2>
+    <p>公益合作 · 学习资源</p>
   </div>
-  {% if pick %}
-  <div class="pick-card">
-    <span class="pick-tag">{{ pick.module_name }}</span>
-    <h3>{{ pick.title }}</h3>
-    <p>{{ pick.content[:80] }}……</p>
-    <a class="btn btn-primary" href="{{ url_for('article_page', aid=pick.id) }}">阅读全文 →</a>
-  </div>
-  {% else %}
-  <div class="pick-card">
-    <span class="pick-tag">儒与道</span>
-    <h3>道德经第八十一章：信言不美 —— 真话为什么不好听？</h3>
-    <p>老子说「信言不美，美言不信」。好听的话未必真实，真实的话未必好听。这篇带孩子读懂：为什么诚实的人往往不说漂亮话？</p>
-    <a class="btn btn-primary" href="/static/ddj/index.html" target="_blank">阅读道德经 81 章 →</a>
-  </div>
-  {% endif %}
+  <ul class="friend-link-list">
+    <li><a href="https://ctext.org/" target="_blank" rel="noopener">中國哲學書電子化計劃</a></li>
+    <li><a href="https://basic.smartedu.cn/" target="_blank" rel="noopener">国家中小学智慧教育平台</a></li>
+  </ul>
 </section>
 
 {% endblock %}

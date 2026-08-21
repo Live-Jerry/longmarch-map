@@ -54,8 +54,7 @@ def create_app():
 
     @app.route('/')
     def index():
-        pick = db.get_random_article()
-        return render_template('index.html', modules=MODULES, saying=db.get_today_saying(), pick=pick)
+        return render_template('index.html', modules=MODULES, saying=db.get_today_saying())
 
     @app.route('/modules/<slug>')
     def module_page(slug):
